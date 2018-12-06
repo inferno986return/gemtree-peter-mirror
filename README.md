@@ -1,15 +1,15 @@
 # gemtree-peter-mirror
 <img src="https://github.com/inferno986return/gemtree-peter-mirror/blob/master/tutorial/petr.gif" width="100" height="100" alt=""/>
 
-A mirror of the Peter programming tool by [Gemtree Software](http://www.breatharian.eu/Petr/en/). To my understanding Peter is similar to [Scratch](https://scratch.mit.edu/) and works by allowing users of different programming skillsets to assemble the program 'like a jigsaw'. Judging by the numerous examples provided, it's safe to say that the program is effectively a 2D and 3D game engine.
+A mirror of the Peter programming tool by [Gemtree Software](http://www.breatharian.eu/Petr/en/). To my understanding Peter is a visual programming tool similar to [Scratch](https://scratch.mit.edu/) and works by allowing users of different programming skillsets to assemble the program 'like a jigsaw'. Judging by the numerous examples provided, it's safe to say that the program is effectively a 2D and 3D game engine.
 
 <table border="0">
   <tr><td><img src="https://github.com/inferno986return/gemtree-peter-mirror/blob/master/tutorial/preview1.gif" width="180" height="180" alt=""/></td> <td><img src="https://github.com/inferno986return/gemtree-peter-mirror/blob/master/tutorial/preview4.jpg" width="180" height="180" alt=""/></td> <td><img src="https://github.com/inferno986return/gemtree-peter-mirror/blob/master/tutorial/preview5.jpg" width="180" height="180" alt=""/></td></tr>
 </table>
 
-Peter was commercial software until 1st September 2012 when it became freeware and since 1st September 2013 been open-sourced under licensing similar to the BSD License.
+Peter was commercial software until 1st September 2012 when it became freeware and since 1st September 2013 been open-sourced under licensing similar to the [BSD License](https://en.wikipedia.org/wiki/BSD_licenses).
 
-Examples of games made using Peter are on the Gemtree website. I recommend trying *Becherbar*, a bar-themed management simulator and *Point236*, a third-person shooter. They are simple games, but enjoyable enough.
+Examples of games made using Peter are on the Gemtree website. I recommend trying [*Becherbar*](https://www.old-games.com/download/4178/becher-bar), a bar-themed management simulator, [*Desktop*](http://www.breatharian.eu/Petr/program/download/DESKTOP.zip) and [*Desktop Christmassy*](http://www.breatharian.eu/Petr/program/download/DESKTOPX.zip), are stress-reliever sandbox games and [*Point236*](http://www.breatharian.eu/Petr/program/download/POINT236.zip), a third-person shooter. They are simple games, but enjoyable enough.
 
 The following has been taken from the downloads section of the Peter [website](http://www.breatharian.eu/Petr/en/download.htm#source). The author of the tool is Czech, hence the writing style. The main source code is in the `Peter_v250_src` directory. I have also included the full 70MB *Programming with Peter* tutorial in the `tutorial` directory, however the text is in Czech with no officially provided translation (it seems). Fortunately, as the tutorial is written in HTML it can be translated with Google Translate.
 
@@ -19,7 +19,7 @@ The following has been taken from the downloads section of the Peter [website](h
 
 >Concept of Peter's codes brings certain difficulties. Given that I needed to remove C runtime kernel from the code, I had to do some subterfuges to compiler (MS VC can not compile so much without runtime). The result is that the code is essentially non-transferable under any other compiler than MS VC 6.0 (that means, if you do not spend a lot of days to weeks with remakes). And it requires compilation only under Windows 98 (compiler works badly under XP). Therefore, compilation and completation of the Peter is rather complex. In present time I compile it in Windows 98 under VirtualPC emulator.
 
->Download source codes of the Peter 2.50 (6 MB) - there are several EXE (subdirectories) in the project:
+>[Download source codes of the Peter 2.50 (6 MB)](http://www.breatharian.eu/Petr/download/Peter_v250_src.rar) - there are several EXE (subdirectories) in the project:
 
 >* **DataInst** is installer of data files (e.g. installer of sample programs), no longer used today.
 
@@ -41,15 +41,15 @@ The following has been taken from the downloads section of the Peter [website](h
 
 >The environment should be Windows 98. When making efforts to run compilation under e.g. Windows XP you will need to run VC in W98 compatibility mode. Internal pictures of the Peter are edited using VC internal editor, Peter is ready to load them (BMP 8 bits RLE format). When editing images the display must not be set to true-color mode, 16-bit color mode must be selected, or editor will damage colors of the picture! Images need be edited under W98 and not under NT and higher, because in the higher systems the images will not be stored compressed and programs will be much bigger. If you edit pictures using another editor, you must delete *.aps files to load new images by the compiler. When you change the version number, fixes should be done in files: Main.h, Setup\Main.h, HLP\Main_cz.rtf, HLP\Main_en.rtf, HLP\Peter_cz.hpj and HLP\Peter_en.hpj. Further guidance to compilation are in !Info.txt.
 
->Compiled files of Peter 2.50 (3 MB) - thus the output should look like, what "pull" out from Windows 98 in emulator. Then you can continue in your current system.
+>[Compiled files of Peter 2.50 (3 MB)](http://www.breatharian.eu/Petr/download/Peter_v250_ok.rar) - thus the output should look like, what "pull" out from Windows 98 in emulator. Then you can continue in your current system.
 
->Generator of Peter full version 2.50 (323 MB)
+>[Generator of Peter full version 2.50 (323 MB)](http://www.breatharian.eu/Petr/download/Peter_v250_gen.rar)
 
->Generator of Peter mini version 2.50 (3,5 MB)
+>[Generator of Peter mini version 2.50 (3,5 MB)](http://www.breatharian.eu/Petr/download/Peter_v250_gen_min.rar)
 
->Generator of Peter Lite version 2.41 (3,6 MB)
+>[Generator of Peter Lite version 2.41 (3,6 MB)](http://www.breatharian.eu/Petr/download/Peter_v241_gen_lite.rar)
 
->The generators are set of install groups for the Peter installer. The installer will be generated by running Gener.exe program. When generating, files are compressed using the HlpGen program. Date and time of installed files will be set by date and time of the Peter.exe file.
+>The generators are set of install groups for the Peter installer. The installer will be generated by running Gener.exe program. When generating, files are compressed using the [HlpGen](http://www.breatharian.eu/Petr/download/hlpgen.rar) program. Date and time of installed files will be set by date and time of the Peter.exe file.
 
 ## Licensing
 The following is taken from the [About Peter](http://www.breatharian.eu/Petr/en/about.htm) page of the Gemtree website:
