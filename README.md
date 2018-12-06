@@ -50,4 +50,4 @@ The following is taken from the [About Peter](http://www.breatharian.eu/Petr/en/
 
 > Gemtree Peter was originally licensed application (sold commercially). From 1st September 2012 has been fully released as **FREEWARE**. It may be used for private and commercial purposes. From 1st September 2013 source codes of the Peter where fully released to public use. Peter is offered for use in it's current form as it is, without any further support, development and repair.
 
-> &rt;&rt;&rt; The author takes absolutely no responsibility for damages of any kind resulting from the use of Gemtree Petr application. <<<
+> &gt;&gt;&gt; The author takes absolutely no responsibility for damages of any kind resulting from the use of Gemtree Petr application. <<<
