@@ -3,9 +3,20 @@
 
 A mirror of the Peter programming tool by [Gemtree Software](http://www.breatharian.eu/Petr/en/). To my understanding Peter is a visual programming tool similar to [Scratch](https://scratch.mit.edu/) and works by allowing users of different programming skillsets to assemble the program 'like a jigsaw'. Judging by the numerous examples provided, it's safe to say that the program is effectively a 2D and 3D game engine.
 
-<img src="https://github.com/inferno986return/gemtree-peter-mirror/blob/master/tutorial/preview1.gif" width="256" height="213" alt=""/>
-<img src="https://github.com/inferno986return/gemtree-peter-mirror/blob/master/tutorial/preview4.jpg" width="256" height="192" alt=""/>
-<img src="https://github.com/inferno986return/gemtree-peter-mirror/blob/master/tutorial/preview5.jpg" width="256" height="192" alt=""/>
+<div style="display: flex;">
+ <div style="flex: 33.33%; padding: 5px;">
+  <img src="https://github.com/inferno986return/gemtree-peter-mirror/blob/master/tutorial/preview1.gif" alt=""/>
+ </div>
+ <div style="flex: 33.33%; padding: 5px;">
+  <img src="https://github.com/inferno986return/gemtree-peter-mirror/blob/master/tutorial/preview4.jpg" alt=""/>
+ </div>
+ <div style="flex: 33.33%; padding: 5px;">
+  <img src="https://github.com/inferno986return/gemtree-peter-mirror/blob/master/tutorial/preview5.jpg" alt=""/>
+ </div>
+ <div style="flex: 33.33%; padding: 5px;">
+  <img src="https://github.com/inferno986return/gemtree-peter-mirror/blob/master/tutorial/preview6.jpg" alt=""/>
+ </div>
+</div>
 
 Peter was commercial software until 1st September 2012 when it became freeware and since 1st September 2013 been open-sourced under licensing similar to the [BSD License](https://en.wikipedia.org/wiki/BSD_licenses).
 
