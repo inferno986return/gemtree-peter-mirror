@@ -1,0 +1,620 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>13 Vybarvi si sám</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_12.htm"><font face="Arial">12.
+Kreslíme &quot;mišmaš&quot;</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_14.htm"><font
+face="Arial">14. Zátiší u potoka</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">13. Vybarvi si sám</font></h2>
+
+<p><font face="Arial">Naším dalším úkolem bude vytvoøení
+jednoduchıch omalovánek umoòujících vybarvování
+pøipravenıch kreslenıch obrázkù. Uivatel mùe mezi
+obrázky listovat a vyléváním ploch je vybarvovat. Èerná
+barva je pøitom rezervována pro obrysy obrázkù.</font></p>
+
+<p><font face="Arial">Nejdøíve zalote novı program s názvem
+</font><font color="#000080" face="Arial"><strong>Vybarvi</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Upravíme velikost plochy. Máme
+pøedstavu, e budeme editovat obrázky se standardní
+velikostí 20 x 15 políèek (640 x 480 grafickıch bodù). Na
+volbu barvy a obrázku potøebujeme dole v oknì pás o vıšce 1
+políèka. Nastavte proto velikost hlavní plochy programu na 20
+x 16 políèek. Vymate </font><font color="#000080"
+face="Arial"><strong>prázdné políèko</strong></font><font
+face="Arial"> prùhlednou barvou, tím zajistíte zviditelnìní
+grafické plochy.</font></p>
+
+<p><font face="Arial">Vytvoøte dva nové pøedmìty - </font><font
+color="#000080" face="Arial"><strong>šipka vlevo</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>šipka
+vpravo</strong></font><font face="Arial">. Nakreslete do nich
+obrázky ovládacích tlaèítek pro listování vlevo a vpravo,
+podklad bude šedı. Polote pøedmìty vedle sebe do pravého
+dolního rohu plochy.</font></p>
+
+<p align="center"><img src="img2/vybarvi1.gif" width="160"
+height="64"></p>
+
+<p><font face="Arial">Vytvoøte hlavní smyèku programu - </font><font
+color="#000080" face="Arial"><strong>nekoneènı podmínìnı
+cyklus</strong></font><font face="Arial"> (v podmínce cyklu bude
+prvek </font><font color="#000080" face="Arial"><strong>ano</strong></font><font
+face="Arial">). V tìle cyklu bude jeden pøíkaz </font><font
+color="#000080" face="Arial"><strong>èekání</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Pøed hlavní smyèku pøipravte skupinu s
+názvem </font><font color="#000080" face="Arial"><strong>inicializace
+programu</strong></font><font face="Arial">. Skupina bude
+obsahovat pøípravné operace nutné pro bìh programu.</font></p>
+
+<p align="center"><img src="img2/vybarvi2.gif" width="456"
+height="322"></p>
+
+<p><font face="Arial">Prvním pøíkazem bude nastavení textu
+nápovìdy do stavové lišty na spodním okraji okna.
+Neobsahuje-li stavová lišta ádnı text, je vypnutá.
+Chceme-li pouívat v programu stavovou lištu, je dobré ji
+zapnout ihned na zaèátku programu. Prázdnou stavovou lištu
+bychom zajistili zobrazením znaku mezera.</font></p>
+
+<p><font face="Arial">Druhım pøíkazem je funkce </font><font
+color="#000080" face="Arial"><strong>pøíprava obsluhy volby
+barvy</strong></font><font face="Arial">. Nadefinuje pouité
+barvy pro kreslení a zobrazí políèka s barvami. Funkce </font><font
+color="#000080" face="Arial"><strong>naplnìní seznamu obrázkù</strong></font><font
+face="Arial"> pøipraví seznam obrázkù. Funkce </font><font
+color="#000080" face="Arial"><strong>zobrazení vybraného
+obrázku</strong></font><font face="Arial"> obrázek zobrazí.
+Zatím pøipravte jen prázdné funkce. Poslední ètyøi
+pøíkazy slouí k pøedefinování vzhledu kurzoru myši, o
+nich také a pozdìji.</font></p>
+
+<p><font face="Arial">Spustíte-li teï program, uvidíte èernou
+plochu, vpravo dole dvì tlaèítka a nápisy v nadpisu okna a ve
+stavové lištì. A Petøíka koukajícího vlevo dole. Zatím
+nic moc, ale jsme teprve na zaèátku.</font></p>
+
+<p><font face="Arial">V oknì </font><font color="#000080"
+face="Arial"><strong>Spoleènıch promìnnıch a funkcí</strong></font><font
+face="Arial"> vytvoøte novı seznam s názvem </font><font
+color="#000080" face="Arial"><strong>seznam barev</strong></font><font
+face="Arial">. Velikost seznamu nastavte na </font><font
+color="#000080" face="Arial"><strong>36</strong></font><font
+face="Arial">, to bude poèet barev pouitıch v editoru.
+Ukazatel v seznamu pøejmenujte na </font><font color="#000080"
+face="Arial"><strong>index barvy</strong></font><font
+face="Arial"> a automatickı pøírùstek na </font><font
+color="#000080" face="Arial"><strong>inkrementace indexu barvy</strong></font><font
+face="Arial">. Do seznamu pøidejte jeden èíselnı datovı
+prvek </font><font color="#000080" face="Arial"><strong>barva</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><img src="img2/vybarvi3.gif" width="226"
+height="160"></p>
+
+<p><font face="Arial">Vytvoøíme obsah funkce </font><font
+color="#000080" face="Arial"><strong>pøíprava obsluhy volby
+barvy</strong></font><font face="Arial">. Pøepnìte se do ní
+dvojklikem myší na ikonu funkce. Úplnı obsah funkce vidíte
+na následujícím obrázku. Po pravé stranì je rozvinutı
+cyklus pro vytvoøení políèek barev. Funkci si postupnì
+podrobnì popíšeme.</font></p>
+
+<p><font face="Arial">Nejdøíve naplníme seznam barev. Nastavte
+index barvy na </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial"> a inkrementaci indexu barvy na </font><font
+color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial">. Tím zajistíme, e se barvy budou do seznamu
+ukládat od zaèátku a po kadém nastavení barvy se ukazatel
+seznamu automaticky zvıší o 1. Následují pøíkazy
+nastavení barev. Zvolte 36 barev dle vlastního vıbìru (ne
+èernou, tu pouíváme pro obrysy). Proè zrovna 36? Pro volbu
+barvy budeme mít k dispozici 18 políèek a na kadém
+políèku budou 2 barvy.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/vybarvi4.gif"
+width="640" height="704"></font></p>
+
+<p><font face="Arial">Políèka volby barev budeme realizovat
+pomocí pøedmìtù. Pøedmìty jsou v této chvíli vhodnìjší
+ne grafické vykreslení, protoe pøi vylévání ploch by
+nám zøejmì mohlo natéct i do okének s barvami. Namísto
+ruèního kreslení pøedmìtù pouijeme vytvoøení
+programové. Je to snazší ne upravovat 36 okének a
+pøedevším lze snadnìji udret soulad mezi okénky a
+skuteènımi barvami, pokud barvy v programu nìkdy zmìníme.</font></p>
+
+<p><font face="Arial">Vytvoøte si ve </font><font
+color="#000080" face="Arial"><strong>Spoleènıch promìnnıch a
+funkcích</strong></font><font face="Arial"> obrázek (ne
+pøedmìt) </font><font color="#000080" face="Arial"><strong>okénko
+volby barev</strong></font><font face="Arial"> o velikosti 1x1
+políèko. Nakreslete do nìj okénka pro volbu 2 barev, asi
+takto:</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/vybarvi5.gif"
+width="96" height="96"></font></p>
+
+<p><font face="Arial">Pøedmìty budeme vytváøet tak, e
+obrázek okénka volby barev vykreslíme do okna programu,
+vyplníme barvami, sejmeme z okna jako pøedmìt a uloíme do
+plochy. K ukládání do plochy pouijeme Lucku. Proto ji
+nastavíme na první políèko (horizontálnì na 0) a otoèíme
+doprava. Následuje cyklus pro všechny pøedmìty barev
+(polovina poètu barev).</font></p>
+
+<p><font face="Arial">Prvním pøíkazem v cyklu je vykreslení
+obrázku okénka volby barev. V pøíkazu uvedeme pouze jedinı
+parametr - obrázek k vykreslení. Nejsou-li ostatní parametry
+uvedeny, vykreslí se obrázek v levém dolním rohu okna.</font></p>
+
+<p><font face="Arial">Druhım pøíkazem je vylití levého
+okénka barvou ze seznamu barev. Souøadnice místa volíme ve
+støedu okénka (tj. X = 0.25). Stejnì tak vylijeme pravé
+okénko druhou barvou, opìt do støedu druhého okénka (X =
+0.75). Ukazatel barev se posouvá automaticky.</font></p>
+
+<p><font face="Arial">Vytvoøenı obrázek pøedmìtu sejmeme z
+okna funkcí </font><font color="#000080" face="Arial"><strong>úschova
+vıøezu z plochy jako pøedmìt</strong></font><font
+face="Arial"> a uloíme ho ihned na pozici s Luckou. Potom
+Lucka popojde na další políèko.</font></p>
+
+<p><font face="Arial">Po vytvoøení všech políèek barev
+zmìòte inkrementaci indexu barvy na 0, od této chvíle ji
+automatickou inkrementaci nebudeme v programu pouívat.</font></p>
+
+<p><font face="Arial">Pøipadá vám, e dìláme v oknì
+pøíliš mnoho operací a e snad takové operace musí bıt
+viditelné? Ve skuteènosti jsou tyto pøípravné vykreslovací
+operace velmi rychlé a my máme dost èasu, ne se obsah okna
+vykreslí na displeji prvním pøíkazem èekání. Vykreslenı
+obrázek zùstane skryt pod prvním pøedmìtem volby barev,
+take se dokonce ani nemusíme starat o závìreèné vymazání
+obrázku.</font></p>
+
+<p><font face="Arial">Teï mùete program spustit. Je-li vše v
+poøádku, objeví se na spodní stranì okna pás s barevnımi
+okénky volby barev. Zatím stále ještì s Petøíkem.</font></p>
+
+<p><font face="Arial">Nyní pøipravíme obrázky. Na konci lekce
+si stáhnìte vzorové obrázky a rozbalte je do knihovny </font><font
+color="#000080" face="Arial"><strong>Picture</strong></font><font
+face="Arial">. Obrázky pøetáhnìte z knihovny do programu
+vèetnì sloky ve které jsou umístìné. V oknì </font><font
+color="#000080" face="Arial"><strong>Spoleènıch promìnnıch a
+funkcí</strong></font><font face="Arial"> pøipravte </font><font
+color="#000080" face="Arial"><strong>seznam obrázkù</strong></font><font
+face="Arial">. Obrázkù je </font><font color="#000080"
+face="Arial"><strong>25</strong></font><font face="Arial">.
+Seznam bude mít textovou poloku </font><font color="#000080"
+face="Arial"><strong>jméno obrázku</strong></font><font
+face="Arial"> a obrázkové poloky </font><font color="#000080"
+face="Arial"><strong>obrázek</strong></font><font face="Arial">
+a </font><font color="#000080" face="Arial"><strong>pùvodní
+obrázek</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><img src="img2/vybarvi6.gif" width="248"
+height="224"></p>
+
+<p><font face="Arial">Naplòte seznam obrázkù ve funkci </font><font
+color="#000080" face="Arial"><strong>naplnìní seznamu obrázkù</strong></font><font
+face="Arial">. Klasickım zpùsobem - nastavením inkrementace
+indexu obrázku na 1, naplnìním seznamu </font><font
+color="#000080" face="Arial"><strong>jmen obrázkù</strong></font><font
+face="Arial"> (podle jmen souborù) a naplnìním </font><font
+color="#000080" face="Arial"><strong>obrázkù</strong></font><font
+face="Arial"> v seznamu vzory obrázkù naètenımi z knihovny.
+Mezi plnìním jmen obrázkù a obrázkù není tøeba nulovat
+index obrázku, nuluje se automaticky pøeteèením pøes konec.
+Poté ještì pomocí cyklu uchovejte obrázky do promìnné </font><font
+color="#000080" face="Arial"><strong>pùvodní obrázek</strong></font><font
+face="Arial">. Protoe pøistupujeme ke 2 polokám seznamu,
+nemùeme pouít automatickou inkrementaci a musíme
+pouívat programové zvyšování indexu.</font></p>
+
+<p align="center"><img src="img2/vybarvi7.gif" width="294"
+height="549"></p>
+
+<p><font face="Arial">Pøistoupíme k funkci </font><font
+color="#000080" face="Arial"><strong>zobrazení vybraného
+obrázku</strong></font><font face="Arial">. Jak vidíte na
+obrázku nie, nejdøíve se zobrazí vybranı obrázek v
+seznamu na souøadnici Y=1 (protoe dole je pás volby barvy).
+Poté se zobrazí informace v titulku okna - jméno obrázku,
+èíslo obrázku a celkovı poèet obrázkù. Vısledkem bude
+text jako napøíklad &quot;Vybarvi - Domeèek (obrázek 4 z
+25)&quot;. Na obrázku to není patrné, ale nezapomeòte na
+patøiènıch místech v textech oddìlovací mezery.</font></p>
+
+<p align="center"><img src="img2/vybarvi8.gif" width="283"
+height="740"></p>
+
+<p><font face="Arial">Opìt mùete program spustit - mìli
+byste vidìt zobrazenı první obrázek seznamu.</font></p>
+
+<p><font face="Arial">V programu budeme pouívat Petøíka jako
+indikátor, která barva je právì zvolená. Vyvolejte editaci
+sprajtu Petøíka. Zmìòte parametry sprajtu na následující
+hodnoty: prodleva mezi fázemi = </font><font color="#000080"
+face="Arial"><strong>110</strong></font><font face="Arial">,
+fází na krok = </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">, fází pro klid = </font><font color="#000080"
+face="Arial"><strong>4</strong></font><font face="Arial">, fází
+pro pohyb = </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">, smìrù = </font><font color="#000080"
+face="Arial"><strong>1</strong></font><font face="Arial">,
+šíøka obrázku = </font><font color="#000080" face="Arial"><strong>0.5</strong></font><font
+face="Arial">. Vyhoïte obrázky Petøíka ze sprajtu a
+dvojklikem do prvního obrázku vyvolejte editaci obrázku. Do
+obrázku nakreslete rámeèek indikátoru, vyuijte
+støídající se barvy bílá-šedá-èerná-šedá. Zkopírujte
+obrázek do dalších políèek sprajtu a posuòte body vdy o 1
+bod ve smìru hodinovıch ruèièek. Pøi zkoušce sprajtu
+uvidíte, jak rámeèek &quot;<em>teèe</em>&quot; po obvodì.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/vybarvi9.gif"
+width="636" height="259"></font></p>
+
+<p><font face="Arial">Lucku pouijeme jako indikátor barvy pod
+kurzorem myši. Vyvolejte editaci sprajtu Lucky a zmìòte
+parametry sprajtu: fází na krok = </font><font color="#000080"
+face="Arial"><strong>0</strong></font><font face="Arial">, fází
+pro pohyb = </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">, smìrù = </font><font color="#000080"
+face="Arial"><strong>1</strong></font><font face="Arial">,
+šíøka obrázku = </font><font color="#000080" face="Arial"><strong>0.5</strong></font><font
+face="Arial">. Pøekreslete obrázek ve sprajtu tak, aby
+vytvoøil dojem vyvıšeného okénka volby barvy. Støed pøitom
+ponechejte prùhlednı.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/vybarvi10.gif" width="135" height="259"></font></p>
+
+<p><font face="Arial">V hlavní smyèce programu (pøed
+pøíkazem èekání) pøipravte skupinu s názvem </font><font
+color="#000080" face="Arial"><strong>zjištìní a test platnosti
+barvy pod kurzorem</strong></font><font face="Arial">. Zde budeme
+prùbìnì testovat barvu pod kurzorem myši, abychom mohli pro
+pøíslušnou barvu zapnout indikaci. Zjištìnou barvu budeme
+pouívat v programu i u dalších obsluh.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/vybarvi11.gif" width="305" height="224"></font></p>
+
+<p><font face="Arial">Ve </font><font color="#000080"
+face="Arial"><strong>Spoleènıch promìnnıch</strong></font><font
+face="Arial"> pøipravte dvì èíselné promìnné: </font><font
+color="#000080" face="Arial"><strong>barva pod kurzorem myši</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>index
+barvy pod kurzorem</strong></font><font face="Arial">. Na
+zaèátku skupiny tyto dvì promìnné nastavte na hodnotu </font><font
+color="#000080" face="Arial"><strong>-1</strong></font><font
+face="Arial"> k indikaci, e pod kurzorem myši není platná
+barva. Následuje podmínìnı pøíkaz testující, zda se
+nachází kurzor myši nad plochou obrázku. Test zajistíme
+prvkem </font><font color="#000080" face="Arial"><strong>test
+myši v oblasti</strong></font><font face="Arial"> s nastavenımi
+parametry podle obrázku v oknì. Je-li kurzor myši nad
+obrázkem, naèteme barvu pod kurzorem funkcí </font><font
+color="#000080" face="Arial"><strong>naètení barvy bodu</strong></font><font
+face="Arial">. Barvu uchováme v promìnné </font><font
+color="#000080" face="Arial"><strong>barva pod kurzorem myši</strong></font><font
+face="Arial">. Souøadnice bodu k naètení barvy pøevezmeme ze
+souøadnic myši </font><font color="#000080" face="Arial"><strong>pozice
+myši v horizontálním smìru</strong></font><font face="Arial">
+a </font><font color="#000080" face="Arial"><strong>pozice myši
+ve vertikálním smìru</strong></font><font face="Arial">. V
+programech systému Petr je zajištìno, e informace o myši se
+a do další obsluhy èekání nezmìní.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/vybarvi12.gif" width="881" height="704"></font></p>
+
+<p><font face="Arial">Po naètení bodu se pokusíme barvu
+vyhledat v tabulce barev. Cyklus vyhledání barvy vidíte na
+obrázku vpravo. Cyklus prochází celou tabulku barev, kadou
+barvu porovnává se zjištìnou barvou pod kurzorem. Nalezne-li
+odpovídající barvu, uschová její index do promìnné </font><font
+color="#000080" face="Arial"><strong>index barvy pod kurzorem</strong></font><font
+face="Arial">, nastaví Lucku (jako indikátor barvy pod
+kurzorem) nad okénko s barvou a zapne viditelnost Lucky.</font></p>
+
+<p><font face="Arial">Všimnìte si blíe, jak jsme cyklus
+pouili. Index barvy v seznamu barev urèuje souèasnì barvu
+aktuálnì vybranou uivatelem. Cyklus projede celı seznam
+barev jednou dokola, po ukonèení cyklu bude mít index barvy
+pøesnì stejnou hodnotu, jakou mìl pøed zahájením cyklu.
+Proto cyklus nesmíme ukonèit po nalezení barvy. Vyuili jsme
+pøitom automatického návratu ukazatele seznamu na zaèátek po
+pøekroèení konce seznamu.</font></p>
+
+<p><font face="Arial">Pozastavme se u Lucky. V celém programu
+ponecháváme vertikální souøadnici Lucky trvale na vıchozí
+hodnotì 0. Horizontální souøadnici nastavujeme na polovièní
+hodnotu indexu barvy pod kurzorem, protoe okénka barev jsou
+široká polovinu políèka. Pokud vás zaráí, e Lucka
+mùe stát i mezi políèky, tak je tomu skuteènì tak. Pøi
+nastavování pozice Lucky zadáním souøadnic mùeme
+pouívat libovolné hodnoty, vèetnì hodnot mimo plochu okna,
+nebo Lucka je bìnım sprajtem. Pouze pøi pohybování Lucky
+pomocí pøíkazu </font><font color="#000080" face="Arial"><strong>krok</strong></font><font
+face="Arial"> se Lucka (stejnì i Petøík) omezuje na plochu
+okna a cílová souøadnice je zarovnána na nejbliší
+políèko.</font></p>
+
+<p><font face="Arial">Za podmínìnım pøíkazem pro naètení
+barvy následuje podmínìnı pøíkaz zajišující vypnutí
+indikátoru barvy, není-li pod kurzorem myši platná barva. To
+mùe nastat nejen v pøípadech, kdy je kurzor myši mimo
+plochu obrázku, ale také je-li pod kurzorem myši èerná (nebo
+nìjaká neznámá) barva.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/vybarvi13.gif" width="342" height="288"></font></p>
+
+<p><font face="Arial">Program spuste a vyzkoušejte. Mìla by
+ji bıt funkèní indikace barvy pod kurzorem myši.
+Najedete-li myší v obrázku nad nìjakou barvu, okénko s
+pøíslušnou barvou vystoupí nad povrch okna.</font></p>
+
+<p><font face="Arial">Zaèneme s ovládáním, a to nejdøíve s
+ovládáním pomocí klávesnice. Doplòte za skupinu pro
+zjištìní barvy prvek </font><font color="#000080" face="Arial"><strong>vícestupòové
+vìtvení pøíkazù</strong></font><font face="Arial"> se
+jménem </font><font color="#000080" face="Arial"><strong>obsluha
+kláves</strong></font><font face="Arial">. V testované hodnotì
+pouijeme funkci </font><font color="#000080" face="Arial"><strong>vstup
+klávesy (neèeká na stisk)</strong></font><font face="Arial">.</font></p>
+
+<p><font face="Arial">Nejdøíve si ještì pøipravíme pomocnou
+funkci </font><font color="#000080" face="Arial"><strong>úschova
+obrázku</strong></font><font face="Arial">. Její obsah je
+jednoduchı - sejme obsah okna do aktuálnì vybraného obrázku.
+Tuto funkci budeme volat vdy pøed zmìnou na novı obrázek.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/vybarvi14.gif" width="309" height="229"></font></p>
+
+<p><font face="Arial">První vìtev vìtvicí konstrukce
+vytvoøíme pro klávesu </font><font color="#000080"
+face="Arial"><strong>Esc</strong></font><font face="Arial">. Jako
+obsluhu vìtve pouijeme pøíkaz </font><font color="#000080"
+face="Arial"><strong>pøeruš opakování</strong></font><font
+face="Arial">, kterı pøeruší hlavní smyèku programu a tím
+ukonèí celı program.</font></p>
+
+<p><font face="Arial">V druhé vìtvi obslouíme klávesu </font><font
+color="#000080" face="Arial"><strong>vlevo</strong></font><font
+face="Arial">. V obsluze vìtve uveïte funkci </font><font
+color="#000080" face="Arial"><strong>pøedešlı obrázek</strong></font><font
+face="Arial">, pøedtím funkci vytvoøte (zatím prázdnou).
+Podobnì obslouíme klávesu vpravo, jen pouijeme funkci </font><font
+color="#000080" face="Arial"><strong>další obrázek</strong></font><font
+face="Arial">. Za funkce uveïte pøíkaz </font><font
+color="#000080" face="Arial"><strong>vyprázdnìní zásobníku
+kláves</strong></font><font face="Arial">. Klávesy mohou bıt
+generovány rychleji ne je rychlost prùchodu hlavní smyèkou,
+program by mìl pøi listování setrvaènost, co není
+pøíjemné.</font></p>
+
+<p><font face="Arial">Mùete ještì obslouit další
+listovací klávesy, jako napøíklad </font><font
+color="#000080" face="Arial"><strong>Home</strong></font><font
+face="Arial"> pro skok na první obrázek, </font><font
+color="#000080" face="Arial"><strong>End</strong></font><font
+face="Arial"> pro skok na poslední obrázek. Poslední klávesou
+bude </font><font color="#000080" face="Arial"><strong>Back Space</strong></font><font
+face="Arial">. S její pomocí mùe uivatel obnovit obrázek
+do pùvodní podoby jako pøed editací. Tyto další klávesy
+u nepouívají funkce, protoe pouze operace </font><font
+color="#000080" face="Arial"><strong>vlevo</strong></font><font
+face="Arial">/</font><font color="#000080" face="Arial"><strong>vpravo</strong></font><font
+face="Arial"> se vykonávají jak z klávesnice, tak v obsluze
+myši.</font></p>
+
+<p align="center"><img src="img2/vybarvi15.gif" width="600"
+height="670"></p>
+
+<p align="left"><font face="Arial">Obsah funkcí </font><font
+color="#000080" face="Arial"><strong>vlevo</strong></font><font
+face="Arial">/</font><font color="#000080" face="Arial"><strong>vpravo</strong></font><font
+face="Arial"> je velmi jednoduchı, vidíte je na
+následujících obrázcích. Pouze se uschová obsah obrázku,
+posune se index obrázku a zajistí vykreslení nového
+vybraného obrázku. Není tøeba obsluhovat pøeteèení indexu
+pøes zaèátek èi konec seznamu, protoe to øeší systém
+Petr automaticky.</font></p>
+
+<p align="center"><img src="img2/vybarvi16.gif" width="500"
+height="162"></p>
+
+<p><font face="Arial">Program vyzkoušejte. Pomocí šipek </font><font
+color="#000080" face="Arial"><strong>vlevo</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>vpravo</strong></font><font
+face="Arial"> na klávesnici byste mìli bıt schopni listovat
+obrázky. Klávesa </font><font color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial"> program ukonèí.</font></p>
+
+<p><font face="Arial">Nyní vytvoøíme obsluhu ovládání
+myší. Do hlavní smyèky za obsluhu kláves pøidejte
+podmínìnı pøíkaz s názvem </font><font color="#000080"
+face="Arial"><strong>kliknutí levım tlaèítkem myši</strong></font><font
+face="Arial">. Do testu podmínky vlote prvek </font><font
+color="#000080" face="Arial"><strong>klik levım tlaèítkem
+myši</strong></font><font face="Arial">. Je to logickı
+pøíznak a je nastaven vdy, kdy uivatel klikne levım
+tlaèítkem myši do okna programu. Vypnutí pøíznaku se
+provede jeho ètením, napøíklad pouitím v podmínce. Proto
+budete-li nìkdy chtít pøíznak testovat vícekrát, musíte si
+ho uschovat v logické promìnné.</font></p>
+
+<p><font face="Arial">Pokud v testu podmínky zjistíme, e
+uivatel kliknul myší, rozlišíme v dalším podmínìném
+pøíkazu podle vertikální souøadnice myši, zda se jednalo o
+kliknutí do obrázku nebo do pásu s barvami a tlaèítky.
+Hranicí rozlišení je </font><font color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial">, protoe pás je vysokı </font><font
+color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial"> políèko.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/vybarvi17.gif" width="427" height="448"></font></p>
+
+<p><font face="Arial">Pro obsluhu volby barvy pøipravíme novou
+funkci s názvem </font><font color="#000080" face="Arial"><strong>volba
+barvy</strong></font><font face="Arial">. Do vstupních
+promìnnıch funkce dáme èíselnou promìnnou </font><font
+color="#000080" face="Arial"><strong>pozice kurzoru myši X</strong></font><font
+face="Arial">. S její pomocí budeme funkci pøedávat
+horizontální souøadnici myši v poli volby barev.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/vybarvi18.gif" width="202" height="96"></font></p>
+
+<p><font face="Arial">Ve funkci pøevezmeme hodnotu vstupní
+promìnné, vynásobením èíslem </font><font color="#000080"
+face="Arial"><strong>2</strong></font><font face="Arial">
+souøadnici pøevedeme na èíslo barvy, funkcí </font><font
+color="#000080" face="Arial"><strong>celoèíselná èást</strong></font><font
+face="Arial"> odstraníme nepotøebnou desetinnou èást a
+vısledek pouijeme k nastavení nového indexu barvy.
+Nastavíme horizontální souøadnici Petøíka na polovièní
+hodnotu indexu barvy, co odpovídá souøadnici okénka s
+barvou. Petøíka v programu pouíváme jako indikátor
+vybrané barvy. Jeho vertikální souøadnice zùstává trvale
+nastavena na 0, proto si jí nemusíme všímat.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/vybarvi19.gif" width="276" height="288"></font></p>
+
+<p><font face="Arial">Zjistíme-li z vertikální souøadnice
+myši, e uivatel kliknul do pásu tlaèítek a volby barev,
+rozlišíme dále podle horizontální souøadnice myši, zda
+kliknul do volby barev nebo na tlaèítka. Pro horizontální
+souøadnici menší ne </font><font color="#000080"
+face="Arial"><strong>18</strong></font><font face="Arial"> je
+obslouena volba barvy. Zavoláme funkci </font><font
+color="#000080" face="Arial"><strong>volba barvy</strong></font><font
+face="Arial"> s horizontální souøadnicí myši jako parametr.
+Jinak se jedná o tlaèítka pøepínání obrázkù. Pro
+horizontální souøadnici menší ne </font><font
+color="#000080" face="Arial"><strong>19</strong></font><font
+face="Arial"> je to tlaèítko vlevo, voláme funkci </font><font
+color="#000080" face="Arial"><strong>pøedešlı obrázek</strong></font><font
+face="Arial">, jinak voláme funkci </font><font color="#000080"
+face="Arial"><strong>další obrázek</strong></font><font
+face="Arial">. Celou obsluhu volby barvy nebo tlaèítek vidíte
+zde na obrázku:</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/vybarvi20.gif" width="401" height="608"></font></p>
+
+<p><font face="Arial">Opìt program vyzkoušejte. Levım
+tlaèítkem myši je moné pøepínat obrázky a v pásu volby
+barev mìnit vybranou barvu.</font></p>
+
+<p><font face="Arial">Nyní obslouíme pøípad, kdy uivatel
+kliknul levım tlaèítkem myši do oblasti obrázku. Základem
+obsluhy bude podmínìnı pøíkaz </font><font color="#000080"
+face="Arial"><strong>vylití obrázku barvou</strong></font><font
+face="Arial"> (na dalším obrázku). V testu podmínky
+ovìøíme, zda pod kurzorem myši není èerná barva. Èernou
+barvu pouíváme pro obrysy obrázkù a nesmíme ji vylít.
+Barvu pod kurzorem myši jsme si uschovali do pomocné promìnné
+na zaèátku hlavní smyèky programu.</font></p>
+
+<p><font face="Arial">V obsluze vylití obrázku barvou
+pouijeme pøíkaz </font><font color="#000080" face="Arial"><strong>Vıplò</strong></font><font
+face="Arial">. Barvu urèí promìnná </font><font
+color="#000080" face="Arial"><strong>barva</strong></font><font
+face="Arial"> ze seznamu barev. Souøadnice vıplnì pøevezmeme
+ze souøadnic myši.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/vybarvi21.gif" width="378" height="452"></font></p>
+
+<p><font face="Arial">Program spuste. Vyzkoušejte vylévání
+obrázku vybranou barvou a ovìøte, e nelze vylít èernı
+obrys obrázku.</font></p>
+
+<p><font face="Arial">Pravé tlaèítko myší bude slouit k
+nabrání barvy pod kurzorem myši z obrázku. Obsluhu vidíte na
+dalším obrázku. Je-li stisknuto pravé tlaèítko myši a
+je-li kurzor myši nad obrázkem a je-li barva pod kurzorem myši
+platná, nastaví se barva jako vybraná barva. Opìt
+vyzkoušejte.</font></p>
+
+<p align="center"><img src="img2/vybarvi22.gif" width="438"
+height="544"></p>
+
+<p><font face="Arial">Poslední úpravou programu bude
+pøedefinování kurzoru myši podle toho, ve kterém místì
+plochy se nachází. V oknì </font><font color="#000080"
+face="Arial"><strong>Spoleèné promìnné a funkce</strong></font><font
+face="Arial"> si pøipravte 4 pøedmìty s obrázky kurzorù -
+šipky, kapátko a vıplò.</font></p>
+
+<p align="center"><img src="img2/vybarvi23.gif" width="139"
+height="121"></p>
+
+<p><font face="Arial">Obrázky mají èernı obrys, okolí je
+prùhledné a vnitøek vyplnìn bílou barvou. Na vrcholy
+kurzorù kapátka a vıplnì doplníme lutou teèku coby
+ukazovací místo kurzoru (s inverzí barev). U ostatních
+kurzorù zùstane ukazovací místo implicitnì uprostøed
+obrázku.</font></p>
+
+<p><font face="Arial">Ve skupinì </font><font color="#000080"
+face="Arial"><strong>inicializace programu</strong></font><font
+face="Arial"> urèíme pomocí pøíkazù </font><font
+color="#000080" face="Arial"><strong>nadefinování vzhledu
+kurzoru myši</strong></font><font face="Arial">, jakı vzhled ve
+které èásti okna bude kurzor myši mít. Pro pole vıbìru
+barvy nadefinujeme kapátko, pro ovládací tlaèítka šipky
+vlevo a vpravo, pro plochu obrázku kurzor vıplnì.</font></p>
+
+<p><font face="Arial">Abychom si ujasnili funkci pøíkazu pro
+definování vzhledu kurzoru myši, mùeme si pøedstavit
+oblasti definice vzhledu myši jako obdélníky, které
+postupnım pøidáváním pøekrıvají staré definice. Platí
+vdy definice nejvíce na vrcholu. Nezadáme-li ádnı
+obrázek myši, pouije se standardní vzhled myši v oknì,
+urèenı systémem. Nezadáme-li rozmìry oblasti, pøedefinuje
+se kurzor myši pro celé okno. Všechny definice mùeme
+zrušit uvedením pøíkazu bez jakıchkoliv parametrù.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/vybarvi24.gif" width="648" height="566"></font></p>
+
+<p align="center"><a href="download/13_obrazky.zip"><font
+face="Arial">download obrázkù k pøíkladu</font></a></p>
+
+<p align="center"><a href="download/13_vybarvi.zip"><font
+face="Arial">download pøíkladu</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_12.htm"><font face="Arial">12.
+Kreslíme &quot;mišmaš&quot;</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_14.htm"><font
+face="Arial">14. Zátiší u potoka</font></a></p>
+</body>
+</html>

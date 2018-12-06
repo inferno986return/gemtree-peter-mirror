@@ -1,0 +1,389 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>12 Kreslíme mišmaš</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_11.htm"><font face="Arial">11.
+Zaèínáme s grafikou</font></a><font face="Arial"> &lt;&lt;&lt;
+</font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_13.htm"><font
+face="Arial">13. Vybarvi si sám</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">12. Kreslíme &quot;mišmaš&quot;</font></h2>
+
+<p><font face="Arial">Nelíbí-li se vám slovo
+&quot;mišmaš&quot; v nadpisu lekce, dosaïte si tøeba
+&quot;zmì&quot;. Ve slovníku ho moná nenajdete, ale
+zøejmì nejlépe vystihuje to, co teï budeme tvoøit.
+Vyzkoušíme si základní grafické pøíkazy pro kreslení.</font></p>
+
+<p><font face="Arial">Vytvoøte novı program s názvem </font><font
+color="#000080" face="Arial"><strong>Grafika</strong></font><font
+face="Arial">. Petøíka nebudeme v našem programu potøebovat,
+proto ho mùete zneviditelnit. Základem programu bude cyklus </font><font
+color="#000080" face="Arial"><strong>podmínìné opakování
+pøíkazù</strong></font><font face="Arial"> s pøerušením
+klávesou </font><font color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial">. Pøidejte ho za vypnutí viditelnosti Petøíka a
+vlote do nìj pøíkaz èekání.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/grafika1.gif"
+width="319" height="288"></font></p>
+
+<p><font face="Arial">Dalším, velmi dùleitım, úkonem je
+zprùhlednìní políèek ve vrstvì pøedmìtù. Vyvolejte
+editaci pøedmìtu </font><font color="#000080" face="Arial"><strong>prázdné
+políèko</strong></font><font face="Arial">. V okénku volby
+barev vyberte barvu vlevo nahoøe (našedle fialová). Je to </font><font
+color="#000080" face="Arial"><strong>prùhledná barva</strong></font><font
+face="Arial">, která zajistí zprùhlednìní políèka s
+pøedmìtem. V nástrojích pro kreslení vyberte </font><font
+color="#000080" face="Arial"><strong>vyplnìnı obdélník</strong></font><font
+face="Arial"> a pøekreslete celou plochu pøedmìtu prùhlednou
+barvou.</font></p>
+
+<p><font face="Arial">Kdy teï program spustíte, neuvidíte
+nic jiného ne èernou plochu. Vidíte grafickou vrstvu, která
+se stane základem našich dalších programù. V budoucnu budeme
+pouívat pøedmìty i grafiku souèasnì. Po vyzkoušení
+prvního grafického pøíkazu si mùete zkusit vkreslit nìco
+do pøedmìtu prázdného políèka. Uvidíte vykreslovanou
+grafiku a pøes ni sí obrázkù prázdnıch políèek.</font></p>
+
+<p><font face="Arial">V oknì </font><font color="#000080"
+face="Arial"><strong>Základních prvkù</strong></font><font
+face="Arial"> si nalistujte skupinu </font><font color="#000080"
+face="Arial"><strong>grafika</strong></font><font face="Arial">,
+podskupinu </font><font color="#000080" face="Arial"><strong>kreslení</strong></font><font
+face="Arial">. Najdete v ní pøíkazy pro kreslení grafickıch
+prvkù. Vezmìte pøíkaz </font><font color="#000080"
+face="Arial"><strong>bod</strong></font><font face="Arial"> a
+vlote ho do hlavní smyèky programu. Pøíkaz obsahuje další
+ètyøi prvky, slouící k zadání parametrù vykreslovaného
+bodu.</font></p>
+
+<p><font face="Arial">První parametr, </font><font
+color="#000080" face="Arial"><strong>barva pera</strong></font><font
+face="Arial">, urèuje barvu bodu. Barva je èíslo, které
+mùeme uchovávat v èíselné promìnné. Jeho hodnota nás
+zatím nezajímá, protoe na urèování barvy mùeme
+pouívat speciální funkce. U novì vytvoøeného pøíkazu
+prvek </font><font color="#000080" face="Arial"><strong>barva
+pera</strong></font><font face="Arial"> obsahuje prvek </font><font
+color="#000080" face="Arial"><strong>barva</strong></font><font
+face="Arial">. Je to </font><font color="#000080" face="Arial"><strong>konstanta
+barvy</strong></font><font face="Arial">, pøedávající
+pøíkazu zvolenou barvu (barva je èíslo). Novou barvu vybereme
+dvojitım kliknutím levım tlaèítkem myši na prvek konstanty
+barvy. Objeví se okno volby barev, vybraná barva je oznaèena
+vyvıšením políèka. Kliknutím na nìkterou z barev vybereme
+jinou barvu. Uvidíme ji také v ikonce prvku konstanty barvy.
+Pokud byste teï program spustili, uvidíte opìt èernou plochu,
+ale v levém dolním rohu malou teèku.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/color.gif"
+width="618" height="319"></font></p>
+
+<p><font face="Arial">V našem programu budeme chtít vykreslovat
+body s náhodnou barvou. Vyhodíme proto pryè konstantu barvy a
+na její místo dosadíme prvek </font><font color="#000080"
+face="Arial"><strong>slouèení barevnıch sloek do barvy</strong></font><font
+face="Arial"> (ze skupiny </font><font color="#000080"
+face="Arial"><strong>grafika</strong></font><font face="Arial">).
+Prvek obsahuje další tøi prvky, </font><font color="#000080"
+face="Arial"><strong>èervená sloka (0 a 1)</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>zelená
+sloka (0 a 1) </strong></font><font face="Arial">a </font><font
+color="#000080" face="Arial"><strong>modrá sloka (0 a 1)</strong></font><font
+face="Arial">. Prvky urèují úroveò jednotlivıch barevnıch
+sloek ve vısledné barvì. Èím víc se hodnota sloky
+blíí èíslu 1, tím je sloka svìtlejší. Napøíklad
+lutá barva vznikne zadáním hodnot 1, 1, 0. Náhodnou barvu
+vytvoøíme tak, e do jednotlivıch sloek umístíme prvky </font><font
+color="#000080" face="Arial"><strong>náhodné èíslo (0 &lt;= x
+&lt; 1)</strong></font><font face="Arial"> (rozsah náhodného
+èísla je také 0 a 1).</font></p>
+
+<p><font face="Arial">Kromì barevnıch sloek je zde ještì
+ètvrtá sloka, </font><font color="#000080" face="Arial"><strong>alfa
+sloka (0=prùhlednost a 1=barva)</strong></font><font
+face="Arial">. Její pouití je hlavnì ve 3D grafice. U 2D
+grafiky ji pouíváme pouze ve speciálních pøípadech, kdy
+je tøeba kreslit grafiku pomocí prùhledné nebo stínové
+barvy (èili nemá vıznam prùhledného kreslení tak jak by se
+moná dalo èekat). Proto ji necháváme nenastavenu, tím se
+pouije implicitní hodnota 1.</font></p>
+
+<p><font face="Arial">Dalším parametrem pøíkazu pro kreslení
+bodu je prvek </font><font color="#000080" face="Arial"><strong>tlouška
+pera</strong></font><font face="Arial">. Je to èíselná hodnota
+udávající, kolik grafickıch bodù bude kreslenı bod
+širokı. Velikost bodu budeme generovat náhodnì, proto sem
+vloíme náhodné èíslo s parametrem </font><font
+color="#000080" face="Arial"><strong>9</strong></font><font
+face="Arial">, èím zajistíme náhodné body o velikosti 1
+a 9 grafickıch bodù (nulou se nemusíme zabıvat, pøíkaz
+pro kreslení bodu pouije hodnotu 1).</font></p>
+
+<p><font face="Arial">Poslední dva prvky pøíkazu, </font><font
+color="#000080" face="Arial"><strong>horizontální souøadnice
+bodu X</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>vertikální souøadnice
+bodu Y</strong></font><font face="Arial">, urèují místo, kam
+se bod vykreslí. Na obrázku níe vidíte urèování
+grafickıch souøadnic. Nièím se neliší od èíslování
+políèek, jak jsme ho poznali v pøedešlıch kapitolách.
+Základní jednotkou souøadného systému Petra je </font><font
+color="#000080" face="Arial"><strong>jednotkovı krok</strong></font><font
+face="Arial">. Délka jednotkového kroku odpovídá šíøce
+políèka (nesouvisí tedy s délkou kroku sprajtu Petøíka),
+poèátek souøadnic je vlevo dole. Políèko má rozmìr 32
+grafickıch bodù. Díky vyjádøení souøadnic desetinnım
+èíslem mùeme udávat souøadnice políèek, grafiky i
+sprajtù jednotnì, bez nutnosti vzájemnıch pøevodù.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/sourad.gif"
+width="320" height="240"></font></p>
+
+<p><font face="Arial">Souøadnice k vykreslení bodu urèíme
+náhodnì, jak to ji známe z døívìjších lekcí, pomocí </font><font
+color="#000080" face="Arial"><strong>náhodného èísla</strong></font><font
+face="Arial"> s parametrem </font><font color="#000080"
+face="Arial"><strong>šíøky</strong></font><font face="Arial">
+popøípadì </font><font color="#000080" face="Arial"><strong>vıšky</strong></font><font
+face="Arial"> plochy. Vıslednı pøíkaz pro náhodné
+nakreslení bodu bude vypadat takto:</font></p>
+
+<p align="center"><img src="img2/grafika2.gif" width="388"
+height="610"></p>
+
+<p><font face="Arial">Program spuste. Na ploše se zaènou
+náhodnì objevovat barevné puntíky rùznıch velikostí.
+Vykreslování není pøíliš rychlé. Po kadém bodu program
+ve smyèce chvíli èeká (55 ms), rychlost vykreslování je
+proto pouze 18 bodù za sekundu.</font></p>
+
+<p><font face="Arial">Teï je vhodná chvíle pozastavit se u
+èasování programu. Jak jsme si ji døíve øekli, pøíkaz </font><font
+color="#000080" face="Arial"><strong>èekání</strong></font><font
+face="Arial"> má, kromì vlastní funkce èekání, také funkci
+spolupráce s ostatními programy (a také s jádrem systému
+Windows). Znalejší uivatel si mùe systémovım programem </font><font
+color="#000080" face="Arial"><strong>Sledování systému</strong></font><font
+face="Arial"> ovìøit, e program </font><font color="#000080"
+face="Arial"><strong>Grafika</strong></font><font face="Arial">
+zatìuje poèítaè minimálnì, a navíc je rychlost chodu
+programu nezávislá na rychlosti poèítaèe. Pro upøesnìní -
+pøíkaz èekání ve skuteènosti neznamená opravdovou prodlevu
+o zadané délce, ale synchronizaci na vnitøní hodiny
+poèítaèe. Proto nezávisí rychlost programu na tom, jak
+rychle se provedou pøíkazy mezi dvìma pøíkazy èekání.</font></p>
+
+<p><font face="Arial">Doplòte na zkoušku do pøíkazu èekání
+hodnotu </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">. Po spuštìní mùete pozorovat, e program
+teï chrlí velké mnoství bodù. Program ji neèeká na
+èasovı krok, ale jede maximální rychlostí. Pøitom po
+kadém prùchodu smyèkou ještì zajistí zobrazení plochy
+okna na displeji. To je další funkce pøíkazu èekání - </font><font
+color="#000080" face="Arial"><strong>zajištìní zobrazování</strong></font><font
+face="Arial">. Program toti neví, ve které chvíli byly
+dokonèeny všechny grafické operace a kdy je tedy vhodné okno
+zobrazit na displeji. Pokud by okno zobrazoval sám, mohl by ho
+zobrazit ve chvíli, kdy je vykresleno pozadí hry, ale ještì
+ne postavy ve høe. To by se projevilo problikáváním pozadí
+pod postavami. Proto probíhá zobrazování na obrazovku ve
+chvíli èekání, kdy jsou zøejmì ji všechny grafické
+operace dokonèeny.</font></p>
+
+<p><font face="Arial">Èasování s hodnotou </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial"> je vhodné pouívat v situacích, kdy je buï
+potøeba vyšší vıkon programu, nebo je èasování po 0.05
+sekundách pøíliš hrubé. Èasování s </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial"> zajišuje plynulé pøekreslování okna,
+maximální rychlost programu a ještì dostateènou spolupráci
+se systémem Windows. Rychlost chodu programu teï ji závisí
+na rychlosti poèítaèe. Systémovım programem </font><font
+color="#000080" face="Arial"><strong>Sledování systému</strong></font><font
+face="Arial"> bychom zjistili, e program spotøebovává
+témìø celı vıkon poèítaèe a to i ve zdánlivì klidovém
+stavu.</font></p>
+
+<p><font face="Arial">Pøi další zkoušce èasování programu
+mùete zkusit pøíkaz èasování úplnì zablokovat
+tlaèítkem </font><font color="#000080" face="Arial"><strong>Vypnout</strong></font><font
+face="Arial">. Kdy teï program spustíte, uvidíte namísto
+teèek barevnı šum. V této chvíli ji program pracuje
+skuteènì na plnı vıkon bez jakıchkoliv prodlev. Moná si
+všimnete, e namísto plynulého barevného šumu je obraz dost
+trhavı. Program toti zajišuje alespoò minimální
+pøekreslování okna na displej. Není-li po dobu asi 0.2
+sekundy pouit pøíkaz èekání, pøekreslí okno sám.</font></p>
+
+<p><font face="Arial">Vrame se zpìt ke grafickım pøíkazùm.
+Pøidejte do hlavní smyèky programu obdobnì i další
+grafické pøíkazy - </font><font color="#000080" face="Arial"><strong>èára</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>obdélník</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>vyplnìnı
+obdélník</strong></font><font face="Arial">, </font><font
+color="#000080" face="Arial"><strong>krunice</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>kruh</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>koule</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>trojúhelník</strong></font><font
+face="Arial"> - a zkuste jejich náhodné vykreslování. Pro
+krunici, kruh a kouli pouijte náhodnı polomìr </font><font
+color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial">. </font><font color="#000080" face="Arial"><strong>Vıplò</strong></font><font
+face="Arial"> vynechejte, zde by nebyla moc smysluplná.</font></p>
+
+<p><font face="Arial">Pozastavíme se u pøíkazu </font><font
+color="#000080" face="Arial"><strong>vıpis textu</strong></font><font
+face="Arial">. Pøíkaz má více parametrù, ne jste moná
+zvyklí, ale nemusíte se jich bát. Parametry, které vás
+nezajímají nebo které neznáte, nechejte prostì nenastavené,
+pouijí se jejich implicitní hodnoty. Vıznam parametrù </font><font
+color="#000080" face="Arial"><strong>text k vıpisu</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>barva
+pera</strong></font><font face="Arial">, </font><font
+color="#000080" face="Arial"><strong>horizontální souøadnice X
+textu</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>vertikální souøadnice Y
+textu</strong></font><font face="Arial"> je zøejmì pomìrnì
+jasnı.</font></p>
+
+<p><font face="Arial">Novım prvkem je </font><font
+color="#000080" face="Arial"><strong>úhel orientace textu</strong></font><font
+face="Arial">. Je to úhel, o kterı je text otoèen kolem
+levého dolního rohu. Úhel se udává v radiánech, stejnì
+jako všechny ostatní úhly v Petrovi. Mùeme vyuít
+konstanty smìru známé z nastavování smìru Petøíka a
+Lucky. Bez zadání smìru je pouit smìr </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial"> (vodorovnì zleva doprava).</font></p>
+
+<p><font face="Arial">Prvek</font><font color="#000080"
+face="Arial"><strong> vıška znakù</strong></font><font
+face="Arial"> urèuje vıšku znakù textu. Je udán v
+jednotkovıch krocích. Bez zadání vıšky bude vıška znakù </font><font
+color="#000080" face="Arial"><strong>0.5</strong></font><font
+face="Arial"> (polovina vıšky políèka).</font></p>
+
+<p><font face="Arial">Prvek </font><font color="#000080"
+face="Arial"><strong>relativní šíøka znakù (1 = bìná)</strong></font><font
+face="Arial"> pøedstavuje pomìrné èíslo udávající,
+kolikrát jsou znaky širší ne jejich bìná šíøka.
+Hodnota </font><font color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial"> nastavuje bìnou šíøku znakù. Vìtší
+èíslo ne </font><font color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial"> nastaví znaky širší, pøi menším èísle
+budou pouity znaky uší. Zvláštní hodnotou je èíslo </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">. Èíslo </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial"> nastaví doporuèenou šíøku pouitého typu
+znakù. Pøiblinì tato šíøka odpovídá bìné šíøce,
+ale mírnì se mùe lišit. Bez zadání šíøky znakù je
+pouita hodnota </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">, tedy doporuèená šíøka znakù.</font></p>
+
+<p><font face="Arial">Prvky </font><font color="#000080"
+face="Arial"><strong>tuènı text</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>kurzíva</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>podtrení</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>pøeškrtnutí</strong></font><font
+face="Arial"> jsou logické pøepínaèe a zapínají zvláštní
+efekty písma. Bez zadání hodnoty jsou všechny pøepínaèe
+vypnuté. Pøepínaè </font><font color="#000080" face="Arial"><strong>patièky</strong></font><font
+face="Arial"> zapíná patièky u znakù. Bez zadání je
+vypnutı. Pøepínaè </font><font color="#000080" face="Arial"><strong>psací
+stroj</strong></font><font face="Arial"> zapíná znaky s pevnou
+rozteèí a pevnou šíøkou. Pøi vypnutém pøepínaèi mají
+znaky promìnlivou šíøku (</font><font color="#000080"
+face="Arial"><strong>I</strong></font><font face="Arial"> je
+uší ne </font><font color="#000080" face="Arial"><strong>M</strong></font><font
+face="Arial">). Bez zadání je pøepínaè vypnutı.</font></p>
+
+<p><font face="Arial">Standardnì se v pøípadì vypnutí
+pøepínaèe patièek i psacího stroje pouije písmo </font><font
+color="#000080" face="Arial"><strong>Arial</strong></font><font
+face="Arial">. Po zapnutí patièek se pouije písmo </font><font
+color="#000080" face="Arial"><strong>Times New Roman</strong></font><font
+face="Arial">. Je-li naopak zapnut pøepínaè psacího stroje,
+pouije se písmo </font><font color="#000080" face="Arial"><strong>Courier
+New</strong></font><font face="Arial">. Jsou-li zapnuty oba
+pøepínaèe, patièky i psací stroj, pouije se jako
+zvláštní varianta uivatelskı font. Je to font, jeho
+jméno je definovatelné pomocí prvku </font><font
+color="#000080" face="Arial"><strong>uivatelské písmo</strong></font><font
+face="Arial">. Bez pøedefinování se pouije implicitní font </font><font
+color="#000080" face="Arial"><strong>Impact</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Celı pøíkaz pro náhodnı vıpis textu
+vidíte na následujícím obrázku. Pøíkaz je dost dlouhı,
+proto je obrázek rozdìlen na dvì èásti. Po vytvoøení
+pøíkazu program zkuste. Pokud si chcete program pozastavit,
+mùete k tomu pouít klávesu </font><font color="#000080"
+face="Arial"><strong>Pause</strong></font><font face="Arial">.
+Takto lze pozastavovat všechny programy v Petrovi.
+Pokraèování je moné stiskem jakékoliv klávesy.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/grafika3.gif"
+width="689" height="931"></font></p>
+
+<p><font face="Arial">Jednou z nejsilnìjších stránek grafiky
+jsou jistì obrázky. Pomocí obrázkù mùete zajistit vše,
+na co nestaèí základní vybavení Petra. Vytvoøíte
+pohyblivé postavièky, okno s animovanımi tlaèítky,
+pohyblivé pozadí hry a samozøejmì fotografie.</font></p>
+
+<p><font face="Arial">Pøíkazy a funkce pro práci s obrázky
+najdete ve skupinì </font><font color="#000080" face="Arial"><strong>grafika</strong></font><font
+face="Arial">, podskupina </font><font color="#000080"
+face="Arial"><strong>obrázky</strong></font><font face="Arial">.
+Základním pøíkazem je pøíkaz </font><font color="#000080"
+face="Arial"><strong>vykreslení obrázku</strong></font><font
+face="Arial">. Kromì samozøejmıch parametrù, jako je obrázek
+k vykreslení a souøadnice obrázku, má pøíkaz ještì
+další parametry, umoòující vykreslit pouze urèitou èást
+obrázku.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/grafika4.gif"
+width="454" height="897"></font></p>
+
+<p><font face="Arial">V našem zkušebním prográmku budeme
+náhodnì vykreslovat nìjakı obrázek. Mùete pouít tøeba
+obrázek chobotnice z minulé lekce. Pøíkaz pro náhodné
+vykreslení obrázku vidíte na pøedešlém obrázku. Abychom si
+uili náhodnosti, pouijeme kromì náhodné pozice také
+náhodnou zmìnu velikosti obrázku a náhodné otoèení. Je
+však tøeba upozornit, e obzvláštì otáèení obrázku
+mùe bıt èasovì znaènì nároèná operace, co se mùe
+projevit u velkıch obrázkù nebo pokud se zapne zjemnìní
+hran. Vıšku obrázku pøi zmìnì velikosti není tøeba
+zadávat, bude automaticky úmìrná nové šíøce.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/grafika5.gif"
+width="648" height="514"></font></p>
+
+<p align="center"><a href="download/12_grafika.zip"><font
+face="Arial">download pøíkladu</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_11.htm"><font face="Arial">11.
+Zaèínáme s grafikou</font></a><font face="Arial"> &lt;&lt;&lt;
+</font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_13.htm"><font
+face="Arial">13. Vybarvi si sám</font></a></p>
+</body>
+</html>

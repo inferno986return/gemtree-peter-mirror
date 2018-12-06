@@ -1,0 +1,429 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>14 Zátiší u potoka</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_13.htm"><font face="Arial">13.
+Vybarvi si sám</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_15.htm"><font
+face="Arial">15. Kaleidoskop (1. èást)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">14. Zátiší u potoka</font></h2>
+
+<p><font face="Arial">Petr se vydal na ryby, aby si užil ticha a
+pohody. A my si užijeme trochy matematiky.</font></p>
+
+<p><font face="Arial">Už jste nìkdy sedìli u vody, dívali se
+na vodu a pøemýšleli, co dìlá vodu vodou, proè se obraz na
+vodì tak vlní a jak tento pùsobivý efekt napodobit?</font></p>
+
+<p align="center"><img src="img2/hladina.gif" width="317"
+height="252"></p>
+
+<p><font face="Arial">Nejdøíve si pøedstavme hladinu vody jako
+rovnou plochu. Každému je jasné, že v této chvíli se chová
+jako zrcadlo, kdy vidíme obraz pozadí pøesnì stejnì, pouze
+&quot;<em>vzhùru nohama</em>&quot;. Pøedstavme si, že hladina
+se zaène vlnit vlnami rovnobìžnými s naším horizontem.
+Pomyslné paprsky pohledu, vycházející z našeho oka, se
+zaènou modulovat funkcí sinus kolem pùvodní støední polohy,
+stejnì jako se moduluje povrch hladiny. Navíc s rostoucí
+vzdáleností jsou vlny na pohled èím dál menší.</font></p>
+
+<p><font face="Arial">Vše, co tedy potøebujeme k simulaci
+vodní hladiny, je vykreslování obrazu pozadí po linkách s
+tím, že linky jsou vychylovány sinusovou funkcí, jejíž
+perioda se s rostoucí vzdáleností zkracuje a rozkmit
+zmenšuje.</font></p>
+
+<p><font face="Arial">Založte si nový program s názvem </font><font
+color="#000080" face="Arial"><strong>Hladina</strong></font><font
+face="Arial">. Vymažte </font><font color="#000080" face="Arial"><strong>prázdné
+políèko</strong></font><font face="Arial"> prùhlednou barvou,
+tím zajistíte zviditelnìní grafické plochy.</font></p>
+
+<p><font face="Arial">Budeme potøebovat obrázek pozadí bøehu
+øeky. Mùžete použít obrázek z pøíkladu, je ke stažení
+spolu s ostatní grafikou a zvuky na konci lekce. Vložte ho do
+progamu, mùže se jmenovat </font><font color="#000080"
+face="Arial"><strong>pozadí</strong></font><font face="Arial">.
+Obrázek by mìl mít šíøku 20 krokù a výšku 8 krokù.
+Dále budeme potøebovat zvuky pøírody. Opìt mùžete použít
+ty ukázkové které si stáhnete. A nakonec obrázek kaèera a
+kachny, kteøí budou plavat po hladinì, též ke stažení.</font></p>
+
+<p><font face="Arial">Obrázky a zvuky uložte do pole </font><font
+color="#000080" face="Arial"><strong>Spoleèných promìnných</strong></font><font
+face="Arial">. Pøípravte </font><font color="#000080"
+face="Arial"><strong>seznam náhodných zvukù</strong></font><font
+face="Arial">. Bude mít pouze jednu položku - </font><font
+color="#000080" face="Arial"><strong>náhodný zvuk</strong></font><font
+face="Arial">. Dále pøipravte datové promìnné pro program.
+Prvek </font><font color="#000080" face="Arial"><strong>ukazatel
+fáze animace</strong></font><font face="Arial"> </font><font
+color="#000080" face="Arial"><strong>hladiny</strong></font><font
+face="Arial"> bude sloužit k animaci vlnìní hladiny. Prvek </font><font
+color="#000080" face="Arial"><strong>vzdálenost linky od bøehu</strong></font><font
+face="Arial"> je pomocná promìnná používaná pøi animaci
+hladiny pod kaèerem a kachnou. Prvek </font><font
+color="#000080" face="Arial"><strong>souøadnice Y bøehu</strong></font><font
+face="Arial"> je konstanta vypoètená na zaèátku programu a
+pøedstavuje souøadnici Y, od které se zobrazí obrázek
+pozadí. Prvek </font><font color="#000080" face="Arial"><strong>modulace
+linky</strong></font><font face="Arial"> je pomocná pracovní
+promìnná pøedstavující odchylku kreslené linky od
+lineárního zrcadlového obrazu. Prvek </font><font
+color="#000080" face="Arial"><strong>vykreslovaná linka</strong></font><font
+face="Arial"> je ukazatel souøadnice linky bìhem vykreslování
+linek hladiny.</font></p>
+
+<p><font face="Arial">Kromì uvedených promìnných si
+pøipravte ještì promìnné pro kreslení kaèera a kachny.
+Prvky </font><font color="#000080" face="Arial"><strong>souøadnice
+X kaèera</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>souøadnice Y kaèera</strong></font><font
+face="Arial"> pøedstavují souøadnice obrázku kaèera v oknì.
+Pøíznak </font><font color="#000080" face="Arial"><strong>kaèer
+je v pohybu</strong></font><font face="Arial"> indikuje, že
+kaèer je viditelný a pluje po hladinì. Pøíznak </font><font
+color="#000080" face="Arial"><strong>kaèer smìr doprava</strong></font><font
+face="Arial"> udává, zda kaèer pluje zleva doprava nebo
+obrácenì. Prvek </font><font color="#000080" face="Arial"><strong>souèasný
+obrázek kaèera</strong></font><font face="Arial"> je obrázek
+kaèera buï v pùvodním tvaru (zleva doprava) nebo zrcadlovì
+obrácený (zprava doleva). Obdobné promìnné jsou pro kachnu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/hladina4.gif"
+width="600" height="453"></font></p>
+
+<p><font face="Arial">Na zaèátku programu si pøipravíme
+skupinu </font><font color="#000080" face="Arial"><strong>inicializace
+programu</strong></font><font face="Arial">. Obsah vidíte na
+obrázku níže. Petøíka vypneme, nebudeme ho používat.
+Uložíme náhodné zvuky do seznamu náhodných zvukù. Pro ten
+úèel nastavíme poèáteèní index seznamu na 0 a automatickou
+inkrementaci na 1. Po naplnìní seznamu navrátíme automatickou
+inkrementaci na 0. Pøipravíme souøadnici Y bøehu jako výšku
+plochy sníženou o výšku obrázku.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/hladina3.gif"
+width="753" height="787"></font></p>
+
+<p><font face="Arial">Dále v inicializaci spustíme
+pøehrávání opakovaných zvukù zvukové kulisy scény
+(šumìní vody, zpìv ptákù). U zvukù se musíme zastavit
+podrobnìji. Chceme, aby zvuky znìly pestøe a náhodnì. Proto
+nestaèí abychom si pøipravili jednu dlouhou nahrávku -
+nemìli bychom ji dostateènì dlouhou a velmi brzy bychom
+narazili na opakování, kdy se nahrávka už stává nudnou.
+Pestrost proto musíme zajistit opakováním více zvukù
+najednou s tak rozdílnými délkami, aby se nahrávky opakovanì
+nesetkávaly.</font></p>
+
+<p><font face="Arial">Kromì toho, že budeme pøehrávat rùzné
+nahrávky, mùžeme využít ještì jeden trik, díky kterému
+nemusíme mít nahrávek tolik. Budeme pøehrávat nìkteré
+nahrávky vícekrát najednou, ale rùznou rychlostí, èímž
+mùžeme zabránit pocitu opakování i u jediné nahrávky.
+Navíc pøidáme rozdílné nastavení stereobáze, takže zvuky
+budou pøicházet z rùzných smìrù. Tím se výraznì zvýší
+prostorovost zvuku a zvuková kulisa se stává mnohem bohatší.
+To je základní pøednost stereofonního zvuku - posluchaèi je
+jedno zda nìkterý zvuk pøichází zleva a jiný zprava,
+hlavní pøedností stereofonie je to, že zvuky se rozloží do
+širokého prostoru, což pùsobí jednak menší pocit únavy
+sluchu a jednak pocit pestrosti.</font></p>
+
+<p><font face="Arial">Pøíkazy pro práci se zvukem pracují se
+zvukem tak, že si udržují seznam pøehrávaných zvukù a
+jakmile pøijde pøíkaz pro manipulaci se zvukem (napøíklad
+pøíkaz pro pøehrávání), projde se seznam pøehrávaných
+zvukù a pokud je tento zvuk již pøehráván, bude se
+manipulovat s tímto zvukem (napøíklad se upraví hlasitost
+pøehrávání). Proto pokud chceme pøehrávat jeden zvuk
+vícekrát, musíme použít prvek </font><font color="#000080"
+face="Arial"><strong>rozlišovací kód (0 až 65535)</strong></font><font
+face="Arial">. Je to interní èíselná promìnná používaná
+jako doplòkové kritérium pøi vyhledávání zvuku v seznamu
+pøehrávaných zvukù. Bude-li rozlišovací kód pøed jedním
+pøíkazem nastaven na jinou hodnotu než pøed jiným
+pøíkazem, bude se zvuk považovat za jiný zvuk a díky tomu
+mùže být spuštìno jeho nové pøehrávání.</font></p>
+
+<p><font face="Arial">Posledním pøíkazem v inicializaci
+programu je pøíkaz pro vykreslení obrázku pozadí od </font><font
+color="#000080" face="Arial"><strong>souøadnice Y bøehu</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Budeme pokraèovat hlavní smyèkou
+programu. Použijte cyklus </font><font color="#000080"
+face="Arial"><strong>podmínìné opakování pøíkazù</strong></font><font
+face="Arial">. Do podmínky dejte test pøerušení cyklu stiskem
+klávesy </font><font color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial"> a na konec cyklu pøíkaz pro </font><font
+color="#000080" face="Arial"><strong>èekání</strong></font><font
+face="Arial">. Jak bude smyèka v závìru vypadat vidíte na
+následujícím obrázku. Program teï mùžete na zkoušku
+spustit - mìli byste vidìt v horní èásti plochy obrázek
+pozadí a mìlo by být slyšet pøehrávání opakovaných
+zvukù pozadí scény.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/hladina5.gif"
+width="360" height="608"></font></p>
+
+<p><font face="Arial">Obsluhu smyèky zaèneme vykreslováním
+animované hladiny vody. Pøipravte si do smyèky </font><font
+color="#000080" face="Arial"><strong>cyklus opakování
+pøíkazù s poètem</strong></font><font face="Arial">. Cyklus
+bude sloužit ke kreslení jednotlivých linek hladiny vody.
+Pøed cyklem vynulujte promìnnou </font><font color="#000080"
+face="Arial"><strong>vzdálenost linky od bøehu</strong></font><font
+face="Arial">, ta bude ukazatelem souøadnice linky bìhem
+vykreslování. Za cyklem zvyšte </font><font color="#000080"
+face="Arial"><strong>ukazatel fáze animace hladiny</strong></font><font
+face="Arial"> o 0.4, což je rychlost, jak rychle se budou
+pohybovat vlny na vodì.</font></p>
+
+<p><font face="Arial">Do poètu opakování cyklu vložte </font><font
+color="#000080" face="Arial"><strong>souøadnici Y bøehu</strong></font><font
+face="Arial"> vynásobenou èíslem </font><font color="#000080"
+face="Arial"><strong>32</strong></font><font face="Arial">. Jak
+si jistì vzpomínáte, jednotkový krok v souøadném systému
+Petra pøedstavuje šíøku 1 políèka. Každé políèko
+(pøedmìt) má rozmìr 32 x 32 grafických bodù. Proto
+vynásobením </font><font color="#000080" face="Arial"><strong>souøadnice
+Y bøehu</strong></font><font face="Arial"> èíslem 32 získáme
+poèet grafických linek hladiny, kterou chceme kreslit.</font></p>
+
+<p><font face="Arial">Na konci cyklu zvyšte ukazatel </font><font
+color="#000080" face="Arial"><strong>vzdálenost linky od bøehu</strong></font><font
+face="Arial"> o konstantu </font><font color="#000080"
+face="Arial"><strong>1/32</strong></font><font face="Arial">
+(naleznete ji v èíselných konstantách Petra), což je
+vzdálenost jednoho grafického bodu v souøadném systému
+Petra. Tím posuneme ukazatel kreslené linky na souøadnici
+další linky.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/hladina6.gif"
+width="345" height="444"></font></p>
+
+<p><font face="Arial">Na zaèátku cyklu vypoèteme promìnnou </font><font
+color="#000080" face="Arial"><strong>modulace linky</strong></font><font
+face="Arial">, což je, dá se øíct, centrální výpoèetní
+operace celého programu. Jedná se o sinusovou odchylku linky od
+lineárního zrcadlového obrazu, tedy výchylka vlny tak jak ji
+vidíme pøi pozorování vodní hladiny.</font></p>
+
+<p><font face="Arial">Funkce bude modulovaná sinusovou funkcí
+(jak by se dalo u vln na hladinì oèekávat). Vynásobením
+koeficientem 0.1 uvedeme rozkmit vln do &quot;<em>rozumných</em>&quot;
+mezí. Argument funkce sinus bude záviset jednak na fázi
+animace - tím se zajistí pohyb vln v èase - a jednak na
+vzdálenosti od bøehu - tím se zajistí zvlnìní hladiny od
+bøehu smìrem k nám. Ukazatel fáze animace hladiny mùžeme
+jednoduše pøièíst k funkci závislosti na vzdálenosti od
+bøehu.</font></p>
+
+<p><font face="Arial">Pokud bychom dosadili pøímo promìnnou </font><font
+color="#000080" face="Arial"><strong>vzdálenost linky od bøehu</strong></font><font
+face="Arial">, vlnila by se hladina lineárnì od bøehu.
+Všechny vlnky by byly stejnì široké. My ale potøebujeme, aby
+nejvzdálenìjší vlnky byly nejmenší a smìrem k nám se
+zvìtšovaly. Této závislosti nejlépe odpovídá pøevrácená
+hodnota vzdálenosti linky od bøehu. Abychom zabránili dìlení
+nulou (a protože u bøehu by byly vlnky až pøíliš malé) ke
+vzdálenosti linky pøièteme èíslo 1 (inkrementací). Do
+èitatele zlomku uvedeme èíslo 200, které udává šíøku
+vlnek. Ještì doladíme rozložení vlnek - vlnky jsou u bøehu
+malé a blízko nás pøíliš velké. Proto vzdálenost linky od
+bøehu ještì odmocníme, tím zmenšíme pøírustky velkých
+èísel a vlnky se tak stanou rovnomìrnìjší. Ve výsledku
+tedy mocníme vzdálenost linky èíslem </font><font
+color="#000080" face="Arial"><strong>-0.5</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><img src="img2/hladina7.gif" width="445"
+height="355"></p>
+
+<p><font face="Arial">Nyní vykreslíme linku hladiny vody.
+Souøadnici Y linky vypoèteme odeètením </font><font
+color="#000080" face="Arial"><strong>vzdálenosti linky od bøehu</strong></font><font
+face="Arial"> od </font><font color="#000080" face="Arial"><strong>souøadnice
+Y bøehu</strong></font><font face="Arial">. Navíc odeèteme
+šíøku 1 grafického bodu, protože první linka musí
+zaèínat pøesnì pod spodním okrajem obrázku pozadí. Výška
+výøezu je 1 grafický bod, tedy èíslo 1/32. Pokud bychom jako
+souøadnici výøezu Y dosadili pøímo promìnnou </font><font
+color="#000080" face="Arial"><strong>vzdálenost linky od bøehu</strong></font><font
+face="Arial">, vzniklo by nám lineární zrcadlo (tj, pozadí by
+se zobrazilo vzhùru nohama). Ke vzdálenosti linky od bøehu
+pøièteme </font><font color="#000080" face="Arial"><strong>modulaci
+linky</strong></font><font face="Arial"> a tím zajistíme
+rozmítání linek vlnami a tedy animaci vln hladiny. Protože
+potøebujeme, aby se rozkmit vln zvìtšoval od bøehu smìrem k
+nám, modulaci linky ještì vynásobíme </font><font
+color="#000080" face="Arial"><strong>vzdáleností linky od
+bøehu</strong></font><font face="Arial">.</font></p>
+
+<p><font face="Arial">Program mùžete vyzkoušet, uvidíte
+vlnící se vodní hladinu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/hladina8.gif"
+width="337" height="608"></font></p>
+
+<p><font face="Arial">Cyklus kreslení hladiny na chvíli
+opustíme a budeme se vìnovat animaci kaèera a kachny. Na
+zaèátek hlavní smyèky pøidejte podmínku </font><font
+color="#000080" face="Arial"><strong>pohyb kaèera</strong></font><font
+face="Arial">. Podle pøepínaèe </font><font color="#000080"
+face="Arial"><strong>kaèer je v pohybu</strong></font><font
+face="Arial"> se rozliší dva pøípady - buï je kaèer v
+pohybu a je tøeba jej animovat nebo je mimo obrazovku a mùže
+být znovu pøivolán na scénu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/hladina9.gif"
+width="259" height="228"></font></p>
+
+<p><font face="Arial">Je-li kaèer v pohybu, zajistí se jeho
+pohyb zmìnou souøadnice X v závislosti na tom, kterým smìrem
+se pohybuje. Pohybuje-li se smìrem doprava, jeho X souøadnice
+se zvýší o 0.05. Pokud souøadnice X pøesáhne hodnotu 21
+(staèilo by i 20), kaèer se dostal mimo obrazovku a vypne se
+pøíznak pohybu. Od této chvíle je neaktivní a mùže být
+znovu vyvolán. Obdobnì se zajistí obsluha pro smìr zprava
+doleva s tím rozdílem, že od souøadnice X se odeèítá 0.05
+a kontroluje se spodní hranice -5 pro ukonèení animace
+(obrázek je 4 široký, 1 je rezerva).</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/hladina10.gif" width="347" height="639"></font></p>
+
+<p><font face="Arial">Není-li kaèer v pohybu, mùže se
+zahájit jeho nová animace. Animace se spustí s
+pravdìpodobností 1% (tj. náhodné èíslo je menší než
+0.01). Pøi zahájení pohybu se nejdøíve nastaví pøíznak,
+že </font><font color="#000080" face="Arial"><strong>kaèer je v
+pohybu</strong></font><font face="Arial">. Dále se náhodnì
+urèí (s 50% pravdìpodobností), zda se bude pohybovat zleva </font><font
+color="#000080" face="Arial"><strong>doprava</strong></font><font
+face="Arial"> nebo obrácenì. </font><font color="#000080"
+face="Arial"><strong>Souøadnice Y</strong></font><font
+face="Arial"> bude náhodná v rozmezí 4.5 až 5.5. Obrázek
+kaèera má výšku 1.5, pøi souøadnici 5.5 bude tedy jeho
+horní okraj na souøadnici 7.0, což je horní okraj hladiny.
+Pokud bychom kaèera nechali zobrazovat výše, museli bychom
+pøekreslovat i obrázek pozadí, jinak ho bude kaèer
+pøemazávat.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/hladina11.gif" width="351" height="578"></font></p>
+
+<p><font face="Arial">Podle pøíznaku smìru pohybu urèíme
+výchozí </font><font color="#000080" face="Arial"><strong>souøadnici
+X kaèera</strong></font><font face="Arial"> - buï </font><font
+color="#000080" face="Arial"><strong>-5</strong></font><font
+face="Arial"> (vlevo) nebo </font><font color="#000080"
+face="Arial"><strong>21</strong></font><font face="Arial">
+(vpravo). Zároveò pøipravíme </font><font color="#000080"
+face="Arial"><strong>souèasný obrázek kaèera</strong></font><font
+face="Arial">. Pro smìr doprava je to pùvodní obrázek beze
+zmìny, pro smìr doleva je to obrázek zrcadlovì obrácený.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/hladina12.gif" width="327" height="448"></font></p>
+
+<p><font face="Arial">Nyní do hlavní smyèky, ihned za cyklus
+pro vykreslení jedné fáze hladiny, doplòte obsluhu pro </font><font
+color="#000080" face="Arial"><strong>vykreslení kaèera</strong></font><font
+face="Arial">. Je-li </font><font color="#000080" face="Arial"><strong>kaèer
+v pohybu</strong></font><font face="Arial">, zobrazí se </font><font
+color="#000080" face="Arial"><strong>souèasný obrázek kaèera</strong></font><font
+face="Arial"> na aktuálních souøadnicích X a Y. Program
+mùžete zkusit - mìli byste vidìt náhodnì se objevujícího
+kaèera, jak plave po hladinì. Zatím bez odrazu na vodní
+hladinì. Obdobnì obslužte i kachnu, s tím rozdílem, že
+její souøadnice Y bude v rozmezí 3 až 4.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/hladina13.gif" width="351" height="513"></font></p>
+
+<p><font face="Arial">Vrátíme se do smyèky </font><font
+color="#000080" face="Arial"><strong>vykreslení jedné fáze
+hladiny</strong></font><font face="Arial">. Doplòte za pøíkaz
+pro vykreslení jedné linky hladiny podmínku, která vykreslí
+kaèera v pøípadì, že kaèer je v pohybu (tj. zobrazen).
+Nejdøíve si pøipravíme souøadnici linky v obrázku kaèera -
+od </font><font color="#000080" face="Arial"><strong>vzdálenosti
+linky od bøehu</strong></font><font face="Arial"> odeèteme
+vzdálenost obrázku kaèera od bøehu. Namísto dvojité negace
+jen zamìníme prvky, takže odeèteme </font><font
+color="#000080" face="Arial"><strong>souøadnici Y kaèera</strong></font><font
+face="Arial"> mínus </font><font color="#000080" face="Arial"><strong>souøadnici
+Y bøehu</strong></font><font face="Arial">. K výsledku
+pøièteme vypoètenou </font><font color="#000080" face="Arial"><strong>modulaci
+linky</strong></font><font face="Arial">, èímž zajistíme
+vlnìní hladiny, a malou korekci </font><font color="#000080"
+face="Arial"><strong>0.5,</strong></font><font face="Arial">
+která zajistí, že se obraz kaèera zobrazí kousek výše (aby
+se s kaèerem mírnì pøekrýval).</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/hladina14.gif" width="343" height="416"></font></p>
+
+<p><font face="Arial">Nyní mùžeme zobrazit linku odrazu
+kaèera. Ovìøíme, zda je vypoètená linka v obrázku platná
+- tj. zda je souøadnice nezáporná. Zda leží nad horním
+okrajem obrázku testovat nemusíme, protože to ovìøí
+kreslicí funkce. Je-li souøadnice Y nad horním okrajem,
+kreslení se neprovede. Zatímco je-li pod dolním okrajem (tj.
+záporná), omezí se na hodnotu 0 a v takovém pøípadì by se
+vykreslila linka 0, proto dolní hranici testovat musíme. </font></p>
+
+<p align="center"><img src="img2/hladina15.gif" width="379"
+height="737"></p>
+
+<p><font face="Arial">Program mùžete opìt vyzkoušet. Pod
+kaèerem by se mìl objevit jeho vlnící se odraz ve vodì.
+Obdobnì obslužte i kreslení kachny. Kreslení kachny musí
+probíhat vždy pozdìji než kreslení kaèera, protože její Y
+souøadnice je níže, tedy jakoby blíže k nám.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img2/hladina16.gif" width="425" height="737"></font></p>
+
+<p><font face="Arial">Zbývá poslední úkon - náhodné
+pøehrávání zvukù. Obsluhu umístìte do hlavní smyèky,
+pøed obsluhu èekání. Nový náhodný zvuk se pøehraje s 2%
+pravdìpodobností, tj. je-li náhodné èíslo menší než
+0.02. Nastavením indexu náhodného zvuku na náhodné èíslo
+se náhodnì vybere nìkterý ze zvukù a spustí se jeho
+pøehrátí s náhodným vyvážením stereobáze v rozsahu -1
+až +1. Tím je program hotov.</font></p>
+
+<p align="center"><img src="img2/hladina2.gif" width="648"
+height="514"></p>
+
+<p align="center"><a href="download/14_data.zip"><font
+face="Arial">download obrázkù a zvukù k pøíkladu</font></a></p>
+
+<p align="center"><a href="download/14_hladina.zip"><font
+face="Arial">download pøíkladu</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_13.htm"><font face="Arial">13.
+Vybarvi si sám</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_15.htm"><font
+face="Arial">15. Kaleidoskop (1. èást)</font></a></p>
+</body>
+</html>

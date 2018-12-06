@@ -1,0 +1,220 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>37 Metody 3D grafiky (èást 6 objekty)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_36.htm"><font face="Arial">36.
+Metody 3D grafiky (5. èást, obloha)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">37. Metody 3D grafiky (6. èást, objekty)</font></h2>
+
+<p><font face="Arial"><em>... dokonèení z minulé lekce</em></font></p>
+
+<p><font face="Arial">V poslední èásti tutoriálu,
+zabývajícího se metodami 3D grafiky, se budeme vìnovat
+tvorbì statických objektù.</font></p>
+
+<p><font face="Arial">Abychom si usnadnili definici rozmístìní
+objektù ve scénì, zkopírovali jsme si plochu používanou
+pøi vytváøení terénu z plochy a do terénu jsme rozmístili
+ikonky objektù, které budeme chtít ve scénì vytvoøit. Pøi
+spuštìní programu procházíme tuto mapu a narazíme-li na
+známou ikonku nìjakého objektu, objekt vytvoøíme a jeho
+vlastnosti (vèetnì souøadnice a ID prvku) uložíme do seznamu
+statických objektù.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody61.gif"
+width="414" height="376"></font></p>
+
+<h3><font face="Arial">1. 2D objekt</font></h3>
+
+<p><font face="Arial">Prvním z pøedstavitelù statických
+objektù jsou </font><font color="#000080" face="Arial"><strong>2D
+objekty</strong></font><font face="Arial">. 2D objekt je
+jednoduchá textura, zpravidla s prùhledností, která je
+umístìná na ètvercové èi obdélníkové ploše. Plocha 2D
+objektu má tu speciální vlastnost, že se neustále natáèí
+smìrem k pozorovateli. Proto 2D objekty vidíme z jakéhokoliv
+smìru a vypadají ze všech smìrù stejnì. Bohužel, hráèe
+neoklameme a pozná hned, že se jedná jen o 2D obrázek a ne o
+reálný 3D objekt. 2D objekty proto používáme spíše pro
+menší jednoduché objekty (tráva, kvìtiny) a pro velmi
+vzdálené objekty.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody62.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">2. Statický 2D objekt</font></h3>
+
+<p><font face="Arial">Vylepšením 2D objektù jsou </font><font
+color="#000080" face="Arial"><strong>statické 2D objekty</strong></font><font
+face="Arial">. Od jednoduchých 2D objektù se liší tím, že
+se skládají ze 4 stìn, které jsou navzájem kolmé
+(pøekøížené). K pozorovateli se nenatáèí. Prostorový
+dojem je mnohem vyšší než u jednoduchých 2D objektù.
+Nevýhodou je vyšší složitost objektu (4x více plošek) a
+textura objektu by mìla být osovì symetrická. Používá se
+proto pøevážnì u stromù.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody63.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">3. 3D objekty</font></h3>
+
+<p><font face="Arial">Nejlepší dojem vytvoøíme plnì 3D
+objektem. K vytváøení 3D objektù si buï mùžeme vystaèit s
+interním generátorem objektù Petra nebo modely objektù
+vytvoøíme ve 3D editoru. Na následujících snímcích jsou
+pøíklady 3D objektù vytvoøených v editoru </font><font
+color="#000080" face="Arial"><strong>Milkshape</strong></font><font
+face="Arial">, následnì pøevedených do textového souboru ve
+formátu </font><font color="#000080" face="Arial"><strong>x</strong></font><font
+face="Arial"> a vytvoøených jako objekty v demonstraèním
+programu pomocí prvku </font><font color="#000080" face="Arial"><strong>objekt
+z textu</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody64.jpg"
+width="512" height="384"></font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody65.jpg"
+width="512" height="384"></font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody66.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">4. Snížená úroveò detailù LOD</font></h3>
+
+<p><font face="Arial">Vykreslování 3D grafiky je pøíliš
+nároèné na výkon. Jednou z možností, jak vykreslovací
+jednotce trochu odlehèit, je používání snížené úrovnì
+detailù (LOD = Level of Details). Technika spoèívá v tom, že
+objekt má nejvyšší složitost pouze pøi blízkém pohledu.
+Se vzdalováním od objektu složitost objektu postupnì klesá.</font></p>
+
+<p><font face="Arial">Jako pøíklad je v ukázkovém programu
+vytvoøen model fontánky. Je to programovì generovaný model,
+vytvoøený pomocí prvku </font><font color="#000080"
+face="Arial"><strong>rotaèní objekt</strong></font><font
+face="Arial">. Vstupní profil byl vytvoøený v programu </font><font
+color="#000080" face="Arial"><strong>Modeláø</strong></font><font
+face="Arial">, který je k dispozici ke stažení jako ukázkový
+program Petra.</font></p>
+
+<p><font face="Arial">Objekt fontánky je vytvoøen nejdøíve s
+velkou složitostí (12). Od urèité vzdálenosti je k nìmu
+pøipojen jako </font><font color="#000080" face="Arial"><strong>objekt
+se sníženou úrovní detailù</strong></font><font face="Arial">
+další objekt fontánky, tentokrát s mnohem nižší
+složitostí (6) a bez stínu. Pøi pohybu hráèe smìrem od
+fontánky je vidìt po nìjakou dobu objekt s plnou složitostí
+a od urèité vzdálenosti se zmìní na objekt s menší
+složitostí. Pøi správnì navržených objektech nemusí být
+rozdíl vzhledem ke vzdálenosti ani patrný. Ke druhému stupni
+složitostí je pøipojen ještì tøetí stupeò složitosti
+fontánky. Tentokrát je to jen jednoduchý 2D objekt, tedy
+textura neustále se otáèející smìrem k pozorovateli. Z
+pùvodních nìkolika set plošek modelu zbyly nakonec jen 2
+plošky a pøesto je objekt stále ještì dobøe viditelný.
+Tímto zpùsobem lze sestavovat pomìrnì složité scény aniž
+by docházelo k citelnému snížování výkonu renderování
+grafiky.</font></p>
+
+<p><font face="Arial">Na následujících snímcích vidíte
+porovnání zmìn ve vzhledu objektu v pøechodových
+vzdálenostech. Pøechod mezi složitostí 6 a 2D objektem je
+znatelný spíš podle toho, že voda ve fontánce pøestane být
+animovaná. <em>Poznámka: Textura pro 2D objekt byla získána
+sejmutím objektu z obrazovky, oøíznutím okrajù a vyplnìním
+vody prùhlednou barvou (v editoru Petra se støídají body
+modré a prùsvitné barvy).</em></font></p>
+
+<p align="center"><img src="img6/metody67.jpg" width="512"
+height="384"></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody68.jpg"
+width="512" height="384"></font></p>
+
+<p align="center"><img src="img6/metody69.jpg" width="512"
+height="384"></p>
+
+<h3><font face="Arial">5. Kolize s objekty</font></h3>
+
+<p><font face="Arial">Jistì nevypadá dobøe, pokud hráè
+mùže procházet skrz stromy a jiné objekty. Z toho dùvodu je
+tøeba øešit kolizi hráèe se statickými objekty.</font></p>
+
+<p><font face="Arial">Abychom nemuseli pøi každém kroku
+procházet vždy znovu celý seznam.statických objektù ve
+scénì, je bìhem generování objektù sestavována kolizní
+mapa. Je to seznam všech pozic na mapì (v ukázkovém programu
+je velikost mapy 50 x 50, tj. celkem 2500 pozic). Je-li v mapì
+nalezen statický objekt, je uložen jednak do seznamu
+statických objektù (který potøebujeme k aktualizaci výšek
+objektù v terénu) a souèasne je index do seznamu statických
+objektù uložen do seznamu kolizní mapy na pøíslušnou pozici
+v mapì.</font></p>
+
+<p><font face="Arial">Pohybujeme-li hráèem, testujeme pøi
+každém jeho kroku pøíslušnou pozici v kolizní mapì a její
+blízké okolí. Je-li na testované pozici nalezen nìjaký
+statický objekt, vezme program jeho index a nastaví si ukazatel
+na objekt v seznamu statických objektù. Tam je informace o tom,
+zda je objekt prùchozí nebo ne.</font></p>
+
+<p><font face="Arial">Není-li prùchozí, rozliší se test typu
+kolize. Nejjednodušším pøípadem je </font><font
+color="#000080" face="Arial"><strong>kruhový test</strong></font><font
+face="Arial">. U objektu je zaznamenáno, do jakého okruhu od
+støedu objektu nemá hráè pøístup. Staèí jen vypoèítat
+vzdálenost hráèe od støedu objektu a porovnáním zjistit,
+zda nastala kolize s objektem nebo ne. Tento typ kolize je
+vhodný napøíklad pro stromy.</font></p>
+
+<p><font face="Arial">Druhý typ testované kolize je </font><font
+color="#000080" face="Arial"><strong>obdélník</strong></font><font
+face="Arial">. V tomto pøípadì jsou u objektu poznamenány
+poèáteèní a koncová souøadnice X a Z kolizní oblasti.
+Spadá-li testovaná souøadnice hráèe dovnitø této oblasti,
+nastala kolize. Tento typ kolize je vhodný napøíklad pro
+budovy. Vyžaduje, aby testovaná obdélníková oblast byla
+soubìžná s osami souøadného systému (raketa v ukázkovém
+programu proto nemùže být otoèena šikmo).</font></p>
+
+<p><font face="Arial">Nastane-li kolize hráèe, pøehraje se
+zvuk nárazu. Pro pøíjemnìjší ovládání je obsluhováno
+klouzání hráèe po objektu. Je-li detekována kolizní oblast,
+provede se ještì test kolize v možném smìru X nebo Z, kdy se
+bude mìnit jenom jedna souøadnice a druhá zùstane stejná.
+Je-li nìkterá ze souøadnic prùchozí, zmìní se pouze tato
+souøadnice a hráè jakoby klouže po povrchu objektu ve smìru
+osy X nebo Z. Tato metoda funguje pouze u stìn rovnobìžných s
+osami X a Z. Pokud bychom ji chtìli více zobecnit, testovali
+bychom možné smìry pro klouzání v nìkolika vektorech
+smìrù odklonìných od požadovaného smìru pohybu. Použili
+bychom pak vektor pohybu, který by byl nejbližší
+požadovanému smìru.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody70.jpg"
+width="512" height="384"></font></p>
+
+<p align="center"><a href="download/metody_3d.zip"><font
+face="Arial">download demonstraèního programu Metody 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_36.htm"><font face="Arial">36.
+Metody 3D grafiky (5. èást, obloha)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a></p>
+</body>
+</html>

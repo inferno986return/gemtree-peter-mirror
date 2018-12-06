@@ -1,0 +1,359 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>24 Lovíme minotaury (èást 3 minotauøi)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_23.htm"><font face="Arial">23.
+Lovíme minotaury (2. èást, ovládání)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_25.htm"><font face="Arial">25. Lovíme minotaury (4.
+èást, støelba)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">24. Lovíme minotaury (3. èást,
+minotauøi)</font></h2>
+
+<p><font face="Arial"><em>... pokraèování z minulé lekce</em></font></p>
+
+<p><font face="Arial">V kadém správném labyrintu má bıt
+alespoò jeden minotaurus. A protoe jsme teprve
+zaèáteèníci, nebudeme si ivot komplikovat sloitımi
+animovanımi 3D modely, ale pouijeme jednoduše nìjakı
+obrázek minotaura, kterı si rozpohybujeme v grafickém editoru
+a pak obrázky nalepíme na </font><font color="#000080"
+face="Arial"><strong>2D objekt</strong></font><font face="Arial">.
+2D objekt je zvláštní pøípad objektu. Je to jednoduchá
+rovná plocha, která se neustále natáèí smìrem ke kameøe.
+Pokud ji opatøíme napø. obrázkem stromu, tak stále vidíme
+strom, a jdeme kam chceme.</font></p>
+
+<p><font face="Arial">Budete-li si pøipravovat textury
+minotaura, pouijte velikost 256 x 256 bodù a okolí minotaura
+vyplòte prùhlednou barvou. Nebo mùete pouít textury,
+které naleznete na konci lekce. Kromì minotaura si pøipravíme
+ještì i texturu stínu pod minotaurem, co je bílá plocha s
+šedım flíèkem uprostøed.</font></p>
+
+<p align="center"><img src="img4/bludiste22.gif" width="384"
+height="256"></p>
+
+<p><font face="Arial">Pøipravte si funkci </font><font
+color="#000080" face="Arial"><strong>vytvoøení minotaurù</strong></font><font
+face="Arial"> a zavolejte ji bìhem inicializace programu. Zatím
+jen jako první pokus vytvoøíme jednoho minotaura na nìjaké
+pozici blízko nás. ID objektu uloíme teï jen do prozatimní
+promìnné. Nastavením prvku </font><font color="#000080"
+face="Arial"><strong>obrysy</strong></font><font face="Arial"> na
+hodnotu </font><font color="#000080" face="Arial"><strong>0.8</strong></font><font
+face="Arial"> zajistíme, e místa s prùhlednou barvou budou
+prùhledná. U minotaura mùeme vypnout osvìtlení objektu,
+protoe obrázek je u nastínován a po ztmavení by pùsobil
+nepøirozenì.</font></p>
+
+<p><font face="Arial">Funkce </font><font color="#000080"
+face="Arial"><strong>obrysy</strong></font><font face="Arial"> se
+liší od funkce </font><font color="#000080" face="Arial"><strong>prùhlednost</strong></font><font
+face="Arial">, kterou jsme pouívali døíve. Pøi
+prùhlednosti se kombinují grafické body objektu s grafickımi
+body pozadí. U obrysù se testuje prùhlednost vykreslovaného
+bodu a buï se bod vykreslí nebo ne. Zatímco pøi prùhlednosti
+se ukládá hloubková informace o bodu i v pøípadì plné
+prùhlednosti, u obrysù se nevykreslenı bod chová jakoby tam
+vùbec nebyl. Obrysy neumoòují hladké obrysy objektu, ale
+nevznikají komplikace pøi vícenásobném pøekryvu
+prùhlednıch objektù.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste23.gif" width="221" height="480"></font></p>
+
+<p align="left"><font face="Arial">Po spuštìní byste mìli
+spatøit pøímo pøed sebou minotaura. Kdy kolem nìj
+procházíte, natáèí se stále na vás.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste24.jpg" width="648" height="514"></font></p>
+
+<p><font face="Arial">Po vytvoøení minotaura vytvoøíme
+ještì jeho stín. Bude to šedá ploška vznášející se
+nepatrnì nad zemí. Opìt zatím jen provizornì. Nastavíme
+prùhlednost typu </font><font color="#000080" face="Arial"><strong>20</strong></font><font
+face="Arial">, která pùsobí ztmavení podkladu.</font></p>
+
+<p align="center"><img src="img4/bludiste25.gif" width="334"
+height="640"></p>
+
+<p><font face="Arial">Po spuštìní by mìl bıt pod minotaurem
+patrnı stín.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste26.jpg" width="648" height="514"></font></p>
+
+<p><font face="Arial">Teï si minotaury rozmnoíme. Pøipravte
+si </font><font color="#000080" face="Arial"><strong>seznam
+minotaurù</strong></font><font face="Arial">. Poèet minotaurù
+bude staèit </font><font color="#000080" face="Arial"><strong>10</strong></font><font
+face="Arial">, budeme je neustále recyklovat. V seznamu budeme
+potøebovat promìnné </font><font color="#000080" face="Arial"><strong>ID
+minotaura</strong></font><font face="Arial">, </font><font
+color="#000080" face="Arial"><strong>ID stín minotaura</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>souøadnice
+X minotaura</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>souøadnice Z minotaura</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><img src="img4/bludiste27.gif" width="252"
+height="256"></p>
+
+<p><font face="Arial">Zpìt k funci </font><font color="#000080"
+face="Arial"><strong>vytvoøení minotaurù</strong></font><font
+face="Arial">. Minotaury budeme vytváøet v cyklu pro všechny
+prvky seznamu. Nejdøíve vytvoøíme minotaura, stejnì jako
+jsme to udìlali zkušebnì pøed chvílí, jen vypustíme
+pøíkazy pro nastavení souøadnice </font><font color="#000080"
+face="Arial"><strong>X</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial">. Dále vytvoøíme stín, opìt stejnì a opìt bez
+nastavení souøadnic </font><font color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial">. Posledním pøíkazem ve smyèce bude zavolání
+funkce </font><font color="#000080" face="Arial"><strong>umístìní
+minotaura</strong></font><font face="Arial">, která vygeneruje
+novou náhodnou pozici minotaura. Zatím funkci nemáme, proto ji
+zalote.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste28.gif" width="285" height="384"></font></p>
+
+<p><font face="Arial">V obsluze funkce </font><font
+color="#000080" face="Arial"><strong>umístìní minotaura</strong></font><font
+face="Arial"> budeme v nekoneèné smyèce hledat náhodnou
+volnou pozici pro vybraného minotaura. Nejdøíve vygenerujeme
+náhodnou souøadnici. Bude to náhodné èíslo odvozené z
+rozmìrù plochy, s hodnotami </font><font color="#000080"
+face="Arial"><strong>0.5</strong></font><font face="Arial">, </font><font
+color="#000080" face="Arial"><strong>1.5</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>2.5</strong></font><font
+face="Arial"> atd.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste29.gif" width="406" height="636"></font></p>
+
+<p><font face="Arial">Po vygenerování náhodnıch souøadnic
+otestujeme novou pozici, zda je volná. To znamená, musí tam
+bıt prázdné políèko a nesmí tam bıt ádnı jinı aktér
+(test aktérù budeme mít a pozdìji). Funkci pro test
+prùchodnosti pøedáváme </font><font color="#000080"
+face="Arial"><strong>ID minotaura</strong></font><font
+face="Arial"> (kvùli testu kolize aktérù) a </font><font
+color="#000080" face="Arial"><strong>odstup od zdi minotaura</strong></font><font
+face="Arial">. Odstup od zdi minotaura je konstanta, kterou si
+pøipravte ve spoleènıch promìnnıch, její hodnotu nastavte v
+inicializaci na </font><font color="#000080" face="Arial"><strong>0.4</strong></font><font
+face="Arial">. Další testovanou podmínkou bude, e nová
+pozice musí mít urèitou minimální vzdálenost od kamery. To
+je z toho dùvodu, aby se po zastøelení pøíšery neobjevila
+nová hned u hráèe, to by jistì nevypadalo moc dobøe. Jsou-li
+všechny podmínky splnìny, aktualizuje se nová souøadnice
+minotaura zavoláním funkce </font><font color="#000080"
+face="Arial"><strong>aktualizace souøadnice minotaura</strong></font><font
+face="Arial">. Tu zatím nemáme, pøipravte si prázdnou. Poté
+se smyèka pøeruší. Nejsou-li podmínky splnìny, pokraèuje
+se v hledání na nové náhodné pozici.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste30.gif" width="430" height="864"></font></p>
+
+<p><font face="Arial">Ve funkci </font><font color="#000080"
+face="Arial"><strong>aktualizace souøadnic minotaura</strong></font><font
+face="Arial"> jen jednoduše nastavíme minotaura i jeho stín na
+aktuální souøadnice minotaura.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste31.gif" width="283" height="384"></font></p>
+
+<p><font face="Arial">Program spuste a projdìte se po
+bludišti. Mìli byste nacházet roztroušené minotaury. Je jich
+sice jen jako šafránu, ale a vás budou kousat bude jich a
+moc. Chcete-li si udìlat pøehled, zmìòte na chvíli v
+inicializaci vıšku kamery </font><font color="#000080"
+face="Arial"><strong>Y</strong></font><font face="Arial"> na
+hodnotu napø. </font><font color="#000080" face="Arial"><strong>3</strong></font><font
+face="Arial"> a pøidejte rotaci </font><font color="#000080"
+face="Arial"><strong>X</strong></font><font face="Arial"> s
+hodnotou </font><font color="#000080" face="Arial"><strong>0.5</strong></font><font
+face="Arial">. Uvidíte bludištì s minotaury z nadhledu.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste32.jpg" width="648" height="514"></font></p>
+
+<p><font face="Arial">Minotaury rozhıbeme. Zalote novou
+funkci, </font><font color="#000080" face="Arial"><strong>obsluha
+minotaurù</strong></font><font face="Arial">, a pøidejte její
+volání do hlavní smyèky programu, za obsluhu klávesnice.
+Nejdøíve budeme animovat pohyb. Pøipravte si promìnnou </font><font
+color="#000080" face="Arial"><strong>fáze pohybu minotaurù</strong></font><font
+face="Arial">. Dále potøebujeme konstantu </font><font
+color="#000080" face="Arial"><strong>rychlost animace minotaura</strong></font><font
+face="Arial">, její hodnotu nastavte v inicializaci na </font><font
+color="#000080" face="Arial"><strong>6</strong></font><font
+face="Arial">. V obsluze minotaurù zvıšíme èítaè </font><font
+color="#000080" face="Arial"><strong>fáze pohybu minotaurù</strong></font><font
+face="Arial"> a to opìt s vyuitím èítaèe ubìhlého èasu
+a konstanty </font><font color="#000080" face="Arial"><strong>rychlosti
+animace minotaura</strong></font><font face="Arial">. Pokud
+promìnná fáze pøeteèe pøes maximální hodnotu, co je v
+našem pøípadì 8 (animace má 8 fází), odeèteme 8 a tím
+posuneme èítaè opìt na zaèátek. Mohli bychom èítaè
+vynulovat, ale tím bychom mohli dosáhnout nerovnomìrnou délku
+první fáze animace. Podle celoèíselné èásti </font><font
+color="#000080" face="Arial"><strong>fáze pohybu</strong></font><font
+face="Arial"> si pøipravíme pøíslušnou texturu. Uchováme si
+ji do promìnné </font><font color="#000080" face="Arial"><strong>textura
+minotaura</strong></font><font face="Arial">, kterou jsme si pro
+ten úèel pøipravili v místních promìnnıch funkce. Mohli
+bychom pro kadého minotaura pouít jinı ukazatel fáze, aby
+se nepohybovali stejnì, ale máme jich ve scénì málo a je
+pomìrnì nízká pravdìpodobnost vıskytu více minotaurù
+viditelnì blízko sebe.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste33.gif" width="344" height="637"></font></p>
+
+<p><font face="Arial">Po pøípravì textury nastavíme texturu
+všem minotaurùm.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste34.gif" width="355" height="416"></font></p>
+
+<p><font face="Arial">Program vyzkoušejte. Mìli byste vidìt
+minotaury, kteøí se pohybují jako pøi chùzi. Samozøejmì
+stále ještì stojí na místì.</font></p>
+
+<p><font face="Arial">Do stejné smyèky, kde nastavujeme texturu
+minotaura, zaèneme doplòovat pohyb minotaura. Nebude oplıvat
+ádnou zvláštní inteligencí. Koneckoncù, co byste èekali
+od pøíšery. Take se bude jen snait jít pomalu co
+nejkratší cestou k hráèi. To zajistíme následující
+metodou. Z rozdílù souøadnic kamery a minotaura vypoèteme
+vektor smìru k hráèi. Ten normalizujeme (tj. vydìlíme jeho
+délkou) a vynásobíme rychlostí pohybu minotaura korigovanou
+uplynulım èasem. Konstantu </font><font color="#000080"
+face="Arial"><strong>rychlost pohybu minotaura</strong></font><font
+face="Arial"> si pro ten úèel pøipravíme ve spoleènıch
+promìnnıch a nastavíme jí hodnotu </font><font
+color="#000080" face="Arial"><strong>0.1</strong></font><font
+face="Arial">. Pøiètením násobku k aktuální pozici
+získáme novou pozici minotaura. Vısledek si uloíme do
+pøechodnıch lokálních promìnnıch </font><font
+color="#000080" face="Arial"><strong>nová souøadnice X a Z
+minotaura</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste35.gif" width="395" height="704"></font></p>
+
+<p><font face="Arial">S novou souøadnicí budeme zacházet
+podobnì jako pøi pohybu hráèe. Nejdøíve otestujeme, zda je
+nová souøadnice prùchozí. Pokud ano, uloíme ji a
+aktualizujeme souøadnici minotaura.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste36.gif" width="352" height="640"></font></p>
+
+<p><font face="Arial">Není-li nová pozice prùchozí, pokusíme
+se o pohyb sklouzáváním po stìnì. Na rozdíl od obsluhy
+hráèe chceme, aby se v pøípadì sklouzávání minotaurus
+pohyboval plnou rychlostí. Proto vypoèteme nedøíve novou
+souøadnici </font><font color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial"> pro pohyb pouze ve smìru </font><font
+color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial">. Následuje test, zda je nová souøadnice
+prùchozí s tím, e souøadnici </font><font color="#000080"
+face="Arial"><strong>X</strong></font><font face="Arial">
+pouijeme starou. Je-li pozice prùchozí, uloíme novou
+souøadnici </font><font color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial"> jako platnou. Není-li prùchozí, pokusíme se
+podobnì sklouzávat ve smìru </font><font color="#000080"
+face="Arial"><strong>X</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste37.gif" width="374" height="576"></font></p>
+
+<p><font face="Arial">Vyzkoušejte program, zda se minotauøi
+skuteènì pohybují smìrem k vám a nezùstávají nìkde
+nelogicky viset. Pokud bychom otoèili vektor smìru, minotauøi
+by naopak pøed námi utíkali. To se vyuívá v pøípadì,
+kdy se nepøítel louèí se ivotem a pøechází z útoku na
+útìk.</font></p>
+
+<p><font face="Arial">Pøecházíme k poslední záleitosti
+dnešní lekce - kolize s aktéry. Vrate se zpìt do funkce </font><font
+color="#000080" face="Arial"><strong>test kolize s aktéry</strong></font><font
+face="Arial">. Potøebujeme pro ten úèel konstantu </font><font
+color="#000080" face="Arial"><strong>minimální vzdálenost mezi
+aktéry</strong></font><font face="Arial">, kterou v inicializaci
+nastavíme na </font><font color="#000080" face="Arial"><strong>0.8</strong></font><font
+face="Arial">. Pøi vzájemnıch kolizích aktérù je nutné
+pouívat stejnou vzdálenost pro obì strany, jinak by se
+stávalo napø. e po pøiblíení pøíšery hráè zkamení
+a nebude schopen se pohnout.</font></p>
+
+<p><font face="Arial">Nejdøíve budeme testovat, zda testovaná
+pozice koliduje s hráèem. Souøadnice je v poøádku v
+pøípadì, e tazatelem je hráè (s </font><font
+color="#000080" face="Arial"><strong>ID = 1</strong></font><font
+face="Arial">) nebo vzdálenost je dostateènì velká.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste38.gif" width="397" height="512"></font></p>
+
+<p><font face="Arial">Podobnì budeme testovat kolizi s
+minotaury. Projdeme seznam všech minotaurù a ovìøíme, zda je
+tazatelem dotyènı minotaurus nebo zda je vzdálenost
+dostateènì velká. Pozor však na to, e funkce je volána z
+funkcí, které procházejí seznam minotaurù. To znamená, e
+po návratu z funkce musí index v seznamu minotaurù ukazovat na
+stejnou pozici. Proto se index v seznamu nenastavuje na vıchozí
+hodnotu a seznam se prochází úplnì celı (celı se jednou
+projede), i kdyby byl vısledek testu u jasnı. Tím se
+zajistí neporušenost indexu. Radìji bychom si mìli k funkci
+do poznámky pøipsat na to upozornìní.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste39.gif" width="499" height="795"></font></p>
+
+<p><font face="Arial">To by mìlo bıt vše. Spuse program a
+dùkladnì vše vyzkoušejte. Minotauøi by se mìli pomalu
+pohybovat k vám, nemìli by na sebe šlapat, mìli by se o vás
+zarazit a také vy se máte zarazit o nì. Mimochodem, trochu
+nám kulhají, ale kdo je dokonalı.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste40.jpg" width="648" height="514"></font></p>
+
+<p align="left"><font face="Arial"><em>.... pokraèování
+pøíštì</em></font></p>
+
+<p align="center"><a href="download/24_textury.zip"><font
+face="Arial">download textur k pøíkladu</font></a></p>
+
+<p align="center"><a href="download/24_bludiste.zip"><font
+face="Arial">download pøíkladu Bludištì 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_23.htm"><font face="Arial">23.
+Lovíme minotaury (2. èást, ovládání)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_25.htm"><font face="Arial">25. Lovíme minotaury (4.
+èást, støelba)</font></a></p>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>4 Zahrádka s podmínkou</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_03.htm"><font face="Arial">3.
+Zahrádka s opakováním</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_05.htm"><font
+face="Arial">5. Petr chodí po znaèkách</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">4. Zahrádka s podmínkou</font></h2>
+
+<p><font face="Arial">Prvek </font><font color="#000080"
+face="Arial"><strong>pøedmìt pøed Petøíkem</strong></font><font
+face="Arial"> <img src="img/predmpred.gif" width="20" height="20">
+mùeme pouít nejen k poloení pøedmìtu pøed Petøíka,
+ale také ke zjištìní, jakı pøedmìt se pøed Petøíkem
+nachází. Testování pøedmìtu vyuijeme v jiné metodì
+sázení zahrádky, zaloené na podmínìném cyklu.</font></p>
+
+<p><font face="Arial">Najdìte v poli </font><font
+color="#000080" face="Arial"><strong>Základní prvky, koš</strong></font><font
+face="Arial">, ve skupince </font><font color="#000080"
+face="Arial"><strong>øízení programu</strong></font><font
+face="Arial"> <img src="img/rizeni.gif" width="20" height="20">,
+prvek </font><font color="#000080" face="Arial"><strong>podmínìné
+opakování pøíkazù</strong></font><font face="Arial"> <img
+src="img/cyklus2.gif" width="20" height="20">. Pøetáhnìte ho
+na zaèátek programu z minulé kapitoly (pøed všechny
+pøíkazy). Do tìla cyklu </font><font color="#000080"
+face="Arial"><strong>opakuj pøíkazy</strong></font><font
+face="Arial"> <img src="img/opakuj.gif" width="20" height="20">
+pøesuòte pøíkazy pro poloení kvìtiny pøed Petøíka a
+krok. Za cyklem ponechejte prvky otoèení vlevo a èekání na
+stisk klávesy. Ostatní prvky mùete vyhodit.</font></p>
+
+<p><font face="Arial">Prvek cyklu </font><font color="#000080"
+face="Arial"><strong>dokud platí</strong></font><font
+face="Arial"> <img src="img/dokud.gif" width="20" height="20">
+slouí k testování podmínky urèující, jak dlouho se mají
+pøíkazy v cyklu opakovat. My do podmínky cyklu uvedeme test
+zjišující, zda je pøed Petøíkem prázdné políèko. K
+sestavení podmínky pouijeme prvek </font><font
+color="#000080" face="Arial"><strong>shodnost pøedmìtù</strong></font><font
+face="Arial"> <img src="img/shodnost.gif" width="20" height="20">.
+Najdete ho v oknì </font><font color="#000080" face="Arial"><strong>Základní
+prvky, koš</strong></font><font face="Arial"> ve skupince </font><font
+color="#000080" face="Arial"><strong>plocha</strong></font><font
+face="Arial"> <img src="img/plocha.gif" width="20" height="20">.
+Prvek pøetáhnìte do prvku cyklu </font><font color="#000080"
+face="Arial"><strong>dokud platí</strong></font><font
+face="Arial"> <img src="img/dokud.gif" width="20" height="20">.
+Do prvku </font><font color="#000080" face="Arial"><strong>shodnost
+pøedmìtù</strong></font><font face="Arial"> vloíme dva
+prvky, které chceme porovnávat. Prvním z nich bude </font><font
+color="#000080" face="Arial"><strong>pøedmìt pøed Petøíkem</strong></font><font
+face="Arial"> <img src="img/predmpred.gif" width="20" height="20">,
+druhım </font><font color="#000080" face="Arial"><strong>prázdné
+políèko</strong></font><font face="Arial"> <img
+src="img/prazdne.gif" width="20" height="20"> (z okna </font><font
+color="#000080" face="Arial"><strong>Spoleèné promìnné a
+funkce</strong></font><font face="Arial">). Zde je vısledek:</font></p>
+
+<p align="center"><font face="Arial"><img src="img/pokus6.gif"
+width="289" height="349"></font></p>
+
+<p align="left"><font face="Arial">Zkuste program spustit.
+Petøík nasází kvìtiny a k pravému okraji okna, otoèí se
+nahoru a èeká na stisk klávesy. Moná vám èinnost programu
+není zcela jasná, podívejme se proto na program podrobnìji.</font></p>
+
+<p align="left"><font face="Arial">Jak funguje podmínìnı
+cyklus? Popisy k prvkùm cyklu nám øíkají: &quot;<em>dokud
+platí (nìco) opakuj pøíkazy (nìco)</em>&quot;. Pøi
+detailnìjším pohledu to znamená následující. Cyklus na
+svém zaèátku vyhodnotí podmínku, zda je splnìna. Pokud ano,
+provede pøíkazy uvedené v tìle cyklu. Potom vše opakuje od
+zaèátku. Opìt vyhodnotí podmínku a pøi jejím splnìní
+znovu provede pøíkazy v cyklu. Není-li podmínka splnìna, nic
+se neprovede. Cyklus se ukonèí a program pokraèuje dalšími
+pøíkazy za cyklem.</font></p>
+
+<p align="left"><font face="Arial">Náš prográmek bychom mohli
+popsat takto: Na zaèátku se cyklus ptá testovací funkce
+vyhodnocující podmínku: &quot;<em>Je tvá podmínka splnìna?</em>&quot;
+Testovací funkcí je zde funkce pro porovnání pøedmìtù. Ta
+zjišuje: &quot;<em>Je pøed Petøíkem prázdné políèko?</em>&quot;
+Pokud ano, odpoví cyklu: &quot;<em>Ano, podmínka je splnìna.</em>&quot;
+Cyklus v tom pøípadì provede pøíkazy v tìle cyklu -
+Petøík pøed sebe poloí kvìtinu a popojde o krok vpøed. To
+se opakuje a k okraji plochy. U okraje plochy testovací funkce
+zjistí, e pøed Petøíkem ji není prázdné políèko a
+sdìlí to cyklu. Cyklus dále nepokraèuje a ukonèí se.
+Následuje otoèení Petøíka vlevo a zastavení programu s
+èekáním na klávesu.</font></p>
+
+<p align="left"><font face="Arial">Po poloení kvìtin v jedné
+øadì zùstane Petøík otoèenı vlevo, smìrem na další
+øadu. Otestujeme, zda je pøed ním prázdné políèko, a pokud
+ano, pøikáeme mu vysázet další øadu kvìtin. Kdy se
+dostane opìt na vıchozí pozici, nebude ji pøed ním
+prázdné políèko, ale vysázená kvìtina, a tak se zastaví.</font></p>
+
+<p align="left"><font face="Arial">Take teï vezmeme novı
+cyklus </font><font color="#000080" face="Arial"><strong>podmínìné
+opakování pøíkazù</strong><em> </em></font><font
+face="Arial"><img src="img/cyklus2.gif" width="20" height="20">.
+Dejte ho na zaèátek programu a do jeho tìla pøesuòte (levım
+tlaèítkem myši) døíve vytvoøenı cyklus spolu s pøíkazem
+pro otoèení vlevo. Na konci programu zùstane pøíkaz pro
+èekání na stisk klávesy. Do podmínky vnìjšího cyklu
+zkopírujte (pravım tlaèítkem myši) podmínku testující
+prázdné políèko pøed Petøíkem (uchopením za prvek </font><font
+color="#000080" face="Arial"><strong>shodnost pøedmìtù</strong></font><font
+face="Arial"> <img src="img/shodnost.gif" width="20" height="20">).
+Zde je vısledek:</font></p>
+
+<p align="center"><font face="Arial"><img src="img/pokus7.gif"
+width="368" height="541"></font></p>
+
+<p align="left"><font face="Arial">Program je hotov, zbıvá
+jen ho vyzkoušet.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/pokus72.gif"
+width="648" height="514"></font></p>
+
+<p align="left"><font face="Arial">Docela jednoduchı prográmek,
+ne? A co takhle si zkusit na závìr ještì jednu drobnùstku?
+Zkuste se zamyslet nad tím, jak co nejjednodušším prográmkem
+zajistit, aby Petøík zaplnil celou plochu cihlami. Mùete
+vyuít prvek</font><font color="#000080" face="Arial"><strong>
+pøedmìt na pozici s Petøíkem</strong></font><font
+face="Arial"> <img src="img/predmetna.gif" width="20" height="20">.
+A kdy nebudete vìdìt, stáhnìte si ukázkovı pøíklad </font><font
+color="#000080" face="Arial"><strong>Zedník</strong></font><font
+face="Arial">. </font></p>
+
+<p align="center"><a href="download/4_pokus.zip"><font
+face="Arial">download pøíkladu</font></a></p>
+
+<p align="center"><a href="download/4_zednik.zip"><font
+face="Arial">download pøíkladu Zedník</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_03.htm"><font face="Arial">3.
+Zahrádka s opakováním</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_05.htm"><font
+face="Arial">5. Petr chodí po znaèkách</font></a></p>
+</body>
+</html>

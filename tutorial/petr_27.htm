@@ -1,0 +1,218 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>27 Lovíme minotaury (èást 6 lov)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_26.htm"><font face="Arial">26.
+Lovíme minotaury (5. èást, zásah)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_28.htm"><font face="Arial">28. Jak na textury</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">27. Lovíme minotaury (6. èást, lov)</font></h2>
+
+<p><font face="Arial"><em>... dokonèení z minulé lekce</em></font></p>
+
+<p><font face="Arial">Koneènì se dostáváme k samotnému lovu
+minotaurù.</font></p>
+
+<p><font face="Arial">Pøipravte èíselnou konstantu </font><font
+color="#000080" face="Arial"><strong>max. síla zásahu støelou</strong></font><font
+face="Arial"> a nastavte ji na </font><font color="#000080"
+face="Arial"><strong>0.2</strong></font><font face="Arial">. To
+bude maximální úbytek života pøi zásahu minotaura. Do
+seznamu minotaurù doplòte promìnnou </font><font
+color="#000080" face="Arial"><strong>život minotaura (0 až 1)</strong></font><font
+face="Arial">. Promìnnou nastavte na hodnotu </font><font
+color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial"> ve funkci </font><font color="#000080" face="Arial"><strong>umístìní
+minotaura</strong></font><font face="Arial">, do podmínky
+testující nalezení vyhovující nové souøadnice.</font></p>
+
+<p><font face="Arial">Zdraví minotaura budeme indikovat tím,
+že s ubývajícím zdravím bude získávat èervenou barvu.
+Proto vytvoøte novou funkci, </font><font color="#000080"
+face="Arial"><strong>aktualizace barvy minotaura</strong></font><font
+face="Arial">. Èervenou složku barvy minotaura necháme stále
+na maximu, zatímco modrou a zelenou složku budeme mìnit podle
+hodnoty života. Volání funkce doplòte do funkce </font><font
+color="#000080" face="Arial"><strong>umístìní minotaura</strong></font><font
+face="Arial">, za inicializaci zdraví minotaura na </font><font
+color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste86.gif" width="343" height="352"></font></p>
+
+<p><font face="Arial">Budeme pokraèovat ve funkci </font><font
+color="#000080" face="Arial"><strong>obsluha støel a výbuchù</strong></font><font
+face="Arial">. Pøipravte lokální promìnnou </font><font
+color="#000080" face="Arial"><strong>úèinnost zásahu minotaura</strong></font><font
+face="Arial">. Do </font><font color="#000080" face="Arial"><strong>obsluhy
+støel</strong></font><font face="Arial">, za podmínku </font><font
+color="#000080" face="Arial"><strong>zásahu do zdi</strong></font><font
+face="Arial">, doplòte cyklus </font><font color="#000080"
+face="Arial"><strong>test zásahu minotaura</strong></font><font
+face="Arial">. V cyklu budeme procházet seznam minotaurù a
+testovat, zda støela dosáhla blízkosti minotaura.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste87.gif" width="286" height="251"></font></p>
+
+<p><font face="Arial">Pøiblíží-li se støela dostateènì
+blízko k minotaurovi (zvolili jsme vzdálenost </font><font
+color="#000080" face="Arial"><strong>0.4</strong></font><font
+face="Arial">), bude se jednat o zásah. Vypneme viditelnost
+støely a zahájíme zobrazení výbuchu. Jednoduše zkopírujte
+skupinu </font><font color="#000080" face="Arial"><strong>zahájení
+výbuchu</strong></font><font face="Arial"> z obsluhy nárazu
+støely do zdi. Vygenerujeme </font><font color="#000080"
+face="Arial"><strong>úèinnost zásahu minotaura</strong></font><font
+face="Arial"> jako náhodné èíslo od nuly po maximální sílu
+zásahu. Hodnotu odeèteme od </font><font color="#000080"
+face="Arial"><strong>života minotaura</strong></font><font
+face="Arial">. Po obsluze pøípadné smrti minotaura musíme
+znovu vybrat </font><font color="#000080" face="Arial"><strong>ID
+støely</strong></font><font face="Arial">, kvùli další
+obsluze støely.</font></p>
+
+<p align="center"><img src="img4/bludiste88.gif" width="402"
+height="896"></p>
+
+<p><font face="Arial">Pokud život minotaura dosáhl nuly,
+znamená to jeho smrt. Pøehrajeme jeho posmrtný výkøik a
+umístíme minotaura na novou pozici. Tím pøed hráèem
+minotaurus zmizí a objeví se nový nìkde mimo dohled hráèe.
+Pokud ještì ke smrti minotaura nedošlo, zobrazíme novou barvu
+minotaura. Patrnì bude èervenìjší. Pokud byl zásah
+dostateènì úspìšný, minotaurus zaøve bolestí (prùmìrnì
+každý 4. zásah).</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste89.gif" width="399" height="640"></font></p>
+
+<p align="left"><font face="Arial">Smrtelný výkøik minotaura
+pøehrajeme tak, že hlasitost ubývá s rostoucí vzdáleností.
+Navíc budeme mìnit náhodnì rychlost pøehrávání, aby zvuk
+neznìl stále stejnì. Podobnì pøehrajeme i zvuk pøi zásahu
+minotaura, jen použijeme jiný zvuk.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste90.gif" width="397" height="736"></font></p>
+
+<p><font face="Arial">Program vyzkoušejte, zkuste støelbu do
+minotaurù. Po jejich zásahu by se mìly objevovat výbuchy,
+mìli by obèas zaskuèet bolestí, èervenat a po nìjaké dobì
+s výkøikem zmizet. Pokud by se nám chtìlo dále
+experimentovat, mohli bychom ještì pøidat animaci jejich
+rozstøíknutí pøi smrti, ale zatím nám to takto staèí.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste91.jpg" width="648" height="514"></font></p>
+
+<p align="left"><font face="Arial">Náš lov je samozøejmì
+nespravedlivý. Jaký by to byl boj bez nebezpeèí, pokud by
+minotauøi nemìli šanci nám nìco udìlat? Takže ještì
+musíme zajistit možnost útoku z jejich strany. Budeme k tomu
+potøebovat konstantu </font><font color="#000080" face="Arial"><strong>síla
+kousnutí</strong></font><font face="Arial">, kterou nastavíte
+na </font><font color="#000080" face="Arial"><strong>0.3</strong></font><font
+face="Arial">. Bude udávat, o kolik ubyde hráèi života
+jedním kousnutím od minotaura. Dále konstantu </font><font
+color="#000080" face="Arial"><strong>rychlost obnovení zdraví</strong></font><font
+face="Arial">, nastavte ji na </font><font color="#000080"
+face="Arial"><strong>0.02</strong></font><font face="Arial">.
+Bude znamenat rychlost, s jakou se hráèi bude samo vracet
+zdraví.</font></p>
+
+<p align="left"><font face="Arial">Pøejdìte do funkce </font><font
+color="#000080" face="Arial"><strong>obsluha minotaurù</strong></font><font
+face="Arial">. Do cyklu obsluhy doplòte podmínku testující
+vzdálenost minotaura od hráèe a náhodu v závislosti na
+èase. Je-li hráè dostateènì blízko a má-li smùlu,
+minotaurus kousne. Pøehrajeme zvuk kousnutí a snížíme život
+hráèe. Smrt hráèe pro úèely tutoriálu neøešíme, jenom
+omezíme aby nepodtekla pod nulu.</font></p>
+
+<p align="center"><img src="img4/bludiste92.gif" width="432"
+height="864"></p>
+
+<p><font face="Arial">Program zkuste. Necháte-li se párkrát
+kousnout, zaènete vidìt opravdu rudì.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste93.jpg" width="648" height="514"></font></p>
+
+<p><font face="Arial">Hráèi necháme zdraví pomalu obnovovat.
+Obnovu zdraví doplòte do hlavní funkce.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste94.gif" width="330" height="512"></font></p>
+
+<p><font face="Arial">Už nám chybí jen nìjaké herní
+detaily. Napøíklad pro zvýšení dojmu z hry chceme, aby se
+ozývaly náhodné zvuky. Doplníme je do obsluhy minotaurù. V
+závislosti na náhodì obèas pøehrajeme zvuk zachrochtání
+minotaura.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste95.gif" width="355" height="416"></font></p>
+
+<p><font face="Arial">Chceme, aby se zvuky pøehrávaly reálnì,
+aby vycházely od skuteèných minotaurù, aby se hráè mohl
+podle zvukù orientovat - hlasitost aby závisela na vzdálenosti
+a aby byl správnì rozlišený i smìr zvuku. Rychlost
+pøehrávání zvolíme mírnì náhodnou, aby všechny zvuky
+neznìly stejnì. A zvýšit rychlost pohybu minotaurù z </font><font
+color="#000080" face="Arial"><strong>0.1</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>0.4</strong></font><font
+face="Arial">, jinak je hra nudná.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste96.gif" width="433" height="1152"></font></p>
+
+<p><font face="Arial">Na závìr zapneme celoobrazovkový režim.
+Nastavením vzhledu kurzoru myši na pøedmìt vyplnìný
+prùhlednou barvou vypneme zobrazení kurzoru, v
+celoobrazovkovém režimu by nám pøekážel.</font></p>
+
+<p><font face="Arial">Mùžete doplnit ještì zvuk krokù.
+Pøehrávání krokù pøidejte do obsluhy pohybu vpøed. Je-li
+stisknuta klávesa vpøed, pøehrávejte opakované zvuky krokù.
+Nezapomeòte vypnout pøíznak pro pøerušení hrajícího
+zvuku. Pøed pøehrátím zvuku vyberte rozlišovací kód 0 (z
+jiných zvukù mùže být kód nastaven náhodnì). Není-li
+klávesa stisknuta, vypnìte zvuk, opìt s volbou rozlišovacího
+kódu. Podobnì obslužte kroky pøi chùzi vzad. Mùžete
+použít stejný zvuk, ale zvolte jiný rozlišovací kód a
+nastavte polovièní rychlost pøehrávání krokù.</font></p>
+
+<p><font face="Arial">A mùžete hru dùkladnì vyzkoušet.
+Théseus by vám závidìl. Bude-li se vám hra zdát nudná a
+napadají-li vás tisíce myšlenek jak vše udìlat líp, tak to
+je ten nejlepší okamžik sednout a pustit se do práce. V tom
+pøípadì tutoriál splnil svùj úkol.</font></p>
+
+<p align="center"><a href="download/27_zvuky.zip"><font
+face="Arial">download zvukù k pøíkladu</font></a></p>
+
+<p align="center"><a href="download/27_bludiste.zip"><font
+face="Arial">download pøíkladu Bludištì 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_26.htm"><font face="Arial">26.
+Lovíme minotaury (5. èást, zásah)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_28.htm"><font face="Arial">28. Jak na textury</font></a></p>
+</body>
+</html>

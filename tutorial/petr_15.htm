@@ -1,0 +1,381 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>15 Kaleidoskop (èást 1)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_14.htm"><font face="Arial">14.
+Zátiší u potoka</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_16.htm"><font
+face="Arial">16. Kaleidoskop (2. èást)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">15. Kaleidoskop (1. èást)</font></h2>
+
+<p><font face="Arial">Kaleidoskop, neboli èesky krasohled, je
+dìtská hraèka vytváøející za pomoci 3 zrcadel a nìkolika
+barevnıch kamínkù pùsobivé náhodné obrazce. Jeho
+programové øešení je zajímavou programátorskou høíèkou.
+Zajímavou tím, e si ji nevystaèíme s pravoúhlım
+souøadnım systémem.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid.gif"
+width="448" height="320"></font></p>
+
+<p><font face="Arial">Základem kaleidoskopu jsou 3 zrcadla
+tvoøící </font><font color="#000080" face="Arial"><strong>rovnostrannı
+trojúhelník</strong></font><font face="Arial">. V tomto
+trojúhelníku se &quot;<em>vytváøí scéna</em>&quot;. Vše
+ostatní co vidíme jsou jen odrazy v zrcadlech. Na obrázku
+vıše je vıchozí trojúhelník oznaèen písmenem </font><font
+color="#000080" face="Arial"><strong>D</strong></font><font
+face="Arial"> (tedy &quot;<em>dolní</em>&quot;). Vlevo od nìj
+se nachází trojúhelník </font><font color="#000080"
+face="Arial"><strong>L</strong></font><font face="Arial"> (&quot;<em>levı</em>&quot;),
+ve kterém se odráí obraz trojúhelníku </font><font
+color="#000080" face="Arial"><strong>D</strong></font><font
+face="Arial"> zrcadlenı podle spoleèné osy, která má úhel </font><font
+color="#000080" face="Arial"><strong>60</strong></font><font
+face="Arial"> stupòù. Na opaèné stranì se nachází
+trojúhelník </font><font color="#000080" face="Arial"><strong>R</strong></font><font
+face="Arial"> (&quot;<em>pravı</em>&quot;), se zrcadlící osou </font><font
+color="#000080" face="Arial"><strong>-60</strong></font><font
+face="Arial"> stupòù. Více vlevo a vpravo jsou další
+násobné odrazy, trojúhelníky </font><font color="#000080"
+face="Arial"><strong>LL</strong></font><font face="Arial">
+(&quot;<em>levı levı</em>&quot;), </font><font color="#000080"
+face="Arial"><strong>RR</strong></font><font face="Arial"> atd.</font></p>
+
+<p><font face="Arial">Obraz kaleidoskopu budeme generovat
+kreslením základních grafickıch prvkù jako je èára,
+trojúhelník, kruh atd. Jak je zøejmé z nákresu, všechny
+odrazy jsou symetrické podle vodorovné osy. Horní pùlku
+kaleidoskopu proto nemusíme øešit, po vytvoøení dolní
+pùlky ji jednoduše zkopírujeme do horní pùlky zrcadlovì
+obrácenì. Podobnì vícenásobné odrazy </font><font
+color="#000080" face="Arial"><strong>LL</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>RR</strong></font><font
+face="Arial"> nemusíme kreslit, získáme je pøeklopením
+odrazù </font><font color="#000080" face="Arial"><strong>R</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>L</strong></font><font
+face="Arial">. Trojúhelníky </font><font color="#000080"
+face="Arial"><strong>L </strong></font><font face="Arial">a </font><font
+color="#000080" face="Arial"><strong>R</strong></font><font
+face="Arial"> bychom mohli získat otoèením trojúhelníku </font><font
+color="#000080" face="Arial"><strong>D</strong></font><font
+face="Arial"> o 60 stupòù, ale tato operace je jednak pomalá
+(pokud zapneme vyšší kvalitu konverze) a jednak dochází k
+pozorovatelnému zkreslení hran. Proto budeme generovat
+trojúhelníky </font><font color="#000080" face="Arial"><strong>D</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>L</strong></font><font
+face="Arial"> i </font><font color="#000080" face="Arial"><strong>R</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Pøi kreslení obrazcù bychom mohli
+postupovat tak, e grafické prvky budeme kreslit pouze uvnitø
+trojúhelníkù, aby nedošlo k pøesahu do sousedních
+trojúhelníkù. Tím bychom ale dosáhli velmi chabého
+vısledku, protoe zajímavé grafické efekty vznikají teprve
+a vzájemnım pøekryvem obrazù prvkù. Proto pouijeme novı
+grafickı pøíkaz - maskování. Díky této operaci mùeme
+nejdøíve vykreslit grafické prvky volnì do plochy, pak je
+sejmout a a dodateènì zamaskovat prùhlednou barvou tak, e
+vısledkem bude oøezanı trojúhelník, kterı ji snadno
+vykreslíme.</font></p>
+
+<p><font face="Arial">Jako obvykle zaèneme vytvoøením
+programu. Pojmenujte ho </font><font color="#000080" face="Arial"><strong>Kaleidoskop</strong></font><font
+face="Arial">. Vymate </font><font color="#000080" face="Arial"><strong>prázdné
+políèko</strong></font><font face="Arial"> a rozmìry hlavní
+plochy zmìòte na </font><font color="#000080" face="Arial"><strong>14</strong></font><font
+face="Arial"> (šíøka) x </font><font color="#000080"
+face="Arial"><strong>10</strong></font><font face="Arial">
+(vıška).</font></p>
+
+<p><font face="Arial">K maskování sejmutıch obrazcù budeme
+potøebovat masku, co je obrázek, jeho prùhledná barva
+zajistí zprùhlednìní bodu obrazu, ostatní barvy ponechají
+bod obrazu beze zmìny. Pøipravíme si obrázek masky. Bude to
+rovnostrannı trojúhelník. Jeho vıška bude polovina vıšky
+plochy, tedy 5 krokù. Potøebujeme vypoèítat šíøku jedné
+strany trojúhelníku. Jak si mùeme snadno odvodit z
+pythagorovy vìty, šíøka jedné strany rovnostranného
+trojúhelníku = vıška * 2 / sqrt(3) (sqrt je druhá
+odmocnina). Vıška trojúhelníku, vyjádøená v grafickıch
+bodech, je 160 bodù. Tomu odpovídá šíøka 184.7521 bodù.
+Pro usnadnìní kreslení zaokrouhlíme šíøku na sudé èíslo
+(potøebujeme kreslit grafiku s pøírustkem 1/2 šíøky),
+take délka jedné strany trojúhelníku je 184 bodù, co je
+5.75 kroku.</font></p>
+
+<p><font face="Arial">Pøipravíme si proto obrázek s rozmìry
+5.75 (šíøka) x 5 (vıška) krokù, tj. 184 x 160 bodù.
+Nazvìte ho </font><font color="#000080" face="Arial"><strong>maska</strong></font><font
+face="Arial">. Z levého dolního rohu veïte bílou èáru
+(nástrojem </font><font color="#000080" face="Arial"><strong>èára</strong></font><font
+face="Arial">) k hornímu okraji uprostøed. Kreslení musíte
+provést pøesnì, proto si obrázek zvìtšete na maximum a k
+navigaci pouívejte souøadnice X a Y zobrazované dole vlevo
+na stavové lištì programu Petr. Souøadnice X støedu horní
+hrany bude 2.88 krokù nebo 92 bodù v závislosti na tom, jak
+jste nastavili pøepínaè kroky/body v oknì nastavení
+rozmìrù obrázku. Po nakreslení levé a pravé hrany
+trojúhelníku vnitøek trojúhelníku vylijte bílou barvou
+nástrojem </font><font color="#000080" face="Arial"><strong>vıplò</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><img src="img2/maska.gif" width="186"
+height="162"></p>
+
+<p><font face="Arial">Masku ulote do skupiny </font><font
+color="#000080" face="Arial"><strong>obrázky</strong></font><font
+face="Arial"> (ve </font><font color="#000080" face="Arial"><strong>Spoleènıch
+promìnnıch</strong></font><font face="Arial">). Spolu s ní si
+pøipravte nìkolik prázdnıch obrázkù, které budete
+potøebovat pozdìji - </font><font color="#000080" face="Arial"><strong>maska
+vlevo a vpravo</strong></font><font face="Arial">, </font><font
+color="#000080" face="Arial"><strong>obrázek dole</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>obrázek
+vlevo</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>obrázek vpravo</strong></font><font
+face="Arial">. Obrázky budou generovány programovì, proto
+zùstanou teï prázdné. Abychom minimalizovali vıslednou
+velikost programu, nastavte jejich velikost na rozmìr </font><font
+color="#000080" face="Arial"><strong>1 x 1</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid6.gif"
+width="208" height="196"></font></p>
+
+<p><font face="Arial">Dále budeme potøebovat nìjaké pracovní
+èíselné promìnné. </font><font color="#000080" face="Arial"><strong>Šíøka
+plochy/2</strong></font><font face="Arial"> je uschovaná
+polovina šíøky plochy programu, </font><font color="#000080"
+face="Arial"><strong>vıška plochy/2</strong></font><font
+face="Arial"> je polovina vıšky plochy, </font><font
+color="#000080" face="Arial"><strong>délka strany trojúhelníku</strong></font><font
+face="Arial"> je uschovaná délka strany trojúhelníku masky, </font><font
+color="#000080" face="Arial"><strong>délka strany
+trojúhelníku/2</strong></font><font face="Arial"> je polovina
+délky strany.</font></p>
+
+<p><font face="Arial">Kromì toho budeme potøebovat </font><font
+color="#000080" face="Arial"><strong>seznam prvkù</strong></font><font
+face="Arial">, které budou bìhem animace vykreslovány. Prvkù
+pouijeme </font><font color="#000080" face="Arial"><strong>30</strong></font><font
+face="Arial">. Seznam bude mít poloky: </font><font
+color="#000080" face="Arial"><strong>souøadnice prvku X a Y</strong></font><font
+face="Arial"> jsou souøadnice støedu prvku v kreslicím oknì. </font><font
+color="#000080" face="Arial"><strong>Otoèení prvku</strong></font><font
+face="Arial"> je rotace prvku kolem jeho støedu. </font><font
+color="#000080" face="Arial"><strong>Rychlost posunu X a Y</strong></font><font
+face="Arial"> je rychlost posunu souøadnic støedu prvku. </font><font
+color="#000080" face="Arial"><strong>Rychlost otáèení</strong></font><font
+face="Arial"> je rychlost zmìny rotace prvku kolem støedu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid7.gif"
+width="268" height="480"></font></p>
+
+<p><font face="Arial">Pøejdeme k </font><font color="#000080"
+face="Arial"><strong>inicializaci programu</strong></font><font
+face="Arial">. Na zaèátku inicializace vypnìte Petøíka.
+Dále nastavíme pomocné promìnné. </font><font
+color="#000080" face="Arial"><strong>Šíøka plochy/2</strong></font><font
+face="Arial"> bude polovina šíøky hlavní plochy (pokud se u
+prvku </font><font color="#000080" face="Arial"><strong>šíøka
+plochy</strong></font><font face="Arial"> neuvede plocha,
+pouije se implicitnì hlavní plocha programu). </font><font
+color="#000080" face="Arial"><strong>Vıška plochy/2</strong></font><font
+face="Arial"> bude polovina vıšky hlavní plochy. </font><font
+color="#000080" face="Arial"><strong>Délka strany trojúhelníku</strong></font><font
+face="Arial"> bude odpovídat šíøce obrázku masky. </font><font
+color="#000080" face="Arial"><strong>Délka strany
+tojúhelníku/2</strong></font><font face="Arial"> je polovina
+délky strany trojúhelníku. </font><font color="#000080"
+face="Arial"><strong>Masku vlevo a vpravo</strong></font><font
+face="Arial"> získáme vertikálním pøevrácením obrázku </font><font
+color="#000080" face="Arial"><strong>masky</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid8.gif"
+width="328" height="708"></font></p>
+
+<p><font face="Arial">Pøipravíme vıchozí parametry
+grafickıch prvkù. Provedeme to pomocí cyklu, kterı projde
+všechny prvky. </font><font color="#000080" face="Arial"><strong>Souøadnice
+X a Y</strong></font><font face="Arial"> budou v rozsahu od 0 po
+maximální rozmìry kreslicí plochy trojúhelníku, co je </font><font
+color="#000080" face="Arial"><strong>šíøka trojúhelníku</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>vıška
+trojúhelníku</strong></font><font face="Arial"> (odpovídá
+polovinì vıšky plochy). </font><font color="#000080"
+face="Arial"><strong>Otoèení prvku</strong></font><font
+face="Arial"> bude zcela náhodnı úhel v rozsahu 0 a 360°. </font><font
+color="#000080" face="Arial"><strong>Rychlost posunu X a Y</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>rychlost
+otáèení</strong></font><font face="Arial"> budou náhodné v
+rozmezi -0.01 a +0.01.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid9.gif"
+width="700" height="578"></font></p>
+
+<p><font face="Arial">Pøejdeme k </font><font color="#000080"
+face="Arial"><strong>hlavní smyèce programu</strong></font><font
+face="Arial">. Základem bude, jako vdy, prvek </font><font
+color="#000080" face="Arial"><strong>podmínìné opakování
+pøíkazù</strong></font><font face="Arial">. Do podmínky
+smyèky pouijeme test znaku z klávesnice bez èekání.
+Program se pøeruší, pokud uivatel stiskne nìjakou znakovou
+klávesu (vèetnì nìkterıch øídicích kláves jako je napø.
+</font><font color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial">). Rozdíl mezi </font><font color="#000080"
+face="Arial"><strong>vstupem kláves</strong></font><font
+face="Arial">, kterı jsme pouívali v pøedešlıch
+kapitolách, a </font><font color="#000080" face="Arial"><strong>vstupem
+znakù</strong></font><font face="Arial"> je ten, e vstup
+kláves navrací èíselné kódy kláves odpovídající jejich
+poøadovému èíslu na klávesnici. Zatímco vstup znakù vrací
+jednoznakovı text vygenerovanı ovladaèem klávesnice podle
+aktuálnì zvoleného rozloení znakù na klávesnici. To
+znamená, e jsou zohlednìny národnostní kódy, napøíklad
+to mohou bıt znaky s diakritikou. Není-li stisknuta znaková
+klávesa, navrací se prázdnı text. Znakové kódy generují i
+nìkteré øídicí klávesy jako je </font><font color="#000080"
+face="Arial"><strong>Enter</strong></font><font face="Arial">, </font><font
+color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>Tab</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>Back
+Space</strong></font><font face="Arial">.</font></p>
+
+<p><font face="Arial">Èasování tentokrát pouijeme s èasem </font><font
+color="#000080" face="Arial"><strong>0.025</strong></font><font
+face="Arial"> sekundy, èím zajistíme plynulejší animaci
+ne pøi èasování 0.05 sekundy. Dále si ve smyèce zatím
+pøedpøipravíme skupiny </font><font color="#000080"
+face="Arial"><strong>generování grafiky</strong></font><font
+face="Arial"> (kde budeme vykreslovat grafické prvky a snímat
+je do obrázkù), </font><font color="#000080" face="Arial"><strong>vykreslení
+kaleidoskopu</strong></font><font face="Arial"> (vykreslíme
+sejmuté obrázky na obrazovku) a </font><font color="#000080"
+face="Arial"><strong>posun prvkù</strong></font><font
+face="Arial"> (zajistíme animaci grafickıch prvkù).</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid10.gif"
+width="318" height="352"></font></p>
+
+<p><font face="Arial">Zaèneme se zabıvat vykreslováním
+jednotlivıch grafickıch prvkù. Pøipravte si ve </font><font
+color="#000080" face="Arial"><strong>Spoleènıch promìnnıch</strong></font><font
+face="Arial"> skupinu </font><font color="#000080" face="Arial"><strong>vykreslování
+prvkù</strong></font><font face="Arial">. Bude obsahovat
+následující pracovní promìnné. </font><font color="#000080"
+face="Arial"><strong>Poadovanı úhel pohledu</strong></font><font
+face="Arial"> urèí úhel trojúhelníku, kterı budeme
+generovat (0°, +60° a -60°, samozøejmì v radiánech). </font><font
+color="#000080" face="Arial"><strong>Souøadnice prvku k
+vykreslení X a Y</strong></font><font face="Arial"> jsou
+souøadnice støedu prvku pøepoètené na souøadnice okna.
+Promìnné </font><font color="#000080" face="Arial"><strong>sin
+a cos otoèení prvku</strong></font><font face="Arial"> jsou
+funkce </font><font color="#000080" face="Arial"><strong>sin</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>cos</strong></font><font
+face="Arial"> vypoètené z aktuálního úhlu otoèení prvku.</font></p>
+
+<p><font face="Arial">Funkce </font><font color="#000080"
+face="Arial"><strong>vykreslení prvkù pro jeden pohled</strong></font><font
+face="Arial"> bude postupnì volat vykreslování všech
+grafickıch prvkù v aktuálním pohledu. Vykreslovat se bude
+kruh, krunice, trojúhelník a èára. Kadá vykreslovací
+funkce na svém zaèátku nejdøíve zavolá funkci </font><font
+color="#000080" face="Arial"><strong>pøíprava parametrù pro
+jeden prvek</strong></font><font face="Arial">, která
+pøedpøipraví parametry pro kreslení.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid11.gif"
+width="273" height="384"></font></p>
+
+<p><font face="Arial">Zaèneme funkcí pro </font><font
+color="#000080" face="Arial"><strong>vykreslení kruhu</strong></font><font
+face="Arial">. Má vstupní parametry </font><font
+color="#000080" face="Arial"><strong>barva kruhu</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>polomìr
+kruhu</strong></font><font face="Arial">. Na zaèátku zavolá
+funkci </font><font color="#000080" face="Arial"><strong>pøíprava
+parametrù pro jeden prvek</strong></font><font face="Arial">,
+která vypoète potøebné parametry, tj. souøadnice støedu
+kruhu X a Y.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid12.gif"
+width="519" height="323"></font></p>
+
+<p><font face="Arial">Podobná je funkce </font><font
+color="#000080" face="Arial"><strong>vykreslení krunice</strong></font><font
+face="Arial">, jen má navíc jeden parametr, </font><font
+color="#000080" face="Arial"><strong>tlouška krunice</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid13.gif"
+width="527" height="387"></font></p>
+
+<p><font face="Arial">Funkce </font><font color="#000080"
+face="Arial"><strong>vykreslení trojúhelníku</strong></font><font
+face="Arial"> pouívá o nìco více vstupních parametrù.
+Jednak je to </font><font color="#000080" face="Arial"><strong>barva
+trojúhelníku</strong></font><font face="Arial"> a jednak </font><font
+color="#000080" face="Arial"><strong>polomìry bodù 1, 2 a 3</strong></font><font
+face="Arial">, co jsou vzdálenosti vrcholù trojúhelníku od
+støedu otáèení. Vrcholy </font><font color="#000080"
+face="Arial"><strong>1</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial"> leí na opaènıch koncích od støedu
+otáèení, proto se v jednom pøípadì vypoète jejich
+souøadnice pøiètením funkcí </font><font color="#000080"
+face="Arial"><strong>cos</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>sin</strong></font><font
+face="Arial">, v druhém pøípadì odeètením. Vrchol </font><font
+color="#000080" face="Arial"><strong>3</strong></font><font
+face="Arial"> leí na kolmici ke spojnici vrcholù </font><font
+color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial">, proto se jeho souøadnice vypoète pøiètením </font><font
+color="#000080" face="Arial"><strong>sin</strong></font><font
+face="Arial"> a odeètením </font><font color="#000080"
+face="Arial"><strong>cos</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid14.gif"
+width="678" height="771"></font></p>
+
+<p><font face="Arial">Funkce </font><font color="#000080"
+face="Arial"><strong>vykreslení èáry</strong></font><font
+face="Arial"> má za vstupní parametry </font><font
+color="#000080" face="Arial"><strong>barvu èáry</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>tloušku
+èáry</strong></font><font face="Arial"> (v bodech) a </font><font
+color="#000080" face="Arial"><strong>vzdálenosti bodù 1 a 2</strong></font><font
+face="Arial">, které udávají vzdálenost bodù od støedu
+otáèení.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid15.gif"
+width="532" height="962"></font></p>
+
+<p><font face="Arial"><em>.... dokonèení pøíštì</em></font></p>
+
+<p align="center"><a href="download/15_kaleidoskop.zip"><font
+face="Arial">download pøíkladu</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_14.htm"><font face="Arial">14.
+Zátiší u potoka</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_16.htm"><font
+face="Arial">16. Kaleidoskop (2. èást)</font></a></p>
+</body>
+</html>

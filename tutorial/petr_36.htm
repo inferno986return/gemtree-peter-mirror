@@ -1,0 +1,344 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>36 Metody 3D grafiky (èást 5 obloha)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_35.htm"><font face="Arial">35.
+Metody 3D grafiky (4. èást, kamera)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_37.htm"><font face="Arial">37. Metody 3D grafiky (6.
+èást, objekty)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">36. Metody 3D grafiky (5. èást, obloha)</font></h2>
+
+<p><font face="Arial"><em>... pokraèování z minulé lekce</em></font></p>
+
+<p><font face="Arial">Obloha je završením našeho 3D svìta. Je
+to jeden z nejvíce viditelnıch prvkù scény. Prvek
+nenápadnı, ale silnì ovlivòující dojem hráèe z hry. Proto
+stojí za to vìnovat obloze obzvláštní peèlivost.</font></p>
+
+<h3><font face="Arial">1. Jednobarevná obloha</font></h3>
+
+<p><font face="Arial">Jednobarevná obloha je úplnì
+nejjednodušším øešením oblohy. Nestojí nás skoro nic,
+staèí jen nastavit barvu pozadí scény na vybranou barvu.
+Samozøejmì nároènìjšího hráèe tímto stylem oblohy
+pøíliš neuspokojíme.</font></p>
+
+<p align="center"><img src="img6/metody42.jpg" width="512"
+height="384"></p>
+
+<h3><font face="Arial">2. Mlha</font></h3>
+
+<p><font face="Arial">Je-li scéna trochu komplikovanìjší,
+mùeme narazit na nedostateènou rychlost vykreslování
+grafiky. Jedním z monıch øešení je omezení vzdálenosti
+dohledu. Vykreslují se jen blízké objekty a tím lze vıraznì
+pøispìt k rychlosti grafiky. Chceme-li zabránit náhlému
+objevování se objektù, mùeme pouít mlhu. Mlha zajistí,
+e objekty s rostoucí vzdáleností pomalu mizí v mlze a a
+jsou v mlze zcela potopené, mohou zmizet omezením hranice
+dohledu a pøitom mizení vypadá pøirozenì a nenásilnì.</font></p>
+
+<p><font face="Arial">Pro úèel omezení viditelnosti objektù
+je vhodnìjší lineární mlha. U lineární mlhy zadáváme
+poèátek a konec mlhy. Na poèátku mlhy zaènou objekty pomalu
+šednout a na hranici konce mlhy zmizí úplnì. Mezi
+zaèátkem a koncem se mlha lineárnì zvyšuje. Konec lineární
+mlhy proto mùe bıt shodnı se vzdáleností dohledu.</font></p>
+
+<p><font face="Arial">Mlha se renderovací jednotkou realizuje
+tak, e jednotlivé vykreslované body objektù se lineárnì
+interpolují s barvou mlhy, v závislosti na pozorované
+vzdálenosti. Pokud jako oblohu pouíváme jednobarevné
+pozadí scény, mlha se na pozadí neuplatòuje (není to objekt
+co by mìl nìjakou vzdálenost). Je proto nutné pozadí
+nastavit na pøesnì stejnou barvu, jakou pouíváme pro mlhu.
+V opaèném pøípadì bychom pozorovali šedé siluety kopcù
+vystupující na blankytné obloze.</font></p>
+
+<p><font face="Arial">Pøi pouití mlhy je vhodné vypínat
+stíny pod objekty (v ukázkovém programu není øešeno) a dát
+pozor na zobrazení prùsvitnıch objektù. Vzhledem k modulaci
+prùhlednıch objektù mlhou mùe dojít k násobení efektu
+mlhy a napøíklad stíny pod objekty pak vypadají jako
+obdélníky z mlhy. Nelze-li to øešit vyøazením prùhlednıch
+objektù, je nutné efekt mlhy zeslabit.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody43.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">3. Rovina</font></h3>
+
+<p><font face="Arial">Nejjednodušším typem texturované oblohy
+je rovina. Je to velká ètvercová plocha roztaená ve vıšce
+nad scénou a pokrytá texturou oblohy.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody50.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">Rovinná textura vypadá pøirozenì pøi
+pouití jako nízko poloená oblaka. Pøi pohledu je patrné
+zhušování mrakù v dálce. Obzvláštì je to patrné pøi
+letu letadlem, kdy vidíme jak se pøibliujeme k rovinì
+mrakù.</font></p>
+
+<p><font face="Arial">Nevıhodou rovinné oblohy je, e
+nezasahuje a k horizontu. Pøi pouití v otevøeném terénu
+je viditelnı konec textury vznášející se v dálce nad
+terénem. Mùeme to ošetøit dvìma zpùsoby. Za prvé,
+hráèe umístíme do terénu s vysokımi okraji (skalami),
+take hráè nebude nikdy vidìt na horizont. Za druhé (to je
+pøípad v ukázkovém programu), pouijeme mlhu. Hráè vidí
+jen èást oblohy, zbylá èást v dálce vèetnì pozadí scény
+se ztrácejí v mlze. Tento pøípad øešení vypadá velmi
+pøirozenì a pùsobivì. Dobøe se tak vytváøí napøíklad
+ponuøe ladìná scéna nebo krajina pøed bouøkou.</font></p>
+
+<p><font face="Arial">Mraky na rovinné obloze mùeme snadno
+animovat. Staèí, budeme-li celou rovinnou pomalu rotovat kolem
+osy Y a tím vytvoøíme docela vìrohodnı pohyb mrakù po
+obloze.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody44.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">4. Kopule</font></h3>
+
+<p><font face="Arial">Chceme-li oblohu bez mlhy a zasahující
+a k horizontu, mùeme k tomu vyuít objekt </font><font
+color="#000080" face="Arial"><strong>polokoule</strong></font><font
+face="Arial">, kterı nám nad hlavou vytvoøí nebeskou klenbu,
+kopuli. Postaèí polokoule s nízkou sloitostí, bez dolní
+podstavy. Po vytvoøení provedeme inverzi objektu, která
+obrátí orientaci plošek. Polokoule tak bude viditelná ne z
+vnìjšku, ale zevnitø. Obloha je roztaená pøedevším do
+šíøky, pøes celou plochu scény. Na vıšku je mnohem
+menší. Vzhledovì se tak blíí podobì roviny, pøesto ale
+zasahuje dolù k horizontu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody51.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">Na povrchu kopule je poloená bezešvá
+textura oblak. Textura je namapovaná rovinnım promítáním s
+opakováním. Mapování se provádí opakovanì s pomalım
+posouváním poèátku textury. Tím je zajištìna animace
+oblak, která pomalu plynou oblohou. Celkovì tento typ oblohy
+vytváøí velmi dobrı dojem pøíjemného letního nebe.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody45.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">5. Vícevrstvá obloha</font></h3>
+
+<p><font face="Arial">Následující typ oblohy je opakem oblohy
+pøedešlé, pokud jde o vytvoøenı dojem. Pouívá také
+objekt polokoule pro vytvoøení nebeské klenby, ovšem s tím
+rozdílem, e polokoule jsou dvì. Spodní polokoule je
+poloprùhledná a pøekrıvá horní. To umoòuje dosáhnout
+pùsobívého efektu pohyblivıch mrakù, kdy se mraky na obloze
+jakoby prohánìjí rùznımi smìry pøes sebe vlivem bouøky.
+Animace posouvání textur probíhá rychleji ne u pøedešlé
+oblohy a smìry pohybu jsou na sebe kolmé.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody52.gif"
+width="256" height="256">   <img src="img6/metody51.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">Proto je scéna v ukázkovém programu u
+tohoto typu oblohy ladìna jako probíhající bouøka. Je
+pøidána mlha vytváøející dojem bouøkového pøíšeøí.
+Opakovanì se ozıvá zvuk deštì a foukání vìtru. Dìš je
+té vizuálnì animován a to tak, e pøed kamerou je
+pøipevnìna stìna opatøená poloprùhlednou texturou s obrazem
+padajících dešovıch kapek. Opakovanım mapováním textury
+se textura rychle posouvá shora dolù a vytváøí tak dojem
+padajícího deštì.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody53.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">Dalším efektem vytváøejícím dojem
+bouøky jsou hromy a blesky. V náhodnıch okamicích obloha
+zableskne a ozve se hrom. Záblesk se provede tak, e se na
+chvíli (na 100 ms) zvıší jas hlavního osvìtlení scény,
+jinak je osvìtlení udrováno na pøíšeøí. Souèasnì se
+bìhem záblesku vypne na chvíli mlha (tma), co vytvoøí
+dojem osvìtlení krajiny bleskem.</font></p>
+
+<p><font face="Arial">Pøi pøehrávání zvuku hromu je zvoleno
+náhodné èíslo rozlišovacího kódu zvuku. To umoní
+pøehrávání více hromù souèasnì, zvuky se pøekryjí.
+Parametry zvuku jsou náhodné - rychlost pøehrávání,
+hlasitost zvuku a stereofonní vyváení. To vytváøí dojem
+pestrosti zvukù hromù, hromy nezní všechny stejnì.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody46.jpg"
+width="512" height="384"></font></p>
+
+<p><font face="Arial">Ukázkovı program v tomto módu oblohy
+skrıvá ještì jeden efekt pøispívající ke strašidelnosti
+scenérie. Ale ten vám neprozradím a nechám vás scénu si
+vyzkoušet. Doporuèuji zvolit si mravence, plovoucí kameru a
+trochu se porozhlédnout po okolí. Upozoròuji ale, e je to
+vhodné jen pro otrlé nelekavé povahy.</font></p>
+
+<h3><font face="Arial">6. Skybox</font></h3>
+
+<p><font face="Arial">Skybox, neboli nebeská krabièka. Asi to
+není nejlepší pøeklad, tak radìji zùstaneme u skyboxu. Co
+si pod skyboxem pøedstavit? Je to krychle. Na stìnách krychle
+jsou nalepené textury s obrázky oblohy. Nejsou to však
+ledajaké obrázky. Kdybychom tam nalepily bìnou texturu
+oblohy, poznali bychom hned, e se jedná o krychli a to
+pøedevším díky perspektivnímu zkreslení. U skyboxu jsou
+textury oblohy vytvoøené speciálnì pro tento úèel a to tak,
+e obraz je vyrenderován ve 3D programu (konkrétnì byl
+pouitı Bryce 3D) promítáním pohledu do nìkolika navzájem
+pravoúhlıch smìrù. Usazením vygenerovanıch textur na
+pravoúhlé stìny dosáhneme pøesnì stejné reprodukce obrazu
+jako v okamiku snímání. Nedochází k ádnému
+perspektivnímu zkreslení a tvar krychle nelze rozpoznat.
+Stejného efektu bychom dosáhli bìnım fotoaparátem tak, e
+bychom vyfotili okolní svìt v nìkolika navzájem kolmıch
+smìrech a vısledné snímky usadili na stejnì pravoúhlé
+promítací stìny. Podmínkou ovšem je, e fotoaparát musí
+mít pozorovací úhel </font><font color="#000080" face="Arial"><strong>90°</strong></font><font
+face="Arial">. Stejná podmínka platí i pro kameru
+renderovacího programu generujícího texturu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody54.gif"
+width="256" height="256">   <img src="img6/metody55.gif"
+width="256" height="256"></font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody56.gif"
+width="256" height="256">   <img src="img6/metody57.gif"
+width="256" height="256"></font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody58.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">Samozøejmì musíme pozorovat stìny s
+obrazy ze stejného místa pøesnì uprostøed krychle, jak tomu
+bylo ve chvíli snímání obrazu. Jednou variantou je, e kolem
+celého 3D svìta bychom vytvoøili obrovskou krychli. To má
+nevıhodu v tom, e musíme pouít velkou vzdálenost dohledu,
+aby byla celá krychle stále viditelná. Pouijeme-li krychli
+malou, bude patrná deformace pohledu na oblohu pokud se budeme
+svìtem pohybovat.</font></p>
+
+<p><font face="Arial">Proto skybox øešíme jinım zpùsobem. Ve
+skuteènosti pouijeme krychli velmi malou, napøíklad s
+rozmìrem 5 jednotek. Bìhem pohybu kamery se skyboxem neustále
+pohybujeme spolu s kamerou tak, e skybox kameru stále
+obklopuje. Tedy - jakoby mìl hráè neustále kolem hlavy malou
+krychli. To, e hráè vidí skybox jako oblohu na vzdáleném
+pozadí, zajistíme tak, e stìnám skyboxu vypneme ukládání
+hloubkové informace a skybox zaøadíme do nejniší
+renderovací skupiny (s indexem 0). To zajistí, e skybox bude
+na obrazovku vykreslován jako první a a po nìm všechny
+ostatní objekty scény. Protoe skybox neukládá hloubkovou
+informaci, chová se tak, jakoby ve scénì vùbec nebyl. Tak
+mohou bıt ostatní objekty pøes jeho stìny pøekreslovány,
+pøestoe jsou ve skuteènosti od kamery dále.</font></p>
+
+<p><font face="Arial">Pomocí skyboxu snadno vytvoøíme nejen
+oblohu, ale i slunce a scenérii pozadí, napøíklad vzdálené
+pohoøí. Obraz pozadí scény tak mùe vypadat velmi
+realisticky. Nevıhodou skyboxu je, e oblaka nelze animovat.
+Ale i to by bylo moné øešit - pøekrytím obrazu skyboxu
+jinım typem oblohy, s prùhledností a animovanı. <em>Tip:
+Hledáním klíèovıch slov &quot;skybox texture&quot; mùete
+najít na internetu mnoho hotovıch textur pro skyboxy.</em></font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody47.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">7. Superbox</font></h3>
+
+<p><font face="Arial">Supexbox je ve skuteènosti také skybox,
+jen jsme pozmìnili oznaèení, abychom odlišili trochu jinou
+variantu skyboxu. Nevıhodou pøedešlého skyboxu je to, e k
+dosaení dostateènì vysokého stupnì detailù pozadí
+musíme pouít velkou texturu. Rozlišení textury nemùeme
+zvyšovat do nekoneèna, jsme omezeni pøinejmenším schopnostmi
+grafickıch karet.</font></p>
+
+<p><font face="Arial">Øešení omezení velikosti textur je v
+tom, e stìnami skyboxu budou ne pouze jednoduché stìny, ale
+soustava stìn poskládanıch vedle sebe. Tak mùeme zvyšovat
+rozlišení textur prakticky neomezenì.</font></p>
+
+<p><font face="Arial">V ukázkovém programu jsme stìny skyboxu
+nahradili sítí 4 x 4 = 16 segmentù. Abychom nemuseli s tolika
+segmenty textury manipulovat ruènì, rozsekali jsme texturu na
+èásti programovì. K dispozici jsme mìli velkou texturu,
+kterou jsme postupnì po malıch úsecích vykreslovali na plochu
+jako 2D obrázek, úsek sejmuli do malého obrázku a nastavili
+pøíslušnému segmentu jako texturu. Díky tomu jsme dosáhli
+daleko vyšší kvality zobrazení skyboxu, pøestoe jsme
+pouili malé textury.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody59.jpg"
+width="384" height="256"></font></p>
+
+<p><font face="Arial">Jako doplòkovı efekt jsme u tohoto typu
+oblohy vytvoøili <em>lens flares</em>, neboli èoèkovı odlesk
+od Slunce. Zámìrnì, pro demonstraèní úèely, jsme to s
+odlesky trochu pøehnali, tak ve vašich programech buïte trochu
+støídmìjší.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody48.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">8. Noc</font></h3>
+
+<p><font face="Arial">Posledním typem oblohy je pøíklad
+noèní scenérie. Nad hráèem se nachází polokoule tvoøící
+kopuli s texturou hvìzdné noèní oblohy. Textura je
+namapovaná s projekcí koule s vyšším poètem opakování
+textury.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody60.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">Pro vytvoøení dojmu noci je scéna
+opatøena èernou mlhou. Tím je zajištìno, e hráè vidí
+jen v blízkém okruhu kolem sebe. Pravdìpodobnì má u sebe
+lampu a proto pouijeme plné osvìtlení. V opaèném
+pøípadì bychom hlavní osvìtlení scény trochu ztlumili.
+Kvùli pouití mlhy jsme zvolili jen malé rozmìry polokoule
+oblohy. Objekt polokoule má zvolenou renderovací skupinu 0 s
+vypnutım ukládáním hloubkové informace. Hráè si oblohu
+nosí neustále sebou, podobnì jako tomu bylo v pøípadì
+skyboxu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody49.jpg"
+width="512" height="384"></font></p>
+
+<p><font face="Arial"><em>.... dokonèení pøíštì</em></font></p>
+
+<p align="center"><a href="download/metody_3d.zip"><font
+face="Arial">download demonstraèního programu Metody 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_35.htm"><font face="Arial">35.
+Metody 3D grafiky (4. èást, kamera)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_37.htm"><font face="Arial">37. Metody 3D grafiky (6.
+èást, objekty)</font></a></p>
+</body>
+</html>

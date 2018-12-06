@@ -1,0 +1,242 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>19 Ahoj 3D svìte</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_18.htm"><font face="Arial">18.
+Pøesmìrování</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_20.htm"><font
+face="Arial">20. A pøece se toèí!</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">19. Ahoj, 3D svìte!</font></h2>
+
+<p><font face="Arial">Vítejte ve fantastickém svìtì </font><font
+size="4" face="Arial"><strong>3D grafiky</strong></font><font
+face="Arial">! Svìt virtuální reality, ve kterém mizí
+rozdíl mezi skuteèností a fantazií. Právem je dnes proto ve
+støedu zájmu nejen herního prùmyslu, ale i všech dalších
+odvìtví jako prostøedek k rychlé a názorné vizualizaci
+kvanta informací. A kdy se k tomu pøidá ještì nástroj ke
+snadnému a rychlému pouití 3D grafiky, jakım je Petr, co
+víc si ještì pøát? Neuvìøíte, jak je to snadné, dokud si
+to nevyzkoušíte. Proto - <em>VSTUPTE PROSÍM</em>!</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d.gif"
+width="256" height="225"></font></p>
+
+<p align="left"><font face="Arial">Svou cestu zaèneme
+zaloením nového programu, nazvìte ho tøeba jednoduše </font><font
+color="#000080" face="Arial"><strong>3D</strong></font><font
+face="Arial">. Od 3D svìta nás nyní oddìluje u jen jedinı
+pøíkaz - </font><font color="#000080" face="Arial"><strong>okno
+3D grafiky</strong></font><font face="Arial">. Pøíkaz naleznete
+ve skupinì </font><font color="#000080" face="Arial"><strong>grafika</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>3D
+grafika</strong></font><font face="Arial">. Umístìte jej na
+zaèátek programu, nejlépe do skupiny </font><font
+color="#000080" face="Arial"><strong>Inicializace programu</strong></font><font
+face="Arial">. Pøíkaz má nìjaké další parametry, ale tìch
+si teï nevšímejte.</font></p>
+
+<p align="left"><font face="Arial">Pokud byste teï program
+spustili, vidìli byste na okamik zelenou plochu okna Petra,
+která je v zápìtí vystøídána èernou plochou a hned na to
+program skonèí. Samozøejmì musíme doplnit nìjakou
+programovou smyèku, ve které bude probíhat obsluha programu.
+Take vlote do programu podmínìnı cyklus s podmínkou
+pøerušení klávesou </font><font color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial"> a jedním èekacím pøíkazem. Asi takto nìjak:</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d2.gif"
+width="296" height="416"></font></p>
+
+<p align="left"><font face="Arial">Kdy teï program spustíte,
+zùstane okno otevøené. Vidíte èernou plochu a nezbıvá vám
+nic ne vìøit, e se jedná skuteènì o okno do 3D svìta.
+Ale to hned napravíme a vytvoøíme si první 3D objekt.</font></p>
+
+<p align="left"><font face="Arial">Pøipravte si do pole
+spoleènıch promìnnıch èíselnou promìnnou. Nazvìte ji </font><font
+color="#000080" face="Arial"><strong>ID</strong></font><font
+face="Arial">. Je to zkratka pro <em><strong>identifikaèní
+èíslo</strong></em>. Kadı objekt v našem 3D svìtì toti
+má nìjaké své èíslo. Tímto èíslem se budeme na objekty
+odkazovat, abychom s nimi mohli nìjak manipulovat.</font></p>
+
+<p align="left"><font face="Arial">Pøipravte si promìnnou </font><font
+color="#000080" face="Arial"><strong>ID</strong></font><font
+face="Arial"> do skupiny inicializace programu, za prvek </font><font
+color="#000080" face="Arial"><strong>okno 3D grafiky</strong></font><font
+face="Arial">. K promìnné pøipojte prvek </font><font
+color="#000080" face="Arial"><strong>koule</strong></font><font
+face="Arial"> ze skupiny </font><font color="#000080"
+face="Arial"><strong>grafika</strong></font><font face="Arial"> /
+</font><font color="#000080" face="Arial"><strong>3D grafika</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>vytvoøit</strong></font><font
+face="Arial">. Tento pøíkaz vytvoøí 3D objekt koule a jeho
+identifikaèní èíslo uloí do promìnné </font><font
+color="#000080" face="Arial"><strong>ID</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d3.gif"
+width="298" height="261"></font></p>
+
+<p align="left"><font face="Arial">A opìt program spuste. A co
+nevidíte - <em><strong>KOULE</strong></em>! Heuréka, je tu 3D
+svìt!</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d4.gif"
+width="648" height="514"></font></p>
+
+<p align="left"><font face="Arial">No ano, máte pravdu. Tohle se
+snad ani koulí nedá nazvat, moná spíše špatnì okrájená
+brambora. Tak si ji trochu vylepšíme. Objekty je moné
+vytváøet s rùznou sloitostí detailù. Urèuje ji prvek </font><font
+color="#000080" face="Arial"><strong>sloitost objektu</strong></font><font
+face="Arial">, kterı najdete ve skupinì </font><font
+color="#000080" face="Arial"><strong>grafika</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>3D
+grafika</strong></font><font face="Arial"> / </font><font
+color="#000080" face="Arial"><strong>objekty</strong></font><font
+face="Arial">. Pøidejte ho <em><strong>PØED</strong></em>
+pøíkaz pro vytvoøení koule a pomocí èíselné konstanty mu
+nastavte hodnotu </font><font color="#000080" face="Arial"><strong>15</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d5.gif"
+width="298" height="321"></font></p>
+
+<p align="left"><font face="Arial">Jak mùete nyní vidìt,
+koule nám zkrásnìla. Teï ji u koneènì mùeme hrdì
+nazvat koulí.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d6.gif"
+width="648" height="514"></font></p>
+
+<p align="left"><font face="Arial">Abychom si ještì trochu
+blíe vysvìtlili, jak vlastnì objekty v 3D grafice fungují.
+Není to nic jiného, ne hromada trojúhelníèkù. Všechno ve
+3D grafice jsou trojúhelníky. Udìlejte si malı pokus - nìkam
+na zaèátek programu doplòte prvek </font><font color="#000080"
+face="Arial"><strong>vyplòování ploch</strong></font><font
+face="Arial"> ze skupiny </font><font color="#000080"
+face="Arial"><strong>grafika</strong></font><font face="Arial"> /
+</font><font color="#000080" face="Arial"><strong>3D grafika</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>nastavení</strong></font><font
+face="Arial"> a pøipojte k nìmu logickou hodnotu </font><font
+color="#000080" face="Arial"><strong>ne</strong></font><font
+face="Arial">. Po spuštìní programu uvidíte opìt kouli, ale
+tentokrát její síovı model sloenı z nevyplnìnıch
+trojúhelníkù. Zkuste si mìnit sloitost koule a sledovat
+zmìnu velikostí a poètu trojúhelníkù, ze kterıch je koule
+tvoøena.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d7.gif"
+width="648" height="514"></font></p>
+
+<p><font face="Arial">Prvek </font><font color="#000080"
+face="Arial"><strong>vyplòování ploch</strong></font><font
+face="Arial"> opìt odstraòte. Teï si zkusíme kouli obarvit.
+Ve skupince </font><font color="#000080" face="Arial"><strong>grafika</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>3D
+grafika</strong></font><font face="Arial"> / </font><font
+color="#000080" face="Arial"><strong>povrch</strong></font><font
+face="Arial"> si najdìte prvek </font><font color="#000080"
+face="Arial"><strong>barva (-1=vnitøní, -2=implicitní)</strong></font><font
+face="Arial">. Vlote ho <em><strong>ZA</strong></em> pøíkaz
+pro vytvoøení koule. Pøipojte k nìmu prvek </font><font
+color="#000080" face="Arial"><strong>barva</strong></font><font
+face="Arial"> ze skupiny </font><font color="#000080"
+face="Arial"><strong>grafika</strong></font><font face="Arial">.
+Rozkliknutím prvku si vyberte nìjakou barvu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d8.gif"
+width="296" height="386"></font></p>
+
+<p><font face="Arial">Program opìt spuste - koule bude mít
+vámi zvolenou barvu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d9.gif"
+width="648" height="514"></font></p>
+
+<p><font face="Arial">Pøece jen, naše koule je nìjaká mdlá a
+nevırazná. Pøidáme jí trochu lesku. Doplòte za prvek pro
+nastavení barvy ještì prvek </font><font color="#000080"
+face="Arial"><strong>matnost (0=vyp, 5=kov, 50=plast)</strong></font><font
+face="Arial">, nastavte ho na hodnotu </font><font
+color="#000080" face="Arial"><strong>20</strong></font><font
+face="Arial">, a dále doplòte prvek </font><font
+color="#000080" face="Arial"><strong>barva odlesku</strong></font><font
+face="Arial"> a pøipojte k nìmu tmavì šedou barvu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d10.gif"
+width="250" height="259"></font></p>
+
+<p><font face="Arial">A program spuste. Bude ji vypadat
+realistiètìji. Pøípadnì si mùete s hodnotami prvkù
+trochu pohrát a dosáhnout tak dojmu rùznıch materiálù
+koule.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d11.gif"
+width="648" height="514"></font></p>
+
+<p><font face="Arial">Hezká, co? Ale, pøiznejme si to -
+jednobarevnı svìt by nás nenadchl. Potøebujeme realistické
+povrchy. Potøebujeme obrázky - textury. A není nic
+jednoduššího. Jen si pøipravte do pole spoleènıch
+promìnnıch nìjakı obrázek, kterı pouijete jako texturu.
+Napøíklad mùete pouít texturu Zemì, kterou najdete na
+konci lekce.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/zeme.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">Na konec skupiny </font><font
+color="#000080" face="Arial"><strong>inicializace programu</strong></font><font
+face="Arial"> pøidejte prvek </font><font color="#000080"
+face="Arial"><strong>textura</strong></font><font face="Arial">
+ze skupiny </font><font color="#000080" face="Arial"><strong>grafika</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>3D
+grafika</strong></font><font face="Arial"> / </font><font
+color="#000080" face="Arial"><strong>textury</strong></font><font
+face="Arial"> a k nìmu pøipojte pøipravenou texturu. Ještì
+zrušte prvek pro nastavení barvy koule nebo ho jen
+znefunèknìte tlaèítkem </font><font color="#000080"
+face="Arial"><strong>Vypnout</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d12.gif"
+width="231" height="258"></font></p>
+
+<p><font face="Arial">Program spuste. A pokochejte se vaším
+prvním opravdovım 3D svìtem, kterı jste právì stvoøili.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d13.gif"
+width="648" height="514"></font></p>
+
+<p align="center"><font color="#FF0000" size="5" face="Arial"><strong>Ahoj,
+3D svìte!</strong></font></p>
+
+<p align="center"><a href="download/19_zeme.zip"><font
+face="Arial">download textury Zemì</font></a></p>
+
+<p align="center"><a href="download/19_3d.zip"><font face="Arial">download
+pøíkladu ke 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_18.htm"><font face="Arial">18.
+Pøesmìrování</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_20.htm"><font
+face="Arial">20. A pøece se toèí!</font></a></p>
+</body>
+</html>

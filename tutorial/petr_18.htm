@@ -1,0 +1,152 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>18 Pøesmìrování</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_17.htm"><font face="Arial">17.
+Konzole</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_19.htm"><font
+face="Arial">19. Ahoj, 3D svìte!</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">18. Pøesmìrování</font></h2>
+
+<p><font face="Arial">Velmi dùleitou vlastností konzolovıch
+programù je monost pøesmìrování vstupù a vıstupù.
+Vıstup z jednoho programu lze pøesmìrovat do souboru nebo jako
+vstup do jiného programu. K pøesmìrování vıstupu z programu
+do souboru slouí znak </font><font color="#000080"
+face="Arial"><strong>&gt;</strong></font><font face="Arial">,
+kterı se uvede za jménem programu. Za znakem pøesmìrování
+následuje jméno vıstupního souboru. Podobnì k
+pøesmìrování vstupu programu ze souboru se pouije znak </font><font
+color="#000080" face="Arial"><strong>&lt;</strong></font><font
+face="Arial"> uvedenı za jménem programu, následuje jméno
+vstupního souboru. K pøesmìrování vıstupu z jednoho
+programu do jiného programu slouí znak </font><font
+color="#000080" face="Arial"><strong>|</strong></font><font
+face="Arial"> uvedenı mezi jmény programù. V tomto pøípadì
+se vytvoøí tzv. </font><font color="#000080" face="Arial"><strong>roura</strong></font><font
+face="Arial">, neboli </font><font color="#000080" face="Arial"><strong>pipe</strong></font><font
+face="Arial">. Je to jakısi datovı kanál mezi programy.</font></p>
+
+<p><font face="Arial">Vyzkoušíme si to na drobné utilitce,
+která bude dìlat to, e zamìní poøadí znakù v textu (text
+bude pozpátku). Zalote novı program s názvem </font><font
+color="#000080" face="Arial"><strong>Reverze</strong></font><font
+face="Arial">. Pøipravte v nìm textové promìnné </font><font
+color="#000080" face="Arial"><strong>text</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>text
+2</strong></font><font face="Arial"> a èíselnou promìnnou </font><font
+color="#000080" face="Arial"><strong>pozice</strong></font><font
+face="Arial">. V programu naètìte vstup textu z konzoly do
+promìnné </font><font color="#000080" face="Arial"><strong>text</strong></font><font
+face="Arial">. Poté v cyklu procházejte jednotlivé znaky
+vstupního textu a pøidávejte je k textu v promìnné </font><font
+color="#000080" face="Arial"><strong>text 2</strong></font><font
+face="Arial">, ovšem v opaèném poøadí ne probíhá
+ètení. Na závìr pošlete </font><font color="#000080"
+face="Arial"><strong>text 2</strong></font><font face="Arial"> na
+konzolu. Vısledek by mohl vypadat takto:</font></p>
+
+<p align="center"><font face="Arial"><img src="img3/konzole4.gif"
+width="606" height="800"></font></p>
+
+<p><font face="Arial">Nyní program vyzkoušíme. Nejdøíve
+program spuse samostatnì zadáním pøíkazu </font><font
+color="#000080" face="Arial"><strong>Reverze</strong></font><font
+face="Arial"> v konzole. ádná vızva se nezobrazí, uvidíte
+poue blikající kurzor. Napište nìjakı text a stisknìte </font><font
+color="#000080" face="Arial"><strong>Enter</strong></font><font
+face="Arial">. Text by se mìl objevit na dalším øádku
+pozpátku.</font></p>
+
+<p><font face="Arial">Dále si vyzkoušíme pøesmìrování
+vıstupu z programu do souboru. Zadejte pøíkaz </font><font
+color="#000080" face="Arial"><strong>&quot;Reverze &gt;
+a.txt&quot;</strong></font><font face="Arial"> (bez uvozovek).
+Opìt se zobrazí blikající kurzor a opìt zapište text a
+stisknìte </font><font color="#000080" face="Arial"><strong>Enter</strong></font><font
+face="Arial">. ádnı vıstup z programu se nezobrazí, nebo
+se uloil do souboru </font><font color="#000080" face="Arial"><strong>a.txt</strong></font><font
+face="Arial">. Obsah souboru mùete vypsat pøíkazem </font><font
+color="#000080" face="Arial"><strong>&quot;type a.txt&quot;</strong></font><font
+face="Arial">, mìli byste opìt vidìt zadanı text pozpátku.</font></p>
+
+<p><font face="Arial">Nyní si zkusíme pøesmìrování vstupu
+do programu ze souboru. Pouijeme obsah souboru </font><font
+color="#000080" face="Arial"><strong>a.txt</strong></font><font
+face="Arial">. Zadejte pøíkaz </font><font color="#000080"
+face="Arial"><strong>&quot;Reverze &lt; a.txt&quot;</strong></font><font
+face="Arial">, mìl by se zobrazit døíve zadanı text,
+tentokrát ale ve správném smìru, protoe došlo k otoèení
+textu dvakrát.</font></p>
+
+<p><font face="Arial">Nakonec vyzkoušíme zøetìzení vstupù a
+vıstupù více programù. Prvním pøíkazem bude pøíkaz pro
+vıpis obsahu souboru, druhım náš program. Zadejte pøíkaz</font><font
+color="#000080" face="Arial"><strong> &quot;type a.txt | Reverze</strong></font><font
+face="Arial">&quot;. Vıstupem by mìl bıt opìt text správnì
+otoèenı. Tímto zpùsobem mùeme zøetìzovat i více
+programù najednou, napøíklad mùeme uvést více pøíkazù </font><font
+color="#000080" face="Arial"><strong>Reverze</strong></font><font
+face="Arial">, text se pøevrátí vícekrát.</font></p>
+
+<p align="center"><font face="Arial"><img src="img3/konzole5.gif"
+width="669" height="338"></font></p>
+
+<p><font face="Arial">Poslední oblastí, kterou se budeme
+zabıvat, jsou <em><strong>vstupní parametry programu</strong></em>
+a <em><strong>návratovı kód</strong></em>. Bez vstupních
+parametrù by konzolové programy nebyly prakticky pouitelné.
+Pomocí parametrù zadáváme programu pøepínaèe a nastavení
+urèující, jak se má program chovat a co má dìlat. Parametry
+uvádíme za jménem programu a zpravidla je oddìlujeme od
+jména programu znakem lomítka </font><font color="#000080"
+face="Arial"><strong>/</strong></font><font face="Arial">, ale
+tento oddìlovaè není povinnı pokud to program nevyaduje.</font></p>
+
+<p><font face="Arial">Na zkoušku doplníme poslední program
+tak, aby po zadání znaku &quot;</font><font color="#000080"
+face="Arial"><strong>u</strong></font><font face="Arial">&quot;
+jako parametr pøevedl text na velká písmena namísto obracení
+textu. Ke zjištìní zadanıch parametrù slouí prvek </font><font
+color="#000080" face="Arial"><strong>parametr programu</strong></font><font
+face="Arial">, kterı naleznete ve skupinì </font><font
+color="#000080" face="Arial"><strong>øízení programu -
+rozšíøení</strong></font><font face="Arial">. Prvek vrací
+jeden parametr se zadanım indexem, kde index 0 je jméno
+programu tak jak je zadal uivatel. Za jednotlivé parametry se
+pøitom povaují èásti oddìlené mezerami. Je-li prvním
+parametrem písmeno &quot;</font><font color="#000080"
+face="Arial"><strong>u</strong></font><font face="Arial">&quot;,
+provedeme konverzi na velká písmena. V jinıch pøípadech
+provedeme reverzi textu - napø. není-li zadán ádnı
+parametr (v tom pøípadì je vrácen prázdnı text).</font></p>
+
+<p align="center"><img src="img3/konzole6.gif" width="379"
+height="640"></p>
+
+<p align="center"><font face="Arial"><img src="img3/konzole7.gif"
+width="669" height="338"></font></p>
+
+<p align="center"><a href="download/18_reverze.zip"><font
+face="Arial">download pøíkladu Reverze</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_17.htm"><font face="Arial">17.
+Konzole</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_19.htm"><font
+face="Arial">19. Ahoj, 3D svìte!</font></a></p>
+</body>
+</html>

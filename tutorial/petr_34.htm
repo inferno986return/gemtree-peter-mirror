@@ -1,0 +1,593 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>34 Metody 3D grafiky (èást 3 ovládání)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_33.htm"><font face="Arial">33.
+Metody 3D grafiky (2. èást, terén)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_35.htm"><font face="Arial">35. Metody 3D grafiky (4.
+èást, kamera)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">34. Metody 3D grafiky (3. èást,
+ovládání)</font></h2>
+
+<p><font face="Arial"><em>... pokraèování z minulé lekce</em></font></p>
+
+<p><font face="Arial">V další lekci si rozebereme možnosti
+ovládání postavy ve høe. Použijeme k tomu postavièku
+mravence, kterou jsme získaly ze hry <em><strong>Kóta 236</strong></em>.
+Nebudeme se zabývat její animací, jen jednoduše použijeme
+ukazatele souøadnic postavy X a Z, smìr otoèení kolem osy Y a
+pøípadnì ještì sklon pohledu kolem osy X.</font></p>
+
+<h3><font face="Arial">1. Základní ovládání</font></h3>
+
+<p><font face="Arial">Pøi základním ovládání postavou pouze
+otáèíme do stran šipkami </font><font color="#000080"
+face="Arial"><strong>vlevo</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>vpravo</strong></font><font
+face="Arial">, šipkami </font><font color="#000080" face="Arial"><strong>vpøed</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>vzad</strong></font><font
+face="Arial"> se pohybujeme. Pøi otáèení jen jednoduše
+pøièítáme nebo odeèítáme od úhlu otoèení kolem osy Y
+konstantu (rychlost otáèení) vynásobenou uplynulým èasem.
+Prvek </font><font color="#000080" face="Arial"><strong>uplynulý
+èas</strong></font><font face="Arial"> mìøí èas od minulého
+prùchodu hlavní smyèkou (pøesnìji èas mezi dvìma naposledy
+vyrenderovanými snímky). Násobením rychlosti uplynulým
+èasem zajistíme, že program pobìží vždy stejnou rychlostí
+nezávisle na tom, jak je rychlý poèítaè a obsluha
+vykreslování grafiky.</font></p>
+
+<p><font face="Arial">Pøi pohybu vpøed a vzad vycházíme z
+nákresu podle následujícího obrázku. Jedná se o pohled na
+terén shora. Smìr otoèení kolem osy </font><font
+color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> znamená otoèení kolem svislé osy ve smìru
+hodinových ruèièek, pøièemž nulový smìr je ve smìru
+kladné osy </font><font color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial">. Požadovanou vzdálenost jednoho úseku kroku
+vypoèteme vynásobením uplynulého èasu konstantou rychlosti
+pohybu. Zmìnu souøadnice </font><font color="#000080"
+face="Arial"><strong>X</strong></font><font face="Arial"> poté
+zjistíme vynásobením úseku kroku funkcí </font><font
+color="#000080" face="Arial"><strong>sin</strong></font><font
+face="Arial"> úhlu otoèení. Zmìnu souøadnice </font><font
+color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial"> zjistíme vynásobením úseku kroku funkcí </font><font
+color="#000080" face="Arial"><strong>cos</strong></font><font
+face="Arial"> úhlu otoèení.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody22.gif"
+width="454" height="367"></font></p>
+
+<p><font face="Arial">Pro pohyb vpøed i vzad mùžeme s výhodou
+použít jedinou funkci (parametrem bude rychlost pohybu), kterou
+budeme využívat i u ostatních zpùsobù ovládání. Kromì
+posunu souøadnic mùže funkce øešit i detekci kolize a
+pøehrávání zvuku chùze.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody23.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">2. Sklouzávání</font></h3>
+
+<p><font face="Arial">Ovládání se sklouzáváním je
+rozšíøením pøedešlého základního ovládání o detekci
+sklonu terénu. Sklon terénu zpùsobuje, že se postava pohybuje
+do kopce tìžce (pomaleji) a z kopce snáze (zrychlí),
+pøípadnì do vìtších svahù se vùbec nedostane. Tím
+mùžeme pomìrnì pøirozenì øešit hranice terénu - hráè
+se nedostane mimo terén, protože mu brání strmé svahy.</font></p>
+
+<p><font face="Arial">V obsluze sklouzávání øešíme
+samostatnì, nezávisle na sobì, sklouzávání ve smìrech X a
+Z. Rozlišovací hranice pro sklouzávání takto sice nebude
+pøesná, bude závislá na smìru, ale vyhneme se urèování
+smìrníku sklonu terénu</font></p>
+
+<p><font face="Arial">Nejdøíve si pøipravíme pomocnou
+promìnnou, udávající míru sklonu terénu v pøíslušném
+smìru (X nebo Z). Nebudeme pøesnì øešit úhel sklonu,
+staèí nám jen jakési pomìrné èíslo. To vypoèteme z
+rozdílù výšek terénu ve smìrech mírnì posunutých od
+aktuální pozice, rozdíl vynásobíme konstantou urèující
+vliv sklouzávání.</font></p>
+
+<p><font face="Arial">Pøesáhne-li míra sklouzávání urèitou
+hranici, probíhá sklouzávání. V tom pøípadì pøièteme k
+dané souøadnici hodnotu míry sklonu vynásobenou uplynulým
+èasem. Samozøejmì pokud se ke sklouzávání pøidává vliv
+aktivity hráèe, mùže hráè vybìhnout terén i pøi mírném
+sklouzávání. Pøi velkém svahu již vlastní aktivitou
+sklouzávání nevykoriguje a tak se do takového svahu již
+nedostane. Na maximální rychlost hráèe je tøeba dát pozor
+pøi návrhu míst, kam se hráè nemá dostat, aby nemohl nastat
+pøípad, že se hráè vyhrabe na nepatøièné místo
+napøíklad s využitím záchytných zlomù v terénu.</font></p>
+
+<p align="center"><img src="img6/metody24.jpg" width="512"
+height="384"></p>
+
+<h3><font face="Arial">3. Rozšíøené ovládání</font></h3>
+
+<p><font face="Arial">Rozšíøené ovládání je ponìkud
+bohatší než základní. V tomto módu umožòujeme hráèi
+mìnit rychlost, drží-li souèasnì pøi pohybu pøesmykací
+klávesy </font><font color="#000080" face="Arial"><strong>Shift</strong></font><font
+face="Arial">. Bìžnì klávesy </font><font color="#000080"
+face="Arial"><strong>Shift</strong></font><font face="Arial">
+rychlost zvyšují. Aktivuje-li hráè pøesmykaè </font><font
+color="#000080" face="Arial"><strong>Caps Lock</strong></font><font
+face="Arial">, bude rychlost trvale zvýšená a klávesy </font><font
+color="#000080" face="Arial"><strong>Shift</strong></font><font
+face="Arial"> ji budou naopak zpomalovat. Internì zajistíme
+obsluhu klávesy </font><font color="#000080" face="Arial"><strong>Shift</strong></font><font
+face="Arial"> tím zpùsobem, že si pøipravíme pomocné
+èíslo použité jako násobek všech ostatních rychlostí, v
+závislosti na stisku </font><font color="#000080" face="Arial"><strong>Shift</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Klávesy </font><font color="#000080"
+face="Arial"><strong>vlevo</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>vpravo</strong></font><font
+face="Arial"> budeme obsluhovat bìžným zpùsobem, tj. zmìnou
+smìru otoèení hráèe. Je-li však souèasnì s klávesami
+držen pøesmykaè </font><font color="#000080" face="Arial"><strong>Alt</strong></font><font
+face="Arial">, neprovede se otoèení, ale úkrok hráèe do
+strany. Abychom mohli pro úkrok použít stejnou funkci jakou
+používáme i pro pohyb vpøed a vzad, použijeme malý úskok -
+hráèe otoèíme o 90° vlevo nebo vpravo, provedeme krok vpøed
+a hráèe zas otoèíme zpìt.</font></p>
+
+<p><font face="Arial">Další doplòkovou funkcí rozšíøeného
+ovládání je zmìna sklonu pohledu. Použije-li hráè klávesy
+</font><font color="#000080" face="Arial"><strong>PageUp</strong></font><font
+face="Arial"> nebo </font><font color="#000080" face="Arial"><strong>PageDown</strong></font><font
+face="Arial">, naklání se pohledová kamera nahoru nebo dolù.
+Musíme pøitom omezit maximální úhel náklonu, tedy jakési
+hranièní zarážky. Pøi øešení dorazù pamatujte na to, že
+úhly nemusí mít vždy jen rozsah -180° až +180°, stejnì
+platné úhly jsou tøeba i 270° (což odpovídá úhlu -90°).
+V ukázkovém programu je naklonìní kamery mìnìno jen
+programovì, proto se poèítá s intervalem -180°až +180°.
+Pokud bychom však používali prvek úhlu X z Petra, ten je
+normalizovaný do rozsahu 0° až 360° což znamená, že
+záporné èíslo se zmìní na velké èíslo menší než
+360°. Proto je tøeba pøed kontrolou hranic buï úhel
+normalizovat do známého rozsahu nebo testovat hranièní
+intervaly pro více variant normalizace.</font></p>
+
+<p align="center"><img src="img6/metody26.jpg" width="512"
+height="384"></p>
+
+<h3><font face="Arial">4. Kombinované ovládání</font></h3>
+
+<p><font face="Arial">Pøi kombinovaném ovládání kombinujeme
+pøedešlé rozšíøené ovládání klávesami spolu s
+ovládáním </font><font color="#000080" face="Arial"><strong>myší</strong></font><font
+face="Arial">. Myší otáèíme pohledem hráèe do stran a
+nahoru/dolù, zatímco šipkami </font><font color="#000080"
+face="Arial"><strong>vlevo</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>vpravo</strong></font><font
+face="Arial"> provádíme úkroky do stran. Tento mód je
+obzvláštì vhodný pro rychlé akce, kde se hráè musí rychle
+otáèet, pøesnì zamìøovat a souèasnì uskakovat do stran. I
+nadále zùstává hráèi možnost otáèet se klávesami v
+pøípadì, že spolu s šipkami vlevo a vpravo drží
+pøesmykaè </font><font color="#000080" face="Arial"><strong>Alt</strong></font><font
+face="Arial"> (tedy obrácenì než v rozšíøeném
+ovládání).</font></p>
+
+<p><font face="Arial">Pøi ovládání pohledu myší nelze
+vystaèit pouze s vypnutím kurzoru myši a ètením aktuální
+souøadnice myši. Mùže se totiž stát, že kurzor myši se
+dostane ke kraji obrazovky a nehýbe se dál, èili ovládání
+by se v danou chvíli zarazilo. Proto neèteme absolutní
+souøadnici myši, ale zmìnu pozice myši od minule. Po každém
+naètení zmìny pozice myši vycentrujeme kurzor myši do
+støedu okna. Tím zajistíme, že myš bude mít neustále
+dostateènou rezervu pro výchylku.</font></p>
+
+<p><font face="Arial">Mód zachytávání myši (kdy je myš
+neustále centrována do støedu okna a kurzor myši je vypnutý)
+je nepøíjemný v tom, že po pøepnutí na oknový mód není
+myš k dispozici a systém se tak stává tìžko ovladatelný.
+Proto je nutné udìlat pøinejmenším takové opatøení, že
+program bude zachytávat myš pouze v pøípadì, kdy je program
+aktivní aplikací. Jestliže se uživatel pøepne z programu
+jinam, musí se pøestat myš zachytávat. Program si jen
+poznaèí, že pozice myši je neznámá, aby po návratu pohled
+naráz neuskoèil velkou zmìnou pozice myši. Pokud to charakter
+programu umožòuje, bylo by ideální zachytávat kurzor myši
+jen v pøípadì celoobrazovkového módu, zatímco v oknovém
+módu tuto funkci nepoužívat, aby uživateli zùstala možnost
+ovládání okna myší.</font></p>
+
+<p><font face="Arial">Kurzor myši se pøi zachytávání myši
+zneviditelní pøedefinováním na prùhledný obrázek. Není-li
+aplikace aktivní, je vhodné kurzoru myši navrátit jeho
+standardní vzhled. Není to nevyhnutelné, ale mùže být pro
+uživatele nepøíjemné, pokud kurzorem pohybuje nad oknem
+aplikace a žádný kurzor nevidí. Resp. nemùže tak kurzor na
+obrazovce nikde najít.</font></p>
+
+<p><font face="Arial">Zamìøování myší je pøímo nutností
+obzvláštì v módu odstøelovaèe, kdy musí být zamìøení
+pøesné a citlivé.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody27.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">5. Ovládání myší</font></h3>
+
+<p><font face="Arial">U nìkterých her mùže být
+výhodnìjší použít k ovládání postavy hráèe (tedy
+avatara) myš, kdy klikáním na místa v terénu urèujeme, kam
+se má postava pøesunout nebo na koho zaútoèit. Na rozdíl od
+bìžných 2D aplikací nemùžeme u 3D projekce použít
+jednoduchý vztah mezi souøadnicí kurzoru myši a souøadnicí
+ukazatele v 3D prostoru. Musíme provést zpìtnou projekci
+obrazovkové souøadnice myši do 3D souøadnic. Vzhledem ke
+složitosti je pro nás nereálné øešení prùseèíku paprsku
+s jakoukoliv ploškou 3D svìta, spokojíme se proto s
+kompromisem. Chceme pøedevším ovládat avatara, proto budeme
+uvažovat prùseèík paprsku myši s rovinou terénu, ve které
+se avatar nachází. Výšku kamery proto budeme pøepoèítávat
+na výškovou hladinu, ve které se nachází avatar. Abychom se
+vyhnuli nejednoznaènostem pøi klikání myší (napø. pøi
+kliknutí do výškovì pøíliš odlišné oblasti, kdy tato
+metoda již nefunguje správnì), budeme hráèi zobrazovat v
+terénu indikaèní kurzor, aby vìdìl, kam program pokládá
+kurzor myši.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody28.jpg"
+width="512" height="384"></font></p>
+
+<p><font face="Arial">Situaci pøi vykreslování 3D grafiky si
+mùžeme pøedstavit tak, jakoby pøed pohledovou kamerou byla
+umístìna sklenìná deska, na kterou probíhá promítání
+scény. Této desce øíkáme </font><font color="#000080"
+face="Arial"><strong>promítací rovina</strong></font><font
+face="Arial">. Pøi pohybu myší po obrazovce mùžeme vést z
+kamery ukazatelem myši pomyslný paprsek protínající
+promítací rovinu a rovinu terénu. Umíme vypoèítat
+relativní pozici myši </font><font color="#000080" face="Arial"><strong>m</strong></font><font
+face="Arial"> vzhledem ke støedu obrazovky (od souøadnice myši
+odeèteme støed obrazovky a vydìlíme zprùmìrovaným
+rozmìrem plochy). Relativní pozice myši </font><font
+color="#000080" face="Arial"><strong>m</strong></font><font
+face="Arial"> odpovídá úseku, o který je paprsek myši
+vzdálen od støedového paprsku v místì promítací roviny.
+Známe vzdálenost promítací roviny </font><font
+color="#000080" face="Arial"><strong>p</strong></font><font
+face="Arial"> (máme na to ve 3D grafice prvek), takže máme
+všechny údaje a mùžeme vypoèítat úhel </font><font
+color="#000080" face="Arial"><strong>b</strong></font><font
+face="Arial">, který svírá paprsek myši se støedovým
+paprskem ve vertikálním smìru. Mùžeme k tomu použít funkci
+Petra </font><font color="#000080" face="Arial"><strong>úhel
+bodu</strong></font><font face="Arial">, </font><font
+color="#000080" face="Arial"><strong>m</strong></font><font
+face="Arial"> bude souøadnicí </font><font color="#000080"
+face="Arial"><strong>x</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>p</strong></font><font
+face="Arial"> souøadnicí </font><font color="#000080"
+face="Arial"><strong>y</strong></font><font face="Arial">.</font></p>
+
+<p><font face="Arial">Úhel </font><font color="#000080"
+face="Arial"><strong>a</strong></font><font face="Arial">
+odpovídá sklonu kamery podle osy </font><font color="#000080"
+face="Arial"><strong>X</strong></font><font face="Arial">.
+Odeètením úhlu paprsku myši </font><font color="#000080"
+face="Arial"><strong>b</strong></font><font face="Arial">
+obdržíme úhel, o který je paprsek myši odklonìn od
+vodorovné roviny. Vzhledem k tomu, že známe výšku kamery nad
+terénem </font><font color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> (pøesnìji nad rovinou terénu avatara) a
+spoèítali jsme si již úhel, který svírá paprsek myši s
+terénem, mùžeme odtud vypoèítat vzdálenost prùseèíku
+paprsku s terénem </font><font color="#000080" face="Arial"><strong>r</strong></font><font
+face="Arial"> (vynásobíme výšku kamery </font><font
+color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> funkcí </font><font color="#000080" face="Arial"><strong>cotg</strong></font><font
+face="Arial"> úhlu </font><font color="#000080" face="Arial"><strong>a
+- b</strong></font><font face="Arial">) a pohledovou vzdálenost
+prùseèíku ke kameøe </font><font color="#000080" face="Arial"><strong>d</strong></font><font
+face="Arial"> (vydìlíme výšku kamery </font><font
+color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> funkcí </font><font color="#000080" face="Arial"><strong>sin</strong></font><font
+face="Arial"> úhlu </font><font color="#000080" face="Arial"><strong>a
+- b</strong></font><font face="Arial">). Zde musíme ošetøit
+pøípad, že kurzor myši je nad horizontem, tj úhel </font><font
+color="#000080" face="Arial"><strong>a - b</strong></font><font
+face="Arial"> je záporný - v tom pøípadì prùseèík
+omezíme na smysluplné velké èíslo (napø. rozmìr terénu).</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody29.gif"
+width="535" height="423"></font></p>
+
+<p><font face="Arial">Podobnì, jako jsme poèítali úhel
+paprsku myši ve vertikálním smìru, spoèítáme úhel paprsku
+myši </font><font color="#000080" face="Arial"><strong>c</strong></font><font
+face="Arial"> v horizontálním smìru. Horizontální
+souøadnici myši pøepoèteme na relativní souøadnici vzhledem
+ke støedu promítací roviny a pomocí prvku </font><font
+color="#000080" face="Arial"><strong>úhel bodu</strong></font><font
+face="Arial"> vypoèteme úhel </font><font color="#000080"
+face="Arial"><strong>c</strong></font><font face="Arial">.
+Upozoròuji, že následující levý obrázek nepøedstavuje
+pohled shora, ale pohled kolmý k rovinì ohranièené paprskem
+myši. Paprsek myši mùže totiž smìøovat i napø. kolmo k
+zemi. Na základì vypoèteného úhlu </font><font
+color="#000080" face="Arial"><strong>c</strong></font><font
+face="Arial"> a známé pozorovací vzdálenosti </font><font
+color="#000080" face="Arial"><strong>d</strong></font><font
+face="Arial"> (z pøedešlého výpoètu) mùžeme vypoèítat
+vzálenost </font><font color="#000080" face="Arial"><strong>e</strong></font><font
+face="Arial">, o kterou je paprsek myši vzdálen od
+nevychýleného paprsku v místì prùseèíku s terénem -
+vynásobením pohledové vzdálenosti </font><font
+color="#000080" face="Arial"><strong>d</strong></font><font
+face="Arial"> funkcí </font><font color="#000080" face="Arial"><strong>tg</strong></font><font
+face="Arial"> úhlu </font><font color="#000080" face="Arial"><strong>c</strong></font><font
+face="Arial">. A také vypoèteme opravenou skuteènou
+pozorovací vzdálenost </font><font color="#000080" face="Arial"><strong>d2</strong></font><font
+face="Arial"> - vydìlením pohledové vzdálenosti </font><font
+color="#000080" face="Arial"><strong>d</strong></font><font
+face="Arial"> funkcí </font><font color="#000080" face="Arial"><strong>cos</strong></font><font
+face="Arial"> úhlu </font><font color="#000080" face="Arial"><strong>c</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Na obrázku vpravo je pohled na stejný
+trojúhelník tvoøený paprskem myši vychýleným ve smìru X a
+nevychýleným paprskem, tentokrát ale tak, jak se promítá do
+roviny terénu. Vzdálenost prùseèíku s terénem </font><font
+color="#000080" face="Arial"><strong>r</strong></font><font
+face="Arial"> již známe z døíve, nyní jsme vypoèítali
+odklon </font><font color="#000080" face="Arial"><strong>e</strong></font><font
+face="Arial">. Z tìchto údajù mùžeme vypoèítat úhel </font><font
+color="#000080" face="Arial"><strong>f</strong></font><font
+face="Arial">, který svírají odklonìný a neodklonìný
+paprsek myši v rovinì terénu (pomocí funkce</font><font
+color="#000080" face="Arial"><strong> úhel bodu</strong></font><font
+face="Arial">). Pøiètením úhlu </font><font color="#000080"
+face="Arial"><strong>f </strong></font><font face="Arial">ke
+smìru otoèení kamery kolem osy </font><font color="#000080"
+face="Arial"><strong>Y</strong></font><font face="Arial">
+obdržíme reálný smìr prùseèiku paprsku myši s terénem </font><font
+color="#000080" face="Arial"><strong>f2</strong></font><font
+face="Arial">. Posledním potøebným údajem je vzdálenost
+prùseèíku paprsku myši s terénem od paty kamery </font><font
+color="#000080" face="Arial"><strong>q</strong></font><font
+face="Arial">, který vypoèteme z údajù </font><font
+color="#000080" face="Arial"><strong>e</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>r</strong></font><font
+face="Arial"> prvkem </font><font color="#000080" face="Arial"><strong>vzdálenost
+bodu</strong></font><font face="Arial">.</font></p>
+
+<p>&nbsp;</p>
+
+<p align="center"><img src="img6/metody30.gif" width="387"
+height="341"></p>
+
+<p><font face="Arial">Z úhlu a vzdálenosti prùseèíku paprsku
+myši s terénem již snadno vypoèteme souøadnice kurzoru myši
+v rovinì terénu. Souøadnici </font><font color="#000080"
+face="Arial"><strong>X</strong></font><font face="Arial">
+obdržíme pøiètením násobku vzdálenosti prùseèíku
+paprsku myši </font><font color="#000080" face="Arial"><strong>q</strong></font><font
+face="Arial"> a funkce </font><font color="#000080" face="Arial"><strong>sin</strong></font><font
+face="Arial"> úhlu paprsku </font><font color="#000080"
+face="Arial"><strong>f2</strong></font><font face="Arial"> k
+souøadnici kamery </font><font color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial">. Podobnì souøadnici </font><font color="#000080"
+face="Arial"><strong>Z</strong></font><font face="Arial">
+obdržíme pøiètením násobku vzdálenosti prùseèíku
+paprsku myši </font><font color="#000080" face="Arial"><strong>q</strong></font><font
+face="Arial"> a funkce </font><font color="#000080" face="Arial"><strong>cos</strong></font><font
+face="Arial"> úhlu paprsku </font><font color="#000080"
+face="Arial"><strong>f2</strong></font><font face="Arial"> k
+souøadnici kamery </font><font color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial">. V daném místì vypoèteme ještì výšku v
+terénu a umístíme tam zamìøovací køíž, který jsme
+vytvoøili z objektu stìny položené do vodorovné roviny a
+opatøené poloprùhlednou texturou.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody31.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">Aby zamìøovací køíž pùsobil trochu
+zajímavìji a byl v terénu dobøe patrný, zajistíme jeho
+animaci pomalým otáèením kolem osy </font><font
+color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial">. Vypnutím hloubkového testu zajistíme, že se
+køíž bude vykreslovat vždy a tak ho mùžeme položit
+pøesnì na úroveò terénu (jinak by se s terénem prolínal a
+byl obèas vidìt a obèas ne). Dále je dobré zajistit, aby
+køíž sledoval sklon terénu, tj. jakoby po terénu plaval. To
+zajistíme tím, že køíž budeme naklánìt podle os </font><font
+color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial">. Pro každý ze smìrù vypoèteme sklon terénu
+tak, že zjistíme výšku terénu v bodech vychýlených o malý
+kousek od paprsku. Úhel, který svírá terén s vodorovnou
+rovinou, pak vypoèteme z rozdílù výšek a vzdálenosti
+testovacích bodù prvkem </font><font color="#000080"
+face="Arial"><strong>úhel bodu</strong></font><font face="Arial">.
+Vzdáleností testovacích bodù mùžeme urèovat plynulost
+pøechodu sklonu køíže pøes zlomové hrany terénu - èím
+bude vzdálenost vìtší, tím bude køíž pøecházet pøes
+hrany plynuleji.</font></p>
+
+<p><font face="Arial">Dále je dobré, mìníme-li velikost
+zamìøovacího køíže tak, aby byl nezávislý na pohledové
+vzdálenosti. Nevypadalo by dobøe, kdyby byl jednu chvíli
+pøíliš velký a jindy zas nepatrný. To provedeme tak, že
+mìøítko zamìøovacího køíže budeme mìnit pøímo
+úmìrnì pohledové vzdálenosti prùseèíku paprsku myši s
+rovinou </font><font color="#000080" face="Arial"><strong>d2</strong></font><font
+face="Arial"> a nepøímo úmìrnì se vzdáleností promítací
+roviny </font><font color="#000080" face="Arial"><strong>p</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Posledním úkonem je pohyb avatara na
+dané místo, kam uživatel klikne kurzorem myši. To zajistíme
+úschovou souøadnic cílové pozice a nastavením pøíznaku
+pøesunu avatara. V další obsluze (nezávislé již na
+aktivitì myši - tedy pokud hráè neklikne znovu na jiné
+místo) provádíme pøesun na cílovou pozici, dokud je nastaven
+pøíznak pøesunu. V každém okamžiku vypoèteme zbývající
+vzdálenost k cíli a provedeme si zkušební zmenšení
+vzdálenosti o koeficient rychlosti vynásobený uplynulým
+èasem. Pokud nová vzdálenost podteèe pod nulu, bude v tomto
+kroku dosaženo cílové pozice. Vypneme pøíznak pøesunu
+avatara a opravíme koeficient rychlosti tak, abychom vzdálenost
+kroku zmenšili na skuteènou zbývající vzdálenost.
+Vypoèteme smìr cíle a provedeme krok v daném smìru.</font></p>
+
+<h3><font face="Arial">6. Ovládání auta</font></h3>
+
+<p><font face="Arial">Pøi ovládání dopravních prostøedkù
+je situace trochu složitìjší než u pìších avatarù.
+Pøedevším musíme øešit to, že dopravní prostøedek se
+neumí rozjet a zastavit skokem, zmìna rychlosti musí být
+plynulá. A zpravidla se nemùže otáèet na místì.</font></p>
+
+<p><font face="Arial">Pro zmìnu rychlosti si budeme udržovat
+promìnnou udávající </font><font color="#000080" face="Arial"><strong>aktuální
+rychlost</strong></font><font face="Arial">. Drží-li hráè
+šipku nahoru, budeme rychlost zvyšovat, což znamená
+pøièítat koeficient zrychlení vynásobený uplynulým èasem.
+Aby zrychlení vypadalo pøirozenìji, nebudeme ho pøièítat
+lineárnì, ale ještì ho vynásobíme rozdílem aktuální
+rychlosti od maximální povolené rychlosti. Tím dosáhneme
+efektu, že auto bude zpoèátku rychle nabírat rychlost, ale ve
+velkých rychlostech už bude zrychlovat jen pomalu, až do
+maximální dosažitelné rychlosti. Díky tomu nemusíme
+maximální rychlost omezovat. Naopak dosáhneme ještì
+zajímavého efektu, že pokud hráè z kopce pøesáhne
+samospádem maximální rychlost a bude se snažit šipkou vpøed
+zrychlovat, naopak bude rychlost snižovat smìrem k maximální
+rychlosti, tedy jakoby brzdil motorem.</font></p>
+
+<p><font face="Arial">Nedrží-li hráè šipku vpøed, bude auto
+samovolnì zpomalovat, jen ale není-li dosaženo dané
+minimální rychlosti, kterou již považujeme za zastavení.
+Zpomalení provedeme lineárním odeèítáním koeficientu
+samovolného zpomalení v závislosti na uplynulém èase.</font></p>
+
+<p><font face="Arial">Podobnì jako zrychlení vpøed
+obsloužíme zpomalení (resp. pohyb vzad) a samovolné
+zpomalování pøi pohybu vzad, jen použijeme jiné hodnoty
+koeficientù.</font></p>
+
+<p><font face="Arial">Není-li dosaženo minimální rychlosti,
+kterou již považujeme za zastavení, provádíme v další
+obsluze jednak samotný pohyb danou rychlostí vpøed èi vzad a
+jednak obsluhu zatáèení, kterou bychom nemìli provádìt v
+pøípadì klidu. Tedy pøesnìji, jen u kolových dopravních
+prostøedkù. U pásových dopravních prostøedkù jako je
+napø. tank je pøirozené otáèení na místì.</font></p>
+
+<p><font face="Arial">Kromì bìžného sklouzávání pøi
+velkém sklonu terénu bychom mìli u auta obsluhovat i
+zrychlení a zpomalování závislé na sklonu terénu. Ze smìru
+otoèení auta vypoèteme souøadnice kousek pøed autem. V
+pøíkladu jsme pro jednoduchost použili jednotkovou vzdálenost
+testovacího bodu. Zjistíme výšku terénu jednak v testovacím
+bodì pøed autem a jednak na aktuální souøadnici auta.
+Rozdíl výšek vynásobíme koeficientem vlivu terénu a
+vzniklý údaj jíž mùžeme pøièíst k aktuální rychlosti,
+samozøejmì vynásobený uplynulým èasem. Korekci provádíme
+až od urèité minimální hranièní hodnoty, aby se auto
+samovolnì nerozjelo na mírném svahu.</font></p>
+
+<p><font face="Arial">Další vìcí, kterou musíme u auta
+obsluhovat, je </font><font color="#000080" face="Arial"><strong>sledování
+sklonu terénu</strong></font><font face="Arial">. Podobnì jsme
+sledovali zamìøovací køíž pøi ovládání myší. Auto
+budeme naklánìt podle os ve smìrech X a Z. Z rozdílù výšek
+bodù, které leží od auta o urèitou vzdálenost ve smìrech
+osy Z, urèíme úhel (pomocí prvku </font><font color="#000080"
+face="Arial"><strong>úhel bodu</strong></font><font face="Arial">),
+který svírá terén s vodorovnou rovinou ve smìru Z. O tento
+úhel otoèíme auto podle osy X. Obdobnì budeme obsluhovat
+druhou osu otáèení. Zjistíme výšky bodù posunutých do
+stran ve smìrech osy X a vypoèteným úhlem sklonu nastavíme
+sklon auta podle osy Z. Vzdálenost testovacích bodù ovlivòuje
+plynulost, s jakou auto mìní sklon na hranách terénu.
+Testovací body by proto mìly být v místech, kde se
+nacházejí kola auta.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody32.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">7. Ovládání letadla</font></h3>
+
+<p><font face="Arial">Opìt jiný zpùsob ovládání bude u
+leteckého dopravního prostøedku. Šipkami </font><font
+color="#000080" face="Arial"><strong>doleva</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>doprava</strong></font><font
+face="Arial"> ovládáme smìrové kormidlo ovlivòující
+zatáèení. Rychlost zatáèení není okamžitá, ale mìní se
+plynule. Nedrží-li hráè šipky vlevo a vpravo, smìrové
+kormidlo se navrátí zpìt do pøímého smìru a zatáèení se
+zas pomalu navrací do pøímého smìru. V závislosti na
+rychlosti zatáèení budeme mìnit aktuální smìr otoèení
+letadla.</font></p>
+
+<p><font face="Arial">Šipkami </font><font color="#000080"
+face="Arial"><strong>nahoru</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>dolù</strong></font><font
+face="Arial"> øídíme rychlost stoupání a klesání
+nastavováním výškového kormidla. Stiskem šipky dolù
+pøitáhneme øídicí páku, výškové kormidlo se zvedne a
+letadlo zaène stoupat. Pomocí šipky dolù se naopak odtlaèí
+øídicí páka, výškové kormidlo se sklopí a letadlo bude
+klesat. Rychlost stoupání opìt neøídíme skokovì, ale
+plynule v závislosti na èase. Èím déle budeme klávesu
+držet, tím rychleji bude letadlo stoupat èi klesat. V
+závislosti na rychlosti stoupání mìníme aktuální rychlost.
+Pokud letadlo stoupá nahoru, jeho rychlost se snižuje. Naopak
+klesáním se opìt zvyšuje.</font></p>
+
+<p><font face="Arial">Z uvedených údajù odvozujeme animaci
+pohybu letadla. Rychlost stoupání ovlivòuje smìr sklonu
+letadla podle lokální osy X. Rychlost zatáèení ovlivòuje
+smìr sklonu letadla podle lokální osy Z. Pomocí rychlosti
+stoupání mìníme výšku letadla (pøi kladné rychlosti
+stoupání se výška zvyšuje). Výšku v ukázkovém programu
+omezujeme tak, aby letadlo nebylo pøíliš vysoko nad terénem
+(aby neprolétlo oblaky) a také aby nebylo pøíliš nízko nad
+terénem, protože zde nepodporujeme pøistávání ani kolizi s
+terénem.</font></p>
+
+<p align="center"><img src="img6/metody33.jpg" width="512"
+height="384"></p>
+
+<p><font face="Arial"><em>.... pokraèování pøíštì</em></font></p>
+
+<p align="center"><a href="download/metody_3d.zip"><font
+face="Arial">download demonstraèního programu Metody 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_33.htm"><font face="Arial">33.
+Metody 3D grafiky (2. èást, terén)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_35.htm"><font face="Arial">35. Metody 3D grafiky (4.
+èást, kamera)</font></a></p>
+</body>
+</html>

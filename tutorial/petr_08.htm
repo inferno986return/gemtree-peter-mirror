@@ -1,0 +1,490 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>8 Samá pøíšera</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_07.htm"><font face="Arial">7.
+Ovládání klávesnicí</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_09.htm"><font
+face="Arial">9. Jak nakrmit hada (1. èást)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">8. Samá pøíšera</font></h2>
+
+<p><font face="Arial">Zkusíme si udìlat malou hru. Petøík v
+bludišti narazil na pøíšery. Ale nebojte se, a ho
+ozbrojíme, hravì je zvládne. Budeme pokraèovat v našem
+programu </font><font color="#000080" face="Arial"><strong>Cesta</strong></font><font
+face="Arial"> z pøedešlé kapitoly, ve kterém jsme zanechali
+zapnutı poslední zpùsob ovládání - </font><font
+color="#000080" face="Arial"><strong>ovládání drením
+kláves 2</strong></font><font face="Arial">.</font></p>
+
+<p><font face="Arial">Nejdøíve zajistíme, aby se v bludišti
+objevovaly pøíšery. Zkopírujte pravım tlaèítkem myši v
+oknì </font><font color="#000080" face="Arial"><strong>Spoleèné
+promìnné a funkce</strong></font><font face="Arial"> prvek </font><font
+color="#000080" face="Arial"><strong>prázdné políèko</strong></font><font
+face="Arial"> <img src="img/prazdne.gif" width="20" height="20">.
+Pøejmenujte ho na </font><font color="#000080" face="Arial"><strong>Pøíšera</strong></font><font
+face="Arial"> a pøikreslete do nìj nìjakou pøíšerku. Mùe
+vypadat tøeba takto:</font></p>
+
+<p align="center"><font face="Arial"><img src="img/prisera.gif"
+width="96" height="96"></font></p>
+
+<p><font face="Arial">Pøíšerky se nám budou generovat
+náhodnì. Do hlavní smyèky programu pøidejte prvek </font><font
+color="#000080" face="Arial"><strong>podmínìné provedení
+pøíkazù</strong></font><font face="Arial"> <img
+src="img/podminka.gif" width="20" height="20">. Do testu
+podmínky </font><font color="#000080" face="Arial"><strong>platí-li,
+e</strong></font><font face="Arial"> <img src="img/platili.gif"
+width="20" height="20"> doplòte porovnávací funkci</font><font
+color="#000080" face="Arial"><strong> je menší ne</strong></font><font
+face="Arial"> <img src="img/mensi.gif" width="20" height="20">
+(ze skupiny </font><font color="#000080" face="Arial"><strong>vıpoèty</strong></font><font
+face="Arial"> <img src="img/vypocty.gif" width="20" height="20">,
+podskupiny </font><font color="#000080" face="Arial"><strong>porovnání</strong></font><font
+face="Arial"> <img src="img/porovnani.gif" width="20" height="20">).
+Jako první parametr pro porovnání pouijeme funkci </font><font
+color="#000080" face="Arial"><strong>náhodné èíslo (0 &lt;= x
+&lt; 1)</strong></font><font face="Arial"> <img
+src="img/random.gif" width="20" height="20"> (ze skupiny </font><font
+color="#000080" face="Arial"><strong>vıpoèty</strong></font><font
+face="Arial"> <img src="img/vypocty.gif" width="20" height="20">,
+podskupiny </font><font color="#000080" face="Arial"><strong>funkce</strong></font><font
+face="Arial"> <img src="img/fnc.gif" width="20" height="20">).
+Druhım parametrem bude </font><font color="#000080" face="Arial"><strong>èíselná
+konstanta</strong></font><font face="Arial"> <img
+src="img/konstanta.gif" width="20" height="20"> s nastavenou
+hodnotou </font><font color="#000080" face="Arial"><strong>0.2</strong></font><font
+face="Arial"> (buï jako text u prvku nebo pomocí prvkù
+èíslic a desetinné teèky). Za chvíli doplníme obsluhu
+vytvoøení pøíšery.</font></p>
+
+<p><font face="Arial">Co taková funkce s náhodou bude dìlat? Z
+textù k prvkùm èteme: &quot;<em>Platí-li, e náhodné
+èíslo je menší ne 0.2, vytvoø pøíšeru.</em>&quot;
+Náhodné èíslo je desetinné èíslo s náhodnou hodnotou od
+nuly do jednièky. Èíslo </font><font color="#000080"
+face="Arial"><strong>0.2</strong></font><font face="Arial"> je
+jedna pìtina z jednièky. Náhodné èíslo má hodnotu menší
+ne </font><font color="#000080" face="Arial"><strong>0.2</strong></font><font
+face="Arial"> v pìtinì pøípadù. To znamená, e pøi
+opakovaném prùchodu se pøíšera vytvoøí v kadém pátém
+pøípadì.</font></p>
+
+<p><font face="Arial">K vytvoøení pøíšerky pouijeme
+Petøíkovu kamarádku - Lucku. Lucku na ploše sice nevidíme,
+ale je tam. Je toti neviditelná. No a díky tomu nechodí po
+ploše pomalu krok za krokem, ale umí se pøemisovat
+rychlostí blesku. Tedy alespoò do té doby, ne ji nìkdo
+neviditelnosti zbaví.</font></p>
+
+<p><font face="Arial">Nejdøíve urèíme náhodné místo, kde
+bude pøíšerka vytvoøena. Do vìtve pro splnìnou podmínku
+pøetáhnìte prvky </font><font color="#000080" face="Arial"><strong>horizontální
+pozice</strong></font><font face="Arial"> <img
+src="img/horiz2.gif" width="20" height="20"> a </font><font
+color="#000080" face="Arial"><strong>vertikální pozice</strong></font><font
+face="Arial"> <img src="img/vert2.gif" width="20" height="20">
+(ze skupiny </font><font color="#000080" face="Arial"><strong>Lucka</strong></font><font
+face="Arial"> <img src="img/lucka.gif" width="20" height="20">,
+podskupiny </font><font color="#000080" face="Arial"><strong>Lucka
+- rozšíøení</strong></font><font face="Arial"> <img
+src="img/lucka2.gif" width="20" height="20">). Prvky slouí k
+nastavení (nebo té ke zjištìní) pozice Lucky na ploše. K
+obìma prvkùm pøipojte funkci </font><font color="#000080"
+face="Arial"><strong>celoèíselná èást</strong></font><font
+face="Arial"> <img src="img/int.gif" width="20" height="20"> (ze
+skupiny </font><font color="#000080" face="Arial"><strong>vıpoèty</strong></font><font
+face="Arial"> <img src="img/vypocty.gif" width="20" height="20">,
+podskupiny </font><font color="#000080" face="Arial"><strong>funkce</strong></font><font
+face="Arial"> <img src="img/fnc.gif" width="20" height="20">).
+Souøadnice políèek udáváme v celıch èíslech a tato funkce
+nám zajistí oøezání nadbyteènıch desetin. Bez oøezání
+desetin by se pozice Lucky nastavila na zaokrouhlenou hodnotu.</font></p>
+
+<p><font face="Arial">K funkcím celoèíselné èásti pøipojte
+funkci </font><font color="#000080" face="Arial"><strong>náhodné
+èíslo (0 &lt;= x &lt; 1)</strong></font><font face="Arial"> <img
+src="img/random.gif" width="20" height="20">. K náhodnému
+èíslu lze pøipojit jako parametr èíslo, urèující rozsah
+náhodného èísla. Napøíklad pøidáním hodnoty 10 by
+náhodné èíslo generovalo èísla v rozsahu 0 a 10. My
+doplníme k náhodnému èíslu pro horizontální pozici prvek </font><font
+color="#000080" face="Arial"><strong>šíøka plochy</strong></font><font
+face="Arial"> <img src="img/sirkap.gif" width="20" height="20"> a
+pro vertikální pozici prvek </font><font color="#000080"
+face="Arial"><strong>vıška plochy</strong></font><font
+face="Arial"> <img src="img/vyskap.gif" width="20" height="20">
+(oba ve skupince </font><font color="#000080" face="Arial"><strong>plocha</strong></font><font
+face="Arial"> <img src="img/plocha.gif" width="20" height="20">).</font></p>
+
+<p><font face="Arial">Rozeberme si podrobnìji zpùsob vıpoètu </font><font
+color="#000080" face="Arial"><strong>horizontální</strong></font><font
+face="Arial"> náhodné pozice. Vıchozím prvkem v
+horizontálním smìru je </font><font color="#000080"
+face="Arial"><strong>šíøka plochy</strong></font><font
+face="Arial"> <img src="img/sirkap.gif" width="20" height="20">.
+Tento prvek navrací èíslo udávající šíøku plochy v
+krocích (v políèkách). V našem programu to bude èíslo 12,
+co je šíøka plochy, jak jsme si ji kdysi nastavili. Údaj o
+šíøce plochy prvek pøedá funkci </font><font color="#000080"
+face="Arial"><strong>náhodné èíslo (0 &lt;= x &lt; 1)</strong></font><font
+face="Arial"> <img src="img/random.gif" width="20" height="20">,
+která vygeneruje náhodné èíslo v rozsahu 0 a šíøka
+plochy (bez koncové hodnoty), nebo-li èíslo v rozsahu 0 a
+asi 11.99999999. Z funkce náhodného èísla je èíslo
+pøedáno funkci </font><font color="#000080" face="Arial"><strong>celoèíselná
+èást</strong></font><font face="Arial"> <img src="img/int.gif"
+width="20" height="20">. Ta oøízne èást èísla za desetinnou
+teèkou a navrátí pouze celou èást èísla. Vznikne èíslo 0
+a 11, co jsou souøadnice prvního a posledního políèka
+ve vodorovném smìru. Moná jste si ji všimli, e se
+políèka poèítají z levého dolního rohu, poèínaje nulou.</font></p>
+
+<p><font face="Arial">Máme tedy Lucku na náhodné pozici v
+ploše. Teï bychom mohli poloit do plochy pøedmìt
+pøíšerky, ale ještì musíme otestovat, zda je na tomto
+místì volné políèko, zda tam není tøeba zeï. Pokud
+políèko nebude volné, nic se neprovede a pøíšerka se
+nevytvoøí. Jak to udìlat jistì u víte. A pokud ne, zde je
+nápovìda:</font></p>
+
+<p align="center"><font face="Arial"><img src="img/klav6.gif"
+width="375" height="769"></font></p>
+
+<p><font face="Arial">Spustíte-li teï program, uvidíte
+stojícího Petøíka, kolem kterého se pomalu ale jistì
+zaèínají houfovat pøíšery. Nelze se divit e zkamenìl
+hrùzou.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/prisery.gif"
+width="392" height="354"></font></p>
+
+<p><font face="Arial">Nyní trochu vylepšíme obsluhu
+provádìní krokù Petøíka. Zkopírujte pravım tlaèítkem
+myši v oknì </font><font color="#000080" face="Arial"><strong>Spoleèné
+promìnné a funkce</strong></font><font face="Arial"> funkci </font><font
+color="#000080" face="Arial"><strong>Opatrnı krok vpøed</strong></font><font
+face="Arial">. Vytvoøí se nová funkce s názvem </font><font
+color="#000080" face="Arial"><strong>Opatrnı krok vpøed 2</strong></font><font
+face="Arial">. Pøejmenujte ji na </font><font color="#000080"
+face="Arial"><strong>Opatrnı krok danım smìrem</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Pøepnìte se dvojklikem do novì
+vytvoøené funkce a podívejte se na pole vlevo dole. Má
+titulek </font><font color="#000080" face="Arial"><strong>Místní
+promìnné a funkce</strong></font><font face="Arial">. Vıznam
+okna nás ještì chvíli nebude zajímat, pouze si všimnìte
+prvku </font><font color="#000080" face="Arial"><strong>vstupní
+promìnné</strong></font><font face="Arial"> <img
+src="img/parin.gif" width="20" height="20">. Z okna </font><font
+color="#000080" face="Arial"><strong>Knihovna promìnnıch a
+funkcí</strong></font><font face="Arial"> pøetáhnìte do prvku
+novou èíselnou promìnnou </font><font color="#000080"
+face="Arial"><strong>èíslo</strong></font><font face="Arial"> <img
+src="img/cislo.gif" width="20" height="20"> a nazvìte ji</font><font
+color="#000080" face="Arial"><strong> poadovanı smìr</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/klav7.gif"
+width="184" height="97"></font></p>
+
+<p><font face="Arial">Pøepnìte se zpìt do hlavní funkce
+programu. V konstrukci </font><font color="#000080" face="Arial"><strong>ovládání
+drením kláves 2</strong></font><font face="Arial"> najdìte
+první vìtev ovládání Petøíka, obsluhu pro šipku nahoru.
+Polote sem novì vytvoøenou funkci </font><font
+color="#000080" face="Arial"><strong>Opatrnı krok danım smìrem</strong></font><font
+face="Arial">. Po poloení funkce si mùete všimnout, e k
+funkci je pøipojena èíselná promìnná s názvem </font><font
+color="#000080" face="Arial"><strong>poadovanı smìr</strong></font><font
+face="Arial">. Je to samozøejmì ta, kterou jsme si právì sami
+vytvoøili. S její pomocí budeme funkci pøedávat parametr,
+kterım bude poadovanı smìr kroku. Pøetáhnìte z pøíkazu
+pro nastavení smìru do parametru funkce prvek </font><font
+color="#000080" face="Arial"><strong>nahoru</strong></font><font
+face="Arial"> <img src="img/smernahoru.gif" width="20"
+height="20">. Zbıvající pøíkazy - nastavení smìru a funkci
+</font><font color="#000080" face="Arial"><strong>Opatrnı krok
+vpøed</strong></font><font face="Arial"> - mùete z vìtve
+vyhodit. Stejnì upravte i vìtve pro ostatní smìry. Takto bude
+vypadat obsluha kroku nahoru:</font></p>
+
+<p align="center"><font face="Arial"><img src="img/klav8.gif"
+width="304" height="222"></font></p>
+
+<p><font face="Arial">Teï pøipravíme obsah funkce </font><font
+color="#000080" face="Arial"><strong>Opatrnı krok danım smìrem</strong></font><font
+face="Arial">. Pøepnìte se do ní. Nejdøíve zkušebnì
+doplòte na zaèátek funkce pøíkaz pro nastavení smìru
+Petøíka <img src="img/smer.gif" width="20" height="20"> a jako
+parametr doplòte vstupní promìnnou </font><font
+color="#000080" face="Arial"><strong>poadovanı smìr</strong></font><font
+face="Arial">. Tím jsme vlastnì navrátili pùvodní funkènost
+programu, abychom ovìøili, e jsme pøi úpravách neudìlali
+chybu. Program spuste a vyzkoušejte. Mìl by fungovat stejnì
+jako døív, to znamená mìlo by jít Petøíka vodit. Je-li
+vše v poøádku, mùete pøíkaz pro nastavení smìru opìt
+zrušit.</font></p>
+
+<p><font face="Arial">Pokud bychom pùvodní ovládání pouili
+pro støílení na pøíšery, tak by nám moná mohlo vadit,
+e se nemùeme otoèit na cíl, ani bychom pøitom popošli
+o krok k cíli. Udìláme si proto malé vylepšení ovládání.
+Jestlie nebude Petøík otoèen v poadovaném smìru,
+nejdøíve se tam otoèí a a potom se rozejde. Bude tak
+moné Petøíka krátkım uknutím na klávesu otoèit a a
+drením klávesy ho rozejít vpøed. Upravte obsah funkce podle
+následujícího obrázku.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/klav9.gif"
+width="356" height="641"></font></p>
+
+<p><font face="Arial">Na zaèátku funkce se nejdøíve provede
+porovnání souèasného smìru otoèení Petøíka s
+poadovanım smìrem, pøedanım jako parametr funkce. Zjistíme
+tak, zda je Petøík v poadovaném smìru ji otoèenı.</font></p>
+
+<p><font face="Arial">Je-li Petøík otoèenı správnì, mùe
+popojít o krok vpøed. Udìlá to ovšem opatrnım zpùsobem.
+Nejdøíve otestuje, zda pøed ním není zeï. Není-li zeï,
+mùe popojít. Je-li zeï, zùstane stát a probìhne obsluha
+èekání. Hlavní smyèka programu toti potøebuje, aby
+kadı její prùchod trval alespoò jedno èekání kvùli
+rovnomìrnému vytváøení novıch pøíšerek. Jedno èekání
+je v hlavní smyèce dosazeno v pøípadì, e není stisknuta
+ádná klávesa pro pohyb. Èekání pøi stisku klávesy pro
+pohyb je obsloueno v této funkci. Neèeká se po pøíkazu
+kroku, pøíkaz kroku ji èekání zajišuje vnitønì. Ale
+mùete si zkusit prvek èekání vypnout s <img
+src="img/off.gif" width="23" height="20"> a vyzkoušet co se
+stane kdy narazíte do zdi</font></p>
+
+<p><font face="Arial">Není-li Petøík správnì otoèen,
+otoèí se do poadovaného smìru a program chvíli èeká.
+Èekání zajišuje, aby se Petøík pøi krátkém uknutí
+do klávesnice nerozešel.</font></p>
+
+<p><font face="Arial">Spuste program a vyzkoušejte
+ovládání. Pøedevším zkuste otáèení Petøíka na místì
+a zatáèení bìhem chùze.</font></p>
+
+<p><font face="Arial">Pustíme se do obsluhy støelby po
+pøíšerkách. Trochu si pøitom &quot;vystøelíme z
+Lucky&quot;. Pouijeme toti ke støelbì opìt Petøíkovu
+kamarádku - Lucku. Lucka bude støelou, kterou bude Petøík
+støílet. Ale to je v poøádku, udìlá to pro nìj ráda.</font></p>
+
+<p><font face="Arial">Dvojklikem na sprajt </font><font
+color="#000080" face="Arial"><strong>Lucka</strong></font><font
+face="Arial"> <img src="img/lucka.gif" width="20" height="20"> v
+oknì </font><font color="#000080" face="Arial"><strong>Spoleèné
+promìnné a funkce</strong></font><font face="Arial"> vyvolejte
+editaci sprajtu Lucky (poznámka: sprajtem oznaèujeme pohyblivı
+animovanı objekt). Uvidíte plochu s 4 x 5 obrázky Lucky.
+Stisknìte tlaèítko </font><font color="#000080" face="Arial"><strong>Vlastnosti</strong></font><font
+face="Arial"> <img src="img/sprset.gif" width="23" height="20">.
+Objeví se okno pro nastavení vlastností sprajtu. Zmìòte
+øádek </font><font color="#000080" face="Arial"><strong>Fází
+na krok (0 = ihned)</strong></font><font face="Arial"> z </font><font
+color="#000080" face="Arial"><strong>8</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial"> (støela poletí rychle) a øádek </font><font
+color="#000080" face="Arial"><strong>Fází pro pohyb</strong></font><font
+face="Arial"> zmìòte ze </font><font color="#000080"
+face="Arial"><strong>4</strong></font><font face="Arial"> na </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial"> (støela pøi letu nepotøebuje mìnit vzhled).
+Stisknìte klávesu </font><font color="#000080" face="Arial"><strong>Enter</strong></font><font
+face="Arial"> nebo kliknìte na tlaèítko </font><font
+color="#000080" face="Arial"><strong>OK</strong></font><font
+face="Arial">. Obrázky sprajtu se zmìnily tak, e Lucka je
+teï pouze v jednom sloupci.</font></p>
+
+<p><font face="Arial">Chytnìte levım tlaèítkem myši první z
+obrázkù Lucky a odsuòte ho mimo plochu obrázkù. Po
+uvolnìní tlaèítka myši obrázek zmizí, vyhodili jsme ho ze
+sprajtu pryè. Dvakrát kliknìte levım tlaèítkem myši na
+uvolnìné prázdné okénko. Vyvolá se editor obrázku sprajtu.
+Namalujte obrázek støely - napøíklad malou šedou kulièku
+(nástrojem </font><font color="#000080" face="Arial"><strong>koule</strong></font><font
+face="Arial"> <img src="img/editkoule.gif" width="36" height="20">,
+pouijte bílou barvu):</font></p>
+
+<p align="center"><font face="Arial"><img src="img/strela.gif"
+width="96" height="96"></font></p>
+
+<p><font face="Arial">Jako podklad obrázku ponechejte pùvodní
+našedle fialovou barvu. Je to &quot;prùhledná&quot; barva,
+zajišující viditelnost pùvodního obsahu okna v okolí
+støely. Ve vıbìru barev grafického editoru je to barva vlevo
+nahoøe.</font></p>
+
+<p><font face="Arial">Tlaèítkem </font><font color="#000080"
+face="Arial"><strong>Pøedešlá editace</strong></font><font
+face="Arial"> <img src="img/histprev.gif" width="23" height="20">
+se vrate zpìt do editoru sprajtu Lucky. Uchopte pravım
+tlaèítkem myši upravenı první obrázek a pøetahováním jej
+rozkopírujte do všech ostatních políèek sprajtu. Pozdìji
+mùete obrázky ještì posunout tak, aby støely vycházely
+pøesnì z místa hlavnì pistole.</font></p>
+
+<p><font face="Arial">Teï upravenı sprajt vyzkoušejte.
+Kliknìte na tlaèítko </font><font color="#000080" face="Arial"><strong>Test</strong></font><font
+face="Arial"> <img src="img/sprtest.gif" width="23" height="20">.
+Objeví se okno se zelenou plochou, uprostøed je sprajt støely.
+Kliknìte nìkam do plochy okna, støela se na urèené místo
+plynule pøesune. Test sprajtu ukonèíte tlaèítkem </font><font
+color="#000080" face="Arial"><strong>Storno</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Støelu máme pøipravenou, nyní musíme
+vytvoøit ovládání støely. Vrate se do hlavní funkce
+programu. Do hlavní smyèky, ihned za obsluhu vygenerování
+nové pøíšery, doplòte novı prvek </font><font
+color="#000080" face="Arial"><strong>podmínìné provedení
+pøíkazù</strong></font><font face="Arial"> <img
+src="img/podminka.gif" width="20" height="20"> a nazvìte ho </font><font
+color="#000080" face="Arial"><strong>vıstøel ze zbranì</strong></font><font
+face="Arial">. Støelbu ze zbranì budeme aktivovat klávesou
+mezerníku, proto do testu podmínky </font><font color="#000080"
+face="Arial"><strong>platí-li, e</strong></font><font
+face="Arial"> <img src="img/platili.gif" width="20" height="20">
+dejte funkci </font><font color="#000080" face="Arial"><strong>je
+stisknuta klávesa</strong></font><font face="Arial"> <img
+src="img/stisknuta.gif" width="20" height="20"> s prvkem klávesy
+</font><font color="#000080" face="Arial"><strong>mezerník</strong></font><font
+face="Arial"> <img src="img/mezernik.gif" width="20" height="20">
+(ve skupinì </font><font color="#000080" face="Arial"><strong>klávesy</strong></font><font
+face="Arial"> <img src="img/klavesy.gif" width="20" height="20">,
+podskupina </font><font color="#000080" face="Arial"><strong>znakové
+klávesy</strong></font><font face="Arial"> <img
+src="img/znakove.gif" width="20" height="20">).</font></p>
+
+<p><font face="Arial">Celkovou sestavu obsluhy støelby vidíte
+na následujícím obrázku. V obsluze nastavíme støelu (Lucku)
+na vıchozí pozici (popíšeme si pozdìji), potom støela
+letí, po doletu støelu (Lucku) vypneme.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/klav10.gif"
+width="280" height="321"></font></p>
+
+<p><font face="Arial">Pøi zahájení letu støely nastavíme
+pozici a smìr støely podle pozice a smìru Petøíka, potom
+zapneme viditelnost støely. Prvky pozice a smìru ji známe,
+co se ale skrıvá za prvkem viditelnosti? Všechny sprajty (tj.
+pohyblivé objekty, kterımi jsou i Petøík a Lucka) mají dva
+základní stavy - viditelnı a neviditelnı. Ve viditelném
+stavu (kromì toho, e je sprajt vidìt) se provádí animace
+sprajtu a sprajt se pohybuje pomalu. Je-li sprajt neviditelnı,
+pøemisuje se na novou pozici okamitì. Z Petøíka se
+stává &quot;Super Petøík&quot;, kterı se pohybuje jako
+blesk.</font></p>
+
+<p><font face="Arial">Viditelnost Lucky nastavíme pøíkazem </font><font
+color="#000080" face="Arial"><strong>viditelná</strong></font><font
+face="Arial"> <img src="img/viditelna.gif" width="20" height="20">.
+Jako parametr viditelnosti sprajtù obvykle uvádíme logickou
+konstantu </font><font color="#000080" face="Arial"><strong>ano</strong></font><font
+face="Arial"> <img src="img/true.gif" width="20" height="20">
+nebo </font><font color="#000080" face="Arial"><strong>ne</strong></font><font
+face="Arial"> <img src="img/false.gif" width="20" height="20">,
+tak pøepínáme sprajt mezi reimy &quot;Louda&quot; a
+&quot;Super&quot;. Celou obsluhu aktivace støely vidíte na
+následujícím obrázku. Pro zpøehlednìní je obsluha v
+samostatné skupinì.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/klav11.gif"
+width="225" height="289"></font></p>
+
+<p><font face="Arial">Vytvoøíme obsluhu pohybu støely. Za
+skupinu pøípravy vıchozí pozice støely pøidejte prvek cyklu
+</font><font color="#000080" face="Arial"><strong>opakování
+pøíkazù s poètem</strong></font><font face="Arial"> <img
+src="img/cyklus.gif" width="20" height="20">, pojmenujte ho </font><font
+color="#000080" face="Arial"><strong>let støely</strong></font><font
+face="Arial">. Do poètu opakování cyklu dejte èíslo </font><font
+color="#000080" face="Arial"><strong>4</strong></font><font
+face="Arial">. To je maximální vzdálenost, kam støela
+poletí.</font></p>
+
+<p><font face="Arial">Let støely pøerušíme, narazí-li
+støela do stìny. Proto dejte na zaèátek tìla cyklu podmínku
+s testem, zda je pøed Luckou pøedmìt </font><font
+color="#000080" face="Arial"><strong>Zeï</strong></font><font
+face="Arial"> <img src="img/zed.gif" width="20" height="20">.
+Pokud ano, pøeruší se provádìní cyklu pøíkazem pøeruš
+opakování <img src="img/prerus.gif" width="20" height="20"> (je
+ve skupince </font><font color="#000080" face="Arial"><strong>øízení
+programu</strong></font><font face="Arial"> <img
+src="img/rizeni.gif" width="20" height="20">). Po kontrole
+nárazu do zdi ji mùeme dát pøíkaz pro pohyb støely </font><font
+color="#000080" face="Arial"><strong>krok</strong></font><font
+face="Arial"> <img src="img/krok2.gif" width="20" height="20">.</font></p>
+
+<p><font face="Arial">Za posunem støely o krok otestujeme, zda
+støela zasáhla cíl. Pouijeme podmínìnı pøíkaz s testem,
+zda pøedmìt na pozici s Luckou je pøedmìt </font><font
+color="#000080" face="Arial"><strong>Pøíšera</strong></font><font
+face="Arial">. Pokud ano, vymaeme pøíšerku poloením
+pøedmìtu </font><font color="#000080" face="Arial"><strong>prázdné
+políèko</strong></font><font face="Arial"> a pøerušíme
+cyklus letu støely.</font></p>
+
+<p><font face="Arial">Celou obsluhu letu støely vidíte na
+dalším obrázku. Za obsluhou letu støely uveïte ještì
+vypnutí viditelnosti Lucky a program mùete vyzkoušet.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/klav12.gif"
+width="375" height="733"></font></p>
+
+<p><font face="Arial">Jaká by to byla støílecí hra bez
+zvukù! Pøidáme proto zvuky. Buï si vyberete zvuky v knihovnì
+Petra nebo si je mùete </font><a href="download/8_zvuky.zip"><font
+face="Arial">stáhnout zde</font></a><font face="Arial"> -
+rozbalte je do sloky </font><font color="#000080" face="Arial"><strong>Sound</strong></font><font
+face="Arial"> v domovské nebo pracovní sloce Petra a poté
+pøetáhnìte do programu z knihovny. Zvuk pistole pøidejte
+pøed skupinu </font><font color="#000080" face="Arial"><strong>pøíprava
+vıchozí pozice støely</strong></font><font face="Arial">. K
+pøehrátí zvuku pouijte funkci </font><font color="#000080"
+face="Arial"><strong>pøehrátí zvuku vıstøelu</strong></font><font
+face="Arial"> <img src="img/zvuk.gif" width="20" height="20">
+(najdete ji ve skupinì </font><font color="#000080" face="Arial"><strong>zvuk
+a hudba</strong></font><font face="Arial">). Zvuk zaúpìní
+pøíšery pøidejte na zaèátek podmínky </font><font
+color="#000080" face="Arial"><strong>zásah pøíšery</strong></font><font
+face="Arial">. Chcete-li dále hru vylepšovat, mùete
+pøikreslit Petøíkovi zbraò.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/klav13.gif"
+width="64" height="64"></font></p>
+
+<p align="center"><img src="img/klav14.gif" width="392"
+height="354"></p>
+
+<p align="center"><a href="download/8_cesta.zip"><font
+face="Arial">download pøíkladu</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_07.htm"><font face="Arial">7.
+Ovládání klávesnicí</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_09.htm"><font
+face="Arial">9. Jak nakrmit hada (1. èást)</font></a></p>
+</body>
+</html>

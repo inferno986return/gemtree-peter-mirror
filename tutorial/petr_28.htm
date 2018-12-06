@@ -1,0 +1,359 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>28 Jak na textury</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_27.htm"><font face="Arial">27.
+Lovíme minotaury (6. èást, lov)</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_29.htm"><font
+face="Arial">29. Vytváøíme textury - 2D objekty</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">28. Jak na textury</font></h2>
+
+<p><font face="Arial">Dávno ji je minulostí doba, kdy
+základem 3D grafiky byla vektorová grafika zaloená na
+rùznobarevnıch trojúhelníècích. Bez textur je dnešní 3D
+grafika neodmyslitelná. Jak však textury správnì pouívat?</font></p>
+
+<p><font face="Arial">Pøestoe jsou textury bìnımi 2D
+obrázky, musíme je chápat trochu odlišnì. Textura není jen
+obrázek, kterı se &quot;<em>nìkam</em>&quot; vykreslí.
+Jednotlivé grafické body textury jsou zdrojem barevné
+informace pro renderovací jednotku. Renderovací jednotka chápe
+texturu jako pole barevnıch komponent, do kterého nahlíí
+pøi kadém vykreslovaném bodu. Nejdøíve vypoèítá pozici
+renderovaného bodu relativnì k vrcholùm trojúhelníku (s
+pøípadnou perspektivní korekcí), tu pøepoète na relativní
+souøadnici odpovídajícího bodu v textuøe s vyuitím UV
+souøadnic. Proto u textur nepouíváme oznaèení </font><font
+color="#000080" face="Arial"><strong>pixely</strong></font><font
+face="Arial"> jako je tomu u 2D obrázkù, ale jednotlivé
+grafické body oznaèujeme </font><font color="#000080"
+face="Arial"><strong>texely</strong></font><font face="Arial">.</font></p>
+
+<p><font color="#000080" face="Arial"><strong>UV souøadnice</strong></font><font
+face="Arial"> jsou souøadnice v textuøe v daném vrcholu.
+Textura má v kadém smìru rozsah souøadnic </font><font
+color="#000080" face="Arial"><strong>0.0</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>1.0</strong></font><font
+face="Arial">, nezávisle na fyzickém rozmìru textury.
+Souøadnice jsou poèítány tak, jakoby textury byly
+uspoøádány vedle sebe jako dladice. Tím je zajištìno
+opakování textur zadáním souøadnic mimo rozsah 0 a 1.</font></p>
+
+<p align="center"><font face="Arial"><img src="img5/uv.gif"
+width="300" height="300"></font></p>
+
+<p><font face="Arial">Texely se adresují jakoby to byly plošky
+o urèitém rozmìru. Napøíklad v textuøe o rozmìru 4 x 4
+body mají jednotlivé texely rozmìr 0.25 x 0.25. Pøi
+barvovıch kalkulacích se jako vztanı bod bere støed texelu.</font></p>
+
+<p align="center"><img src="img5/interpolace.gif" width="614"
+height="196"></p>
+
+<p><font face="Arial">Provádí-li se renderování textury s
+vypnutou filtrací textur, pouije se v barvovıch kalkulacích
+hodnota nejblišího texelu textury (na pøedchozím obrázku
+varianta grafu </font><font color="#000080" face="Arial"><strong>a)
+bez filtrace</strong></font><font face="Arial">). Na
+následujících obrázcích vidíte vlevo pøípad s vypnutou
+filtrací textur, vpravo je filtrace textur zapnuta. V pøípadì
+s vypnutou filtrací mùete pozorovat zobrazení samotnıch
+texelù textury.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img5/filtrace2.jpg" width="300" height="300">        
+<img src="img5/filtrace3.jpg" width="300" height="300"></font></p>
+
+<p><font face="Arial">Je-li filtrace textur zapnuta, interpolují
+se barevné informace mezi sousedními 2 body. Vnitøní body
+textury jsou jasné, co však krajní body? Zde je problém,
+nebo není známo, které sousední body pouít pøi
+vıpoètu barvy. Øeší to volba pro nastavení módu </font><font
+color="#000080" face="Arial"><strong>adresování textury</strong></font><font
+face="Arial">. Implicitnì se textura adresuje jako opakovaná
+(dladicové uspoøádání). Je-li napø. rozsah UV souøadnic
+mezi 2 vrcholy 0 a 2.0, textura se zopakuje 2x. Pøi
+opakování se okraje textur poèítají tak, e se barva
+interpoluje mezi prvním a posledním texelem textury. To
+umoní hladké pøechody mezi opakovanımi texturami. Na
+pøedešlém grafu je to varianta </font><font color="#000080"
+face="Arial"><strong>c) opakování</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Mód opakování však mùe v nìkterém
+pøípadì zpùsobit komplikace. Na následujících 2
+obrázcích vidíte pøípad pouití textur pøi generování
+terénu pomocí dladic (ètverce). U levého obrázku je
+povoleno opakování textur. Jak je vidìt, interpolací mezi
+prvním a posledním texelem textury vznikají na hranách
+dladice nepøíjemné viditelné artefakty. Øešení vypnutím
+vyhlazení textur povaujeme za nepøijatelné. Máme pro tyto
+pøípady další mód adresování textur, </font><font
+color="#000080" face="Arial"><strong>oøezání</strong></font><font
+face="Arial">. Na grafech vıše je to pøípad </font><font
+color="#000080" face="Arial"><strong>b) oøezání</strong></font><font
+face="Arial"> nebo dole je to obrázek vpravo. Okraje textur
+nejsou interpolovány, barva zùstává nezmìnìna od
+posledního známého texelu a po okraj textury. V módu
+oøezávání je textura vykreslována pouze v rozmezí
+souøadnic 0 a 1, vše ostatní mimo danı rozsah je oøezáno
+na okrajovou barvu.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img5/filtrace4.jpg" width="300" height="300">        
+<img src="img5/filtrace5.jpg" width="300" height="300"></font></p>
+
+<p><font face="Arial">Pokud to však bude moné, budeme se
+snait vyhlazování </font><font color="#000080" face="Arial"><strong>opakováním</strong></font><font
+face="Arial"> pouívat. Jak vidíte na následujících 2
+obrázcích, vlevo je zapnuto adresování oøezáním, vpravo
+adresování opakováním textur. Je zøejmé, e v módu
+oøezání nedojde k plynulému pøechodu mezi okrajovımi texely
+sousedních textur a objevují se viditelné zlomové pøechody.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img5/filtrace6.jpg" width="300" height="300">        
+<img src="img5/filtrace7.jpg" width="300" height="300"></font></p>
+
+<p><font face="Arial">V pøedešlém pøípadì jsme tento efekt
+brali jako menší zlo, radìji ne vznik okrajovıch
+artefaktù. I v takovém pøípadì však mùeme najít
+kompromisní øešení. Pøipravíme textury tak, e øadu bodù
+z koncù textur zkopírujeme i na zaèátky textur Samozøejmì
+myšleno pro stejná spojovací místa textur. Vytvoøíme tím
+jakési navzájem kompatibilní </font><font color="#000080"
+face="Arial"><strong>spojovací konektory textur</strong></font><font
+face="Arial">. Pak bude zajištìno, e první a poslední
+texely sousedních textur jsou vdy stejné a nedochází tak k
+pøechodovım zlomùm ani v pøípadì oezávání textur. Jak
+vidíte na následujícím obrázku, zlomy se ztratily. Budete-li
+i po této korekci pozorovat zlomy u vzdálenıch textur, zkuste
+zlepšit situaci vypnutím filtrace vzdálenıch textur nebo
+ještì lépe nastavením maximální úrovnì vzdálenıch
+textur. Pøi úpravách textur pamatujte na zmenšování textur
+pøi </font><font color="#000080" face="Arial"><strong>vyhlazení
+textur</strong></font><font face="Arial">. Napø. pouijete-li
+vyhlazení textur 2, musíte kopírovat 2 øady bodù.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img5/filtrace8.jpg" width="300" height="300"></font></p>
+
+<p><font face="Arial">Uvedenı pøípad filtrace textur se
+vztahoval pøedevším k pøípadu zvìtšení textury, kdy se 1
+texel zobrazí jako nìkolik grafickıch bodù na obrazovce.
+Nastavení filtrace urèije pøepínaè </font><font
+color="#000080" face="Arial"><strong>filtrace zvìtšenıch
+textur</strong></font><font face="Arial">. Jinım podobnım
+pøípadem je zmenšení textur, kdy na jeden grafickı bod na
+obrazovce pøipadá nìkolik texelù. Tento typ filtrace je
+øízen pøepínaèem </font><font color="#000080" face="Arial"><strong>filtrace
+zmenšenıch textur</strong></font><font face="Arial">. Pøi
+zmenšování textur se barva vısledného pixelu získá
+interpolací dvou nejbliších texelù, podobnì jako pøi
+zvìtšení, pouze v jiném mìøítku.</font></p>
+
+<p><font face="Arial">Pokud bychom pouili u velmi vzdálenıch
+(zmenšenıch) textur filtr pro zmenšení textur, uplatnily by
+se ve vısledném obraze vdy jen nìkteré (nejbliší) dva
+texely, co by mìlo za následek zrnitost a problikávání
+vzdálenıch objektù. V tomto pøípadì se uplatní technika
+vzdálenıch textur, </font><font color="#000080" face="Arial"><strong>mipmaping</strong></font><font
+face="Arial">. Mipmap textury jsou textury odvozené z pùvodní
+textury postupnım dìlením velikosti na polovinu, a po
+velikost 1 x 1 bod.</font></p>
+
+<p><font face="Arial"><em>Pøíklad:</em> V programu máme
+pøipravenou texturu s rozmìry 256 x 256 bodù, s prùhlednım
+pozadím. Je to obrázek v Petrovi, proto pouívá paletovı
+reim 256 barev. Je zvoleno vyhlazení textur 2. Pøi
+generování textury se obrázek pøevede na TrueColor (32 bitù)
+a zmenší se na rozmìr 128 x 128 bodù. Z prùhledné barvy se
+odvodí alfa sloka (tedy kanál prùhlednosti). Díky tomu, e
+obrázek byl pøeveden do barev Petra s vyuitím ditheringu
+(co je metoda simulace RGB barvy smícháním nìkolika
+8-bitovıch barev - obrázek je pøi bliším pohledu <em>teèkovanı</em>),
+obrázek se po zmenšení na rozmìr 128 x 128 velmi blíí
+TrueColor barvám. Z obrázku se postupnì odvozují
+následující úrobnì mipmap øetìzce, a po rozmìr 1 x 1
+bod.</font></p>
+
+<p align="center"><font face="Arial"><img src="img5/mipmaps.gif"
+width="912" height="283"></font></p>
+
+<p><font face="Arial">Pøi renderování textury vyhledá
+renderovací jednotka podle aktuálního mìøítka zobrazení
+nejbliší mipmap texturu. Je-li zapnut </font><font
+color="#000080" face="Arial"><strong>filtr vzdálenıch textur</strong></font><font
+face="Arial">, získá se vısledná barva interpolací mezi 2
+nejblišími mipmap texturami. Pøi vypnutém filtru se
+pouije nejbliší mipmap textura. Úroveò rozhodování,
+která mipmap úroveò textur bude pouita, mùeme øídit
+prvkem </font><font color="#000080" face="Arial"><strong>zjemnìní
+vzdálenıch textur</strong></font><font face="Arial">.
+Standardnì má hodnotu 0. Hodnota prvku se pøièítá k èíslu
+pouité úrovnì mipmap textur. Nastavením na zápornou
+hodnotu (lze zadávat i desetinná èísla) se pouije vìtší
+mipmap textura, obraz se více zaostøí. Kladné èíslo
+zajistí vìtší rozmazání vzdálenıch textur. Zmìna filtru
+o hodnotu 1 zpùsobí posun mipmap o 1 úroveò (tedy posun na
+dvojnásobnou nebo polovièní velikost mipmap textur).</font></p>
+
+<p><font face="Arial">Nakonec si popíšeme ještì jeden trik s
+texturami, </font><font color="#000080" face="Arial"><strong>bezešvé
+spojování textur</strong></font><font face="Arial">. Dejme
+tomu, e chcete zobrazit velkou fotografii. Nemùete pouít
+jedinou texturu kvùli omezení velikosti textur (napø. kvùli
+limitùm grafické karty), musíte fotografii rozloit na
+nìkolik menších èástí (segmentù) a namapovat je na
+nìkolik ètvercovıch dladic. Je samozøejmé, e nemùete
+pouít mód opakování textur, v místech spojù by se
+objevily èáry. V pøípadì módu oøezávání textur se v
+místech spojù budou objevovat zlomové hrany v plynulosti
+vyhlazení textur. U fotografií nemùete pouít ani trik s
+opakováním první a poslední øady bodù.</font></p>
+
+<p><font face="Arial">Øešení spoèívá v pøekryvech textur.
+Obrázek rozdìlíme na segmenty sdílející jednu øadu bodù.
+Texturu kadého segmentu namapujeme na plochu jako roztaenou
+o jeden texel, èili na kadé stranì bude pøeènívat o pùl
+texelu. Okrajové texely tak budou leet na hranicích ploch a
+vnìjší problémová oblast texelù se vùbec nepouije. To
+umoní hladké napojování textur bez vzniku artefaktù,
+dokonce nezávisle na zvoleném módu adresování. Na konci
+lekce naleznete ukázkovı program vyuívající bezešvé
+spojování textur k zobrazení fotografií. Metodu si na nìm
+blíe vysvìtlíme.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img5/obrazarna.jpg" width="512" height="384"></font></p>
+
+<p><font face="Arial">V programu chceme zobrazit fotografie o
+koncovém rozmìru </font><font color="#000080" face="Arial"><strong>640
+x 512</strong></font><font face="Arial">. Budou souèástí
+programu, proto budeme poèítat s pøevodem z 8-bitovı barev
+Petra a vyhlazením textur </font><font color="#000080"
+face="Arial"><strong>2</strong></font><font face="Arial">, èili
+fotografie budou mít v programu rozmìr </font><font
+color="#000080" face="Arial"><strong>1280 x 1024</strong></font><font
+face="Arial"> bodù. Pouijeme textury s koncovım rozmìrem </font><font
+color="#000080" face="Arial"><strong>128 x 128</strong></font><font
+face="Arial"> bodù, co znamená 256 x 256 bodù v 8-bitovıch
+barvách. Jedna fotografie se bude skládat z </font><font
+color="#000080" face="Arial"><strong>5</strong></font><font
+face="Arial"> segmentù horizontálnì (640 / 128 = 5) a </font><font
+color="#000080" face="Arial"><strong>4</strong></font><font
+face="Arial"> segmentù vertikálnì (512 / 128).</font></p>
+
+<p><font face="Arial">Napojované segmenty budou sdílet 1 bod.
+Støední segmenty efektivnì zobrazí </font><font
+color="#000080" face="Arial"><strong>127</strong></font><font
+face="Arial"> texelù, protoe první a poslední texel se
+zobrazí jen do poloviny. U krajních segmentù se zobrazí
+vnitøní texely do poloviny, ale krajní se musí zobrazit
+celé. Krajní segmenty tedy zobrazí </font><font
+color="#000080" face="Arial"><strong>127,5</strong></font><font
+face="Arial"> texelù. Kdy tyto hodnoty seèteme zjistíme, e
+se z obrázku efektivnì zobrazí </font><font color="#000080"
+face="Arial"><strong>636</strong></font><font face="Arial"> bodù
+na šíøku a </font><font color="#000080" face="Arial"><strong>509
+</strong></font><font face="Arial">bodù na vıšku. Nestalo by
+se moc kdybychom nadbyteèné body z obrázku jen ignorovali, ale
+protoe chceme ukázkovì porovnávat metody, obsahuje program
+obrázky u pøipravené v korigovaném rozmìru </font><font
+color="#000080" face="Arial"><strong>1272 x 1018</strong></font><font
+face="Arial"> bodù.</font></p>
+
+<p><font face="Arial">Rozsekávání obrázku na segmenty se
+provádí programovì, vykreslením segmentu do grafické plochy
+a sejmutím segmentu do textury. Jeden segment má rozmìr 256
+bodù, ale okno segmentù je pøitom v obrázku posouváno po 254
+bodech (kvùli zmenšení textury se nesdílí 1 bod ale 2),
+èím se zajistí sdílení bodù mezi segmenty. Zastavíme se
+podrobnìji u horizontálních vıpoèetních operací pro
+støední segment, jako pøíklad.</font></p>
+
+<p><font face="Arial">Obsah promìnné </font><font
+color="#000080" face="Arial"><strong>mìøítko X mapování
+textury</strong></font><font face="Arial"> se pouije v
+pøíkazu </font><font color="#000080" face="Arial"><strong>mapování
+textury</strong></font><font face="Arial"> pro jeden segment.
+Nastavením mìøítka mapování na zlomek </font><font
+color="#000080" face="Arial"><strong>127/128</strong></font><font
+face="Arial"> se zajistí, e textura se roztáhne pøesnì o 1
+texel (šíøka textury po konverzi je 128 bodù). Roztáhnutí
+se provádí kolem støedu, take se textura roztáhne na
+kadou stranu o 1/2 texelu. U støedních segmentù zùstává
+støed mapování na souøadnici </font><font color="#000080"
+face="Arial"><strong>0.5</strong></font><font face="Arial">, co
+je støed textury. U okrajovıch textur se nastavuje šíøka
+mapování na hodnotu </font><font color="#000080" face="Arial"><strong>127.5/128</strong></font><font
+face="Arial"> (tedy 127 a pùl texelu). Je tøeba zobrazit
+krajní texel celı, proto je nutné posunou støed mapování o
+1/4 texelu, tedy o hodnotu </font><font color="#000080"
+face="Arial"><strong>0.25/128</strong></font><font face="Arial">.</font></p>
+
+<p><font face="Arial">Rozmìry segmentù nastavujeme relativnì
+vzhledem k celé skupinì (tj. aby vıslednı rozmìr obrazu mìl
+hodnotu 1). Vnitøní segmenty zobrazují </font><font
+color="#000080" face="Arial"><strong>127</strong></font><font
+face="Arial"> texelù, proto jejich šíøka bude (vzhledem k
+celkové šíøce obrázku) </font><font color="#000080"
+face="Arial"><strong>127/636</strong></font><font face="Arial">.
+Šíøka krajních segmentù je </font><font color="#000080"
+face="Arial"><strong>127.5/636</strong></font><font face="Arial">.
+Levou hranièní souøadnicí obrazu je hodnota 0.5. Støed
+prvního segmentu je posunut o 1/2 šíøky od levého okraje,
+proto souøadnice X levého segmentu je </font><font
+color="#000080" face="Arial"><strong>(127.5/636)/2 - 0.5</strong></font><font
+face="Arial">. Souøadnice X kadého dalšího (vnitøního)
+segmentu je odsazena od levého okraje o celou šíøku prvního
+segmentu (tj. </font><font color="#000080" face="Arial"><strong>127.5/636</strong></font><font
+face="Arial">), o šíøky pøedešlıch vnitøních segmentù
+(kadı je širokı </font><font color="#000080" face="Arial"><strong>127/636</strong></font><font
+face="Arial">) a o polovinu šíøky tohoto segmentu.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img5/obrazarna2.gif" width="386" height="768"></font></p>
+
+<p><font face="Arial">Na následujících snímcích mùete
+porovnat úèinnost metody. Vlevo je detail obrázku zobrazeného
+pomocí bìnıch nepøekryvnıch segmentù (u segmentù je
+nastaven mód oøezávání textur), vpravo je zobrazení s
+vyuitím bezešvého spojování textur. Budete-li program
+zkoušet, jsou rozdíly nejvıraznìjší u obrázku èíslo 3,
+pokud se k nìmu více pøiblííte. Obzvláštì je tato
+metoda úspìšnì vyuitelná pøi zobrazení textù, kde se
+pouívají textury s malım rozlišením a pøechody mezi
+texturami bıvají èastım problémem.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img5/obrazarna3.jpg" width="400" height="300">   <img
+src="img5/obrazarna4.jpg" width="400" height="300"></font></p>
+
+<p align="center"><font face="Arial"><img
+src="img5/obrazarna5.jpg" width="400" height="300">   <img
+src="img5/obrazarna6.jpg" width="400" height="300"></font></p>
+
+<p align="center"><a href="download/28_obrazarna.zip"><font
+face="Arial">download pøíkladu Obrazárna</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_27.htm"><font face="Arial">27.
+Lovíme minotaury (6. èást, lov)</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_29.htm"><font
+face="Arial">29. Vytváøíme textury - 2D objekty</font></a></p>
+</body>
+</html>

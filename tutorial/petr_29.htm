@@ -1,0 +1,365 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>29 Vytváøíme textury - 2D objekty</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_28.htm"><font face="Arial">28.
+Jak na textury</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_30.htm"><font
+face="Arial">30. Vytváøíme textury - plochy</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">29. Vytváøíme textury - 2D objekty</font></h2>
+
+<p><font face="Arial">Je zøejmé, e textury jsou pro 3D
+programátora velmi potøebnım artiklem. K jejich obstarání
+mùete vyuít bohatou zásobu textur na internetu, mnohdy
+volnì šíøitelnıch. Jsou však pøípady, kdy potøebujete
+mít texturu s vlastní licencí nebo jen proto, e
+nenacházíte pøesnì to co potøebujete. Proto si popíšeme
+pár postupù, jak si texturu pøipravit.</font></p>
+
+<p><font face="Arial">Nejdøíve ale jednu radu - a u
+získáte odnìkud hotovou texturu nebo jen polotovar
+(fotografii) k její pøípravì, vdy si uchovejte odkaz na
+zdroj. Mùe se stát (a èasto se stává), e se budete
+potøebovat obrátit znovu na zdroj - buï kvùli autorství nebo
+protoe o originál pøijdete jeho modifikací. A ještì druhá
+rada - vdy si uchovávejte jak originál ze kterého
+vycházíte, tak i dùleité mezikroky. Je èastım pøípadem,
+e se potøebujete v operacích vrátit a udìlat nìco jinak.
+Jinak budete muset zaèít opìt od úplného zaèátku a nìkdy
+moná u ani pùvodní originál znovu nenajdete.</font></p>
+
+<p><font face="Arial">Budete-li textury vytváøet, pouívejte
+pokud mono rozmìry, které jsou mocninou 2. To je napø. 32,
+64, 128. Jedním z dùvodù takovıch rozmìrù je generování
+mipmap textur, kdy je tøeba vytvoøit øetìzec textur, jejich
+rozmìry jsou v pomìru 1:2 a konèí na rozmìru 1. Druhım
+dùvodem je efektivnost uloení textury ve videopamìti
+grafické karty. Mnohem snáze se v pamìti organizují textury s
+rozmìry mocniny 2. Z podobnıch dùvodù se doporuèuje, aby
+textura byla ètvercová, tj. aby šíøka byla stejná jako
+vıška. Opìt je dùvodem generování mipmap (vıška a
+šíøka by nemìly stejnı poèet úrovní) a ètvercové
+textury se snáze organizují v pamìti.</font></p>
+
+<p><font face="Arial">Mnoho 3D gafickıch karet uvedené dva
+poadavky striktnì vyadují. Petr pøi zavádìní textury do
+videopamìti textury zkonvertuje na potøebnı rozmìr, je-li to
+tøeba. Pøesto radìji na automatickou konverzi nespoléhejte a
+pøipravujte textury splòující uvedená omezení.</font></p>
+
+<p><font face="Arial">Dalším omezujícím kritériem textur je
+maximální rozmìr. Grafické karty povolují maximální
+rozmìr textury èasto a 2048 nebo 4096 bodù. Petr texturu
+opìt zkonvertuje na menší rozmìr, vyaduje-li to grafická
+karta. Návrháø by u pøedem mìl poèítat s menšími
+texturami. Kromì omezení rozmìrù grafickou kartou dochází u
+velkıch textur k rychlému zaplnìní videopamìti a k pomalému
+naèítání textur. To se projeví tím, e hra na okamik
+zadrhne, dostane-li se hráè do dosud nezobrazené oblasti
+scény.</font></p>
+
+<p><font face="Arial">I s malımi texturami lze dosáhnout velmi
+dobrého vzhledu. Návrháø by se mìl kadou texturu snait
+minimalizovat tak, aby byla co nejmenší a pøitom aby ještì
+nebylo znatelné zhoršení kvality obrazu. Za optimální
+velikost textury lze povaovat nejèastìjší rozmìr 256 x 256
+(jedná se o koncovı rozmìr, ne rozmìr v 8-bitovıch barvách
+pøed provedením zjemnìní textury). Textury s rozmìrem 128 x
+128 lze povaovat v mnoha situacích za ještì dobré
+øešení. V nìkterıch pøípadech mùe bıt dostaèující i
+textura s rozmìrem 64 x 64 bodù. Naproti tomu textura 512 x 512
+bodù slouí k ji detailnímu zobrazení grafickıch
+informací, napøíklad nápovìda nebo popis. Mìl by to bıt
+maximální rozmìr, se kterım lze poèítat u všech
+grafickıch karet. Kvùli zátìi naèítání textur by se
+mìlo jednat o málo èastı pøípad textury. U textur s
+rozmìry 1024 a více nelze ji poèítat se zaruèenou podporou
+na všech koncovıch zaøízeních.</font></p>
+
+<p><font face="Arial">Následující popisy se budou vztahovat ke
+grafickému editoru Photoshop 7.0 CE. U jinıch editorù bude
+postup obdobnı, jen budete muset potøebné funkce více hledat.</font></p>
+
+<p><font face="Arial">Zaèneme s vytvoøením textury </font><font
+color="#000080" face="Arial"><strong>2D objektu</strong></font><font
+face="Arial">, tedy objektu s prùhlednım okolím.
+Pravdìpodobnì si nejdøíve nìkde najdete nìjakou fotografii,
+ze které chcete 2D obrázek <em>vytáhnout</em>. Fotografii
+otevøete ve Photoshopu. Jako první operaci moná budete
+nìkdy muset fotografii nejdøíve otoèit nebo deformovat tak,
+aby se objekt dostal do správnıch proporcí.</font></p>
+
+<p align="center"><font face="Arial"><img src="img5/hodiny.jpg"
+width="500" height="375"></font></p>
+
+<p><font face="Arial">Velkou vıhodou je, má-li objekt vıraznı
+obrys. V tom pøípadì mùeme vyuít </font><font
+color="#000080" face="Arial"><strong>nástroj magnetické laso</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img5/textury.gif"
+width="258" height="89"></font></p>
+
+<p align="left"><font face="Arial">Klávesami </font><font
+color="#000080" face="Arial"><strong>Cltr+[+]</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>Cltr+[-]</strong></font><font
+face="Arial"> si nastavte mìøítko zobrazení tak, abyste
+vidìli celı objekt v nejvyšším pøiblíení. Jemnìjší
+zoomování docílíte koleèkem myši. Vyberte magnetické laso
+a kliknìte na hranu objektu. Objeví se obrysová køivka
+sledující kurzor myši. Postupnì pohybujte kurzorem myši nad
+hranou objektu. Køivka se pøichytává pomocí kotevních bodù
+na hranu. Pokud vám køivka zajede kam nemá, kousek se vrate
+a klávesou </font><font color="#000080" face="Arial"><strong>Delete</strong></font><font
+face="Arial"> zrušte chybné kotevní body. Operaci mùete
+pøerušit klávesou </font><font color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial">. Znaèení obrysu ukonèíte uzavøením smyèky,
+dvojklikem myší nebo stiskem </font><font color="#000080"
+face="Arial"><strong>Enter</strong></font><font face="Arial">.
+Je-li tøeba, mùete pøidat další èásti vıbìru opìt
+nástrojem magnetické laso, nebo odebrat nìjaké èásti
+oznaèením s </font><font color="#000080" face="Arial"><strong>Alt</strong></font><font
+face="Arial">.</font></p>
+
+<p align="left"><font face="Arial">Máte-li vıbìr ukonèen,
+stiskem </font><font color="#000080" face="Arial"><strong>Ctrl+C</strong></font><font
+face="Arial"> zkopírujete vybranou oblast do schránky. Stiskem </font><font
+color="#000080" face="Arial"><strong>Ctrl+N</strong></font><font
+face="Arial"> otevøete okno pro zaloení nového souboru. V
+rozmìrech je pøednastavena velikost vašeho vıbìru. Nic
+nemìòte a jen stiskem </font><font color="#000080" face="Arial"><strong>Enter</strong></font><font
+face="Arial"> okno potvrïte. Objeví se nové okno. Stiskem </font><font
+color="#000080" face="Arial"><strong>Ctrl+V</strong></font><font
+face="Arial"> vlote obsah schránky do okna.</font></p>
+
+<p align="center"><font face="Arial"><img src="img5/hodiny2.jpg"
+width="343" height="346"></font></p>
+
+<p align="left"><font face="Arial">Stiskem </font><font
+color="#000080" face="Arial"><strong>Ctrl+L</strong></font><font
+face="Arial"> vyvolejte editor jasovıch úrovní objektu.
+Pøitáhnìte bìce na histogramu k boèním hranám køivky
+tak, aby obraz získal dobrı kontrast. Nìkdy mùe bıt
+vıhodnìjší zvolit automatické vyrovnání úrovní </font><font
+color="#000080" face="Arial"><strong>Ctrl+Shift+L</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img5/textury2.gif"
+width="414" height="289"></font></p>
+
+<p align="left"><font face="Arial">Zrušte vrstvu pozadí, tím
+se okolí objektu zobrazí jako prùhledné. Je-li tøeba,
+dokorigujte nepøesnosti v oøezání objektu. Nìkteré opravy
+je vhodnìjší udìlat ještì pøed zrušením pozadí, kdy
+mùete nìkteré chyby zviditelnit vyplnìním pozadí jinou
+barvou.</font></p>
+
+<p align="left"><font face="Arial">Otevøete okno pro nastavení
+velikosti obrazu a zmìòte velikost obrazu na velikost vhodnou
+pro textury. Dobré je pouít rozmìr 512 x 512 bodù, co je
+asi tak maximum doporuèené pro textury a pøitom ještì dobrá
+kvalita ze které lze generovat textury menší. Jedná-li se o
+objekt se znaènì rozdílnou vıškou a šíøkou, je vhodné
+uloit si i pùvodní vzhled objektu. Pomùe to pøi
+pozdìjším urèování rozmìrù 3D objektu a také si
+nepoškodíme kvalitu obrazu pokud bychom se pozdìji rozhodli
+rozdìlit ho na více segmentù.</font></p>
+
+<p align="left"><font face="Arial">Moná se divíte, proè vše
+pøevádìt na ètvercové textury? U textury není dùleitı
+pomìr stran objektu. Skuteèné rozmìry se øeší a u
+objektu, na kterı je textura nalepena. Je úèelné
+maximalizovat obraz objektu na textuøe na plnou velikost
+textury, s vyuitím plné šíøky i vıšky, a tím dosáhnout
+maximální kvality obrazu a maximálního vyuití plochy
+textury. Pouze u textur s velmi rozdílnım pomìrem stran je
+vhodné rozdìlit texturu na nìkolik menších textur.</font></p>
+
+<p align="center"><img src="img5/hodiny3.jpg" width="350"
+height="350"></p>
+
+<p align="left"><font face="Arial">Nyní je vhodnı okamik k
+uloení </font><font color="#000080" face="Arial"><strong>true-color</strong></font><font
+face="Arial"> verze textury. Po pøevodu na paletovı formát
+ji nebude cesta zpìt a bylo by škoda nemít k dispozici
+kvalitnìjší verzi a ji nìkdy v budoucnu budete potøebovat.
+Pro prùhledné textury je nejvhodnìjší formát </font><font
+color="#000080" face="Arial"><strong>PNG</strong></font><font
+face="Arial">, kterı podporuje mnoho herních enginù (Petr
+bohuel ne).</font></p>
+
+<p align="left"><font face="Arial">Pro pøevod obrázku do palet
+Petra je na konci lekce ke staení tabulka palet pro Photoshop.
+Zvolte v menu </font><font color="#000080" face="Arial"><strong>Obraz</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>Reim</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>Indexovaná
+barva</strong></font><font face="Arial">. V dialogu vyberte jako
+paletu </font><font color="#000080" face="Arial"><strong>Jiná...</strong></font><font
+face="Arial"> a naètìte soubor palet </font><font
+color="#000080" face="Arial"><strong>Petr_palety.act</strong></font><font
+face="Arial">, potvrïte tabulku palet </font><font
+color="#000080" face="Arial"><strong>OK</strong></font><font
+face="Arial">. Pøíštì ji bude staèit pouívat volbu </font><font
+color="#000080" face="Arial"><strong>Pøedchozí</strong></font><font
+face="Arial">. Jak vidíte, barev je v tabulce 223 (bìnì má
+Petr 224, byla vypuštìna barva pro stíny) a je zaškrtnutá </font><font
+color="#000080" face="Arial"><strong>Prùhlednost</strong></font><font
+face="Arial">. Volbu </font><font color="#000080" face="Arial"><strong>Podklad</strong></font><font
+face="Arial"> ponechejte na </font><font color="#000080"
+face="Arial"><strong>ádná</strong></font><font face="Arial">,
+</font><font color="#000080" face="Arial"><strong>Rozklad</strong></font><font
+face="Arial"> zvolte </font><font color="#000080" face="Arial"><strong>Rozptılenı</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>Míra
+100%</strong></font><font face="Arial"> a zaškrtnìte </font><font
+color="#000080" face="Arial"><strong>Zachovat pøesné barvy</strong></font><font
+face="Arial">.</font></p>
+
+<p align="left"><font face="Arial">Po potvrzení OK se textura
+zkonvertuje do barev Petra. Vısledek mùete uloit - zvolte
+cílovı formát BMP (formát Windows), zaškrtnìte </font><font
+color="#000080" face="Arial"><strong>Komprimovat (RLE)</strong></font><font
+face="Arial">. Pokud teï texturu zkušebnì pøenesete do Petra
+(buï pøes schránku nebo pøes soubory knihovny), uvidíte, e
+pozadí je správnì vyplnìno prùhlednou barvou. Nìkdy a v
+tomto zobrazení uvidíte zapomenutá nevymazaná místa, proto
+mùete ještì udìlat dodateèné korekce a obrázek uloit
+pøes knihovnu. Uloení mùe bıt dobré i v pøípadì, e
+chcete bıt opravdu dùslední a mít texturu ve formátu s
+paletami a kompresí pøesnì tak, jak by je uloil Petr.</font></p>
+
+<p align="center"><img src="img5/hodiny4.jpg" width="350"
+height="350"></p>
+
+<p align="left"><font face="Arial">Importovací tabulka palet </font><font
+color="#000080" face="Arial"><strong>Petr_palety.act </strong></font><font
+face="Arial">byla pøipravena úpravou standardních palet Petra
+tak, e barva pouívaná v Petrovi pro prùhlednost (</font><font
+color="#000080" face="Arial"><strong>R=149</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>G=34</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>B=140</strong></font><font
+face="Arial">) byla oznaèena jako prùhledná barva a barva pro
+stíny (</font><font color="#000080" face="Arial"><strong>R=97</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>G=30</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>B=111</strong></font><font
+face="Arial">) byla vypuštìna.</font></p>
+
+<p align="left"><font face="Arial">Nebudete-li umìt ve vašem
+editoru importovat obrázek do barev Petra nebo konverze bude
+mít horší kvalitu ne pøi importu Petrem, budete muset
+ponechat pozadí na neutrální barvì (která se na hranách
+objektu nevyskytuje), pøenést obrázek do Petra a tam vyplnit
+pozadí prùhlednou barvou nástrojem </font><font
+color="#000080" face="Arial"><strong>Vıplò</strong></font><font
+face="Arial">. Je tøeba, aby barva pozadí byla nìkterá z
+barev pouívanıch v Petrovi, jinak by kvùli ditheringu nebylo
+moné její vyplnìní barvou. Nabídku barev mùete zjistit
+zobrazením palet nìjakého obrázku z Petra nebo sejmutím pole
+barev v editoru Petra a nabráním pøíslušné barvy z
+obrázku. Nebo pouít èernou èi bílou barvu, ta je v
+barvách Petra urèitì. Obrázek pøenášenı do Petra
+pouijte radìji 2x nebo 4x zvìtšenı a a po vyplnìní
+prùhlednou barvou ho zmenšete na správnou velikost. Tím se
+vyhnete artefaktùm vzniklım smíšením obrázku s pozadím na
+hranách objektu.</font></p>
+
+<p align="left"><font face="Arial">Mnohem vìtším problémem
+jsou stromy. Mezi vìtvemi stromu snadno prosvítá pùvodní
+pozadí a proto nestaèí obtáhnout obrys stromu. Z fotografií
+mùete pouít jen takové pøípady, kdy strom má vìtve
+husté a jsou vırazné pøechody mezi vìtvemi a pozadím. V
+takovém pøípadì si buï vystaèíte opìt s obrysem stromu
+nebo pozadí vymaete nástrojem </font><font color="#000080"
+face="Arial"><strong>plechovka barvy</strong></font><font
+face="Arial">. Jako reim zvolte </font><font color="#000080"
+face="Arial"><strong>Vymazat</strong></font><font face="Arial">,
+tím dojde k zprùhlednìní mazanıch ploch. Vypnete-li
+pøepínaè </font><font color="#000080" face="Arial"><strong>Sousedící</strong></font><font
+face="Arial">, mùete naráz vymazat danı rozsah barev z
+celého obrázku. Pøi mazání zkoušejte rùzná nastavení </font><font
+color="#000080" face="Arial"><strong>Tolerance</strong></font><font
+face="Arial">. Po kadé operaci porovnejte souèasnı a
+pøedešlı stav opakovanım stiskem </font><font color="#000080"
+face="Arial"><strong>Ctrl+Z</strong></font><font face="Arial">,
+pokraèujte jen pokud nedošlo k nechtìnému odmazání nìjaké
+èásti obrazu. K odmazávání zbytkù pouijte nástroj </font><font
+color="#000080" face="Arial"><strong>Guma</strong></font><font
+face="Arial">. Je dùleité, aby stromem neprosvítalo
+pùvodní pozadí, napøíklad modrá obloha. To ovìøíte tím,
+e budete zkoušet za stromem rùznì svìtlá pozadí.</font></p>
+
+<p align="center"><font face="Arial"><img src="img5/strom1.jpg"
+width="350" height="263"></font></p>
+
+<p align="center"><font face="Arial"><img src="img5/strom2.jpg"
+width="350" height="350"></font></p>
+
+<p align="center"><font face="Arial"><img src="img5/strom3.jpg"
+width="350" height="350"></font></p>
+
+<p align="left"><font face="Arial">Na správnou pøípravu
+fotografií stromù je tøeba pamatovat u ve chvíli
+poøizování fotografie. Je tøeba zvolit pozadí, které je
+barevnì dostateènì odlišné od vìtví stromu, nejlépe
+pozadí jednobarevné. Ale ani obloha jako pozadí nemusí bıt
+vdy nejoptimálnìjší. Jasná modrá obloha zpùsobí
+pøesvícení zábìru, strom je pøíliš tmavı a nìkdy se
+nemusí podaøit ho dodateènì zesvìtlit. Fotografie by mìla
+mít pokud mono co nejvyšší rozlišení. Zmenšením
+fotografie s odmazanım pozadím se pøechodová místa zmìní
+na poloprùhledná a tím budou správnì pøekryta pøes pozadí
+3D scény. Zatímco odmazáváním pozadí u fotografie s
+niším rozlišení jsou ji pøechody prolnuty s pozadím a
+máme jen monost je buï odmazat nebo ponechat a v tom
+pøípadì budou hrany stromu svítit pùvodním pozadím.</font></p>
+
+<p align="left"><font face="Arial">Lepším øešením jsou </font><font
+color="#000080" face="Arial"><strong>fraktálové stromy</strong></font><font
+face="Arial">. U stromù generovanıch programem si mùeme
+snadno urèovat pozadí, osvìtlení i rozlišení a tak je
+situace mnohem snazší. Nìkteré nástroje umoòují u
+pøímo generování prùhlednıch textur. Vıbornım nástrojem
+ke generování stromù (a také pozadí scén) je program </font><a
+href="http://download.cnet.com/Bryce-Personal-Learning-Edition/3000-6677_4-75219820.html"><font
+face="Arial">Bryce3D</font></a><font face="Arial">, kterı je pro
+nekomerèní pouití zdarma k dispozici. Jeho velkou
+pøedností je pøíjemné uivatelské rozhraní a snadné
+pouití. Pøíklad stromu vytvoøeného v Bryce3D vidíte na
+následujících obrázcích. Zelené pozadí bylo pouito z
+toho dùvodu, aby na hranách stromu nevytváøelo barevné
+obrysy.</font></p>
+
+<p align="center"><img src="img5/stromek1.jpg" width="350"
+height="350"></p>
+
+<p align="center"><img src="img5/stromek2.jpg" width="350"
+height="350"></p>
+
+<p align="center"><font face="Arial"><img src="img5/stromek3.jpg"
+width="350" height="350"></font></p>
+
+<p align="center"><a href="download/petr_palety.zip"><font
+face="Arial">download palet pro import ve Photoshopu</font></a></p>
+
+<p align="center"><a href="download/29_textury.zip"><font
+face="Arial">download ukázkovıch textur</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_28.htm"><font face="Arial">28.
+Jak na textury</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_30.htm"><font
+face="Arial">30. Vytváøíme textury - plochy</font></a></p>
+</body>
+</html>

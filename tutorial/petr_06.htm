@@ -1,0 +1,253 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>6 Petr v bludišti</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_05.htm"><font face="Arial">5.
+Petr chodí po znaèkách</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_07.htm"><font
+face="Arial">7. Ovládání klávesnicí</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">6. Petr v bludišti</font></h2>
+
+<p><font face="Arial">Petøík na svıch toulkách pøišel do
+velkého bludištì. Nemùe najít cestu ven, musíme mu
+pomoci. Hledání cesty bludištìm je jeden z èasto øešenıch
+algoritmizaèních problémù. Pouijeme obvyklou metodu -
+Petøík se bude snait dret stìny po pravé ruce, dokud
+nenajde vıchod z bludištì ven.</font></p>
+
+<p><font face="Arial">Zaèneme vytvoøením nového programu. V
+oknì programù stisknìte tlaèítko </font><font
+color="#000080" face="Arial"><strong>Novı</strong></font><font
+face="Arial"> <img src="img/new.gif" width="23" height="20">,
+jako jméno programu zadejte </font><font color="#000080"
+face="Arial"><strong>Cesta</strong></font><font face="Arial">.</font></p>
+
+<p><font face="Arial">V poli </font><font color="#000080"
+face="Arial"><strong>Spoleèné promìnné a funkce</strong></font><font
+face="Arial"> pøipravíme dva pøedmìty pro bludištì - zeï a
+dveøe. Mohli bychom si je namalovat, ale radìji je ukradneme
+u hotové z programu </font><font color="#000080" face="Arial"><strong>Bludištì</strong></font><font
+face="Arial">, kterı je souèástí MINI instalace Petra (u
+plné instalace Petra takové pøedmìty najdete ve vzorové
+knihovnì pøedmìtù). Vrate se do okna programù a otevøete
+program </font><font color="#000080" face="Arial"><strong>Bludištì</strong></font><font
+face="Arial">. Ve skupinì </font><font color="#000080"
+face="Arial"><strong>pøedmìty</strong></font><font face="Arial">
+(v poli </font><font color="#000080" face="Arial"><strong>Spoleèné
+promìnné a funkce</strong></font><font face="Arial">) najdìte
+prvky </font><font color="#000080" face="Arial"><strong>zeï</strong></font><font
+face="Arial"> <img src="img/zed.gif" width="20" height="20"> a </font><font
+color="#000080" face="Arial"><strong>dveøe</strong></font><font
+face="Arial"> <img src="img/dvere.gif" width="20" height="20">
+(jedno které, zda pro Petøíka nebo pro Lucku) a pøetáhnìte
+je do pole </font><font color="#000080" face="Arial"><strong>Knihovna
+promìnnıch a funkcí</strong></font><font face="Arial">, do
+skupiny prvkù </font><font color="#000080" face="Arial"><strong>pøedmìt</strong></font><font
+face="Arial">. Tím jste je uloili do knihovny. Nyní se
+vrate zpìt do programu </font><font color="#000080"
+face="Arial"><strong>Cesta</strong></font><font face="Arial">.
+Rozevøete v knihovnì skupinku </font><font color="#000080"
+face="Arial"><strong>pøedmìt</strong></font><font face="Arial">
+a pøetáhnìte z ní prvky </font><font color="#000080"
+face="Arial"><strong>dveøe</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>zeï</strong></font><font
+face="Arial"> do pole </font><font color="#000080" face="Arial"><strong>Spoleèné
+promìnné a funkce</strong></font><font face="Arial">. Prvky
+pøípadnì pøejmenujte na </font><font color="#000080"
+face="Arial"><strong>Dveøe</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><em><strong>Zeï</strong></em></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Teï vytvoøíme plochu bludištì.
+Dvakrát kliknìte na prvek </font><font color="#000080"
+face="Arial"><strong>plocha</strong></font><font face="Arial"> <img
+src="img/plocha.gif" width="20" height="20">. Trochu si ji
+zmenšíme, a nemusíme dìlat pøíliš velké bludištì.
+Kliknìte na tlaèítko </font><font color="#000080" face="Arial"><strong>Rozmìry</strong></font><font
+face="Arial"> <img src="img/picdim.gif" width="23" height="20">.
+Objeví se okno pro zadání rozmìrù plochy, rozmìry se
+zadávají v políèkách. Zadejte šíøku plochy </font><font
+color="#000080" face="Arial"><strong>12</strong></font><font
+face="Arial"> a vıšku </font><font color="#000080" face="Arial"><strong>10</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/mapdim2.gif"
+width="255" height="179"></font></p>
+
+<p><font face="Arial">Pouijte pøedmìty </font><font
+color="#000080" face="Arial"><strong>Dveøe</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>Zeï</strong></font><font
+face="Arial"> a vytvoøte bludištì podle obrázku
+(pøipomínám, e levé tlaèítko prvky pøesouvá a pravé
+kopíruje - to platí i pøi editaci plochy):</font></p>
+
+<p align="center"><font face="Arial"><img src="img/bludiste.gif"
+width="384" height="320"></font></p>
+
+<p><font face="Arial">Základem programu bude cyklus </font><font
+color="#000080" face="Arial"><strong>podmínìné opakování
+pøíkazù</strong></font><font face="Arial"> <img
+src="img/cyklus2.gif" width="20" height="20">. Chceme toti, aby
+Petøík neustále opakoval své kroky po bludišti a do
+okamiku, kdy najde dveøe. V podmínce cyklu pouijeme prvek </font><font
+color="#000080" face="Arial"><strong>pøedmìt na pozici s
+Petøíkem</strong></font><font face="Arial"> <img
+src="img/predmetna.gif" width="20" height="20">. Je podobnı
+prvku </font><font color="#000080" face="Arial"><strong>pøedmìt
+pøed Petøíkem</strong></font><font face="Arial"> s tím
+rozdílem, e se vztahuje k pøedmìtu na políèku, na kterém
+stojí Petøík. Najdete ho v podskupince </font><font
+color="#000080" face="Arial"><strong>Petøík - rozšíøení</strong></font><font
+face="Arial"> <img src="img/rozsireni.gif" width="20" height="20">.</font></p>
+
+<p><font face="Arial">Podmínku cyklu bychom mohli slovnì
+vyjádøit: &quot;<em>Dokud </em><em><u>není</u></em><em> na
+pozici s Petøíkem pøedmìt dveøí, opakuj...</em>&quot;.
+Slovo <em><u>není</u></em> nám dává najevo, e potøebujeme
+opak testu na shodnost pøedmìtù. K tomuto úèelu je urèen
+prvek </font><font color="#000080" face="Arial"><strong>neplatí-li,
+e</strong></font><font face="Arial"> <img src="img/neplati.gif"
+width="20" height="20">. Prvku se øíká </font><font
+color="#000080" face="Arial"><strong>logická negace</strong></font><font
+face="Arial"> a funguje tak, e pøevrátí vısledek
+porovnávací operace z </font><font color="#000080" face="Arial"><strong>ano</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>ne</strong></font><font
+face="Arial"> a z </font><font color="#000080" face="Arial"><strong>ne</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>ano</strong></font><font
+face="Arial">. Najdeme ho ve skupince </font><font
+color="#000080" face="Arial"><strong>vıpoèty</strong></font><font
+face="Arial"> <img src="img/vypocty.gif" width="20" height="20">,
+podskupince </font><font color="#000080" face="Arial"><strong>logické
+operace</strong></font><font face="Arial"> <img
+src="img/logicke.gif" width="20" height="20">.</font></p>
+
+<p><font face="Arial">Nejdøíve tedy umístìte do podmínky
+cyklu </font><font color="#000080" face="Arial"><strong>dokud
+platí</strong></font><font face="Arial"> <img
+src="img/dokud.gif" width="20" height="20"> prvek </font><font
+color="#000080" face="Arial"><strong>neplatí-li, e</strong></font><font
+face="Arial"> <img src="img/neplati.gif" width="20" height="20">.
+K nìmu pøipojte prvek </font><font color="#000080" face="Arial"><strong>shodnost
+pøedmìtù</strong></font><font face="Arial"> <img
+src="img/shodnost.gif" width="20" height="20"> a do nìj vlote
+prvky </font><font color="#000080" face="Arial"><strong>pøedmìt
+na pozici s Petøíkem</strong></font><font face="Arial"> <img
+src="img/predmetna.gif" width="20" height="20"> a </font><font
+color="#000080" face="Arial"><strong>Dveøe</strong></font><font
+face="Arial"> <img src="img/dvere.gif" width="20" height="20">.</font></p>
+
+<p><font face="Arial">V tìle cyklu chceme zajistit, aby Petøík
+procházel bludištìm tak, e se bude neustále dret stìny
+po pravé ruce. Na zaèátku cyklu nechejte Petøíka otoèit
+nejdøíve vpravo pøíkazem </font><font color="#000080"
+face="Arial"><strong>vpravo</strong></font><font face="Arial"> <img
+src="img/vpravo.gif" width="20" height="20">. Dalším pøíkazem
+bude cyklus </font><font color="#000080" face="Arial"><strong>podmínìné
+opakování pøíkazù</strong></font><font face="Arial"> <img
+src="img/cyklus2.gif" width="20" height="20">, vlote jej za
+pøíkaz </font><font color="#000080" face="Arial"><strong>vpravo</strong></font><font
+face="Arial">. Cyklus zajistí otáèení Petøíka doleva tak
+dlouho, dokud pøed sebou nenajde prùchodné políèko. Proto
+umístìte do cyklu prvek </font><font color="#000080"
+face="Arial"><strong>vlevo</strong></font><font face="Arial"> <img
+src="img/vlevo.gif" width="20" height="20">.</font></p>
+
+<p><font face="Arial">V podmínce druhého (vnitøního) cyklu
+budeme testovat, zda je pøed Petøíkem neprùchodné políèko
+a zda se tedy má Petøík ještì pootoèit doleva. Prvním z
+neprùchodnıch políèek bude </font><font color="#000080"
+face="Arial"><strong>Zeï</strong></font><font face="Arial"> <img
+src="img/zed.gif" width="20" height="20">. Petøík nemùe
+projít ještì pøes jednu pøekáku, a to pøes okraj plochy
+okna. Okraj plochy okna mùeme testovat jedním zvláštním
+pøedmìtem - </font><font color="#000080" face="Arial"><strong>okraj
+plochy</strong></font><font face="Arial"> <img
+src="img/okraj.gif" width="20" height="20"> (je ve skupince<strong>
+</strong></font><font color="#000080" face="Arial"><strong>plocha</strong></font><font
+face="Arial"> <img src="img/plocha.gif" width="20" height="20">).
+Zvláštní je v tom, e to není datová promìnná, ale
+konstanta, protoe její obsah nemùeme mìnit. Její hodnotu
+mùeme uchovávat v promìnnıch a testovat, ale nemùeme ji
+zobrazit poloením na plochu.</font></p>
+
+<p><font face="Arial">Potøebujeme tedy pomocí dvou testù
+pøedmìtù pøed Petøíkem vyjádøit formulaci &quot;<em>Dokud
+je pøed Petøíkem Zeï </em><em><u>nebo</u></em><em> je pøed
+Petøíkem okraj plochy, opakuj Vlevo</em>&quot;. Slovo <em><u>nebo</u></em>
+je opìt logickı prvek - </font><font color="#000080"
+face="Arial"><strong>nebo</strong></font><font face="Arial"> <img
+src="img/nebo.gif" width="20" height="20">, øíkáme mu </font><font
+color="#000080" face="Arial"><strong>logickı souèet</strong></font><font
+face="Arial">. Najdete ho ve skupince </font><font
+color="#000080" face="Arial"><strong>vıpoèty</strong></font><font
+face="Arial"> <img src="img/vypocty.gif" width="20" height="20">,
+podskupince </font><font color="#000080" face="Arial"><strong>logické
+operace</strong></font><font face="Arial"> <img
+src="img/logicke.gif" width="20" height="20">. Vlote prvek </font><font
+color="#000080" face="Arial"><strong>nebo</strong></font><font
+face="Arial"> do podmínky cyklu a pøidejte dvì porovnání
+pøedmìtù pøed Petøíkem, se </font><font color="#000080"
+face="Arial"><strong>zdí</strong></font><font face="Arial"> a s </font><font
+color="#000080" face="Arial"><strong>okrajem</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Petøík je teï otoèen smìrem na volné
+políèko, take nám zbıvá doplnit poslední prvek do
+hlavního cyklu - </font><font color="#000080" face="Arial"><strong>krok</strong></font><font
+face="Arial"> <img src="img/krok.gif" width="20" height="20">.
+Prvek zajistí popojítí Petøíka vpøed na nalezené volné
+políèko.</font></p>
+
+<p><font face="Arial">Nakonec zajistíme, aby se Petøík po
+nalezení cíle na nás otoèil a èekal na stisk klávesy. Za
+hlavní cyklus proto doplòte prvky </font><font color="#000080"
+face="Arial"><strong>vlevo</strong></font><font face="Arial"> <img
+src="img/vlevo.gif" width="20" height="20"> a </font><font
+color="#000080" face="Arial"><strong>vstup klávesy (èeká na
+stisk)</strong></font><font face="Arial"> <img
+src="img/vstup.gif" width="20" height="20">. Vıslednı program
+vidíte zde:</font></p>
+
+<p align="center"><font face="Arial"><img src="img/bludiste2.gif"
+width="396" height="701"></font></p>
+
+<p><font face="Arial">Program spuste. Petøík probíhá celé
+bludištì, a nakonec dorazí k vıchodu. Schválnì jsme mu
+dali vıchod hned za roh po levé stranì, ale protoe to neví,
+snaí se najít vıchod vpravo a tak mu to dlouho trvá.</font></p>
+
+<p align="center"><img src="img/bludiste3.gif" width="392"
+height="354"></p>
+
+<p><font face="Arial">Prohoïte mezi sebou prvky </font><font
+color="#000080" face="Arial"><strong>vlevo</strong></font><font
+face="Arial"> <img src="img/vlevo.gif" width="20" height="20"> a </font><font
+color="#000080" face="Arial"><strong>vpravo</strong></font><font
+face="Arial"> <img src="img/vpravo.gif" width="20" height="20">.
+Jak jistì tušíte, zmìnili jsme metodu hledání vıchodu tak,
+e se Petøík bude dret levé stìny namísto pravé. V
+našem bludišti najde vıchod mnohem døíve.</font></p>
+
+<p align="center"><a href="download/6_cesta.zip"><font
+face="Arial">download pøíkladu</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_05.htm"><font face="Arial">5.
+Petr chodí po znaèkách</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_07.htm"><font
+face="Arial">7. Ovládání klávesnicí</font></a></p>
+</body>
+</html>

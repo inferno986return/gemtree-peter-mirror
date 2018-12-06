@@ -1,0 +1,302 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>20 A pøece se toèí</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_19.htm"><font face="Arial">19.
+Ahoj, 3D svìte!</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_21.htm"><font
+face="Arial">21. Pozor, padá hvìzda!</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">20. A pøece se toèí!</font></h2>
+
+<p><font face="Arial">Jaký by to byl svìt bez pohybu! Tak si
+teï náš 3D svìt trochu rozhýbeme. Budeme pokraèovat v
+programu </font><font color="#000080" face="Arial"><strong>3D</strong></font><font
+face="Arial"> z minulé lekce. Nejdøíve ho upravíme a teprve
+potom až si vysvìtlíme co a jak se v programu dìje.</font></p>
+
+<p><font face="Arial">Do hlavní smyèky programu doplòte prvek </font><font
+color="#000080" face="Arial"><strong>rotace podle osy Y</strong></font><font
+face="Arial">, který naleznete ve skupinì </font><font
+color="#000080" face="Arial"><strong>grafika</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>3D
+grafika</strong></font><font face="Arial"> / </font><font
+color="#000080" face="Arial"><strong>transformace</strong></font><font
+face="Arial">. Pøi každém prùchodu smyèkou pøeètìte
+aktuální hodnotu prvku, pøiètìte k ní </font><font
+color="#000080" face="Arial"><strong>0.05</strong></font><font
+face="Arial"> a výsledek nastavte jako novou hodnotu prvku.</font></p>
+
+<p align="center"><img src="img4/3d14.gif" width="302"
+height="354"></p>
+
+<p><font face="Arial">Spustíte-li program, uvidíte planetu
+Zemi, jak se otáèí kolem své osy. A nyní se podíváme, co
+program vlastnì dìlá.</font></p>
+
+<p><font face="Arial">3D svìt je ve skuteènosti statický
+svìt. Nic se v nìm samo nehýbe, vše se nachází pøesnì v
+takovém stavu, do jakého to uvedeme my. To platí i o poloze a
+stavu objektù. Chceme-li objekty rozpohybovat, musíme
+opakovanì, v závislosti na èase, mìnit jejich polohu a stav.
+Neboli objekty animovat.</font></p>
+
+<p><font face="Arial">K rozpohybování objektù potøebujeme
+mít souøadný systém. Ten nám udává polohu objektu ve 3D
+svìtì vzhledem k jakémusi pomyslnému poèátku. Systém Petr
+používá implicitnì tzv. </font><font color="#000080"
+face="Arial"><strong>levoruký kartézský souøadný systém</strong></font><font
+face="Arial">, používaný též v rozhraní DirectX. Oznaèení
+</font><font color="#000080" face="Arial"><strong>levoruký</strong></font><font
+face="Arial"> je proto, že ukazuje-li ukazováèek levé ruky
+smìrem první souøadnice (</font><font color="#000080"
+face="Arial"><strong>X</strong></font><font face="Arial">),
+sklopený prostøedníèek smìrem druhé souøadnice (</font><font
+color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial">), pak zvednutý palec ukazuje smìr tøetí
+souøadnice (</font><font color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial">). Nebo chcete-li, ještì jiná mnemotechnická
+pomùcka: Postavíme-li se tak, abychom se dívali smìrem první
+souøadnice (</font><font color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial">), nahoru aby míøila druhá souøadnice (</font><font
+color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial">), pak levá ruka upažená do strany ukazuje smìr
+tøetí souøadnice (</font><font color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial">).</font></p>
+
+<p align="center"><img src="img4/3d15.gif" width="410"
+height="428"></p>
+
+<p><font face="Arial">Grafické rozhraní OpenGL naproti tomu
+používá </font><font color="#000080" face="Arial"><strong>pravoruký
+kartézský souøadný systém</strong></font><font face="Arial">.
+Každý ze systémù má své opodstatnìní. Pravoruký systém
+je akademickým systémem a je chápán tak, že pokud máme na
+stole položený papír s osami </font><font color="#000080"
+face="Arial"><strong>X</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial">, pak tøetí osa </font><font color="#000080"
+face="Arial"><strong>Z</strong></font><font face="Arial">
+vystupuje nahoru z papíru a znamená výšku. Je proto vhodný
+napø. v kartografii. Naproti tomu levoruký systém mùžeme
+chápat tak, že smìøuje-li osa </font><font color="#000080"
+face="Arial"><strong>X</strong></font><font face="Arial"> vpravo
+a osa </font><font color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> nahoru, pak se díváme smìrem vpøed, ve smìru
+kladné osy </font><font color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial">. Souøadnice </font><font color="#000080"
+face="Arial"><strong>Z</strong></font><font face="Arial">
+pøedstavuje vzdálenost od nás neboli hloubku. Proto je
+levoruký systém vhodnìjší pro použití v poèítaèové 3D
+grafice. V pøípadì potøeby lze v Petrovi souøadný systém
+zmìnit pomocí prvku </font><font color="#000080" face="Arial"><strong>typ
+projekce</strong></font><font face="Arial">.</font></p>
+
+<p><font face="Arial">Polohu objektu ve 3D svìtì urèujeme
+pomocí </font><font color="#000080" face="Arial"><strong>transformací</strong></font><font
+face="Arial">. Transformace jsou operace, které provádíme s
+objektem - posun, otoèení, zmìna velikosti. Každá z
+transformací se provádí v jednom ze smìrù X, Y, Z.
+Transformace se dají chápat jako poloha objektu - napø. prvek </font><font
+color="#000080" face="Arial"><strong>posun ve smìru X</strong></font><font
+face="Arial"> je souøadnice X objektu ve 3D svìtì. Chceme-li
+posunout objekt ve smìru X o vzdálenost 0.1, zmìníme hodnotu
+tohoto prvku o hodnotu 0.1.</font></p>
+
+<p><font face="Arial">Poøadí transformací není pøitom
+urèeno tím, v jakém poøadí transformace zadáváme. Poøadí
+transformací je pevnì dáno a jejich interpretace je taková,
+že všechny transformace se provedou z nulového stavu objektu
+pøi každém renderování snímku. V systému Petr je poøadí
+transformací následující:</font></p>
+
+<ol>
+    <li><font face="Arial">zmìna mìøítka ve smìrech X, Y a Z</font></li>
+    <li><font face="Arial">rotace podle osy X (sklopení objektu)</font></li>
+    <li><font face="Arial">rotace podle osy Y (nastavení smìru)</font></li>
+    <li><font face="Arial">rotace podle osy Z (natoèení)</font></li>
+    <li><font face="Arial">posun ve smìrech X, Y a Z</font></li>
+</ol>
+
+<p><font face="Arial">Nejdøíve se nastaví velikost objektu -
+abychom si mohli pøipravit objekt v potøebné velikosti. Poté
+se objekt otáèí kolem svého støedu podle zadaných rotací.
+Nakonec se objekt posune na cílovou absolutní souøadnici.
+Uvedené poøadí rotací X-Y-Z je implicitní a je možné ho
+zmìnit prvkem </font><font color="#000080" face="Arial"><strong>poøadí
+rotací</strong></font><font face="Arial">. U levorukého
+systému se smìr rotací provádí podle pravidla levé ruky -
+palec ukazuje smìr osy, kolem které se rotace provádí, a
+sklopené prsty ukazují smìr rotace.</font></p>
+
+<p><font face="Arial">Další vlastností transformací je, že
+objekty lze spojovat do vìtších celkù. Potomci pøipojení k
+objektu dìdí jeho transformace, jednotlivé transformace se
+skládají. Pøipojený objekt mìní napø. svou velikost spolu
+se zmìnou velikosti rodièovského objektu.</font></p>
+
+<p><font face="Arial">Vyzkoušíme si to. Pøidáme k naší Zemi
+ještì geostacionární satelitní družici, která bude obíhat
+Zemi nad jejím povrchem. A jak je známo, geostacionární
+družice se pohybuje nad rovníkem tak, jakoby se držela stále
+nad jedním místem zemského povrchu.</font></p>
+
+<p><font face="Arial">Pro udržení pøehledu pøejmenujte prvek </font><font
+color="#000080" face="Arial"><strong>ID</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>ID
+Zemì</strong></font><font face="Arial"> a texturu </font><font
+color="#000080" face="Arial"><strong>Zemì</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>textura
+Zemì</strong></font><font face="Arial">. Pøíkazy pro
+vytvoøení Zemì pøesuòte do samostatné skupiny </font><font
+color="#000080" face="Arial"><strong>vytvoøení Zemì</strong></font><font
+face="Arial">. Pøipravte si další prvek, s názvem </font><font
+color="#000080" face="Arial"><strong>ID družice</strong></font><font
+face="Arial">. Družici vytvoøíte <em><strong>PØED</strong></em>
+vytvoøením Zemì, ve skupinì </font><font color="#000080"
+face="Arial"><strong>vytvoøení družice</strong></font><font
+face="Arial">. Použijte k tomu prvek </font><font
+color="#000080" face="Arial"><strong>kužel</strong></font><font
+face="Arial">, ten by nám mohl dobøe posloužit jako model
+družice. Mìøítko družice ve smìru X nastavte napø. na </font><font
+color="#000080" face="Arial"><strong>0.05</strong></font><font
+face="Arial">. Bude to sice nejgigantiètìjší družice na
+svìtì, ale rádi bychom v oknì nìco vidìli. Namísto
+nastavování mìøítka v ostatních smìrech použijte hodnotu
+prvku mìøítka ve smìru X - snáze se pak mìní mìøítko
+pro všechny smìry najednou. Kužel se vytvoøí otoèený
+špièkou nahoru, proto ho otoèíme podle osy </font><font
+color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial"> o 90 stupòù doprava. Tím ho sklopíme tak, že
+špièka bude nyní ukazovat smìrem doleva. Nakonec posuneme
+satelit o 0.55 smìrem k nám (tedy zápornì ve smìru Z), jinak
+by zùstal ve støedu Zemì. Teï ještì družici pøipojíme k
+Zemi pomocí prvku </font><font color="#000080" face="Arial"><strong>pøipojení</strong></font><font
+face="Arial">., který uvedeme na konci skupiny pro vytvoøení
+Zemì. Tím jsme družici k Zemi <em>pøilepili</em>. Proto jsme
+ji vytváøeli pøed vytváøením Zemì, abychom už znali její
+ID a mohli ji pøipojit.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d16.gif"
+width="550" height="421"></font></p>
+
+<p><font face="Arial">Když program spustíte, mìla by se nad
+povrchem Zemì objevit malièká družice, která se otáèí
+spolu se Zemí. </font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d17.gif"
+width="648" height="514"></font></p>
+
+<p><font face="Arial">K Zemi samozøejmì neoddìlitelnì patøí
+Mìsíc. Texturu najdete na konci lekce, pøidejte ji do programu
+pod názvem </font><font color="#000080" face="Arial"><strong>textura
+Mìsíce</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/mesic.gif"
+width="128" height="128"></font></p>
+
+<p><font face="Arial">Pøipravte èíselnou promìnnou </font><font
+color="#000080" face="Arial"><strong>ID Mìsíce</strong></font><font
+face="Arial">. Za pøíkazy pro vytvoøení Zemì pøipravte
+další skupinu, oznaèenou </font><font color="#000080"
+face="Arial"><strong>vytvoøení Mìsíce</strong></font><font
+face="Arial">. Nejdøíve nastavte </font><font color="#000080"
+face="Arial"><strong>složitost objektu</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>8</strong></font><font
+face="Arial">, vytvoøte objekt Mìsíce pomocí </font><font
+color="#000080" face="Arial"><strong>koule</strong></font><font
+face="Arial"> (výsledný ID se uloží do promìnné </font><font
+color="#000080" face="Arial"><strong>ID Mìsíce</strong></font><font
+face="Arial">), nastavte objektu </font><font color="#000080"
+face="Arial"><strong>texturu Mìsíce</strong></font><font
+face="Arial">, mìøítko objektu zmìòte na </font><font
+color="#000080" face="Arial"><strong>0.2</strong></font><font
+face="Arial">, objekt posuòte o </font><font color="#000080"
+face="Arial"><strong>0.7</strong></font><font face="Arial"> ve
+smìru k nám (tj. -0.7 ve smìru Z).</font></p>
+
+<p><font face="Arial">Když teï program spustíte, objeví se
+pøed Zemí Mìsíc. Samozøejmì se nehýbe. Kdybychom ho
+pøipojili k Zemi, otáèel by se spolu se Zemí podobnì jako
+družice, což nechceme. Chceme, aby se pohyboval pomaleji.
+Vzhledem k danému poøadí transformací nemùžeme objekt
+Mìsíce posunout ze støedu a pak teprve celou soustavu otoèit.
+Proto použijeme pomocný objekt, </font><font color="#000080"
+face="Arial"><strong>skupinu</strong></font><font face="Arial">,
+kterou najdete v </font><font color="#000080" face="Arial"><strong>grafika</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>3D
+grafika</strong></font><font face="Arial"> / </font><font
+color="#000080" face="Arial"><strong>vytvoøit</strong></font><font
+face="Arial">. Pozor, nezamìnit se stejnojmenným prvkem </font><font
+color="#000080" face="Arial"><strong>skupina</strong></font><font
+face="Arial">, používaným ke shromáždìní více
+programových prvkù. Objekt </font><font color="#000080"
+face="Arial"><strong>skupina</strong></font><font face="Arial">
+je také plnohodnotný 3D objekt, neobsahuje však žádný
+viditelný prvek. Slouží pouze ke spojování více objektù do
+jedné skupiny a k provádìní doplòkových transformací.</font></p>
+
+<p><font face="Arial">Pøipravte si další èíselnou
+promìnnou, </font><font color="#000080" face="Arial"><strong>ID
+skupiny Mìsíce</strong></font><font face="Arial">. Na konec
+skupiny pøíkazù pro vytvoøení Mìsíce pøidejte pøíkaz
+pro vytvoøení objektu skupiny Mìsíce. K objektu skupiny
+Mìsíce pøipojte objekt Mìsíce.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d18.gif"
+width="236" height="609"></font></p>
+
+<p><font face="Arial">Pøi spuštìní programu není patrná
+žádná zmìna, samozøejmì. Nyní Mìsíc rozpohybujeme a to
+tak, že celou skupinou budeme otáèet podobnì jako Zemí.
+Chceme manipulovat s jiným objektem než byla Zemì a to
+znamená, že musíme už programu øíkat, se kterým objektem
+budeme otáèet. Slouží k tomu prvek </font><font
+color="#000080" face="Arial"><strong>aktivní objekt</strong></font><font
+face="Arial">. Pomocí tohoto prvku vybereme nejdøíve na
+zaèátku programové smyèky </font><font color="#000080"
+face="Arial"><strong>ID Zemì</strong></font><font face="Arial">,
+jedním pøíkazem zajistíme otáèení Zemì, pak vybereme jako
+aktivní objekt </font><font color="#000080" face="Arial"><strong>ID
+skupiny Mìsíce</strong></font><font face="Arial"> a poté
+dalším pøíkazem zajistíme obíhání Mìsíce kolem Zemì.
+Zvolíme ale nižší rychlost než jakou se otáèí Zermì,
+dejme tomu </font><font color="#000080" face="Arial"><strong>0.01</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d19.gif"
+width="291" height="384"></font></p>
+
+<p><font face="Arial">A už zbývá jen spustit. Vidíte, jak se
+Mìsíc pomalu a majestátnì loudá kolem Zemì a shlíží na
+ni stále stejnou pøivrácenou tváøí. <em><strong>Galileo by
+z nás mìl radost!</strong></em></font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d20.gif"
+width="648" height="514"></font></p>
+
+<p align="center"><a href="download/20_mesic.zip"><font
+face="Arial">download textury Mìsíce</font></a></p>
+
+<p align="center"><a href="download/20_3d.zip"><font face="Arial">download
+pøíkladu ke 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_19.htm"><font face="Arial">19.
+Ahoj, 3D svìte!</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_21.htm"><font
+face="Arial">21. Pozor, padá hvìzda!</font></a></p>
+</body>
+</html>

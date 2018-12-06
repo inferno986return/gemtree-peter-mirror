@@ -1,0 +1,954 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>17 Konzole</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_16.htm"><font face="Arial">16.
+Kaleidoskop (2. èást)</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_18.htm"><font
+face="Arial">18. Pøesmìrování</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">17. Konzole</font></h2>
+
+<p><font face="Arial">Udìlejme si krátkou odboèku do svìta
+opravdovıch programátorù, ajákù a hackerù. A tou je - </font><font
+color="#000080" face="Arial"><strong>konzole</strong></font><font
+face="Arial">, neboli pøíkazovı øádek.</font></p>
+
+<p><font face="Arial">K èemu je dnes, v dobì super grafiky,
+psaní do nìjakého pøíkazového øádku? Hlavními dùvody
+jsou automatizace a jednoduchost rozhraní. Pomocí skriptù
+(co jsou textové popisné soubory) mùeme snadno a rychle
+sestavit posloupnosti pøíkazù, které zajistí øešení
+nìjakého problému, ani na to musíme programovat velké
+mnoství sloitıch jednoúèelovıch programù. Konzole je
+proto základem operaèních systémù.</font></p>
+
+<p><font face="Arial">V historickıch dobách vıpoèetní
+techniky (za éry sálovıch poèítaèù) byla konzole jedinım
+prostøedkem pro komunikaci èlovìka s poèítaèem. Komunikace
+probíhala pomocí terminálù pøipojenıch k poèítaèi pøes
+sériovı port. Terminál tvoøil displej, zobrazující texty
+pøijaté z poèítaèe, a klávesnice, vysílající kódy
+stisknutıch kláves. Prapùvodcem terminálù byl dálnopis,
+umoòující vysílání kódù kláves v sériovém kódu a
+tisk pøijatıch znakù na papír. K tomu úèelu vznikla
+mnoina ASCII znakù zahrnující jak základní zobrazitelné
+znaky (anglické, to znamená bez diakritickıch znamének), tak
+i nìkolik øídicích znakù slouících k øízení tisku na
+dálnopisu. Tabulku ASCII znakù najdete na konci této lekce.</font></p>
+
+<p><font face="Arial">ASCII znaky vyuívají pouze 7 bitové
+kódy. Rozšíøením kódu znakù na 8 bitù byla ASCII tabulka
+doplnìna o další podmnoinu 128 znakù rozšiøující znaky
+o speciální znaky a znaky s diakritikou. Tato doplòková sada
+však nestaèí k pokrytí potøeby znakù všech jazykù a proto
+vzniklo více sad rozšiøujících znakù, kódové stránky. V
+èeskıch Windows se pouívá znaková sada </font><font
+color="#000080" face="Arial"><strong>windows-1250</strong></font><font
+face="Arial">, tuto znakovou sadu pouívá internì i systém
+Petr. Naproti tomu konzole pouívá jinou kódovou stránku, </font><font
+color="#000080" face="Arial"><strong>850</strong></font><font
+face="Arial"> (Latin 2). Je to pozùstatek z dob systému DOS.
+Systém Petr proto zajišuje pøi konzolovém vstupu a vıstupu
+textù správné pøekódování znakovıch sad a není tøeba se
+o to starat. Narazit na nesoulad mùete v pøípadì znakù,
+které se vyskytují v jedné sadì a ne v druhé - to jsou
+napøíklad rámeèky v kódu 850. Dalším zádrhelem mùe
+bıt to, pokud vstupem nebo vıstupem konzolového programu má
+bıt text zobrazitelnı ve Windows, tedy rozdílné znakové
+sady. Pro tyto úèely je moné pouít konverzní utility,
+které zajistí potøebnou konverzi znakù. Obvyklejší v praxi
+je znaky s diakritikou v konzolovıch reimech vùbec
+nepouívat. Ale není to nijak zvláštní omezení, nebo
+konzolovı reim je urèen poèítaèovım expertùm pro
+systémové úèely a ne bìné laické veøejnosti.</font></p>
+
+<p><font face="Arial">Jak tedy zaèít. Vytvoøte si v Petrovi
+novı program, s názvem napøíklad </font><font color="#000080"
+face="Arial"><strong>Konzole</strong></font><font face="Arial">.</font></p>
+
+<p><font face="Arial">Konzolové programy jsou trochu zvláštní
+kategorií programù. Pøi jejich spuštìní musí operaèní
+systém zajistit otevøení konzolového okna pro program. K tomu
+slouí speciální pøíznak v souboru programu, kterı systém
+informuje, e se jedná o konzolovı program a e tedy program
+nepobìí v grafickém oknì. Pro zajištìní nastavení
+tohoto pøíznaku musíme v Petrovi jako jednu z prvních vìcí
+udìlat to, e na úplnı zaèátek hlavní funkce programu
+umístíme prvek </font><font color="#000080" face="Arial"><strong>reim
+konzoly</strong></font><font face="Arial">. Ten najdeme ve
+skupinì </font><font color="#000080" face="Arial"><strong>konzola</strong></font><font
+face="Arial">. Pøed tento prvek nesmíme vloit ádnı jinı
+prvek, ani komentáø, jinak by konzolovı reim nefungoval.</font></p>
+
+<p><font face="Arial">A teï vloíme nìjakı pøíkaz.
+Napøíklad si zkusíme vytvoøit prográmek, kterım zaèínají
+tutoriály snad ke všem ostatním jazykùm. Za prvek </font><font
+color="#000080" face="Arial"><strong>reim konzoly</strong></font><font
+face="Arial"> vlote prvek </font><font color="#000080"
+face="Arial"><strong>vıstup textu na konzolu</strong></font><font
+face="Arial">. Jak vidíte, prvek ji obsahuje textovou
+konstantu pro monost zadání nìjakého textu. Tak nìjakı
+text doplòte. Tím je váš první konzolovı program hotov.
+Proti jinım jazykùm trochu opodìnı pøíklad, ale nakonec
+pøece. Vısledek by mohl vypadat takto nìjak:</font></p>
+
+<p align="center"><font face="Arial"><img src="img3/konzole.gif"
+width="328" height="160"></font></p>
+
+<p><font face="Arial">Kdy program zkusíte spustit, problikne
+èerné okno a zase zmizí. Program se moná provedl, systém
+pro nìj otevøel konzolové okno, ale po ukonèení programu ho
+zase zavøel a my nic nevidìli. Proto si potøebujeme otevøít
+trvalé konzolové okno. Abychom se vyhnuli nutnosti pouití
+pøíkazù pro zmìnu sloky, pøipravíme si zástupce, kterı
+vıchozí sloku sám nastaví.</font></p>
+
+<p><font face="Arial">Pøes systémové menu </font><font
+color="#000080" face="Arial"><strong>Start</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>Programy</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>Pøíslušenství</strong></font><font
+face="Arial"> si najdìte </font><font color="#000080"
+face="Arial"><strong>Pøíkazovı øádek</strong></font><font
+face="Arial"> a pravım tlaèítkem myši ho zkopírujte na
+plochu. Otevøete okno vlastností vzniklého zástupce a v
+záloce </font><font color="#000080" face="Arial"><strong>Zástupce</strong></font><font
+face="Arial"> upravte políèko </font><font color="#000080"
+face="Arial"><strong>Spustit v:</strong></font><font face="Arial">
+tak, aby ukazovalo do stejné sloky, jako je program kterı
+vytváøíte. Typicky by zde mohlo bıt: </font><font
+color="#000080" face="Courier New"><strong>%HOMEDRIVE%%HOMEPATH%\Dokumenty\Peter\Program</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Spuste zástupce pøíkazového øádku.
+Objeví se èerné okno, ve kterém uvidíte plnou cestu do
+sloky s programem. Za textem cesty bliká kurzor. Zkuste
+program opìt spustit, tentokrát ale z konzolového okna. A to
+tak, e do pøíkazového øádku napíšete jméno programu a
+stisknete </font><font color="#000080" face="Arial"><strong>Enter</strong></font><font
+face="Arial">. Na dalším øádku by se mìl objevit text,
+kterı jste v programu uvedli.</font></p>
+
+<p align="center"><font face="Arial"><img src="img3/konzole8.gif"
+width="276" height="58"></font></p>
+
+<p><font face="Arial">Budete-li chtít program znovu spouštìt,
+mùete vyuít historie pøíkazù - pomocí </font><font
+color="#000080" face="Arial"><strong>šipky nahoru</strong></font><font
+face="Arial"> se mùete vrátit k pøedešlému pøíkazu a
+buï ho pozmìnit (lze upravovat </font><font color="#000080"
+face="Arial"><strong>šipkami vlevo</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>vpravo</strong></font><font
+face="Arial">, pøíp. klávesami </font><font color="#000080"
+face="Arial"><strong>Delete</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>BackSpace</strong></font><font
+face="Arial">) nebo jen znovu odeslat stiskem </font><font
+color="#000080" face="Arial"><strong>Enter</strong></font><font
+face="Arial">. Pøed kadım spuštìním ovšem nezapomeòte
+program nejdøíve uloit.</font></p>
+
+<p><font face="Arial"><em><strong>Tip:</strong></em> Pro
+usnadnìní práce se soubory a konzolou je dobrım tipem program
+</font><a href="http://www.rar.cz/far/"><font color="#000080"
+face="Arial"><strong>FAR</strong></font></a><font face="Arial">.
+Je to souborovı manaer umoòující snadnou a pøehlednou
+manipulaci se soubory - kopírování, pøejmenování, zmìna
+atributù. Ale také FTP pøístup èi hromadné porovnání
+adresáøù. Oproti jinım podobnım souborovım manaerùm má
+jednu velkou pøednost - konzolové okno. Konzolové vıstupy z
+programù neustále zùstávají na obrazovce. To je jeden z
+podstatnıch dùvodù, proè je </font><font color="#000080"
+face="Arial"><strong>FAR</strong></font><font face="Arial">
+jedním z nejèastìjších manaerù pouívanıch systemáky.</font></p>
+
+<p align="center"><a href="http://www.rar.cz/far/"><font
+face="Arial"><img src="img3/far.gif" border="0" width="320"
+height="186"></font></a></p>
+
+<p><font face="Arial">Kromì vıstupu textu na konzolu je
+samozøejmì monı i vstup. K tomu slouí prvek </font><font
+color="#000080" face="Arial"><strong>vstup textu z konzoly</strong></font><font
+face="Arial">. Prvek navrátí text zadanı klávesnicí. Proto
+si do pole </font><font color="#000080" face="Arial"><strong>spoleènıch
+promìnnıch</strong></font><font face="Arial"> pøipravíme
+textovou promìnnou </font><font color="#000080" face="Arial"><strong>text</strong></font><font
+face="Arial"> a do ní uloíme text naètenı z prvku pro vstup
+textu. Pøíkaz pro vstup textu doplòte na konec programu, za
+minulı pøíkaz pro vıstup textu.</font></p>
+
+<p><font face="Arial">Aby náš program dìlal nìco alespoò
+malinko smyslupného, pojmeme program jako kalkulátor
+faktoriálu (co jsou násobky èíselné øady od 1 a po
+zadané èíslo). Zmìòte proto text v pøíkazu pro vıstup
+textu na vızvu, která se zobrazí uivateli pøed zadáním
+èísla, napø. &quot;<em><strong>Zadejte èíslo 1 a 170:</strong></em>&quot;.
+Pøedtím ještì zrušte prvek pro odøádkování, vızvu není
+vhodné na konci odøádkovat, aby zadávanı text od uivatele
+pokraèoval za textem vızvy.</font></p>
+
+<p><font face="Arial">No a nakonec vlote další pøíkaz pro
+vıstup textu, kterı bude slouit k zobrazení vısledku.
+Nejdøíve zadané èíslo pøeveïte z textového tvaru na
+èíselné vyjádøení, pak vypoètìte faktoriál (v Petrovi je
+na to pøímo matematická funkce), vısledek pøeveïte opìt na
+textovı tvar a zobrazte. Celı program by mohl vypadat nìjak
+takto:</font></p>
+
+<p align="center"><font face="Arial"><img src="img3/konzole3.gif"
+width="362" height="480"></font></p>
+
+<p><font face="Arial">Kdy program spustíte, zobrazí se vızva
+k zadání èísla a po zadání èísla vısledek. V pøípadì
+zadání èísla vìtšího ne 170 program zobrazí chybu </font><font
+color="#000080" face="Arial"><strong>1#INF</strong></font><font
+face="Arial"> jako pøíznak pøeteèení vısledku.</font></p>
+
+<p align="center"><font face="Arial"><img src="img3/konzole2.gif"
+width="669" height="338"></font></p>
+
+<p><font color="#000080" face="Arial"><strong>Tabulka ASCII
+znakù</strong></font></p>
+
+<table border="0">
+    <tr>
+        <td><table border="1" cellpadding="2" cellspacing="0">
+            <tr>
+                <th width="40"><font face="Courier New">dek</font></th>
+                <th width="40"><font face="Courier New">hex</font></th>
+                <th width="70"><font face="Courier New">znak</font></th>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">0</font></td>
+                <td align="center"><font face="Courier New">$00</font></td>
+                <td align="center"><font face="Courier New">NUL</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">1</font></td>
+                <td align="center"><font face="Courier New">$01</font></td>
+                <td align="center"><font face="Courier New">SOH</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">2</font></td>
+                <td align="center"><font face="Courier New">$02</font></td>
+                <td align="center"><font face="Courier New">STX</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">3</font></td>
+                <td align="center"><font face="Courier New">$03</font></td>
+                <td align="center"><font face="Courier New">ETX</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">4</font></td>
+                <td align="center"><font face="Courier New">$04</font></td>
+                <td align="center"><font face="Courier New">EOT</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">5</font></td>
+                <td align="center"><font face="Courier New">$05</font></td>
+                <td align="center"><font face="Courier New">ENQ</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">6</font></td>
+                <td align="center"><font face="Courier New">$06</font></td>
+                <td align="center"><font face="Courier New">ACK</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">7</font></td>
+                <td align="center"><font face="Courier New">$07</font></td>
+                <td align="center"><font face="Courier New">BEL</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">8</font></td>
+                <td align="center"><font face="Courier New">$08</font></td>
+                <td align="center"><font face="Courier New">BS</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">9</font></td>
+                <td align="center"><font face="Courier New">$09</font></td>
+                <td align="center"><font face="Courier New">HT</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">10</font></td>
+                <td align="center"><font face="Courier New">$0A</font></td>
+                <td align="center"><font face="Courier New">LF</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">11</font></td>
+                <td align="center"><font face="Courier New">$0B</font></td>
+                <td align="center"><font face="Courier New">VT</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">12</font></td>
+                <td align="center"><font face="Courier New">$0C</font></td>
+                <td align="center"><font face="Courier New">FF</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">13</font></td>
+                <td align="center"><font face="Courier New">$0D</font></td>
+                <td align="center"><font face="Courier New">CR</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">14</font></td>
+                <td align="center"><font face="Courier New">$0E</font></td>
+                <td align="center"><font face="Courier New">SO</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">15</font></td>
+                <td align="center"><font face="Courier New">$0F</font></td>
+                <td align="center"><font face="Courier New">SI</font></td>
+            </tr>
+        </table>
+        </td>
+        <td align="center">&nbsp;</td>
+        <td><table border="1" cellpadding="2" cellspacing="0">
+            <tr>
+                <th width="40"><font face="Courier New">dek</font></th>
+                <th width="40"><font face="Courier New">hex</font></th>
+                <th width="70"><font face="Courier New">znak</font></th>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">32</font></td>
+                <td align="center"><font face="Courier New">$20</font></td>
+                <td align="center"><font face="Courier New">mezera</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">33</font></td>
+                <td align="center"><font face="Courier New">$21</font></td>
+                <td align="center"><font face="Courier New">!</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">34</font></td>
+                <td align="center"><font face="Courier New">$22</font></td>
+                <td align="center"><font face="Courier New">&quot;</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">35</font></td>
+                <td align="center"><font face="Courier New">$23</font></td>
+                <td align="center"><font face="Courier New">#</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">36</font></td>
+                <td align="center"><font face="Courier New">$24</font></td>
+                <td align="center"><font face="Courier New">$</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">37</font></td>
+                <td align="center"><font face="Courier New">$25</font></td>
+                <td align="center"><font face="Courier New">%</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">38</font></td>
+                <td align="center"><font face="Courier New">$26</font></td>
+                <td align="center"><font face="Courier New">&amp;</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">39</font></td>
+                <td align="center"><font face="Courier New">$27</font></td>
+                <td align="center"><font face="Courier New">'</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">40</font></td>
+                <td align="center"><font face="Courier New">$28</font></td>
+                <td align="center"><font face="Courier New">(</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">41</font></td>
+                <td align="center"><font face="Courier New">$29</font></td>
+                <td align="center"><font face="Courier New">)</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">42</font></td>
+                <td align="center"><font face="Courier New">$2A</font></td>
+                <td align="center"><font face="Courier New">*</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">43</font></td>
+                <td align="center"><font face="Courier New">$2B</font></td>
+                <td align="center"><font face="Courier New">+</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">44</font></td>
+                <td align="center"><font face="Courier New">$2C</font></td>
+                <td align="center"><font face="Courier New">,</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">45</font></td>
+                <td align="center"><font face="Courier New">$2D</font></td>
+                <td align="center"><font face="Courier New">-</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">46</font></td>
+                <td align="center"><font face="Courier New">$2E</font></td>
+                <td align="center"><font face="Courier New">.</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">47</font></td>
+                <td align="center"><font face="Courier New">$2F</font></td>
+                <td align="center"><font face="Courier New">/</font></td>
+            </tr>
+        </table>
+        </td>
+        <td align="center">&nbsp;</td>
+        <td><table border="1" cellpadding="2" cellspacing="0">
+            <tr>
+                <th width="40"><font face="Courier New">dek</font></th>
+                <th width="40"><font face="Courier New">hex</font></th>
+                <th width="70"><font face="Courier New">znak</font></th>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">64</font></td>
+                <td align="center"><font face="Courier New">$40</font></td>
+                <td align="center"><font face="Courier New">@</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">65</font></td>
+                <td align="center"><font face="Courier New">$41</font></td>
+                <td align="center"><font face="Courier New">A</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">66</font></td>
+                <td align="center"><font face="Courier New">$42</font></td>
+                <td align="center"><font face="Courier New">B</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">67</font></td>
+                <td align="center"><font face="Courier New">$43</font></td>
+                <td align="center"><font face="Courier New">C</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">68</font></td>
+                <td align="center"><font face="Courier New">$44</font></td>
+                <td align="center"><font face="Courier New">D</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">69</font></td>
+                <td align="center"><font face="Courier New">$45</font></td>
+                <td align="center"><font face="Courier New">E</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">70</font></td>
+                <td align="center"><font face="Courier New">$46</font></td>
+                <td align="center"><font face="Courier New">F</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">71</font></td>
+                <td align="center"><font face="Courier New">$47</font></td>
+                <td align="center"><font face="Courier New">G</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">72</font></td>
+                <td align="center"><font face="Courier New">$48</font></td>
+                <td align="center"><font face="Courier New">H</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">73</font></td>
+                <td align="center"><font face="Courier New">$49</font></td>
+                <td align="center"><font face="Courier New">I</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">74</font></td>
+                <td align="center"><font face="Courier New">$4A</font></td>
+                <td align="center"><font face="Courier New">J</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">75</font></td>
+                <td align="center"><font face="Courier New">$4B</font></td>
+                <td align="center"><font face="Courier New">K</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">76</font></td>
+                <td align="center"><font face="Courier New">$4C</font></td>
+                <td align="center"><font face="Courier New">L</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">77</font></td>
+                <td align="center"><font face="Courier New">$4D</font></td>
+                <td align="center"><font face="Courier New">M</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">78</font></td>
+                <td align="center"><font face="Courier New">$4E</font></td>
+                <td align="center"><font face="Courier New">N</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">79</font></td>
+                <td align="center"><font face="Courier New">$4F</font></td>
+                <td align="center"><font face="Courier New">O</font></td>
+            </tr>
+        </table>
+        </td>
+        <td align="center">&nbsp;</td>
+        <td><table border="1" cellpadding="2" cellspacing="0">
+            <tr>
+                <th width="40"><font face="Courier New">dek</font></th>
+                <th width="40"><font face="Courier New">hex</font></th>
+                <th width="70"><font face="Courier New">znak</font></th>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">96</font></td>
+                <td align="center"><font face="Courier New">$60</font></td>
+                <td align="center"><font face="Courier New">`</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">97</font></td>
+                <td align="center"><font face="Courier New">$61</font></td>
+                <td align="center"><font face="Courier New">a</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">98</font></td>
+                <td align="center"><font face="Courier New">$62</font></td>
+                <td align="center"><font face="Courier New">b</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">99</font></td>
+                <td align="center"><font face="Courier New">$63</font></td>
+                <td align="center"><font face="Courier New">c</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">100</font></td>
+                <td align="center"><font face="Courier New">$64</font></td>
+                <td align="center"><font face="Courier New">d</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">101</font></td>
+                <td align="center"><font face="Courier New">$65</font></td>
+                <td align="center"><font face="Courier New">e</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">102</font></td>
+                <td align="center"><font face="Courier New">$66</font></td>
+                <td align="center"><font face="Courier New">f</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">103</font></td>
+                <td align="center"><font face="Courier New">$67</font></td>
+                <td align="center"><font face="Courier New">g</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">104</font></td>
+                <td align="center"><font face="Courier New">$68</font></td>
+                <td align="center"><font face="Courier New">h</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">105</font></td>
+                <td align="center"><font face="Courier New">$69</font></td>
+                <td align="center"><font face="Courier New">i</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">106</font></td>
+                <td align="center"><font face="Courier New">$6A</font></td>
+                <td align="center"><font face="Courier New">j</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">107</font></td>
+                <td align="center"><font face="Courier New">$6B</font></td>
+                <td align="center"><font face="Courier New">k</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">108</font></td>
+                <td align="center"><font face="Courier New">$6C</font></td>
+                <td align="center"><font face="Courier New">l</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">109</font></td>
+                <td align="center"><font face="Courier New">$6D</font></td>
+                <td align="center"><font face="Courier New">m</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">110</font></td>
+                <td align="center"><font face="Courier New">$6E</font></td>
+                <td align="center"><font face="Courier New">n</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">111</font></td>
+                <td align="center"><font face="Courier New">$6F</font></td>
+                <td align="center"><font face="Courier New">o</font></td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+    </tr>
+    <tr>
+        <td><table border="1" cellpadding="2" cellspacing="0">
+            <tr>
+                <td align="center" width="40"><font
+                face="Courier New">16</font></td>
+                <td align="center" width="40"><font
+                face="Courier New">$10</font></td>
+                <td align="center" width="70"><font
+                face="Courier New">DLE</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">17</font></td>
+                <td align="center"><font face="Courier New">$11</font></td>
+                <td align="center"><font face="Courier New">DC1</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">18</font></td>
+                <td align="center"><font face="Courier New">$12</font></td>
+                <td align="center"><font face="Courier New">DC2</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">19</font></td>
+                <td align="center"><font face="Courier New">$13</font></td>
+                <td align="center"><font face="Courier New">DC3</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">20</font></td>
+                <td align="center"><font face="Courier New">$14</font></td>
+                <td align="center"><font face="Courier New">DC4</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">21</font></td>
+                <td align="center"><font face="Courier New">$15</font></td>
+                <td align="center"><font face="Courier New">NAK</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">22</font></td>
+                <td align="center"><font face="Courier New">$16</font></td>
+                <td align="center"><font face="Courier New">SYN</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">23</font></td>
+                <td align="center"><font face="Courier New">$17</font></td>
+                <td align="center"><font face="Courier New">ETB</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">24</font></td>
+                <td align="center"><font face="Courier New">$18</font></td>
+                <td align="center"><font face="Courier New">CAN</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">25</font></td>
+                <td align="center"><font face="Courier New">$19</font></td>
+                <td align="center"><font face="Courier New">EM</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">26</font></td>
+                <td align="center"><font face="Courier New">$1A</font></td>
+                <td align="center"><font face="Courier New">SUB</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">27</font></td>
+                <td align="center"><font face="Courier New">$1B</font></td>
+                <td align="center"><font face="Courier New">ESC</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">28</font></td>
+                <td align="center"><font face="Courier New">$1C</font></td>
+                <td align="center"><font face="Courier New">FS</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">29</font></td>
+                <td align="center"><font face="Courier New">$1D</font></td>
+                <td align="center"><font face="Courier New">GS</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">30</font></td>
+                <td align="center"><font face="Courier New">$1E</font></td>
+                <td align="center"><font face="Courier New">RS</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">31</font></td>
+                <td align="center"><font face="Courier New">$1F</font></td>
+                <td align="center"><font face="Courier New">US</font></td>
+            </tr>
+        </table>
+        </td>
+        <td align="center">&nbsp;</td>
+        <td align="center"><table border="1" cellpadding="2"
+        cellspacing="0">
+            <tr>
+                <td align="center" width="40"><font
+                face="Courier New">48</font></td>
+                <td align="center" width="40"><font
+                face="Courier New">$30</font></td>
+                <td align="center" width="70"><font
+                face="Courier New">0</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">49</font></td>
+                <td align="center"><font face="Courier New">$31</font></td>
+                <td align="center"><font face="Courier New">1</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">50</font></td>
+                <td align="center"><font face="Courier New">$32</font></td>
+                <td align="center"><font face="Courier New">2</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">51</font></td>
+                <td align="center"><font face="Courier New">$33</font></td>
+                <td align="center"><font face="Courier New">3</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">52</font></td>
+                <td align="center"><font face="Courier New">$34</font></td>
+                <td align="center"><font face="Courier New">4</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">53</font></td>
+                <td align="center"><font face="Courier New">$35</font></td>
+                <td align="center"><font face="Courier New">5</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">54</font></td>
+                <td align="center"><font face="Courier New">$36</font></td>
+                <td align="center"><font face="Courier New">6</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">55</font></td>
+                <td align="center"><font face="Courier New">$37</font></td>
+                <td align="center"><font face="Courier New">7</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">56</font></td>
+                <td align="center"><font face="Courier New">$38</font></td>
+                <td align="center"><font face="Courier New">8</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">57</font></td>
+                <td align="center"><font face="Courier New">$39</font></td>
+                <td align="center"><font face="Courier New">9</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">58</font></td>
+                <td align="center"><font face="Courier New">$3A</font></td>
+                <td align="center"><font face="Courier New">:</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">59</font></td>
+                <td align="center"><font face="Courier New">$3B</font></td>
+                <td align="center"><font face="Courier New">;</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">60</font></td>
+                <td align="center"><font face="Courier New">$3C</font></td>
+                <td align="center"><font face="Courier New">&lt;</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">61</font></td>
+                <td align="center"><font face="Courier New">$3D</font></td>
+                <td align="center"><font face="Courier New">=</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">62</font></td>
+                <td align="center"><font face="Courier New">$3E</font></td>
+                <td align="center"><font face="Courier New">&gt;</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">63</font></td>
+                <td align="center"><font face="Courier New">$3F</font></td>
+                <td align="center"><font face="Courier New">?</font></td>
+            </tr>
+        </table>
+        </td>
+        <td align="center">&nbsp;</td>
+        <td align="center"><table border="1" cellpadding="2"
+        cellspacing="0">
+            <tr>
+                <td align="center" width="40"><font
+                face="Courier New">80</font></td>
+                <td align="center" width="40"><font
+                face="Courier New">$50</font></td>
+                <td align="center" width="70"><font
+                face="Courier New">P</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">81</font></td>
+                <td align="center"><font face="Courier New">$51</font></td>
+                <td align="center"><font face="Courier New">Q</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">82</font></td>
+                <td align="center"><font face="Courier New">$52</font></td>
+                <td align="center"><font face="Courier New">R</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">83</font></td>
+                <td align="center"><font face="Courier New">$53</font></td>
+                <td align="center"><font face="Courier New">S</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">84</font></td>
+                <td align="center"><font face="Courier New">$54</font></td>
+                <td align="center"><font face="Courier New">T</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">85</font></td>
+                <td align="center"><font face="Courier New">$55</font></td>
+                <td align="center"><font face="Courier New">U</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">86</font></td>
+                <td align="center"><font face="Courier New">$56</font></td>
+                <td align="center"><font face="Courier New">V</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">87</font></td>
+                <td align="center"><font face="Courier New">$57</font></td>
+                <td align="center"><font face="Courier New">W</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">88</font></td>
+                <td align="center"><font face="Courier New">$58</font></td>
+                <td align="center"><font face="Courier New">X</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">89</font></td>
+                <td align="center"><font face="Courier New">$59</font></td>
+                <td align="center"><font face="Courier New">Y</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">90</font></td>
+                <td align="center"><font face="Courier New">$5A</font></td>
+                <td align="center"><font face="Courier New">Z</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">91</font></td>
+                <td align="center"><font face="Courier New">$5B</font></td>
+                <td align="center"><font face="Courier New">[</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">92</font></td>
+                <td align="center"><font face="Courier New">$5C</font></td>
+                <td align="center"><font face="Courier New">\</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">93</font></td>
+                <td align="center"><font face="Courier New">$5D</font></td>
+                <td align="center"><font face="Courier New">]</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">94</font></td>
+                <td align="center"><font face="Courier New">$5E</font></td>
+                <td align="center"><font face="Courier New">^</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">95</font></td>
+                <td align="center"><font face="Courier New">$5F</font></td>
+                <td align="center"><font face="Courier New">_</font></td>
+            </tr>
+        </table>
+        </td>
+        <td align="center">&nbsp;</td>
+        <td align="center"><table border="1" cellpadding="2"
+        cellspacing="0">
+            <tr>
+                <td align="center" width="40"><font
+                face="Courier New">112</font></td>
+                <td align="center" width="40"><font
+                face="Courier New">$70</font></td>
+                <td align="center" width="70"><font
+                face="Courier New">p</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">113</font></td>
+                <td align="center"><font face="Courier New">$71</font></td>
+                <td align="center"><font face="Courier New">q</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">114</font></td>
+                <td align="center"><font face="Courier New">$72</font></td>
+                <td align="center"><font face="Courier New">r</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">115</font></td>
+                <td align="center"><font face="Courier New">$73</font></td>
+                <td align="center"><font face="Courier New">s</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">116</font></td>
+                <td align="center"><font face="Courier New">$74</font></td>
+                <td align="center"><font face="Courier New">t</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">117</font></td>
+                <td align="center"><font face="Courier New">$75</font></td>
+                <td align="center"><font face="Courier New">u</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">118</font></td>
+                <td align="center"><font face="Courier New">$76</font></td>
+                <td align="center"><font face="Courier New">v</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">119</font></td>
+                <td align="center"><font face="Courier New">$77</font></td>
+                <td align="center"><font face="Courier New">w</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">120</font></td>
+                <td align="center"><font face="Courier New">$78</font></td>
+                <td align="center"><font face="Courier New">x</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">121</font></td>
+                <td align="center"><font face="Courier New">$79</font></td>
+                <td align="center"><font face="Courier New">y</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">122</font></td>
+                <td align="center"><font face="Courier New">$7A</font></td>
+                <td align="center"><font face="Courier New">z</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">123</font></td>
+                <td align="center"><font face="Courier New">$7B</font></td>
+                <td align="center"><font face="Courier New">{</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">124</font></td>
+                <td align="center"><font face="Courier New">$7C</font></td>
+                <td align="center"><font face="Courier New">|</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">125</font></td>
+                <td align="center"><font face="Courier New">$7D</font></td>
+                <td align="center"><font face="Courier New">}</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">126</font></td>
+                <td align="center"><font face="Courier New">$7E</font></td>
+                <td align="center"><font face="Courier New">~</font></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Courier New">127</font></td>
+                <td align="center"><font face="Courier New">$7F</font></td>
+                <td align="center"><font face="Courier New">¦</font></td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+</table>
+
+<p align="center"><a href="download/17_konzole.zip"><font
+face="Arial">download pøíkladu Konzole</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_16.htm"><font face="Arial">16.
+Kaleidoskop (2. èást)</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_18.htm"><font
+face="Arial">18. Pøesmìrování</font></a></p>
+</body>
+</html>

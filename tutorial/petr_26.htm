@@ -1,0 +1,336 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>26 Lovíme minotaury (èást 5 zásah)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_25.htm"><font face="Arial">25.
+Lovíme minotaury (4. èást, støelba)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_27.htm"><font face="Arial">27. Lovíme minotaury (6.
+èást, lov)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">26. Lovíme minotaury (5. èást, zásah)</font></h2>
+
+<p><font face="Arial"><em>... pokraèování z minulé lekce</em></font></p>
+
+<p><font face="Arial">Støelbu již máme, teï ještì zásahy.
+Støela by se mìla zarazit o zeï. Pøi nárazu na zeï
+pøidáme efekt výbuchu støely a na zdi ponecháme spálený
+flíèek. Obsluhu nárazu do zdi budeme doplòovat do funkce </font><font
+color="#000080" face="Arial"><strong>obsluha støel a výbuchù</strong></font><font
+face="Arial">, pøed podmínku </font><font color="#000080"
+face="Arial"><strong>dolet støely</strong></font><font
+face="Arial">. Je-li na nové pozici støely detekováno
+neprùchodné políèko, je støela vypnuta.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste65.gif" width="365" height="384"></font></p>
+
+<p><font face="Arial">Vyzkoušejte. Støely by se mìly zarážet
+o zeï. Poznáte to podle doprovodné záøe na stìnách, která
+zmizí po nárazu do zdi.</font></p>
+
+<p><font face="Arial">Doplníme zvuk nárazu do zdi. Podle
+vzdálenosti místa dopadu støely nastavíme hlasitost zvuku.
+Použijeme jako rozlišovací kód zvuku index støely a tím
+zajistíme, že zvuky od rùzných støel budou na sobì
+nezávislé.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste66.gif" width="405" height="672"></font></p>
+
+<p><font face="Arial">Opìt vyzkoušejte. Zvuky pøi nárazu do
+zdi by mìli se vzdáleností dopadu slábnout.</font></p>
+
+<p><font face="Arial">Nyní k výbuchùm. Výbuchy støel budeme
+recyklovat podobnì jako støely. Výbuchy budeme vytváøet ve
+funkci </font><font color="#000080" face="Arial"><strong>vytvoøení
+støel a výbuchù</strong></font><font face="Arial">, hned za
+skupinou </font><font color="#000080" face="Arial"><strong>vytvoøení
+støely</strong></font><font face="Arial">. Bude to opìt </font><font
+color="#000080" face="Arial"><strong>2D objekt</strong></font><font
+face="Arial"> s texturou kterou vidíte níže. Výbuch bude mít
+prùhlednost typu </font><font color="#000080" face="Arial"><strong>11</strong></font><font
+face="Arial">, tedy typ &quot;<em>oheò</em>&quot;. To znamená,
+že barva bodù se bude pøièítat k barvì podkladu. 2D objekt
+volíme proto, aby byl výbuch vždy vidìt jako kruh a ne elipsa
+v pøípadì, že bychom se dívali na zeï šikmo. Aby se nám
+výbuch nezobrazil uøíznutý zdí, vypneme u nìj hloubkový
+test. To znamená, že grafické body budou ukládány vždy, i
+kdyby ležel objekt za zdí. Hloubkový test se nastavuje pro
+celou renderovací skupinu, proto objekt zaøadíme do jiné
+skupiny než je implicitní 10 pro prùhledné objekty.</font></p>
+
+<p><font face="Arial"><em>Pozn.: Renderování (vykreslování)
+3D objektù v systému Petr se provádí postupnì po
+renderovacích skupinách. Tím lze dosáhnout speciálních
+efektù, kdy je tøeba urèovat vzájemné poøadí renderování
+objektù. Skupin je 16 a každý objekt mùže patøit ke
+kterékoliv ze skupin.</em></font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste67.gif" width="435" height="576"></font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste68.gif" width="64" height="64"></font></p>
+
+<p><font face="Arial">Zpìt k </font><font color="#000080"
+face="Arial"><strong>obsluze støel a výbuchù</strong></font><font
+face="Arial">. Za pøíkaz pro pøehrátí zvuku zásahu
+pøidejte skupinu </font><font color="#000080" face="Arial"><strong>zahájení
+výbuchu</strong></font><font face="Arial">. Zde nastavíme
+souøadnice výbuchu shodnì se souøadnicemi støely, vynulujeme
+</font><font color="#000080" face="Arial"><strong>èítaè doby
+výbuchu</strong></font><font face="Arial"> a zapneme viditelnost
+výbuchu.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste69.gif" width="319" height="352"></font></p>
+
+<p><font face="Arial">Pokud byste teï program spustili, vidìli
+byste po každém zásahu zdi velkou placku výbuchu. Ne že by
+to mìlo takto vypadat, ale funguje to jak má. Jsme teprve ve
+vývoji.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste70.jpg" width="648" height="514"></font></p>
+
+<p><font face="Arial">Animaci výbuchu obsloužíme ve stejné
+funkci, hned za obsluhou støel. Budeme k tomu potøebovat
+konstantu </font><font color="#000080" face="Arial"><strong>doba
+výbuchu</strong></font><font face="Arial">, nastavte ji na </font><font
+color="#000080" face="Arial"><strong>0.2</strong></font><font
+face="Arial">. Je-li obsluhovaný výbuch aktivní (tj. je
+viditelný), zvýší se </font><font color="#000080"
+face="Arial"><strong>èítaè doby výbuchu</strong></font><font
+face="Arial">. Použitím pøevrácené hodnoty </font><font
+color="#000080" face="Arial"><strong>doby výbuchu</strong></font><font
+face="Arial"> zajistíme, že èítaè dosáhne za èas doby
+výbuchu hodnotu </font><font color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial">. <em>(Pozn.: Uvedeme-li znak dìlení s jedním
+operandem, znamená to pøevácenou hodnotu, jakobychom uvedli
+ještì operand 1.)</em> </font><font color="#000080"
+face="Arial"><strong>Rotaci podle osy Z</strong></font><font
+face="Arial"> nastavíme na náhodný úhel - tím zajistíme
+animaci výbuchu, aby nevypadal jako statický objekt. Zmìnou
+mìøítek </font><font color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> zajistíme zvìtšování výbuchu s èasem.</font></p>
+
+<p align="center"><img src="img4/bludiste71.gif" width="368"
+height="768"></p>
+
+<p><font face="Arial">Barvu výbuchu budeme s èasem mìnit tak,
+že ji budeme ztmavovat až k úplné èerné. Vzhledem k tomu,
+že výbuch se vykresluje operací </font><font color="#000080"
+face="Arial"><strong>11</strong></font><font face="Arial"> (tedy
+sèítání barev), projeví se ztmavování tak, že výbuch
+bude s èasem slábout a mizet. Dosáhne-li èítaè doby
+výbuchu hodnotu </font><font color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial"> (což je po uplynutí zvoleného èasu), vypnutím
+viditelnosti ukonèíme animaci výbuchu.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste72.gif" width="341" height="768"></font></p>
+
+<p><font face="Arial">Vyzkoušíte-li program, mìly by výbuchy
+nyní už mizet.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste73.jpg" width="648" height="514"></font></p>
+
+<p><font face="Arial">Další efekt, kterého bychom chtìli
+docílit, jsou spáleniny na zdech od støel. Dosáhneme jich
+tak, že na zdi budeme <em>lepit</em> obrázky spálenin. Ale jen
+po urèitou dobu, protože jich nemáme neomezenì. Budeme jim v
+programu pracovnì øíkat <em><strong>zásahy</strong></em>.</font></p>
+
+<p><font face="Arial">Ze všeho nejdøíve potøebujeme </font><font
+color="#000080" face="Arial"><strong>seznam zásahù</strong></font><font
+face="Arial">. Maximální poèet zásahù si zvolíme 50. V
+seznamu budeme mít promìnné </font><font color="#000080"
+face="Arial"><strong>ID zásahu</strong></font><font face="Arial">
+a </font><font color="#000080" face="Arial"><strong>èítaè doby
+zásahu</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste74.gif" width="243" height="192"></font></p>
+
+<p><font face="Arial">Zásahy vytvoøíme ve funkci </font><font
+color="#000080" face="Arial"><strong>vytvoøení zásahù</strong></font><font
+face="Arial">, kterou spustíme bìhem inicializace programu.
+Obsahem funkce je cyklus, který zajistí vytvoøení všech
+objektù zásahù.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste75.gif" width="286" height="320"></font></p>
+
+<p><font face="Arial">Zásahy budeme vytváøet jako ètvercové
+prùhledné objekty s texturou viditelnou níže. Vzhledem k
+tomu, že potøebujeme, aby objekt pùvodní podklad ztmavoval a
+pøitom aby se s èasem ztmavování dalo zeslabovat, nemùžeme
+použít jednoduchou operaci ztmavení </font><font
+color="#000080" face="Arial"><strong>20</strong></font><font
+face="Arial"> (typu <em>sklo</em>). Použijeme prùhlednost </font><font
+color="#000080" face="Arial"><strong>30</strong></font><font
+face="Arial">, která dìlá to, že cílovou barvu moduluje
+(násobí) doplòkem zdrojové barvy. Díky tomu mùžeme
+ztmavováním barvy zásahu zajistit to, že úèinek ztmavení
+postupnì slábne. Z toho dùvodu musíme použít texturu
+zásahu inverzní.</font></p>
+
+<p><font face="Arial">Vyskytne-li se více zásahù na jednom
+místì, mùžeme pozorovat to, že pøekryv zásahù je
+nestabilní. Je to z toho dùvodu, že vykreslování
+prùhledných objektù se provádí s hloubkovým tøídìním
+objektù. Pøi tìsném pøekryvu objektù je již rozlišení
+poøadí vykreslování nejisté a rozlišení hloubkového
+bufferu nestaèí. Proto budeme zásahy renderovat bez
+ukládání hloubkové informace. To bude mít za následek, že
+další zásahy se vykreslí vždy, bez ohledu na to, zda na
+daném místì nìjaký zásah už je vykreslený nebo není.
+Zásahy se budou chovat tak, jakoby v daném místì vùbec
+nebyly. Podobnì jako pøi vytváøení výbuchù musíme pro
+toto nastavení hloubkového bufferu použít samostatnou
+renderovací skupinu.</font></p>
+
+<p align="center"><img src="img4/bludiste76.gif" width="432"
+height="672"></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste77.gif" width="64" height="64"></font></p>
+
+<p><font face="Arial">Aktivací zásahu zajistíme ve funkci </font><font
+color="#000080" face="Arial"><strong>obsluha støel a výbuchù</strong></font><font
+face="Arial"> a to hned za skupinou </font><font color="#000080"
+face="Arial"><strong>zahájení výbuchu</strong></font><font
+face="Arial">. Pøipravte si konstantu </font><font
+color="#000080" face="Arial"><strong>odsazení zásahu od stìny</strong></font><font
+face="Arial">, kterou v inicializaci nastavte na </font><font
+color="#000080" face="Arial"><strong>0.01</strong></font><font
+face="Arial">. </font></p>
+
+<p><font face="Arial">Na zaèátku zahájení zásahu musíme
+vyhledat volný zásah, tj. zásah s vypnutou viditelností.
+Není-li nalezen žádný volný zásah (støelba je pøíliš
+rychlá nebo nemáme obslouženo mizení zásahù), použije se
+nejstarší z nich. Využívá se pøitom toho, že seznam
+prochází jenom funkce pro obsluhu zásahù a ta ponechává </font><font
+color="#000080" face="Arial"><strong>index zásahu</strong></font><font
+face="Arial"> beze zmìny. Zásah umístíme na stejnou
+souøadnici jako støela, otoèíme ho podle cílové stìny,
+inicializujeme </font><font color="#000080" face="Arial"><strong>èítaè
+doby zásahu</strong></font><font face="Arial"> na </font><font
+color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial"> a zapneme viditelnost zásahu.</font></p>
+
+<p align="center"><img src="img4/bludiste78.gif" width="388"
+height="864"></p>
+
+<p><font face="Arial">Obsluha rotace zásahu je ponìkud
+komplikovaná, možná až krkolomná. Využíváme v ní toho,
+že prùchodem støely stìnou se zmìnila celoèíselná èást
+nìkteré její souøadnice.</font></p>
+
+<p><font face="Arial">Pokud se zvýšila celoèíselná èást
+souøadnice Z, støela prolétla zdí smìrem nahoru (pøi
+pohledu na mapu bludištì shora). Proto zásah otoèíme smìrem
+dolù, tj. rotace Y bude 0. Souèasnì opravíme souøadnici Z
+tak, aby zásah ležel kousek pøed zdí.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste79.gif" width="368" height="544"></font></p>
+
+<p><font face="Arial">Jestliže se celoèíselná èást
+souøadnice Z zmenšila, prolétla støela zdí smìrem dolù,
+tedy opaènì než pøedešlý pøípad. Pøi testu nové
+souøadnice poèítáme s tím, že mùže mít zápornou hodnotu
+a proto provádíme korekci pøiètením a odeètením 1.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste80.gif" width="404" height="608"></font></p>
+
+<p><font face="Arial">Jestliže se celoèíselná èást
+souøadnice Z nezmìnila, bude se jednat o levou nebo pravou
+stìnu, proto ji podobnì rozlišíme testem souøadnice X. Opìt
+kromì otoèení dokorigujeme i pøesnou souøadnici X.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste81.gif" width="369" height="736"></font></p>
+
+<p><font face="Arial">Vyzkoušením programu ovìøte, zda se po
+zásahu stìny objevují spáleniny a to na stìnách ve všech 4
+smìrech. Zatím spáleniny nemizí samy, ale mìly by mizet
+jestliže pøekroèíte jejich maximální poèet 50.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste82.jpg" width="648" height="514"></font></p>
+
+<p><font face="Arial">Nakonec obsloužíme mizení zásahu.
+Pøipravte si èíselnou konstantu </font><font color="#000080"
+face="Arial"><strong>doba mizení zásahu</strong></font><font
+face="Arial">. Nastavením na hodnotu </font><font
+color="#000080" face="Arial"><strong>15</strong></font><font
+face="Arial"> urèíme, že zásah zmizí za 15 sekund. Obsluhu
+zajistíme funkcí </font><font color="#000080" face="Arial"><strong>obsluha
+zásahù</strong></font><font face="Arial">. Vložte její
+volání do hlavní smyèky programu.</font></p>
+
+<p><font face="Arial">V obsluze zásahù budeme procházet seznam
+všech zásahù a hledat zásahy, které jsou aktivní (tj.
+viditelné). Index zásahu nenastavujeme na výchozí hodnotu,
+aby po skonèení funkce jeho hodnota zùstala stejná jak pøed
+vstupem do funkce.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste83.gif" width="354" height="317"></font></p>
+
+<p><font face="Arial">Nalezneme-li aktivní (viditelný) záznam,
+snížíme </font><font color="#000080" face="Arial"><strong>èítaè
+doby zásahu</strong></font><font face="Arial"> o ubìhlý èas.
+Použitím pøevrácené hodnoty doby mizení zásahu zajistíme,
+že èítaè pøejde z hodnotu </font><font color="#000080"
+face="Arial"><strong>1</strong></font><font face="Arial"> na </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial"> za zvolenou dobu. Podle hodnoty èítaèe
+nastavíme barvu zásahu. Protože èítaè klesá od 1 k 0, bude
+i jas objektu klesat od bílé k èerné. Vzhledem k použitému
+typu prùhlednosti bude obraz zásahu postupnì mizet.
+Dosáhne-li èítaè nuly, zásah vypneme.</font></p>
+
+<p align="center"><img src="img4/bludiste84.gif" width="415"
+height="928"></p>
+
+<p><font face="Arial">Støelbu do zdi opìt vyzkoušejte. Zásahy
+by tentokrát mìly po nìjaké dobì samy mizet.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste85.jpg" width="648" height="514"></font></p>
+
+<p><font face="Arial"><em>.... dokonèení pøíštì</em></font></p>
+
+<p align="center"><a href="download/26_data.zip"><font
+face="Arial">download dat k pøíkladu</font></a></p>
+
+<p align="center"><a href="download/26_bludiste.zip"><font
+face="Arial">download pøíkladu Bludištì 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_25.htm"><font face="Arial">25.
+Lovíme minotaury (4. èást, støelba)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_27.htm"><font face="Arial">27. Lovíme minotaury (6.
+èást, lov)</font></a></p>
+</body>
+</html>

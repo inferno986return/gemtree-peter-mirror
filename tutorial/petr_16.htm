@@ -1,0 +1,305 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>16 Kaleidoskop (èást 2)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_15.htm"><font face="Arial">15.
+Kaleidoskop (1. èást)</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_17.htm"><font
+face="Arial">17. Konzole</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">16. Kaleidoskop (2. èást)</font></h2>
+
+<p><font face="Arial"><em>...dokonèení z minulé lekce</em></font></p>
+
+<p><font face="Arial">Nyní k obsahu funkce </font><font
+color="#000080" face="Arial"><strong>vykreslení prvkù pro jeden
+pohled</strong></font><font face="Arial">. Na zaèátku funkce se
+nejdøíve vymae kreslicí plocha, co bude oblast o stejnıch
+rozmìrech jako je maska. Kreslicí plocha zaèíná na 0
+souøadného systému, tedy v levém dolním rohu. Po nastavení </font><font
+color="#000080" face="Arial"><strong>indexu prvku</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial"> se volají pøíkazy pro kreslení jednotlivıch
+grafickıch prvkù s rùznımi vstupními parametry,
+urèujícími barvu a rozmìry prvkù. Pøed voláním funkce pro
+kreslení pohledu musí bıt nastaven poadovanı </font><font
+color="#000080" face="Arial"><strong>úhel pohledu</strong></font><font
+face="Arial"> (je pouíván funkcí pøípravnıch vıpoètù).</font></p>
+
+<p align="center"><img src="img2/kaleid16.gif" width="353"
+height="668"></p>
+
+<p><font face="Arial">Funkce </font><font color="#000080"
+face="Arial"><strong>pøíprava parametrù pro jeden prvek</strong></font><font
+face="Arial"> je, dá se øíct, centrálním mozkem programu.
+Pøepoèítává animované souøadnice grafického prvku na
+absolutní souøadnice na displeji, s korekcí podle aktuálního
+pohledu. Pracuje s prvkem, na nìj aktuálnì ukazuje </font><font
+color="#000080" face="Arial"><strong>index prvku</strong></font><font
+face="Arial">. Po skonèení vıpoètu posune ukazatel na
+následující prvek. Jednotlivé operace jsou rozdìleny do
+skupin. Funkce pøevede souøadnice støedu prvku do polárních
+souøadnic, otoèí souøadnice podle aktuálního úhlu pohledu
+a pøevede souøadnice zpìt do kartézského systému. Nakonec
+pøipraví ještì funkce </font><font color="#000080"
+face="Arial"><strong>sin</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>cos</strong></font><font
+face="Arial"> aktuálního úhlu otoèení. Funkce pouívá 2
+lokální promìnné (tj. promìnné viditelné pouze uvnitø
+funkce), </font><font color="#000080" face="Arial"><strong>úhel
+prvku</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>polomìr prvku</strong></font><font
+face="Arial">, které jsou polárními souøadnicemi prvku.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid17.gif"
+width="468" height="388"></font></p>
+
+<p><font face="Arial">Støed otáèení pohledù leí ve stedu
+trojúhelníku, ve vıšce 1/3 vıšky trojúhelníku. Nejdøíve
+se proto pøevedou souøadnice prvku na støed otáèení
+soustavy odeètením souøadnice støedu otáèení.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid18.gif"
+width="299" height="352"></font></p>
+
+<p><font face="Arial">K pøevodu kartézskıch souøadnic na
+polární jsou pouity funkce </font><font color="#000080"
+face="Arial"><strong>vzdálenost bodu</strong></font><font
+face="Arial"> (poèítá </font><font color="#000080"
+face="Arial"><strong>sqrt(x^2 + y^2)</strong></font><font
+face="Arial">) a </font><font color="#000080" face="Arial"><strong>úhel
+bodu</strong></font><font face="Arial"> (poèítá </font><font
+color="#000080" face="Arial"><strong>atan2(y, x)</strong></font><font
+face="Arial">).</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid19.gif"
+width="366" height="416"></font></p>
+
+<p><font face="Arial">Po pøiètení </font><font color="#000080"
+face="Arial"><strong>úhlu pohledu</strong></font><font
+face="Arial"> jsou polární souøadnice pøepoèteny zpìt na
+kartézské, za vyuití funkcí </font><font color="#000080"
+face="Arial"><strong>sin</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>cos</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid20.gif"
+width="269" height="352"></font></p>
+
+<p><font face="Arial">Pøi pøepoètu souøadnic zpìt na
+souøadnice okna jsou k souøadnicím prvku pøièteny zpìt
+souøadnice støedu otáèení pohledu. V pøípadì, e se
+jedná o levı nebo pravı trojúhelník, je pøiètena ještì
+jednou 1/3 vıšky trojúhelníku, protoe tyto trojúhelníky
+jsou jakoby &quot;<em>vzhùru nohama</em>&quot;, proto je støed
+otáèení v jejich horní tøetinì.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid21.gif"
+width="700" height="416"></font></p>
+
+<p><font face="Arial">Nakonec jsou pøedvypoèítány hodnoty </font><font
+color="#000080" face="Arial"><strong>sin</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>cos</strong></font><font
+face="Arial"> pro transformace vrcholù prvku a to ze souètu
+úhlu otoèení prvku a úhlu pohledu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid22.gif"
+width="332" height="352"></font></p>
+
+<p><font face="Arial">Nyní se vrátíme zpìt do hlavní smyèky
+programu, do skupiny pro </font><font color="#000080"
+face="Arial"><strong>generování grafiky</strong></font><font
+face="Arial">. Její obsah vidíte na následujícím obrázku.
+Budeme generovat 3 obrázky, tj. 3 trojúhelníky. Pro první
+trojúhelník nejdøíve nastavíme </font><font color="#000080"
+face="Arial"><strong>poadovanı úhel pohledu</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">. Zavoláním funkce </font><font color="#000080"
+face="Arial"><strong>vykreslení prvkù pro jeden pohled</strong></font><font
+face="Arial"> zajistíme vykreslení prvkù. Vykreslenou grafiku
+sejmeme pøíkazem pro úschovu vıøezu z okna a poté vıøez
+zamaskujeme pøipravenou maskou, èím ji oøeeme na
+trojúhelník. Podobnì postupujeme i pro ostatní 2
+trojúhelníky s tím rozdílem, e zadáváme úhly +60° a
+-60°, pouíváme druhou masku a obrázky ještì
+horizontálnì pøevrátíme.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid23.gif"
+width="425" height="833"></font></p>
+
+<p><font face="Arial">Skupina </font><font color="#000080"
+face="Arial"><strong>vykreslení kaleidoskopu</strong></font><font
+face="Arial"> bude zajišovat vykreslení pøipravenıch
+obrázkù na plochu okna. Postupnì vykreslujeme jednotlivé
+obrázky. Souøadnice </font><font color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> zùstává u všech obrázkù 0, tedy ji
+nezadáváme. Pro jednotlivé pøípady pouijeme obrázky a
+souøadnice X podle následující tabulky. Pro pøehlednost
+oznaèíme šíøku plochy jako</font><font color="#000080"
+face="Arial"><strong> wp</strong></font><font face="Arial">,
+délku strany trojúhelníku jako </font><font color="#000080"
+face="Arial"><strong>wt</strong></font><font face="Arial"> a
+vertikální pøevrácení obrázku jako </font><font
+color="#000080" face="Arial"><strong>VF</strong></font><font
+face="Arial">.</font></p>
+<div align="center"><center>
+
+<table border="1" cellpadding="2" cellspacing="0" width="500"
+bordercolor="#000000" bordercolordark="#000000"
+bordercolorlight="#000000">
+    <tr>
+        <th><font face="Arial">trojúhelník</font></th>
+        <th><font face="Arial">obrázek</font></th>
+        <th><font face="Arial">souøadnice X</font></th>
+    </tr>
+    <tr>
+        <td align="center"><font face="Arial">D</font></td>
+        <td align="center"><font face="Arial">dole</font></td>
+        <td align="center"><font face="Arial">wp/2 - wt/2</font></td>
+    </tr>
+    <tr>
+        <td align="center"><font face="Arial">L</font></td>
+        <td align="center"><font face="Arial">vlevo</font></td>
+        <td align="center"><font face="Arial">wp/2 - wt</font></td>
+    </tr>
+    <tr>
+        <td align="center"><font face="Arial">R</font></td>
+        <td align="center"><font face="Arial">vpravo</font></td>
+        <td align="center"><font face="Arial">wp/2</font></td>
+    </tr>
+    <tr>
+        <td align="center"><font face="Arial">LL</font></td>
+        <td align="center"><font face="Arial">vpravo VF</font></td>
+        <td align="center"><font face="Arial">wp/2 - wt/2 - wt</font></td>
+    </tr>
+    <tr>
+        <td align="center"><font face="Arial">RR</font></td>
+        <td align="center"><font face="Arial">vlevo VF</font></td>
+        <td align="center"><font face="Arial">wp/2 + wt/2</font></td>
+    </tr>
+    <tr>
+        <td align="center"><font face="Arial">LLL</font></td>
+        <td align="center"><font face="Arial">dole VF</font></td>
+        <td align="center"><font face="Arial">wp/2 - wt - wt</font></td>
+    </tr>
+    <tr>
+        <td align="center"><font face="Arial">RRR</font></td>
+        <td align="center"><font face="Arial">dole VF</font></td>
+        <td align="center"><font face="Arial">wp/2 + wt</font></td>
+    </tr>
+</table>
+</center></div>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid24.gif"
+width="336" height="705"></font></p>
+
+<p><font face="Arial">Po vykreslení jednotlivıch
+trojúhelníkù sejmeme spodní polovinu okna, vertikálnì ji
+pøevrátíme a vykreslíme do horní poloviny okna.</font></p>
+
+<p align="center"><img src="img2/kaleid25.gif" width="388"
+height="512"></p>
+
+<p><font face="Arial">Pokud chcete vyzkoušet meziprodukt
+programu, máte teï pøíleitost - mìly by se zobrazit
+náhodné obrazce. Zatím nehybné, ale pøi kadém spuštìní
+programu jiné.</font></p>
+
+<p><font face="Arial">Dostáváme se k poslední skupinì hlavní
+smyèky, </font><font color="#000080" face="Arial"><strong>posun
+prvkù</strong></font><font face="Arial">. Zde budou zajištìny
+animace kaleidoskopu. Jádrem obsluhy je smyèka, s její
+pomocí projdeme všechny prvky seznamu prvkù.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid26.gif"
+width="319" height="416"></font></p>
+
+<p><font face="Arial">Pøi vıpoètu nové </font><font
+color="#000080" face="Arial"><strong>souøadnice prvku X</strong></font><font
+face="Arial"> pøièteme k souøadnici </font><font
+color="#000080" face="Arial"><strong>rychlost posunu X</strong></font><font
+face="Arial">. Vıslednou souøadnici omezíme a to zleva
+hodnotou </font><font color="#000080" face="Arial"><strong>-0.5</strong></font><font
+face="Arial"> (povolíme mírnı pøesah), zprava hodnotou </font><font
+color="#000080" face="Arial"><strong>délka strany trojúhelníku</strong></font><font
+face="Arial">. Náhodnì zmìníme </font><font color="#000080"
+face="Arial"><strong>rychlost posunu X</strong></font><font
+face="Arial">, vıslednou rychlost omezíme na rozsah </font><font
+color="#000080" face="Arial"><strong>-0.01</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>+0.01</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid27.gif"
+width="308" height="739"></font></p>
+
+<p><font face="Arial">Podobnì obslouíme </font><font
+color="#000080" face="Arial"><strong>souøadnici prvku Y</strong></font><font
+face="Arial">. Omezení zdola bude hodnotou </font><font
+color="#000080" face="Arial"><strong>-0.5</strong></font><font
+face="Arial">, shora hodnotou </font><font color="#000080"
+face="Arial"><strong>vıška plochy/2</strong></font><font
+face="Arial">. </font><font color="#000080" face="Arial"><strong>Rychlost
+posunu Y</strong></font><font face="Arial"> obslouíme podobnì
+jako </font><font color="#000080" face="Arial"><strong>rychlost
+posunu X</strong></font><font face="Arial">.</font></p>
+
+<p><font face="Arial">Nakonec obslouíme </font><font
+color="#000080" face="Arial"><strong>otoèení prvku</strong></font><font
+face="Arial">. K </font><font color="#000080" face="Arial"><strong>otoèení
+prvku</strong></font><font face="Arial"> pøièteme </font><font
+color="#000080" face="Arial"><strong>rychlost otáèení</strong></font><font
+face="Arial">. Pøiètením konstanty </font><font
+color="#000080" face="Arial"><strong>2*pi</strong></font><font
+face="Arial"> posuneme hodnotu do kladnıch úhlù, abychom
+následnou operací </font><font color="#000080" face="Arial"><strong>modulo</strong></font><font
+face="Arial"> získali vıslednı úhel v rozsahu </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>2*pi</strong></font><font
+face="Arial">. Nakonec vıslednou rychlost otáèení omezíme do
+intervalu </font><font color="#000080" face="Arial"><strong>-0.01</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>+0.01</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid28.gif"
+width="366" height="512"></font></p>
+
+<p><font face="Arial">To jest vše. Pokud jste neudìlali nikde
+chybu, mìli byste se doèkat velmi zajímavıch obrazcù.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid1.gif"
+width="456" height="354"></font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid2.gif"
+width="456" height="354"></font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid3.gif"
+width="456" height="354"></font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid4.gif"
+width="456" height="354"></font></p>
+
+<p align="center"><font face="Arial"><img src="img2/kaleid5.gif"
+width="456" height="354"></font></p>
+
+<p align="center"><a href="download/15_kaleidoskop.zip"><font
+face="Arial">download pøíkladu</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_15.htm"><font face="Arial">15.
+Kaleidoskop (1. èást)</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_17.htm"><font
+face="Arial">17. Konzole</font></a></p>
+</body>
+</html>

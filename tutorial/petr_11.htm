@@ -1,0 +1,227 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>11 Zaèínáme s grafikou</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_10.htm"><font face="Arial">10.
+Jak nakrmit hada (2. èást)</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_12.htm"><font
+face="Arial">12. Kreslíme &quot;mišmaš&quot;</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">11. Zaèínáme s grafikou</font></h2>
+
+<p><font face="Arial">Dosud jsme programy vytváøeli pouze s
+využitím pøedmìtù a sprajtù. Nyní se seznámíme s ještì
+zajímavìjší oblastí - s grafikou.</font></p>
+
+<p><font face="Arial">Grafika pøináší neomezené možnosti
+tam, kde již pøedmìtová animace nestaèí. Umožní nám
+kreslení grafických prvkù jako jsou body, èáry, kružnice,
+ale pøedevším vykreslování obrázkù. Pomocí obrázkù
+mùžeme zobrazovat fotografie, pohybovat objekty, psát texty
+èi kreslit tlaèítka speciálních ovládacích prvkù.</font></p>
+
+<p><font face="Arial">To, co pro práci s grafikou potøebujeme
+znát nejdøíve, je kam a jak probíhá vykreslování grafiky.
+Podívejte se na následující obrázek.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/vrstvy.gif"
+width="640" height="480"></font></p>
+
+<p><font face="Arial">Na obrázku vidíte znázornìné
+zobrazovací vrstvy okna programu v Petrovi. Základem je </font><font
+color="#000080" face="Arial"><strong>vrstva pøedmìtù</strong></font><font
+face="Arial">. S tou jste se již setkali v pøedešlých
+lekcích. Je to vrstva, kam pokládáme pøedmìty. Nazýváme ji
+</font><font color="#000080" face="Arial"><strong>hlavní plochou</strong></font><font
+face="Arial"> programu. Na rozdíl od pøedmìtù, u sprajtù
+mùžeme urèovat jejich &quot;<em>nadmoøskou výšku</em>&quot;.
+Nad vrstvou pøedmìtù se pohybují sprajty s </font><font
+color="#000080" face="Arial"><strong>kladnou</strong></font><font
+face="Arial"> výškovou hladinou. Mezi nì patøí Petøík a
+Lucka, dokud jejich výškovou hladinu nezmìníme. Pod vrstvou
+pøedmìtù se pohybují sprajty se </font><font color="#000080"
+face="Arial"><strong>zápornou</strong></font><font face="Arial">
+hladinou. Úplnì nejnižší vrstvou je </font><font
+color="#000080" face="Arial"><strong>grafická vrstva</strong></font><font
+face="Arial">. Do ní probíhá veškeré kreslení grafických
+prvkù.</font></p>
+
+<p><font face="Arial">Vrstvy si mùžete pøedstavit jako moøe.
+Vrstva pøedmìtù je hladinou moøe. Po hladinì se pohybují
+lodì (sprajty s výškou 0), nad nimi létají ptáci (sprajty s
+kladnou výškou, napøíklad 100). Pod hladinou se pohybují
+ryby (sprajty se zápornou výškou, napøíklad -100). Úplnì
+dole je dno moøe - grafická vrstva ke kreslení.</font></p>
+
+<p><font face="Arial">Pøi pohledu na okno programu se díváme
+na pomyslné moøe shora. Bìžnì vidíme pøedmìty na ploše a
+sprajty pohybující se nad pøedmìty (Petøík, Lucka), ale
+nevidíme sprajty se zápornou výškovou hladinou a nevidíme
+ani grafickou vrstvu. Pro jejich zviditelnìní musíme
+pøedmìty zprùhlednit. Jak, to si ukážeme dále.</font></p>
+
+<p><font face="Arial">Pro demonstraci práce s vrstvami si
+vytvoøíme malý ukázkový prográmek. Nazvìte ho tøeba </font><font
+color="#000080" face="Arial"><strong>Vrstvy</strong></font><font
+face="Arial">. Grafiku si sice mùžete pøipravit sami, ale
+pokud se vám nechce, v závìru kapitoly jsou ke stažení
+potøebné grafické prvky. Budeme potøebovat: sprajt ryby,
+sprajt loïky a sprajt UFO. K tomu ještì obrázek chobotnice.
+No a nakonec - pøedmìt s vodní hladinou.</font></p>
+
+<p><font face="Arial">Sprajty upravte v nastavení tak, aby ryba
+mìla poèet fází na krok </font><font color="#000080"
+face="Arial"><strong>4</strong></font><font face="Arial">,
+výškovou hladinu </font><font color="#000080" face="Arial"><strong>-100</strong></font><font
+face="Arial">, loïka poèet fází na krok </font><font
+color="#000080" face="Arial"><strong>8</strong></font><font
+face="Arial">, výškovou hladinu </font><font color="#000080"
+face="Arial"><strong>0</strong></font><font face="Arial"> a UFO
+poèet fází na krok </font><font color="#000080" face="Arial"><strong>16</strong></font><font
+face="Arial"> a výškovou hladinu </font><font color="#000080"
+face="Arial"><strong>100</strong></font><font face="Arial">. UFO
+se tedy bude pohybovat nejpomaleji a v nejvyšší výšce,
+loïka bude nejpomalejší a ve støední výšce (na hladinì
+moøe), ryba bude nejníže, pod moøskou hladinou.</font></p>
+
+<p><font face="Arial">Pokud si budete sami vytváøet vodní
+hladinu, mùžete ji vytvoøit pomocí spreje a rùzných
+odstínù barev. Èást bodù vyplòte prùhlednou barvou - to je
+šedivì fialová barva úplnì vlevo nahoøe. Tato barva
+zajistí zprùhlednìní pøedmìtu a tím zviditelnìní
+grafických prvkù ležících &quot;<em>pod hladinou moøe</em>&quot;.
+Takto upravit mùžete buï pùvodní pøedmìt </font><font
+color="#000080" face="Arial"><strong>prázdné políèko</strong></font><font
+face="Arial"> nebo použít jiný pøedmìt, v tom pøípadì
+jím musíte vyplnit plochu okna.</font></p>
+
+<p><font face="Arial">Po pøípravì grafických prvkù by mohlo
+vaše pole </font><font color="#000080" face="Arial"><strong>Spoleèných
+promìnných a funkcí</strong></font><font face="Arial"> vypadat
+nìjak takto:</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/vrstvy2.gif"
+width="209" height="352"></font></p>
+
+<p><font face="Arial">Zaèneme inicializací. Sprajt Petøíka
+nebudeme potøebovat, mùžete ho proto vypnout nastavením
+viditelnosti na </font><font color="#000080" face="Arial"><strong>ne</strong></font><font
+face="Arial">. Takto budeme zaèínat i u vìtšiny
+následujících programù, protože Petøíka využíváme
+spíš jen u políèkové grafiky. Dalším pøíkazem zajistíme
+vykreslení obrázku chobotnice na souøadnicích X=5 a Y=4.
+Pøíkaz naleznete ve skupinì grafika - kreslení. Vztažným
+bodem obrázkù je jejich levý dolní roh.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/vrstvy3.gif"
+width="288" height="448"></font></p>
+
+<p><font face="Arial">Dále je potøeba nastavit výchozí
+souøadnice sprajtù. Sprajty mají standardnì vypnutou
+viditelnost, proto je potøeba je zviditelnit zapnutím
+viditelnosti. Nastavíme je pøibližnì do støedu okna programu
+(pøed zapnutím viditelnosti, jinak by se tam pøesouvaly
+pomalu).</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/vrstvy4.gif"
+width="223" height="675"></font></p>
+
+<p><font face="Arial">Budeme pokraèovat hlavní smyèkou
+programu. Použijte cyklus </font><font color="#000080"
+face="Arial"><strong>Podmínìné opakování pøíkazù</strong></font><font
+face="Arial">. Do podmínky uveïte test, zda není stisknuta
+klávesa </font><font color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial">. Smyèka se tedy bude opakovat tak dlouho, dokud
+uživatel nestiskne klávesu Esc, tím se program ukonèí. Vše,
+co smyèka dìlá, je opakované nastavování souøadnic
+sprajtù podle aktuální souøadnice kurzoru myši. Sprajty tedy
+sledují kurzor myši. Rozdíl mezi obsluhou jednotlivých
+sprajtù je pouze v tom, že sprajty mají rùzné rozmìry.
+Vzhledem k tomu, že chceme nastavovat støed sprajtù, musíme
+pøièítat rùznou korekci, která odpovídá polovinì rozmìru
+sprajtu. Na závìr smyèky uveïte pøíkaz pro èekání (nemá
+smysl, aby smyèka bìžela plnou rychlostí).</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/vrstvy5.gif"
+width="413" height="579"></font></p>
+
+<p><font face="Arial">Program mùžete vyzkoušet. Mìli byste
+vidìt podobný výjev:</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/vrstvy6.gif"
+width="648" height="514"></font></p>
+
+<p><font face="Arial">Jak si mùžete všimnout, chobotnice i
+ryba prosvítají pøes hladinu vody, jsou jakoby pod ní,
+zatímco UFO se pøekresluje pøes všechno ostatní, je na
+nejvyšší úrovni.</font></p>
+
+<p><font face="Arial">Na závìr se ještì pozastavme blíže u
+sprajtù. Jak jsme si již øekli, sprajty jsou pohyblivé
+grafické objekty. Jednotlivým obrázkùm jedné animace
+øíkáme </font><font color="#000080" face="Arial"><strong>fáze
+animace</strong></font><font face="Arial">. Sprajt mùže mít
+jednak animace v klidovém stavu (</font><font color="#000080"
+face="Arial"><strong>fáze pro klid</strong></font><font
+face="Arial">) a jednak animace pøi pohybu (</font><font
+color="#000080" face="Arial"><strong>fáze pro pohyb</strong></font><font
+face="Arial">). Sprajt mùže mít libovolný poèet smìrù.
+Systém sám volí nejbližší smìr podle toho, kterým smìrem
+se sprajt pohybuje. Smìr lze mìnit i programovì (jistì si
+vzpomínáte na pøíkazy pro otáèení Petøíka), smìr se
+zadává v radiánech (360° = 2*pi = asi 6.28).</font></p>
+
+<p><font face="Arial">Jak jste si mohli všimnout i v našem
+pøíkladu, sprajty mùžeme ruènì malovat, ale vzhled
+takových sprajtù obvykle nestojí za moc. Mnohem lepších
+výsledkù dosáhneme, pokud sprajty generujeme napøíklad
+pomocí renderovacích 3D nástrojù. Vynikajících výsledkù
+lze dosáhnout renderovacím programem POV-Ray, založeném na
+ray-tracing metodì (tedy sledování paprsku pohledu).</font></p>
+
+<p><font face="Arial">Velkou pøedností programu POV-Ray je
+možnost renderování z pøíkazového øádku. To umožòuje
+plnou automatizaci procesu renderování. Nejdøíve napø. s
+pomocí programu Moray pøipravíme objekty k renderování.
+Moray je vizuální grafické rozhraní sloužící k ovládání
+programu POV-Ray. S jeho pomocí snadno vizuálnì pøipravíme
+renderovanou scénu. Poté pøipravíme definièní soubory
+øídící proces renderování - v nich mùžeme urèovat smìr
+otoèení objektu, fáze jeho animace èi barvu povrchu.</font></p>
+
+<p><font face="Arial">Po spuštìní procesu renderování
+vygeneruje program POV-Ray øadu obrázkù, které tvoøí
+jednotlivé snímky sprajtu. V závìreèné fázi použijeme
+program Pov2Spr (který je souèástí distribuce Petra nebo </font><a
+href="download/Pov2Spr.zip"><font face="Arial">zde ke stažení</font></a><font
+face="Arial"> spolu s mnoha pøipravenými pøíklady sprajtù) k
+jejich konverzi na sprajt.</font></p>
+
+<p align="center"><font face="Arial"><img src="img2/plameno.gif"
+width="640" height="480"></font></p>
+
+<p align="center"><a href="download/11_grafika.zip"><font
+face="Arial">download grafiky k pøíkladu</font></a></p>
+
+<p align="center"><a href="download/11_vrstvy.zip"><font
+face="Arial">download pøíkladu</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_10.htm"><font face="Arial">10.
+Jak nakrmit hada (2. èást)</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_12.htm"><font
+face="Arial">12. Kreslíme &quot;mišmaš&quot;</font></a></p>
+</body>
+</html>

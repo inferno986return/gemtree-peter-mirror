@@ -1,0 +1,314 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>21 Pozor padá hvìzda</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_20.htm"><font face="Arial">20. A
+pøece se toèí!</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_22.htm"><font
+face="Arial">22. Lovíme minotaury (1. èást, bludištì)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">21. Pozor, padá hvìzda!</font></h2>
+
+<p><font face="Arial"><em>Pøej si nìco, padá hvìzda!</em> A
+co když to není hvìzda, ale kometa? Pak máme dvakrát
+štìstí - za prvé, že jsme ji vidìli, a za druhé, že se do
+nás nestrefila. Takže si ji radìji namodelujeme v našem
+virtuálném svìtì. V klidu a teple domova, aniž se za ní
+musíme štrachat do Betléma.</font></p>
+
+<p><font face="Arial">Opìt se vrátíme k našemu minulému
+programu se Zemí. Naše kometa se bude skládat ze 4 objektù.
+Prvním je samotné tìlo komety, což je obyèejná koule. Pak
+bude mít ohon, což bude komolý kužel pokrytý prùhlednou
+texturou. Zvýšíme efekt tím, že kometa bude osvìtlovat
+okolní objekty. Toho docílíme vytvoøením objektu svìtla a
+jeho pøipojením ke kometì. A to vše bude slouèeno do jedné
+spoleèné skupiny.</font></p>
+
+<p><font face="Arial">Nejdøíve si proto pøipravíme 4
+èíselné promìnné, s názvy </font><font color="#000080"
+face="Arial"><strong>ID svìtla od komety</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>ID
+ohonu komety</strong></font><font face="Arial">, </font><font
+color="#000080" face="Arial"><strong>ID komety</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>ID
+skupiny komety</strong></font><font face="Arial">. Dále budeme
+potøebovat texturu ohonu komety. Základem textury je èerná
+barva, na kterou nasprejujeme žluté teèky. Mìly by budit
+dojem jisker. Nazvìte ji </font><font color="#000080"
+face="Arial"><strong>textura ohonu komety</strong></font><font
+face="Arial">. Pøípadnì k downloadu na konci lekce.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/kometa.gif"
+width="128" height="128"></font></p>
+
+<p><font face="Arial">Na konec </font><font color="#000080"
+face="Arial"><strong>inicializace programu</strong></font><font
+face="Arial"> pøidejte skupinu </font><font color="#000080"
+face="Arial"><strong>vytvoøení komety</strong></font><font
+face="Arial">. Bude obsahovat další 4 vložené skupiny, </font><font
+color="#000080" face="Arial"><strong>svìtlo od komety</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>ohon
+komety</strong></font><font face="Arial">, </font><font
+color="#000080" face="Arial"><strong>tìlo komety</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>skupina
+komety</strong></font><font face="Arial">.</font></p>
+
+<p><font face="Arial">První objekt, </font><font color="#000080"
+face="Arial"><strong>svìtlo od komety</strong></font><font
+face="Arial">, vytvoøíme jako </font><font color="#000080"
+face="Arial"><strong>bodové svìtlo</strong></font><font
+face="Arial"> s jasnì žlutou barvou. Abychom si to ujasnili,
+objekt svìtla ve 3D grafice není vidìt. Je to jen bod v
+prostoru s urèitými svìtelnými parametry, ze kterých se
+poèítá osvìtlení okolních objektù. Proto ho mùžeme
+pøidat k objektu komety. Nevadí, že bude umístìn ve støedu
+komety. Ve 3D grafice nedochází ke stínìní svìtla objekty.
+Naopak, stíny od objektù je nutné nároènì programovì
+vytváøet.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d21.gif"
+width="365" height="256"></font></p>
+
+<p><font face="Arial">Kromì námi vytvoøeného bodového zdroje
+svìtla máme ve scénì ještì jeden zdroj svìtla. Je to
+implicitní zdroj svìtla, který je automaticky vytváøen pøi
+spuštìní programu. Jedná se o </font><font color="#000080"
+face="Arial"><strong>smìrové svìtlo</strong></font><font
+face="Arial"> bílé barvy, svítící na scénu z levého
+horního rohu. U smìrového svìtla nezáleží na poloze
+zdroje, pouze na smìru, kterým svítí. Pokud bychom chtìli
+manipulovat s implicitním zdrojem svìtla, vybrali bychom </font><font
+color="#000080" face="Arial"><strong>aktivní objekt</strong></font><font
+face="Arial"> èíslo </font><font color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Kromì dvou uvedených je možné
+používat ještì tøetí typ zdroje svìtla - </font><font
+color="#000080" face="Arial"><strong>kuželové svìtlo</strong></font><font
+face="Arial">. Je to typ osvìtlení podobný reflektoru. Kromì
+polohy a smìru se u nìj udává ještì rozmìr kužele a
+dosvit.</font></p>
+
+<p><font face="Arial">Vytvoøíme ohon komety. Jak jsme se již
+zmínili, jako ohon použijeme </font><font color="#000080"
+face="Arial"><strong>komolý kužel</strong></font><font
+face="Arial">. Nejdøíve zvolíme pomìrnì nízkou složitost
+objektu </font><font color="#000080" face="Arial"><strong>4</strong></font><font
+face="Arial">, protože u ohonu komety není tøeba pøesnost
+tvaru. Vypneme pøepínaèe pro vytváøení hodní a dolní
+podstavy kužele. Tím bude kužel nahoøe a dole <em>dìravý</em>.</font></p>
+
+<p><font face="Arial">Pøi vytváøení objektu kužele zvolíme
+prùmìr horní podstavy </font><font color="#000080"
+face="Arial"><strong>0.5</strong></font><font face="Arial">.
+Nastavíme texturu ohonu komety a zmìníme mìøítko ve
+smìrech X a Z na </font><font color="#000080" face="Arial"><strong>1.8</strong></font><font
+face="Arial">, mìøítko ve smìru Y na </font><font
+color="#000080" face="Arial"><strong>2.5</strong></font><font
+face="Arial">. Kužel bude tedy protáhlý. Rotací kolem osy Z o
+</font><font color="#000080" face="Arial"><strong>90</strong></font><font
+face="Arial"> stupòù zajistíme správné otoèení ohonu,
+protože kometa bude létat zprava doleva. Proto ještì posuneme
+ohon o </font><font color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial"> doprava (ve smìru X), aby ohon vlál až za
+kometou.</font></p>
+
+<p><font face="Arial">Zapneme viditelnost pro obì strany
+objektu. Asi by vypadalo nepøirozenì vidìt jiskry jen z
+vnìjší strany a ne z vnitøní strany ohonu.</font></p>
+
+<p><font face="Arial">U ohonu využijeme novou vlastnost - </font><font
+color="#000080" face="Arial"><strong>prùhlednost</strong></font><font
+face="Arial">. Prùhlednost je operace kombinující barvu
+objektu s barvou pøedmìtù nacházejících se za objektem.
+Napøíklad nastavením prùhlednosti na kód </font><font
+color="#000080" face="Arial"><strong>11</strong></font><font
+face="Arial"> se barvy grafických bodù sèítají, podobnì
+jako když hoøí oheò. Ještì vypneme osvìtlení objektu,
+jinak by bylo na ohonu vidìt stínování od okolního svìtla,
+což u záøícího objektu není pøirozené.</font></p>
+
+<p align="center"><img src="img4/3d22.gif" width="370"
+height="896"></p>
+
+<p><font face="Arial">Dalším objektem bude vlastní </font><font
+color="#000080" face="Arial"><strong>tìlo komety</strong></font><font
+face="Arial">. Bude to opìt </font><font color="#000080"
+face="Arial"><strong>koule</strong></font><font face="Arial">.
+Její složitost nastavíme na </font><font color="#000080"
+face="Arial"><strong>6</strong></font><font face="Arial">. Barvu
+na jasnì žlutou a osvìtlení vypnuté, ze stejného dùvodu
+jako u ohonu. Velikost zvolíme </font><font color="#000080"
+face="Arial"><strong>0.1</strong></font><font face="Arial">.
+Posunutím na </font><font color="#000080" face="Arial"><strong>-0.8</strong></font><font
+face="Arial"> ve smìru Z zajistíme potøebnou výšku komety
+nad povrchem Zemì. K tìlu komety pøipojíme objekt </font><font
+color="#000080" face="Arial"><strong>svìtla od komety </strong></font><font
+face="Arial">a objekt </font><font color="#000080" face="Arial"><strong>ohonu
+komety</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d23.gif"
+width="238" height="640"></font></p>
+
+<p align="left"><font face="Arial">Posledním objektem bude </font><font
+color="#000080" face="Arial"><strong>skupina komety</strong></font><font
+face="Arial">. Je to jen skupina, ke které je pøipojen objekt
+komety. Abychom zajistili obíhání komety kolem Zemì po
+šikmé dráze, natoèíme o kousek celou soustavu kolem osy Z.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d24.gif"
+width="198" height="224"></font></p>
+
+<p align="left"><font face="Arial">A ještì nakonec musíme
+kometu rozhýbat. Ohon budeme animovat tak, že budeme jednoduše
+náhodnì nastavovat rotaci kolem osy Y, èímž zajístíme
+náhodné blikání jisker v ohonu komety. Celou skupinou komety
+budeme otáèet kolem osy Y podobnì jako s Mìsícem, jen
+rychlost zvolíme </font><font color="#000080" face="Arial"><strong>0.06</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d25.gif"
+width="300" height="352"></font></p>
+
+<p align="left"><font face="Arial">A teï už mùžeme program
+spustit. Mìli bychom vidìt krásnou kometu, neboli staroèesky <em><strong>létavici</strong></em>.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d26.gif"
+width="648" height="514"></font></p>
+
+<p align="left"><font face="Arial">Náš skvìlý, ale naprosto
+neužiteèný program se pomalu blíží k naprosté dokonalosti.
+Ale - co by to bylo za Zemi bez jediného mráèku? Mraky nám
+ještì chybí k realistiètìjšímu vzhledu Zemì.</font></p>
+
+<p align="left"><font face="Arial">Základem textury mrakù bude
+prùhledná barva, na kterou nasprejujeme barevné skvrny. Nebo
+downloadujeme hotovou texturu na konci lekce.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/mraky.gif"
+width="128" height="128"></font></p>
+
+<p align="left"><font face="Arial">Dále potøebujeme èíselný
+prvek </font><font color="#000080" face="Arial"><strong>ID mrakù</strong></font><font
+face="Arial">. Objekt mrakù vytvoøíme v samostatné skupinì </font><font
+color="#000080" face="Arial"><strong>vytvoøení mrakù</strong></font><font
+face="Arial"> pøedtím, než vytvoøíme objekt Zemì. Podobnì
+jako u Zemì, nejdøíve zvolíme složitost objektu </font><font
+color="#000080" face="Arial"><strong>10</strong></font><font
+face="Arial">, vytvoøíme objekt mrakù jako kouli a nastavíme
+mìøítko ve všech smìrech na </font><font color="#000080"
+face="Arial"><strong>1.05</strong></font><font face="Arial">,
+èili mraky budou mírnì nad povrchem Zemì. Poznamenejme, že
+všechny objekty se vytváøí s rozmìry </font><font
+color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial">. Dále nastavíme texturu mrakù a zvolíme
+prùhlednost èíslo </font><font color="#000080" face="Arial"><strong>54</strong></font><font
+face="Arial">. Tento typ prùhlednosti používá alfa kanál
+textury, což znamená prùhlednou barvu. Body vyplnìné
+prùhlednou barvou zùstanou prùhledné, ostatní body budou
+viditelné.</font></p>
+
+<p align="left"><font face="Arial">Pøed nastavením textury
+nastavíme parametr </font><font color="#000080" face="Arial"><strong>vyhlazení
+textur</strong></font><font face="Arial"> na hodnotu </font><font
+color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial">. Vyhlazení textur nám udává, jak moc se obraz
+textury <em><strong>rozmázne</strong></em>. Rozmáznutí se
+realizuje tak, že textura se zmenší v mìøítku podle
+zadaného èísla. Pøitom je tøeba poèítat s tím, že
+zpravidla (v závislosti na grafické kartì) se zmenšení
+provede na rozmìry nejbližší násobku mocniny </font><font
+color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial">. Rozmáznutí textury zajistí, že okraje mrakù
+budou poloprùhledné, s plynulým pøechodem, a ne hranaté.</font></p>
+
+<p align="left"><font face="Arial">Po nastavení pøepínaèe </font><font
+color="#000080" face="Arial"><strong>vyhlazení textur</strong></font><font
+face="Arial"> se tento pøepínaè uplatòuje i dále, u
+dalších nastavovaných textur. U textury Zemì je stupeò
+vyhlazení textury </font><font color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial"> v poøádku, jinak bychom vidìli zrnitý povrch. U
+textury Mìsíce zvolíme radìji zrnitost a proto pøed
+nastavením textury Mìsíce nastavíme vyhlazení textur na </font><font
+color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d27.gif"
+width="370" height="544"></font></p>
+
+<p align="left"><font face="Arial">Poslední úpravou bude
+pøipojení mrakù k objektu Zemì.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d28.gif"
+width="154" height="96"></font></p>
+
+<p align="left"><font face="Arial">Spustíte-li program, mìli
+byste vidìt Zemi zahalenou v oblacích. Mraky se pøitom
+pohybují souhlasnì se Zemí.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d29.gif"
+width="648" height="514"></font></p>
+
+<p align="left"><font face="Arial">Nádhera? No a už je to snad
+koneènì vše. Nebo ještì ne? No jasnì! Co by to bylo za
+Vesmír bez hvìzd!</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/obloha.gif"
+width="128" height="128"></font></p>
+
+<p align="left"><font face="Arial">No a není nic
+jednoduššího. Pøipravte si texturu oblohy, tøeba jen èernou
+plochu s pár bílými teèkami, a nastavte ji do prvku </font><font
+color="#000080" face="Arial"><strong>textura pozadí scény</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d30.gif"
+width="207" height="128"></font></p>
+
+<p align="left"><font face="Arial">No a už jen spustit...</font></p>
+
+<p align="center"><font face="Arial"><img src="img4/3d31.gif"
+width="648" height="514"></font></p>
+<div align="center"><center>
+
+<table border="1" cellpadding="6" bordercolor="#008000"
+bordercolordark="#008000" bordercolorlight="#008000">
+    <tr>
+        <td><font color="#008000" size="6" face="Arial"><em>A to
+        je vše, pøátelé!</em></font></td>
+    </tr>
+</table>
+</center></div>
+
+<p align="center"><a href="download/21_kometa.zip"><font
+face="Arial">download textury ohonu komety</font></a></p>
+
+<p align="center"><a href="download/21_mraky.zip"><font
+face="Arial">download textury mrakù</font></a></p>
+
+<p align="center"><a href="download/21_obloha.zip"><font
+face="Arial">download textury oblohy</font></a></p>
+
+<p align="center"><a href="download/21_3d.zip"><font face="Arial">download
+pøíkladu ke 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_20.htm"><font face="Arial">20. A
+pøece se toèí!</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_22.htm"><font
+face="Arial">22. Lovíme minotaury (1. èást, bludištì)</font></a></p>
+</body>
+</html>

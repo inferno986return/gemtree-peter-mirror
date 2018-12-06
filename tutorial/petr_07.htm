@@ -1,0 +1,468 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>7 Ovládání klávesnicí</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_06.htm"><font face="Arial">6.
+Petr v bludišti</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_08.htm"><font
+face="Arial">8. Samá pøíšera</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">7. Ovládání klávesnicí</font></h2>
+
+<p><font face="Arial">Zùstaneme ještì u programu </font><font
+color="#000080" face="Arial"><strong>Cesta</strong></font><font
+face="Arial"> z minulé kapitoly. Program upravíme tak, abychom
+Petøíka v bludišti ovládali klávesnicí namísto aby hledal
+cestu sám. Budeme zkoušet více metod ovládání, necháme si
+je všechny v programu uschované pro monost porovnání.
+Uschováme si i metodu, ve které Petøík hledá vıchod sám.</font></p>
+
+<p><font face="Arial">Pøetáhnìte do hlavního cyklu programu
+ze skupinky<strong> </strong></font><font color="#000080"
+face="Arial"><strong>øízení programu</strong></font><font
+face="Arial"> <img src="img/rizeni.gif" width="20" height="20">
+prvek </font><font color="#000080" face="Arial"><strong>skupina</strong></font><font
+face="Arial"> <img src="img/skupina.gif" width="20" height="20">.
+Prvek </font><font color="#000080" face="Arial"><strong>skupina</strong></font><font
+face="Arial"> nic nedìlá, slouí jen ke shluknutí úseku
+programu do jednoho místa. Pøemístìte do nìj všechny
+pøíkazy, které jsou nyní v hlavním cyklu: prvek otoèení
+vpravo, cyklus pro nalezení prùchodného políèka a pøíkaz
+pro provedení kroku (zachovejte pùvodní poøadí prvkù).
+Skupinu sklapnìte a pøipište k ní poznámku </font><font
+color="#000080" face="Arial"><strong>Petøík jde sám</strong></font><font
+face="Arial">. Tím jsme si metodu automatického vyhledání
+vıchodu uschovali do jedné skupiny, aby se nám &quot;nepletla
+dohromady&quot; s ostatními metodami, které budeme vytváøet.
+Zkuste program pro kontrolu spustit. Mìl by fungovat stejnì
+jako pøed úpravou.</font></p>
+
+<p><font face="Arial">Skupinu vyberte kliknutím myší na její
+ikonku. Na panelu nástrojù zapnìte tlaèítko </font><font
+color="#000080" face="Arial"><strong>Vypnout</strong></font><font
+face="Arial"> <img src="img/off.gif" width="23" height="20">.
+Skupina i všechny prvky v ní zešednou. Tato funkce nám
+umoòuje vypínat èásti programu pokud je zrovna v programu
+nepotøebujeme. Kdy program spustíte, uvidíte, e Petøík
+pouze stojí v levém dolním rohu a nic se nedìje. Program se
+chová tak, jakoby tam skupina s pøíkazy vùbec nebyla.</font></p>
+
+<p><font face="Arial">Naši novou èást programu budeme
+konstruovat uvnitø hlavního cyklu programu, hned pod
+pøedcházející skupinou. Vyuijeme novı konstrukèní prvek
+- </font><font color="#000080" face="Arial"><strong>vícestupòové
+vìtvení pøíkazù</strong></font><font face="Arial"> <img
+src="img/vetveni.gif" width="20" height="20"> (mezi programátory
+nìkdy oznaèován jako &quot;hrábì&quot;). Najdete ho ve
+skupince </font><font color="#000080" face="Arial"><strong>øízení
+programu</strong></font><font face="Arial"> <img
+src="img/rizeni.gif" width="20" height="20">. Polote ho do
+hlavní smyèky pod skupinu </font><font color="#000080"
+face="Arial"><strong>Petøík jde sám</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Vícestupòové vìtvení pøíkazù
+slouí k vìtvení programu na více èástí v závislosti na
+hodnotì promìnné èi vırazu. Obvyklım pouitím je
+vìtvení podle èíselné hodnoty. Pozdìji budeme vìtvení
+pouívat i pro jiné typy dat, jako napøíklad texty.</font></p>
+
+<p><font face="Arial">Prvek vìtvení obsahuje další ètyøi
+prvky. Do prvního prvku, </font><font color="#000080"
+face="Arial"><strong>pro hodnotu vırazu</strong></font><font
+face="Arial"> <img src="img/prohodnotu.gif" width="20"
+height="20">, vkládáme promìnnou èi vıraz, podle kterého se
+má vìtvení provést. My sem umístíme prvek </font><font
+color="#000080" face="Arial"><strong>vstup klávesy (èeká na
+stisk)</strong></font><font face="Arial"> <img
+src="img/vstup.gif" width="20" height="20">, kterı bude
+vìtvicí konstrukci pøedávat èíselnı kód stisknuté
+klávesy.</font></p>
+
+<p><font face="Arial">Následují dva spojené prvky - </font><font
+color="#000080" face="Arial"><strong>proveï pøíkazy v
+pøípadì, e</strong></font><font face="Arial"> <img
+src="img/vpripade.gif" width="20" height="20"> a </font><font
+color="#000080" face="Arial"><strong>vıraz je roven hodnotì</strong></font><font
+face="Arial"> <img src="img/vyrazroven.gif" width="20"
+height="20">. Jedná se o jednu vìtev vìtvicí konstrukce. Do
+prvku </font><font color="#000080" face="Arial"><strong>vıraz je
+roven hodnotì</strong></font><font face="Arial"> umisujeme
+hodnotu, pro kterou budou pøíkazy ve vìtvi provedeny. Vìtví
+mùe bıt libovolné mnoství, stejnì tak testovanıch
+hodnot ve vìtvi mùe bıt libovolnì. Celou vìtev </font><font
+color="#000080" face="Arial"><strong>proveï pøíkazy v
+pøípadì, e</strong></font><font face="Arial"> <img
+src="img/vpripade.gif" width="20" height="20"> zkopírujte
+ještì tøikrát.</font></p>
+
+<p><font face="Arial">Máme teï ètyøi vìtve vìtvicí
+konstrukce. Do testované hodnoty <img src="img/prohodnotu.gif"
+width="20" height="20"> v první vìtvi dáme ze skupinky </font><font
+color="#000080" face="Arial"><strong>ovládání</strong></font><font
+face="Arial"> <img src="img/ovladani.gif" width="20" height="20">,
+</font><font color="#000080" face="Arial"><strong>klávesnice</strong></font><font
+face="Arial"> <img src="img/klavesnice.gif" width="20"
+height="20">, </font><font color="#000080" face="Arial"><strong>klávesy</strong></font><font
+face="Arial"> <img src="img/klavesy.gif" width="20" height="20">,</font><font
+color="#000080" face="Arial"><strong> øídicí klávesy</strong></font><font
+face="Arial"> <img src="img/ridici.gif" width="20" height="20">
+kód klávesy </font><font color="#000080" face="Arial"><strong>nahoru</strong></font><font
+face="Arial"> <img src="img/knahoru.gif" width="20" height="20">.
+Tato vìtev se provede pøi stisku klávesy nahoru. Do pøíkazù
+vìtve <img src="img/vpripade.gif" width="20" height="20"> dáme
+pøíkaz pro krok. Budeme hlídat, aby Petøík neprocházel
+pøes zeï. Okraj plochy hlídat nemusíme, Petøík ven z plochy
+neuteèe. Namísto jednoduchého kroku pouijeme podmínìnı
+pøíkaz. Do testu podmínky dáme porovnání pøedmìtù zda je
+pøed Petøíkem zeï. Pokud ano <img src="img/proved.gif"
+width="20" height="20">, nebude se dít nic. Pokud ne <img
+src="img/jinak.gif" width="20" height="20">, Petøík udìlá
+krok.</font></p>
+
+<p><font face="Arial">Do dalších tøí vìtví uvedeme
+postupnì jako testované hodnoty klávesy </font><font
+color="#000080" face="Arial"><strong>vlevo</strong></font><font
+face="Arial"> <img src="img/kvlevo.gif" width="20" height="20">, </font><font
+color="#000080" face="Arial"><strong>vpravo</strong></font><font
+face="Arial"> <img src="img/kvpravo.gif" width="20" height="20">
+a </font><font color="#000080" face="Arial"><strong>dolù</strong></font><font
+face="Arial"> <img src="img/kdolu.gif" width="20" height="20"> a
+jako pøíkazy prvky </font><font color="#000080" face="Arial"><strong>vlevo</strong></font><font
+face="Arial"> <img src="img/vlevo.gif" width="20" height="20">, </font><font
+color="#000080" face="Arial"><strong>vpravo</strong></font><font
+face="Arial"> <img src="img/vpravo.gif" width="20" height="20"> a
+</font><font color="#000080" face="Arial"><strong>vzad</strong></font><font
+face="Arial"> <img src="img/vzad.gif" width="20" height="20">.</font></p>
+
+<p><font face="Arial">Posledním prvkem vìtvicí konstrukce je
+prvek</font><font color="#000080" face="Arial"><strong> jinak
+proveï pøíkazy</strong></font><font face="Arial"> <img
+src="img/default.gif" width="20" height="20">. Jak napovídá
+název, pøíkazy v této èásti konstrukce se provedou tehdy,
+kdy testovaná hodnota nebude nalezena ani v jedné z vìtví.
+V našem pøípadì zde nebude nic.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/klav1.gif"
+width="354" height="860"></font></p>
+
+<p><font face="Arial">Spuste program. Petøík stojí v levém
+dolním rohu. Vyzkoušíte-li kurzorové klávesy (šipky),
+zjistíte, e se Petøík otáèí vlevo, vpravo, vzad a dìlá
+krok vpøed. Mùete Petøíka vodit bludištìm. A dorazíte
+k vıchodu, Petøík se otoèí na vás a po stisku další
+klávesy program skonèí.</font></p>
+
+<p><font face="Arial">Pouitı zpùsob ovládání je
+ovládání typické pro auta. Pouíváme ho v pøípadech, kdy
+potøebujeme pohybovanım objektem pøesnì otáèet do
+poadovaného smìru, ale není tak dùleitá rychlost pohybu
+po ploše (manipulovatelnost).</font></p>
+
+<p><font face="Arial">V pøípadech, kdy je potøeba se rychle a
+snadno pøemisovat, pouijeme následující zpùsob
+ovládání. Øídíme v nìm ne otáèení postavy, ale
+popocházení ve smìru šipky.</font></p>
+
+<p><font face="Arial">Zkopírujte pravım tlaèítkem myši
+pøedešlou vìtvicí konstrukci ještì jednou níe. Pùvodní
+konstrukci vypnìte tlaèítkem </font><font color="#000080"
+face="Arial"><strong>Vypnout</strong></font><font face="Arial"> <img
+src="img/off.gif" width="23" height="20">. Novou konstrukci
+nazvìte </font><font color="#000080" face="Arial"><strong>ovládání
+Petøíka smìry</strong></font><font face="Arial">. Z vìtví
+vyhoïte pøíkazy pro otáèení vlevo, vpravo a vzad.</font></p>
+
+<p><font face="Arial">První vìtev vìtvicí konstrukce (pro
+šipku nahoru) upravíme tak, aby se Petøík otoèil nahoru a
+udìlal krok. Krok máme ji pøipraven - kontroluje se v nìm,
+zda pøed Petøíkem není zeï. Smìr otoèení Petøíka
+nastavíme pomocí prvku </font><font color="#000080"
+face="Arial"><strong>smìr</strong></font><font face="Arial"> <img
+src="img/smer.gif" width="20" height="20">. Najdete ho v
+rozšíøenıch funkcích Petøíka. Prvek vlote pøed
+podmínku k provedení kroku Petøíka. Jako parametr pøipojte
+prvek </font><font color="#000080" face="Arial"><strong>nahoru
+(1/2 pi, tj. 90 stupòù)</strong></font><font face="Arial"> <img
+src="img/smernahoru.gif" width="20" height="20">, je ve skupince </font><font
+color="#000080" face="Arial"><strong>vıpoèty</strong></font><font
+face="Arial"> <img src="img/vypocty.gif" width="20" height="20">,
+podskupince </font><font color="#000080" face="Arial"><strong>úhel,
+smìr</strong></font><font face="Arial"> <img src="img/uhel.gif"
+width="20" height="20">. Je to èíselná konstanta mající
+hodnotu </font><font color="#000080" face="Arial"><strong>pi/2</strong></font><font
+face="Arial">, nebo úhly se v Petrovi mìøí v radiánech.</font></p>
+
+<p><font face="Arial">Vytvoøte pøíkazy pro nastavení smìru i
+v ostatních vìtvích vìtvicí konstrukce, smìry zmìòte
+odpovídajícím zpùsobem podle smìrù kláves. Pøíkaz pro
+opatrné provedení kroku bychom mohli zkopírovat z první
+vìtve, ale jak u jsme si øekli døíve, rozkopírování
+kódu je neprogramátorské. Radìji pouijeme </font><font
+color="#000080" face="Arial"><strong>funkci</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Co je funkce? Funkce je prvek, kterı
+obsahuje èást programu. Namísto vícenásobného vıskytu
+shodné èásti programu pouijeme vícekrát funkci, která
+potøebnou èást programu vykoná. Program se zpøehlední a
+budou se nám snáze provádìt zmìny.</font></p>
+
+<p><font face="Arial">Novou funkci vytvoøíme pøetaením
+prvku </font><font color="#000080" face="Arial"><strong>funkce</strong></font><font
+face="Arial"> <img src="img/funkce.gif" width="20" height="20"> z
+pole </font><font color="#000080" face="Arial"><strong>Knihovna
+promìnnıch a funkcí </strong></font><font face="Arial">do pole
+</font><font color="#000080" face="Arial"><strong>Spoleèné
+promìnné a funkce</strong></font><font face="Arial">. Funkci
+pojmenujte </font><font color="#000080" face="Arial"><strong>Opatrnı
+krok vpøed</strong></font><font face="Arial">. Kdy dvakrát
+kliknete na ikonku funkce, objeví se prázdné editaèní okno.
+Funkce zatím neobsahuje ádné pøíkazy.</font></p>
+
+<p><font face="Arial">Mohli bychom teï ve funkci vytvoøit
+pøíkaz pro krok, ale my si to usnadníme, protoe máme tento
+pøíkaz ji v programu vytvoøenı. Pøepnìte se zpìt do
+hlavní funkce programu (tlaèítkem </font><font color="#000080"
+face="Arial"><strong>Pøedešlá editace</strong></font><font
+face="Arial"> <img src="img/histprev.gif" width="23" height="20">)
+a najdìte podmínìnı pøíkaz s testem zdi a krokem vpøed (je
+ve vìtvi pro šipku nahoru). Kliknutím na ikonku podmínìnı
+pøíkaz oznaète. Kliknìte na tlaèítko </font><font
+color="#000080" face="Arial"><strong>Kopie</strong></font><font
+face="Arial"> <img src="img/copy.gif" width="23" height="20">
+(nebo na klávesnici stisknìte </font><font color="#000080"
+face="Arial"><strong>Ctrl+C</strong></font><font face="Arial">).
+Oznaèenı prvek programu (vèetnì pøipojenıch prvkù) se
+uschová do schránky k pøenášení dat.</font></p>
+
+<p><font face="Arial">Vrate se do funkce </font><font
+color="#000080" face="Arial"><strong>Opatrnı krok vpøed</strong></font><font
+face="Arial"> (tlaèítkem </font><font color="#000080"
+face="Arial"><strong>Následující editace</strong></font><font
+face="Arial"> <img src="img/histnext.gif" width="23" height="20">).
+Kliknìte na tlaèítko </font><font color="#000080" face="Arial"><strong>Vloit</strong></font><font
+face="Arial"> <img src="img/paste.gif" width="23" height="20">
+(nebo stisknìte </font><font color="#000080" face="Arial"><strong>Ctrl+V</strong></font><font
+face="Arial">). V oknì se objeví pøenášená èást programu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/klav2.gif"
+width="281" height="258"></font></p>
+
+<p><font face="Arial">Teï ji mùeme z vìtve pro šipku
+nahoru podmínìnı pøíkaz vyhodit a nahradit ho funkcí pro
+opatrnı krok. Doplníme ji i do ostatních vìtví za pøíkazy
+nastavení smìru.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/klav3.gif"
+width="309" height="892"></font></p>
+
+<p><font face="Arial">Program mùete spustit a vyzkoušet. Jak
+vidíte, Petøík teï popojde o krok ve smìru stisknuté
+klávesy šipky.</font></p>
+
+<p><font face="Arial">Do tøetice všeho dobrého si vyzkoušíme
+ještì jednu metodu ovládání, kterou budeme pouívat u
+sloitìjších a dokonalejších her. Moná jste si všimli,
+e dríte-li u pøedešlıch dvou metod chvíli klávesu,
+Petøík se pohybuje i potom, co jste ji klávesu dávno
+pustili. Pøíèinou je rychlejší generování kódù
+drenıch kláves, ne je schopen Petøík popocházet, a tak
+se klávesy uchovávají v zásobníku kláves. Jistım
+øešením je pøíkaz </font><font color="#000080" face="Arial"><strong>vyprázdnìní
+zásobníku kláves</strong></font><font face="Arial"> <img
+src="img/flush.gif" width="20" height="20">, kterı zruší
+klávesy uchované v zásobníku kláves. Pouijeme ho vdy na
+zaèátku kadé obsluhy platného znaku z klávesnice pøed
+provedením kroku Petøíka.</font></p>
+
+<p><font face="Arial">Další nectnost, která nám mùe u
+pøedešlıch dvou metod ovládání vadit, se projevuje pøi
+ovládání rychlıch dìjù nebo pøi jemném grafickém
+ovládání. Zkuste si v nastavení sprajtu Petøíka zmìnit </font><font
+color="#000080" face="Arial"><strong>poèet fází na krok</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial"> (po zkoušce vrate zpìt na </font><font
+color="#000080" face="Arial"><strong>8</strong></font><font
+face="Arial">). Petøík bude rychle pøeskakovat po
+políèkách. Kdy na delším volném úseku klávesu chvíli
+podríte, Petøík poskoèí nejdøíve o políèko, chvíli
+èeká a a pak zaène rychle pøeskakovat na další políèka.
+Pøíèinou tohoto jevu je zpùsob generování znakù
+klávesnicí - prodleva po první klávese a potom opakování.
+Pøi psaní textù je tato vlastnost uiteèná, ale pøi hraní
+her nám mùe trochu vadit.</font></p>
+
+<p><font face="Arial">Náš poadavek na ovládání
+klávesnicí je, aby se Petøík pohyboval vdy, kdy dríme
+klávesu. Bez úvodních prodlev a bez setrvaènosti po
+uvolnìní klávesy. K tomuto úèelu slouí funkce </font><font
+color="#000080" face="Arial"><strong>je stisknuta klávesa</strong></font><font
+face="Arial"> <img src="img/stisknuta.gif" width="20" height="20">
+ze skupinky </font><font color="#000080" face="Arial"><strong>klávesnice</strong></font><font
+face="Arial"> <img src="img/klavesnice.gif" width="20"
+height="20">. Funkce otestuje poadovanou klávesu, zda ji
+uivatel drí, a navrátí pøíznak </font><font
+color="#000080" face="Arial"><strong>ano/ne</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Nejdøíve opìt vypnìte pøedešlou
+metodu tlaèítkem </font><font color="#000080" face="Arial"><strong>Vypnout</strong></font><font
+face="Arial"> <img src="img/off.gif" width="23" height="20">. Pod
+ni pøipravte prvek </font><font color="#000080" face="Arial"><strong>podmínìné
+provedení pøíkazù</strong></font><font face="Arial"> <img
+src="img/podminka.gif" width="20" height="20">. Mùete ho
+nazvat tøeba </font><font color="#000080" face="Arial"><strong>ovládání
+drením kláves</strong></font><font face="Arial">. Do testu
+podmínky </font><font color="#000080" face="Arial"><strong>platí-li,
+e</strong></font><font face="Arial"> <img src="img/platili.gif"
+width="20" height="20"> vlote prvek </font><font
+color="#000080" face="Arial"><strong>je stisknuta klávesa</strong></font><font
+face="Arial"> <img src="img/stisknuta.gif" width="20" height="20">,
+jako parametr k nìmu pøipojte klávesu </font><font
+color="#000080" face="Arial"><strong>nahoru</strong></font><font
+face="Arial"> <img src="img/knahoru.gif" width="20" height="20">.
+Do vìtve platnosti podmínky </font><font color="#000080"
+face="Arial"><strong>potom proveï</strong></font><font
+face="Arial"> <img src="img/proved.gif" width="20" height="20">
+vlote pøíkazy pro popojítí nahoru, tak jako u pøedešlého
+typu ovládání. Konstrukci teï èteme: &quot;<em>Je-li drena
+klávesa nahoru, potom se otoè nahoru a opatrnì popojdi o krok,
+jinak pokraèuj testem dalších kláves.</em>&quot;</font></p>
+
+<p><font face="Arial">Ve vìtvi neplatnosti podmínky </font><font
+color="#000080" face="Arial"><strong>jinak proveï</strong></font><font
+face="Arial"> <img src="img/jinak.gif" width="20" height="20">
+vytvoøte stejnou konstrukci znovu, tentokrát ale pro smìr
+vlevo. V její vìtvi neplatnosti podmínky vytvoøte obsluhu
+smìru vpravo a nakonec vytvoøte obsluhu smìru dolù. Do vìtve
+neplatnosti podmínky v obsluze smìru dolù (tedy úplnì
+poslední vìtev) vlote pøíkaz </font><font color="#000080"
+face="Arial"><strong>èekání (bez zadání = 0.05 s)</strong></font><font
+face="Arial"> <img src="img/cekej.gif" width="20" height="20">,
+najdete ho ve skupince </font><font color="#000080" face="Arial"><strong>øízení
+programu</strong></font><font face="Arial"> <img
+src="img/rizeni.gif" width="20" height="20">. Znaèka malého
+rovnítka <img src="img/treenset.gif" width="33" height="25">
+pøed ikonkou èekání indikuje nepovinnost parametru pøíkazu,
+ádnı parametr nemusíme doplòovat, pouije se implicitní
+hodnota 0,05 sekundy.</font></p>
+
+<p><font face="Arial">Proè pøíkaz èekání? Operaèní
+systém Windows je víceúlohovı. To znamená, e souèasnì
+mùe bıt v chodu více programù. Kadı program by mìl
+zajistit, aby zbyteènì nespotøebovával vıkon poèítaèe,
+kdy to nutnì nepotøebuje. Známkou dobrého programátora je
+slušné chování jeho programù v prostøedí, ve kterém
+pobìí. Kdy by uivatel ádnou klávesu nestiskl, smyèka
+programu by jela neustále dokola velkou rychlostí. Program by
+se tváøil jako neèinnı, ale pøitom by jel na plné obrátky.
+Ti zkušenìjší si mohou spustit systémovı program </font><font
+color="#000080" face="Arial"><strong>Sledování systému</strong></font><font
+face="Arial"> a sledovat zatíení procesoru. Program
+neberoucí ohled na své okolí zabírá témìø celı vıkon
+poèítaèe a poèítaè se tak stává tìce ovladatelnı.</font></p>
+
+<p><font face="Arial">Na obrázku vidíte hotovou obsluhu
+ovládání Petøíka. Èásti pro obsluhu kroku v daném smìru
+jsou sklapnuty, známe je ji z pøedešlého ovládání.</font></p>
+
+<p align="center"><img src="img/klav4.gif" width="495"
+height="801"></p>
+
+<p><font face="Arial">Nevıhodou takového dlouhého øetìzce
+podmínek je, e mùe bıt na první pohled nepøehlednı.
+Ukáeme si ještì jinou monost stavby podobné konstrukce, i
+kdy nutno øíct e ménì pouívanou a svım zpùsobem
+neobvyklou (bìné programovací jazyky neumoòují
+vícenásobné vìtvení podle jinıch typù dat ne èíselné
+konstanty).</font></p>
+
+<p><font face="Arial">Vypnìte naši poslední variantu
+tlaèítkem </font><font color="#000080" face="Arial"><strong>Vypnout</strong></font><font
+face="Arial"> <img src="img/off.gif" width="23" height="20">.
+Zkopírujte si znovu variantu </font><font color="#000080"
+face="Arial"><strong>ovládání Petøíka smìry</strong></font><font
+face="Arial"> a pøejmenujte ji na </font><font color="#000080"
+face="Arial"><strong>ovládání drením kláves 2</strong></font><font
+face="Arial">. Podmínková konstrukce pracovala tak, e se
+provedla právì jedna z vìtví v závislosti na stisknuté
+klávese. Z prvku </font><font color="#000080" face="Arial"><strong>pro
+hodnotu vırazu</strong></font><font face="Arial"> <img
+src="img/prohodnotu.gif" width="20" height="20"> zrušte funkci
+vstupu z klávesnice a nahraïte ji prvkem </font><font
+color="#000080" face="Arial"><strong>ano</strong></font><font
+face="Arial"> <img src="img/true.gif" width="20" height="20"> (ze
+skupinky </font><font color="#000080" face="Arial"><strong>vıpoèty</strong></font><font
+face="Arial"> <img src="img/vypocty.gif" width="20" height="20">,
+</font><font color="#000080" face="Arial"><strong>logické
+operace</strong></font><font face="Arial"> <img
+src="img/logicke.gif" width="20" height="20">).</font></p>
+
+<p><font face="Arial">V testovanıch hodnotách jednotlivıch
+vìtví postupnì nahraïte kódy kláves kombinacemi prvku </font><font
+color="#000080" face="Arial"><strong>je stisknuta klávesa</strong></font><font
+face="Arial"> <img src="img/stisknuta.gif" width="20" height="20">
+a kódu klávesy. Postupujte následovnì: Kliknutím myší na
+ikonu kódu klávesy prvek kódu klávesy vyberte. Stiskem
+tlaèítka </font><font color="#000080" face="Arial"><strong>Vyjmout</strong></font><font
+face="Arial"> <img src="img/cut.gif" width="23" height="20">
+(nebo z klávesnice </font><font color="#000080" face="Arial"><strong>Ctrl+X</strong></font><font
+face="Arial">) pøesuòte prvek kódu klávesy do schránky. Na
+jeho pùvodní místo vlote prvek </font><font color="#000080"
+face="Arial"><strong>je stisknuta klávesa</strong></font><font
+face="Arial"> <img src="img/stisknuta.gif" width="20" height="20">.
+Vyberte ho myší a stisknìte tlaèítko </font><font
+color="#000080" face="Arial"><strong>Vloit</strong></font><font
+face="Arial"> <img src="img/paste.gif" width="23" height="20">
+(nebo z klávesnice </font><font color="#000080" face="Arial"><strong>Ctrl+V</strong></font><font
+face="Arial">). Kód klávesy se pøipojí k testu stisku
+klávesy. Závìrem doplòte do prvku </font><font
+color="#000080" face="Arial"><strong>jinak proveï pøíkazy</strong></font><font
+face="Arial"> <img src="img/default.gif" width="20" height="20">
+prvek </font><font color="#000080" face="Arial"><strong>èekání
+(bez zadání = 0.05 s)</strong></font><font face="Arial"> <img
+src="img/cekej.gif" width="20" height="20">, jinak by program ve
+volnıch chvílích pøetìoval chod poèítaèe.</font></p>
+
+<p><font face="Arial">Hotovou konstrukci vidíte na dalším
+obrázku (pro pøehlednost jsou pøíkazy pro pohyb sklapnuty ve
+skupinách). Jak funguje? Program pøi svém chodu na zaèátku
+zjistí, e ve vìtvích bude testována logická hodnota
+platnosti. Prochází jednotlivé vìtve a hledá stejnou
+hodnotu, tedy platnou podmínku. Pøíkazy v nalezené vìtvi
+provede a pokraèuje a za celou konstrukcí vícestupòového
+vìtvení pøíkazù, dalších pøípadnıch splnìnıch
+podmínek a vìtví si ji nevšímá. Jinak øeèeno, vykoná
+se první (a jediná) vìtev se splnìnou podmínkou (stisknutou
+klávesou), jinak se vykoná a poslední z pøíkazù -
+èekání.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/klav5.gif"
+width="285" height="798"></font></p>
+
+<p align="center"><font face="Arial"><img src="img/klav52.gif"
+width="392" height="354"></font></p>
+
+<p align="center"><a href="download/7_cesta.zip"><font
+face="Arial">download pøíkladu</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_06.htm"><font face="Arial">6.
+Petr v bludišti</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_08.htm"><font
+face="Arial">8. Samá pøíšera</font></a></p>
+</body>
+</html>

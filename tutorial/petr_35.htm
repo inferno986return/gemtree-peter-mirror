@@ -1,0 +1,344 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>35 Metody 3D grafiky (èást 4 kamera)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_34.htm"><font face="Arial">34.
+Metody 3D grafiky (3. èást, ovládání)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_36.htm"><font face="Arial">36. Metody 3D grafiky (5.
+èást, obloha)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">35. Metody 3D grafiky (4. èást, kamera)</font></h2>
+
+<p><font face="Arial"><em>... pokraèování z minulé lekce</em></font></p>
+
+<p><font face="Arial">V závislosti na typu programu mùeme
+volit rùzné zpùsoby pohledu na scénu. Zde si rozebereme
+nìkolik typickıch pøípadù kamer.</font></p>
+
+<h3><font face="Arial">1. Pohled 1. osoby</font></h3>
+
+<p><font face="Arial">Pøi pohledu 1. osoby je kamera nastavena
+tak, aby svìt vidìla oèima postavy hráèe. U postavy mravence
+je animace kamery jednoduchá - staèí neustále kameru
+nastavovat stejnì jako souøadnici a smìr otoèení postavy
+hráèe. Musíme pøitom zajistit, aby kamera byla neustále nad
+terénem v takové vıšce, jak to odpovídá postavì hráèe
+(pøesnìji vıšce oèí hráèe).</font></p>
+
+<p><font face="Arial">S vıškou pohledu nad terénem je spojen
+ještì efekt dojmu rozmìru prostoru (u jsme se o tom zmínili
+v lekcích k bludišti 3D). Èím je pozorovací vıška
+vyšší, tím se okolní prostor zdá menší. Naopak
+obrovskıch rozmìrù docílíme tím, e vıšku pohledu
+poloíme velmi nízko. Je to dáno zkušenostmi hráèe z
+reálného svìta. Rozmìry prostøedí hodnotí podle vıšky
+svého obvyklého pohledu v reálném svìtì, proto by mìla
+vıška pohledu odpovídat obvyklé vıšce prùmìrného
+èlovìka. Napøíklad zvolíme-li takové mìøítko svìta, kdy
+vzdálenost 1 jednotka odpovídá rozmìru 1 metr a podle toho
+budeme budovat i rozmìry objektù (napøíklad stromek vysokı 3
+jednotky, tj. 3 metry), pak by vıška pohledu mìla bıt kolem
+1,7. Vyskytují se dokonce i hry, kde hráè mùe nastavit svou
+vıšku v reálném svìtì a podle toho program pøizpùsobí
+vıšku pohledu, aby hráè vidìl mìøítko 3D svìta ve
+správnıch proporcích tak, jak je zvyklı z reálného svìta.</font></p>
+
+<p><font face="Arial">Menší komplikace nás èekají v
+pøípadì auta a letadla. V tom pøípadì musí kamera sledovat
+nejen pozici, otoèení a vıšku dopravního prostøedku, ale
+také jeho naklánìní ve smìrech X a Z. Abychom mohli
+pøenášet na kameru i rotace naklánìní postavy, musíme v
+tìchto pøípadech upravovat i poøadí rotací provádìnıch s
+kamerou.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody34.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">2. Odstøelovaè</font></h3>
+
+<p><font face="Arial">Odstøelovaè je zvláštní modifikací
+pohledu 1. osoby. Vychází ze základního nastavení kamery 1.
+osoby s tím rozdílem, e pøes obrazovku poloí masku
+zamìøovacího køíe, èím jednak zúí pohled hráèe a
+jednak mu umoní pøesnì zamìøit cíl. Promítací rovinu od
+pozorovatele oddálí a tím zvìtší mìøítko zobrazení
+(=zoom). Hráè mùe posouváním vzdálenosti promítací
+roviny klávesami </font><font color="#000080" face="Arial"><strong>Home</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>End</strong></font><font
+face="Arial"> mìnit zvìtšení pohledu, scénu si pøibliuje
+a oddaluje.</font></p>
+
+<p><font face="Arial">Krátké zastavení nad pouitím slov <em><strong>odstøelovaè</strong></em>
+a <em><strong>ostøelovaè</strong></em>. Slovo <em>ostøelovat</em>
+znamená, e nìjakı objekt kropíme palbou, tedy neustále
+ostøelujeme. Zpravidla je to dlouhá akce a èasto bez valného
+vısledku. Zatímco pokud nìco <em>odstøelíme</em>, zpravidla
+to zprovodíme ze svìta. Mùe to bıt napøíklad odstøel
+budovy, co je jednorázová akce. Proto je správnı pøeklad
+slova <em><strong>sniper</strong></em> jako <em><strong>odstøelovaè</strong></em>,
+protoe jeho úkolem je nìkoho jednorázovì zprovodit ze
+svìta, tedy odstøelit, pokud mono jednou správnì míøenou
+ranou. Nemá za úkol kropit nepøítele opakovanou palbou.
+Naopak, oznaèíme-li <em>odstøelovaèe</em> slovem <em>ostøelovaè</em>,
+mùe se urazit, protoe ho oznaèujeme za neúspìšného
+kropièe.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody35.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">3. Pohled 3. osoby</font></h3>
+
+<p><font face="Arial">Pøi pohledu 3. osoby pozorujeme postavu
+hráèe z pohledu jakoby nezúèastnìné osoby, koukající se
+na scénu pøes hráèovo rameno. Pøi nastavení kamery
+pouijeme souøadnici hráèe se smìrem otoèení a kameru
+posuneme o urèitı úsek dozadu za nìj. Vıšku nad terénem
+zpravidla nastavujeme o kousek vıše ne je postava hráèe,
+protoe jinak by nám postava pøekáela ve vıhledu. V tomto
+módu kamera nesleduje naklánìní postavy hráèe.</font></p>
+
+<p><font face="Arial">V módu 3. osoby se mohou vyskytnout
+nìkterá úskalí. Menším úskalím je zneuívání módu
+hráèem, kterı si natáèením mùe zajistit vidìní za roh,
+ani je vidìn jinımi protihráèi. Vìtším úskalím je, e
+se kamera za hráèem dostává do míst, kam se nemá dostávat
+- pod úroveò terénu, za budovy, èi postavu ztrácíme z
+dohledu pøekrytím jinım objektem. Rozsáhlejší hry to
+øeší tak, e pøekrıvající objekty (stromy) zprùhlední,
+aby byla postava hráèe neustále viditelná. Má-li se kamera
+dostat za úroveò terénu, posune se do bezpeèné oblasti. Tato
+opatøení jsou ji pøíliš nároèná a tak se obvykle
+spokojíme s kompromisy - napøíklad pod terén podloíme
+velkou plochu s barvou terénu, aby podhled pod terénem nebyl
+tak vıraznı, a pøekryv velkımi objekty øešíme programovì
+- objeví-li se kamera na zakázaném místì, snííme
+vzdálenost kamery k hráèi nebo kameru zvedneme.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody36.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">4. Plovoucí kamera</font></h3>
+
+<p align="left"><font face="Arial">Plovoucí kamera vychází z
+pohledu 3. osoby. Pohled 3. osoby je vhodnı pro rychlé akce,
+ale v pomalejším módu mùe pùsobit zmatení pohledu, kamera
+se chová pøíliš chaoticky a hráè mùe ztrácet pøehled o
+høe. Pro úèely pomalejších her je vhodnìjší plovoucí
+kamera, která také sleduje hráèe z pohledu 3. osoby, ale s
+urèitım zpodìním. Kamera se jakoby táhne za hráèem a
+snaí se neustále dostat na pozici odpovídající 3. osobì.
+To je vhodné napøíklad pøi ovládání auta, protoe
+namísto neustále se zmítajícího okolního svìta pozorujeme
+jak se auto natáèí a zrychluje, èím získáme
+pøesnìjší cit pro jeho chování a lépe se pøitom
+orientujeme v prostøedí.</font></p>
+
+<p align="left"><font face="Arial">Pøechod z kamery pro 3. osobu
+na plovoucí kameru je pomìrnì jednoduchı. Namísto toho,
+abychom pøímo nastavovali souøadnice kamery, uloíme si
+údaje do promìnnıch jako poadovanı koncovı stav. Poté
+mìníme vlastnosti kamery tak, e k aktuálnímu stavu
+pøièítáme rozdíl mezi poadovanım a souøasnım stavem
+vynásobenı konstantou rychlosti reakce kamery a uplynulım
+èasem. Díky tomu se kamera chová tak, e pøi velkém
+rozdílu vlastností se na cílovou pozici pøesouvá nejdøíve
+rychle, ale jakmile pozici ji témìø dosahuje, rychlost
+pøesunu klesá.</font></p>
+
+<p align="left"><font face="Arial">Trochu nároènìjší je
+dotahování rotace podle osy Y. Úhel otoèení je cyklickı, s
+hodnotami 0 a 360°, proto nemùeme zjistit rozdíl otoèení
+jen jako jednoduchı rozdíl smìrù. Po odeètení aktuálního
+a koncového stavu musíme rozdíl nejdøíve normalizovat -
+posunout úhel do rozmezí hodnot -180° a +180° (pøiètením
+èi odeètením 360°). Teprve a pak mùeme smìr
+dokorigovávat postupnım pøièítáním rozdílu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody37.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">5. Rámová kamera</font></h3>
+
+<p><font face="Arial">Rámová kamera je pohled na scénu shora
+(pøesnìji trochu zešikma) tak, aby postavu hráèe udrovala
+v urèitıch mezích, v </font><font color="#000080" face="Arial"><strong>pohledovém
+rámu</strong></font><font face="Arial">. Ve støedu pohledu je
+urèitá oblast, ve které se postava mùe pohybovat volnì.
+Pøekroèí-li urèité hranice, kamera se zaène posouvat spolu
+s postavou.</font></p>
+
+<p><font face="Arial">Mód je vhodnı obzvláštì v kombinaci s
+ovládáním myší, kdy hráè klikáním do terénu urèuje
+postavì, kam se má pøesunout. Volná oblast ve støedu rámu
+zajišuje, aby se kamera zbyteènì neposouvala pøi
+jakémkoliv pohybu postavy hráèe, co pøispívá k udrení
+pøehledu o scénì. Na druhou stranu je tøeba ponechat
+pøimìøenì široké okraje rámu, aby hráè vidìl
+dostateènì daleko pøed postavu a nevystavoval se tak
+nìjakému nebezpeèí útoku nepøátel. Nejlépe umoòuje-li
+program i bìhem hry mìnit mìøítko zobrazení a s ním i
+šíøku okrajù rámu (zpravidla pøi zmìnì mìøítka
+zùstane velikost volné oblasti nezmìnìná a mìní se jen
+okraje).</font></p>
+
+<p><font face="Arial">Rámová kamera se zpravidla nenatáèí do
+rùznıch smìrù, ale sleduje scénu vdy jen z jednoho smìru.
+Hráèi to pomáhá v orientaci ve scénì, kdy ví kterım
+smìrem se co nachází a kterım smìrem se pohybuje. Pokud
+program s tímto konstantím smìrem poèítá, nemusí to
+znamenat pro hráèe ádné omezení, protoe nevhodné
+kombinace pohledù se dají ošetøit u v dobì návrhu scény
+nebo pozdìji programovì - napøíklad aby se hráè nedostal do
+skrytého místa za budovu kde by se mohl ztratit.</font></p>
+
+<p><font face="Arial">Sklon kamery v tomto módu bıvá pomìrnì
+svislı, kdy není pøíliš velkı rozdíl mìøítka v pøední
+a zadní èásti pohledu. Proto staèí sledovat pozici hráèe
+jen jako obdélníkovou, s danım rozptylem ve smìru X a Z.
+Dostane-li se postava mimo dané rozmezí hranic, souøadnice
+kamery se zkorigují tak, aby se postava objevila opìt v
+povolenıch mezích.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody38.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">6. Automatická kamera</font></h3>
+
+<p><font face="Arial">Automatická kamera pøedstavuje soustavu
+statickıch kamer rozmístìnıch po ploše terénu, které se
+automaticky pøepínají podle pozice hráèe. Tento mód je
+vhodnı napøíklad u závodù aut, kdy nahrazuje sledování
+závodu pevnımi kamerami rozmístìnımi podél trati.</font></p>
+
+<p><font face="Arial">Pøestoe se to mùe zpoèátku tak
+zdát, ve skuteènosti nevytváøíme více objektù kamer.
+Objekt kamery mùe bıt vdy jen jeden. Jediné, co pro více
+kamer potøebujeme, je seznam souøadnic X a Z statickıch kamer.
+Seznam sestavíme z prvku </font><font color="#000080"
+face="Arial"><strong>plochy</strong></font><font face="Arial">,
+kterı jsme pouili ke generování terénu z plochy. Pomocí </font><font
+color="#000080" face="Arial"><strong>pøepínaèe 1</strong></font><font
+face="Arial"> si na mapì vyznaèíme místa, kde se budou kamery
+nacházet. Pøi startu programu mapu projdeme a kde najdeme
+pøíznak kamery, souøadnice kamery si uloíme do seznamu
+statickıch kamer.</font></p>
+
+<p><font face="Arial">Bìhem obsluhy automatickıch kamer
+neustále opakovanì procházíme seznam kamer a vyhledáváme
+kameru, která je postavì hráèe nejblíe. Pøitom
+pøidáváme urèitı bonus kameøe, která je zrovna aktivní.
+To je z toho dùvodu, aby se nám nepøepínala kamera pøi
+opakovaném pøecházení pøes urèitou hranici mezi kamerami.
+Pøepnutí kamer je pro hráèe matoucí a proto je tøeba je
+minimalizovat a pøepínat jen v pøípadì nutnosti. Proto je
+vhodné udret aktuální kameru pokud mono déle.</font></p>
+
+<p><font face="Arial">Po nalezení nejbliší kamery nastavíme
+souøadnice objektu kamery na souøadnice nalezené statické
+kamery. Vıšku kamery nastavíme podle vıšky terénu v místì
+kamery.</font></p>
+
+<p><font face="Arial">Kamera musí samozøejmì postavu hráèe
+sledovat, tj, automaticky se za ní otáèet. Úhel natoèení
+kamery podle osy </font><font color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> zjistíme z rozdílù souøadnic postavy hráèe a
+kamery. Vyuijeme k tomu prvek </font><font color="#000080"
+face="Arial"><strong>úhel bodu</strong></font><font face="Arial">,
+s malou korekcí, protoe je orientovanı jinak ne smìr
+otáèení ve 3D.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody42.gif"
+width="503" height="424"></font></p>
+
+<p><font face="Arial">Pøí vıpoètu sklonu kamery podle osy X
+(tj. úhel </font><font color="#000080" face="Arial"><strong>a</strong></font><font
+face="Arial"> na pøedešlém obrázku) známe absolutní vıšku
+kamery </font><font color="#000080" face="Arial"><strong>y</strong></font><font
+face="Arial">, vıšku postavy hráèe nad terénem </font><font
+color="#000080" face="Arial"><strong>h</strong></font><font
+face="Arial"> (pro letadlo si vıšku uchováváme z obsluhy
+animace letadla, pro ostatní uvaujeme 0) a vıšku terénu v
+místì postavy hráèe </font><font color="#000080" face="Arial"><strong>t</strong></font><font
+face="Arial">. Z rozdílu vıšek urèime vıšku kamery nad
+rovinou hráèe </font><font color="#000080" face="Arial"><strong>c</strong></font><font
+face="Arial">. Z rozdílù souøadnic postavy hráèe a kamery
+vypoèteme vzdálenost postavy od kamery </font><font
+color="#000080" face="Arial"><strong>d</strong></font><font
+face="Arial">, mùeme k tomu vyuít funkci </font><font
+color="#000080" face="Arial"><strong>vzdálenost bodu</strong></font><font
+face="Arial">. Úhel sklonu </font><font color="#000080"
+face="Arial"><strong>a</strong></font><font face="Arial"> potom
+urèíme ze vzniklého pravoúhlého trojúhelníku pomocí
+funkce </font><font color="#000080" face="Arial"><strong>úhel
+bodu</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody39.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">7. Statická kamera</font></h3>
+
+<p><font face="Arial">Statická kamera je pouze zjednodušenım
+pøípadem automatickıch kamer. Jedná se o jedinou statickou
+kameru umístìnou ve støedu scény, která sleduje postavu
+hráèe podobnì jako automatické kamery. Zjednodušením je to,
+e nemusíme procházet seznam kamer a vyhledávat nejbliší
+kameru, jinak je obsluha pohledu kamery stejná.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody40.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">8. Pøehledová kamera</font></h3>
+
+<p align="left"><font face="Arial">Posledním typem kamery je
+pøehledová kamera. Je to celkovı pohled na scénu shora, jako
+na jednu velkou mapu. Obsluha kamery je jednoduchá, potøebujeme
+ji pouze umístit do správné pozice a nastavit jí vhodné
+mìøítko zvìtšení pohledu.</font></p>
+
+<p align="left"><font face="Arial">U pøehledové kamery musíme
+zajistit viditelnost celého terénu, aby nám èásti terénu
+nezmizely napøíklad kvùli omezení vzdálenosti dohledu nebo
+kvùli zakrytí mlhou. Proto pro tyto úèely mlhu vypínáme
+(stejnì jako oblohu) a vzdálenost dohledu máme pøednastavenou
+dostateènì velikou. Objekty ve scénì by mìly umìt øešit
+sniování viditelnosti se vzdálenosti - napøíklad aby pøi
+pøehledovém módu úplnì zmizely, jinak bude renderování
+pohledu pøíliš èasovì nároèné.</font></p>
+
+<p align="left"><font face="Arial">U pøehledové kamery
+nepotøebujeme nutnì vidìt pøímo postavu hráèe, ale
+potøebujeme vidìt, kde se hráè nachází. To zajistíme
+indikátorem. V našem progamu pouíváme ètvercovou plochu o
+dostateèné velikosti, která je umístìná kousek nad hráèem
+a prùbìnì jeho pozici sleduje (na snímku je to èervenı
+puntík vlevo nahoøe).</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody41.jpg"
+width="512" height="384"></font></p>
+
+<p><font face="Arial"><em>.... pokraèování pøíštì</em></font></p>
+
+<p align="center"><a href="download/metody_3d.zip"><font
+face="Arial">download demonstraèního programu Metody 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_34.htm"><font face="Arial">34.
+Metody 3D grafiky (3. èást, ovládání)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_36.htm"><font face="Arial">36. Metody 3D grafiky (5.
+èást, obloha)</font></a></p>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>9 Jak nakrmit hada (èást 1)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_08.htm"><font face="Arial">8.
+Samá pøíšera</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_10.htm"><font
+face="Arial">10. Jak nakrmit hada (2. èást)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">9. Jak nakrmit hada (1. èást)</font></h2>
+
+<p><font face="Arial">Naším dalším programem bude hra </font><font
+color="#000080" face="Arial"><strong>Had</strong></font><font
+face="Arial">. S podobnou hrou jste se zøejmì ji setkali. Po
+ploše se pohybuje had, poírá jídlo a s kadım polknutím
+se prodlouí o èlánek. My si hru ještì trochu vylepšíme.
+Had bude poírat rùzné typy jídla a èlánky hada budou
+také rùzné podle jídla, které had spolkne.</font></p>
+
+<p><font face="Arial">Zalote novı program s názvem </font><font
+color="#000080" face="Arial"><strong>Had</strong></font><font
+face="Arial">. Otevøe se program zející prázdnotou a bez
+jediného pøíkazu, ale to nám nevadí, protoe za chvíli
+okna programu zaplníme hezkou novou hrou.</font></p>
+
+<p><font face="Arial">Pøipravíme hrací plochu programu a to
+tak, e ji po obvodì obestavíme zdí. Z pøedešlıch lekcí
+máte jistì ještì v knihovnì pøedmìt </font><font
+color="#000080" face="Arial"><strong>Zeï</strong></font><font
+face="Arial"> <img src="img/zed.gif" width="20" height="20">.
+Vlote ho do pole </font><font color="#000080" face="Arial"><strong>Spoleèné
+promìnné a funkce</strong></font><font face="Arial">.
+Dvojklikem na prvek </font><font color="#000080" face="Arial"><strong>plocha</strong></font><font
+face="Arial"> <img src="img/plocha.gif" width="20" height="20">
+vyvolejte editaci hlavní plochy programu. Polote pøedmìt </font><font
+color="#000080" face="Arial"><strong>Zeï</strong></font><font
+face="Arial"> do levého horního rohu plochy.</font></p>
+
+<p><font face="Arial">Podíváme se na novou vlastnost plochy.
+Kadé políèko na ploše obsahuje kromì obrázku pøedmìtu
+ještì pìt logickıch pøepínaèù a tøi èíselné hodnoty.
+Logickı pøepínaè umoòuje uchovat stav </font><font
+color="#000080" face="Arial"><strong>ano</strong></font><font
+face="Arial">/</font><font color="#000080" face="Arial"><strong>ne</strong></font><font
+face="Arial"> a tento stav pozdìji testovat. V našem programu
+pouijeme první pøepínaè k signalizaci, e na políèku je
+postavena zeï nebo se tam nachází èlánek hada. Nebudeme tak
+muset vyhodnocovat pøedmìt na políèku, jenom se vdy
+zeptáme pøepínaèe: &quot;<em>Je na políèku zeï nebo
+èlánek hada?</em>&quot; Mùeme dokonce pouívat více
+variant zdí ani musíme mìnit nìco v programu.</font></p>
+
+<p><font face="Arial">V panelu nástrojù editoru plochy je
+úplnì vpravo rozbalovací seznam typu editace. Rozbalte jej a
+zvolte funkci </font><font color="#000080" face="Arial"><strong>Pøepínaè
+1</strong></font><font face="Arial"> <img src="img/map1.gif"
+width="36" height="20">. Zobrazená plocha se zmìní, v levém
+horním rohu kadého políèka se objeví tmavì èervenı
+ètvereèek <img src="img/mapoff.gif" width="20" height="20">.
+Ètvereèek je indikátor stavu pøepínaèe 1 v políèku. Nyní
+je vypnutı (stav &quot;</font><font color="#000080" face="Arial"><strong>ne</strong></font><font
+face="Arial">&quot;). Zapnìte v panelu nástrojù pøepínací
+tlaèítko </font><font color="#000080" face="Arial"><strong>Editace</strong></font><font
+face="Arial"> <img src="img/mapedit.gif" width="23" height="20">
+(kliknutím na tlaèítko). Tím aktivujete reim úpravy obsahu
+políèek. Kliknìte na políèko v levém horním rohu s
+pøedmìtem </font><font color="#000080" face="Arial"><strong>Zeï</strong></font><font
+face="Arial">. Ètvereèek se stane svìtle èervenı se znaèkou
+zaškrtnutí <img src="img/mapon.gif" width="20" height="20">.
+Pøepínaè 1 na políèku je nyní zapnutı (stav &quot;</font><font
+color="#000080" face="Arial"><strong>ano</strong></font><font
+face="Arial">&quot;). Vypnìte editaci políèek novım
+kliknutím na tlaèítko </font><font color="#000080"
+face="Arial"><strong>Editace</strong></font><font face="Arial"> <img
+src="img/mapedit.gif" width="23" height="20">.</font></p>
+
+<p><font face="Arial">Teï bychom rádi poloili zeï kolem
+celé plochy. Máme k dispozici trochu snadnìjší postup, ne
+neustálé kopírování pøedmìtu pravım tlaèítkem myši. V
+panelu nástrojù zapnìte pøepínací tlaèítko </font><font
+color="#000080" face="Arial"><strong>Vıplò</strong></font><font
+face="Arial"> <img src="img/mapfill.gif" width="23" height="20">.
+Stisknìte levé tlaèítko myši na pøedmìtu zdi v levém
+horním rohu plochy a táhnìte myší do pravého horního rohu,
+tam tlaèítko myši puste. Plocha, kterou jste takto
+oznaèili, se vyplnila vıchozím políèkem. Podobnì vyplòte i
+ostatní strany plochy. Nakonec vypnìte tlaèítko </font><font
+color="#000080" face="Arial"><strong>Vıplò</strong></font><font
+face="Arial"> <img src="img/mapfill.gif" width="23" height="20">
+a ještì mùete pravım tlaèítkem myši doplnit zeï nìkam
+do plochy, napøíklad podle vzoru:</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had22.gif"
+width="160" height="120"></font></p>
+
+<p><font face="Arial">Pøi doplòování políèek zdi
+pouívejte kopii existujícího políèka z plochy (pravım
+tlaèítkem myši) namísto poloení nového pøedmìtu zdi do
+plochy - tak zajistíte kopírování políèka vèetnì
+nastaveného pøepínaèe 1.</font></p>
+
+<p><font face="Arial">Pøipravíme jídlo, které bude had
+poírat. Vytvoøte pìt novıch pøedmìtù a nakreslete do
+nich obrázky hadího jídla. Napøíklad:</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had3.gif"
+width="736" height="76"></font></p>
+
+<p><font face="Arial">Vytvoøíme èlánky hada. Nakreslete si
+nejdøíve prázdnı èlánek hada, ten rozkopírujte a do
+èlánkù nakopírujte obrázky pøedmìtù.Vyberte si nejdøíve
+pravım tlaèítkem myši v paletách barev pùvodní zelenou
+podkladovou barvu - tím zajistíte, e po poloení obrázku
+zùstane pùvodní podklad prùhlednı. Barvu podkladu zjistíte
+najetím kurzoru myši nad podkladovou barvu, pøíslušná barva
+se v paletách barev zdùrazní. Kopii proveïte oznaèením
+pøedmìtu vıbìrovım obdélníkem tak, abyste neoznaèili i
+okrajovı rámeèek. Poté napø. klávesy </font><font
+color="#000080" face="Arial"><strong>Ctrl+C</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>Ctrl+V</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had4.gif"
+width="966" height="76"></font></p>
+
+<p><font face="Arial">Podobnì vytvoøíme tøi pøedmìty s
+obrázky jedu a jeden èlánek hada s obrázkem lebky:</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had5.gif"
+width="706" height="70"></font></p>
+
+<p><font face="Arial">Posledním grafickım úkonem bude
+vytvoøení hlavy hada. Jako hlavu hada pouijeme Petøíka.
+Vyvolejte editaci sprajtu Petøíka dvojklikem myší na prvek </font><font
+color="#000080" face="Arial"><strong>Petøík</strong></font><font
+face="Arial"> <img src="img/petrik.gif" width="20" height="20"> v
+poli </font><font color="#000080" face="Arial"><strong>Spoleènıch
+promìnnıch a funkcí</strong></font><font face="Arial">.
+Otevøete tlaèítkem </font><font color="#000080" face="Arial"><strong>Vlastnosti</strong></font><font
+face="Arial"> <img src="img/sprset.gif" width="23" height="20">
+okno pro nastavení vlastností sprajtu. Zmìòte øádek </font><font
+color="#000080" face="Arial"><strong>Prodleva mezi fázemi</strong></font><font
+face="Arial"> z </font><font color="#000080" face="Arial"><strong>55</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>165</strong></font><font
+face="Arial"> (doba mezi jednotlivımi fázemi animace), øádek </font><font
+color="#000080" face="Arial"><strong>Fází na krok (0 = ihned)</strong></font><font
+face="Arial"> z </font><font color="#000080" face="Arial"><strong>8</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial"> (posouvá se ihned), øádek </font><font
+color="#000080" face="Arial"><strong>Fází pro klid</strong></font><font
+face="Arial"> zmìòte z </font><font color="#000080"
+face="Arial"><strong>1</strong></font><font face="Arial"> na </font><font
+color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial"> a øádek </font><font color="#000080" face="Arial"><strong>Fází
+pro pohyb</strong></font><font face="Arial"> ze </font><font
+color="#000080" face="Arial"><strong>4</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">. Uzavøete okno stiskem klávesy </font><font
+color="#000080" face="Arial"><strong>Enter</strong></font><font
+face="Arial">. Sprajt Petøíka má teï ètyøi smìry a dvì
+fáze pro klid.</font></p>
+
+<p><font face="Arial">Vyhoïte první obrázek vlevo nahoøe s
+Petøíkem. Dvojklikem do obrázku vyvolejte editaci obrázku a
+nakreslete hlavu hada dívající se smìrem doprava. Vrate se
+tlaèítkem </font><font color="#000080" face="Arial"><strong>Pøedešlá
+editace</strong></font><font face="Arial"> <img
+src="img/histprev.gif" width="23" height="20"> do editoru
+sprajtu. Pravım tlaèítkem myši zkopírujte první obrázek i
+do druhého obrázku na stejném øádku. V editoru upravte hlavu
+tak, aby had otvíral pusu. Zkopírujte oba obrázky i do
+ostatních øádkù pro ostatní smìry. Vyvoláním editací
+obrázkù otoète hlavy podle smìrù na øádcích sprajtu,
+pouijte k tomu funkci </font><font color="#000080" face="Arial"><strong>Úpravy</strong></font><font
+face="Arial"> <img src="img/pickonv.gif" width="23" height="20">.
+Nakonec mùete sprajt vyzkoušet tlaèítkem </font><font
+color="#000080" face="Arial"><strong>Test</strong></font><font
+face="Arial"> <img src="img/sprset.gif" width="23" height="20">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had6.gif"
+width="196" height="324"></font></p>
+
+<p><font face="Arial">Pøedmìtù s obrázky jídla máme v
+našem programu ji vìtší mnoství a moná bychom je
+rádi v budoucnu ještì rozšíøili. S našimi souèasnımi
+znalostmi bychom museli kadı typ pøedmìtu obsluhovat
+zvláš, a to by ji bylo trochu tìkopádné. Proto se
+nauèíme pouívat novı prvek - </font><font color="#000080"
+face="Arial"><strong>seznam</strong></font><font face="Arial">.</font></p>
+
+<p><font face="Arial">Nejdøíve si seznam pøipravíme,
+pøestoe zatím nevíme, k èemu vlastnì je. Ze skupiny </font><font
+color="#000080" face="Arial"><strong>øízení programu</strong></font><font
+face="Arial"> <img src="img/rizeni.gif" width="20" height="20">
+pøetáhnìte do pole </font><font color="#000080" face="Arial"><strong>Spoleèné
+promìnné a funkce</strong></font><font face="Arial"> prvek </font><font
+color="#000080" face="Arial"><strong>seznam</strong></font><font
+face="Arial"> <img src="img/seznam.gif" width="20" height="20">.
+Pojmenujte ho </font><font color="#000080" face="Arial"><strong>seznam
+jídel</strong></font><font face="Arial">. Po jeho rozevøení
+uvidíte tøi prvky. První prvek, </font><font color="#000080"
+face="Arial"><strong>poèet</strong></font><font face="Arial"> <img
+src="img/seznamn.gif" width="20" height="20">, pøejmenujte na </font><font
+color="#000080" face="Arial"><strong>5 - poèet jídel</strong></font><font
+face="Arial">. Druhı prvek, </font><font color="#000080"
+face="Arial"><strong>index</strong></font><font face="Arial"> <img
+src="img/seznami.gif" width="20" height="20">, pøejmenujte na </font><font
+color="#000080" face="Arial"><strong>index jídla</strong></font><font
+face="Arial">. Tøetí prvek, </font><font color="#000080"
+face="Arial"><strong>inkrementace indexu</strong></font><font
+face="Arial"> <img src="img/seznama.gif" width="20" height="20">,
+pøejmenujte na </font><font color="#000080" face="Arial"><strong>inkrementace
+indexu jídla</strong></font><font face="Arial">. Do seznamu
+doplòte ještì dva nové (prázdné) pøedmìty, pojmenujte je </font><font
+color="#000080" face="Arial"><strong>jídlo</strong></font><font
+face="Arial"> a</font><font color="#000080" face="Arial"><strong>
+jídlo - had</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had7.gif"
+width="221" height="192"></font></p>
+
+<p><font face="Arial">Nyní si vysvìtlíme, co to seznam je.
+Seznam je nìco jako kniha. Všechny stránky knihy vypadají
+podobnì, napøíklad na kadé stránce bude jeden obrázek a
+jeden text, ale pøitom je v kadém obrázku èi textu nìco
+jiného. V našem seznamu uchováme pøedmìty jídla a èlánkù
+hada, abychom si usnadnili jejich pouití. Na kadé stránce
+seznamu bude jinı obrázek jídla a jinı obrázek èlánku
+hada. První poloka v seznamu <img src="img/seznamn.gif"
+width="20" height="20"> udává poèet stránek seznamu, my máme
+v seznamu 5 typù jídel (údaj zapisujeme jako èíslo za
+kterım mùe následovat jakıkoliv komentáø). Druhá
+poloka <img src="img/seznami.gif" width="20" height="20"> je
+èíslo vybrané stránky seznamu, tj. ukazatel seznamu
+(èísluje se od stránky 0). Tøetí poloka <img
+src="img/seznama.gif" width="20" height="20"> urèuje, o kolik
+stránek se ukazatel automaticky posune pøi kadém pøístupu
+k nìjaké datové poloce seznamu (<em>poznámka</em>: slovo
+inkrementace znamená zvıšení).</font></p>
+
+<p><font face="Arial">Seznam jídel musíme pøi startu programu
+naplnit, to znamená urèit, jakı pøedmìt na které stránce
+seznamu bude. Pøíkazy pro naplnìní seznamu vidíte na
+následujícím obrázku. Umístìte je na zaèátek hlavní
+funkce programu.</font></p>
+
+<p><font face="Arial">Pøed zahájením plnìní seznamu urèíme
+poèáteèní stránku, od které budeme seznam plnit. Nastavíme
+prvek</font><font color="#000080" face="Arial"><strong> index
+jídla</strong></font><font face="Arial"> <img
+src="img/seznami.gif" width="20" height="20"> na hodnotu </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">. Pouijeme automatické zvyšování èísla
+stránky, proto nastavíme prvek </font><font color="#000080"
+face="Arial"><strong>inkrementace indexu jídla</strong></font><font
+face="Arial"> <img src="img/seznama.gif" width="20" height="20">
+na hodnotu </font><font color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">Nejdøíve naplníme pøedmìt </font><font
+color="#000080" face="Arial"><strong>jídlo</strong></font><font
+face="Arial"> na všech stránkách seznamu. Postupnì
+nastavujeme prvek </font><font color="#000080" face="Arial"><strong>jídlo</strong></font><font
+face="Arial"> na jednotlivé pøedmìty jídla. Pøedmìty se
+ukládají do seznamu a po kadém nastavení pøedmìtu se
+stránka automaticky zvıší o jednièku. Po nastavení
+posledního pøedmìtu se ukazatel stránek automaticky pøevine
+na zaèátek (tím e pøeteèe pøes konec). Zaèneme plnit
+pøedmìty </font><font color="#000080" face="Arial"><strong>jídlo
+- had</strong></font><font face="Arial">, opìt se stránky samy
+zvyšují nahoru. Na závìr nastavíme automatické zvyšování
+stránek na hodnotu </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">, protoe v programu ji automatické zvyšování
+nebudeme pouívat.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had8.gif"
+width="249" height="928"></font></p>
+
+<p><font face="Arial">Bude-li bìhem hry hráè neúspìšnı, to
+znamená narazí-li had na pøekáku nebo se nají jedu, zaène
+hra od zaèátku. K tomu budeme potøebovat znovu vykreslit
+plochu programu tak, jako pøi startu, tj. bez jedù a jídel.
+Mohli bychom plochu vyèistit programovì, ale je jeden
+snadnìjší zpùsob. Hlavní plochu si mùeme uschovat do
+promìnné typu </font><font color="#000080" face="Arial"><strong>plocha</strong></font><font
+face="Arial"> a pøi nové høe ji pomocí této promìnné
+jednoduše obnovit.</font></p>
+
+<p><font face="Arial">Vytvoøte novou promìnnou plochy (kopií
+prvku </font><font color="#000080" face="Arial"><strong>plocha</strong></font><font
+face="Arial"> z pole </font><font color="#000080" face="Arial"><strong>Knihovny
+promìnnıch a funkcí</strong></font><font face="Arial"> do pole
+</font><font color="#000080" face="Arial"><strong>Spoleènıch
+promìnnıch a funkcí</strong></font><font face="Arial">) a
+pojmenujte ji </font><font color="#000080" face="Arial"><strong>uschovaná
+hrací plocha</strong></font><font face="Arial">. Na zaèátek
+programu dejte pøíkaz pro uschování hlavní plochy:</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had9.gif"
+width="179" height="64"></font></p>
+
+<p><font face="Arial">Pøi høe budeme hráèi zobrazovat jeho
+nejvyšší dosaené skóre. Vytvoøte èíselnou promìnnou s
+názvem </font><font color="#000080" face="Arial"><strong>dosaené
+maximum</strong></font><font face="Arial">, její hodnotu
+nastavte na nulu.</font></p>
+
+<p><font face="Arial">Vytvoøte novou funkci s názvem </font><font
+color="#000080" face="Arial"><strong>nová hra</strong></font><font
+face="Arial">. Funkci necháme vykonat pøi startu programu, a
+proto ji doplòte na zaèátek programu za skupinu pro naplnìní
+seznamu jídel. Její obsah budeme sestavovat podle obrázku
+uvedeného níe.</font></p>
+
+<p><font face="Arial">Vytvoøte logickou promìnnou </font><font
+color="#000080" face="Arial"><strong>pøíznak pohybu hada</strong></font><font
+face="Arial">, èíselnou promìnnou </font><font color="#000080"
+face="Arial"><strong>délka hada</strong></font><font
+face="Arial">, èíselnou promìnnou </font><font color="#000080"
+face="Arial"><strong>èítaè pro další krok</strong></font><font
+face="Arial"> a funkci s názvem </font><font color="#000080"
+face="Arial"><strong>zobrazení poètu èlánkù hada</strong></font><font
+face="Arial">. Logickou promìnnou </font><font color="#000080"
+face="Arial"><strong>pøíznak pohybu hada</strong></font><font
+face="Arial"> pouijeme k indikaci zahájení pohybu hada (po
+startu hry bude had stát na místì a èekat na stisk první
+klávesy). Hodnotu promìnné nastavte ve funkci </font><font
+color="#000080" face="Arial"><strong>nová hra</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>vypnuto</strong></font><font
+face="Arial"> (tj. </font><font color="#000080" face="Arial"><strong>ne</strong></font><font
+face="Arial">). Promìnná </font><font color="#000080"
+face="Arial"><strong>délka hada</strong></font><font
+face="Arial"> udává poèet èlánkù hada a bìhem hry se
+zvyšuje. Pøi zahájení nové hry ji nastavte na </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">. </font><font color="#000080" face="Arial"><strong>Èítaè
+pro další krok</strong></font><font face="Arial"> èítá
+èasové impulsy </font><font color="#000080" face="Arial"><strong>0.05</strong></font><font
+face="Arial"> sekundy, ne se provede posun hada o políèko
+(sniuje se od hodnoty </font><font color="#000080" face="Arial"><strong>9</strong></font><font
+face="Arial"> do </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">, èili jeden krok trvá asi 0.5 sekundy). Nastavte
+èítaè pøi zahájení hry na hodnotu </font><font
+color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial">, aby se první krok provedl ihned po stisku první
+klávesy.</font></p>
+
+<p><font face="Arial">Dalším pøíkazem pøi zahájení nové
+hry je návrat uschované hrací plochy. Pouijte stejnı
+pøíkaz jako pøi úschovì plochy, ale s obrácenım poøadím
+prvkù. Poznamenejme, e operace pøiøazení plochy kopíruje
+do cílové promìnné obsah plochy, ne referenèní odkaz na
+zdrojovou plochu. Následujícími pøíkazy se provede
+nastavení vıchozí pozice hada. Vypnìte viditelnost Petøíka,
+nastavte jeho souøadnice na (horizontálnì) </font><font
+color="#000080" face="Arial"><strong>X=9</strong></font><font
+face="Arial"> a (vertikálnì) </font><font color="#000080"
+face="Arial"><strong>Y=8</strong></font><font face="Arial">,
+otoète ho vpravo a opìt viditelnost zapnìte. Na závìr funkce
+</font><font color="#000080" face="Arial"><strong>nová hra </strong></font><font
+face="Arial">uveïte funkci </font><font color="#000080"
+face="Arial"><strong>zobrazení poètu èlánkù hada</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had10.gif"
+width="217" height="608"></font></p>
+
+<p><font face="Arial">Teï se zamìøíme na funkci zobrazení
+poètu èlánkù hada. Pøi mnoha hrách je tøeba uivateli
+sdìlovat rùzné informace, jako je napø. dosaené skóre.
+Nechceme-li se zobrazováním informací pøíliš zabıvat, je
+dobrım a rychlım øešením vypisovat takové informace v
+nadpisu okna. My budeme sdìlovat hráèi dosaenou délku hada
+a pøípadnì maximální dosaené skóre. Pøi zobrazení
+poètu èlánkù se budeme snait alespoò trochu vyjadøovat
+èesky, proto rozlišíme stavy &quot;1 èlánek&quot;,
+&quot;2...3...4 èlánky&quot; a &quot;5...6... èlánkù&quot;.
+Vìtšina hráèù nám snad odpustí èeštináøskı
+prohøešek, kdy namísto &quot;23 èlánky&quot; vypíšeme
+&quot;23 èlánkù&quot;. Ale kdo by chtìl dokonalost, mùe
+pomocí funkce </font><font color="#000080" face="Arial"><strong>modulo</strong></font><font
+face="Arial"> testovat poslední èíslici èísla a skloòovat
+tak jak se má. Zde je obsah funkce:</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had11.gif"
+width="204" height="219"></font></p>
+
+<p><font face="Arial">Délka hada </font><font color="#000080"
+face="Arial"><strong>0</strong></font><font face="Arial"> se
+vyskytne vdy pøi zahájení nové hry. V této chvíli
+mùeme zobrazit informace o autorovi programu nebo pozdìji
+maximální skóre.</font></p>
+
+<p align="center"><img src="img/had12.gif" width="463"
+height="574"></p>
+
+<p><font face="Arial">Na obrázku vidíte pouitı novı prvek -
+</font><font color="#000080" face="Arial"><strong>nadpis okna</strong></font><font
+face="Arial"> <img src="img/caption.gif" width="20" height="20">
+(naleznete jej ve skupinì </font><font color="#000080"
+face="Arial"><strong>ovládání</strong></font><font
+face="Arial"> <img src="img/ovladani.gif" width="20" height="20">,
+podskupina </font><font color="#000080" face="Arial"><strong>dialogy</strong></font><font
+face="Arial"> <img src="img/dialogy.gif" width="20" height="20">).
+Prvek má charakter textové promìnné (lze jej nastavovat i
+èíst), pøedstavující text na horní lištì okna (titulek
+okna). Prvek </font><font color="#000080" face="Arial"><strong>slouèení
+textù</strong></font><font face="Arial"> <img
+src="img/slouceni.gif" width="20" height="20"> slouí ke
+slouèení více textù do jednoho textu. Slouèení probíhá
+shora dolù. Bìnı text je moné zadat zápisem textu u
+prvku </font><font color="#000080" face="Arial"><strong>textová
+konstanta</strong></font><font face="Arial"> <img
+src="img/text.gif" width="20" height="20">. Prvek </font><font
+color="#000080" face="Arial"><strong>pøevod èísla na textovı
+tvar</strong></font><font face="Arial"> <img src="img/ntext.gif"
+width="20" height="20"> pøevádí èíslo na textové
+vyjádøení èísla.</font></p>
+
+<p><font face="Arial">Podobnì jsou sestaveny i vìtve pro
+ostatní délky hada. Všimnìte si, e mùeme jednu vìtev
+vìtvicí konstrukce pouít pro více hodnot délek.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had13.gif"
+width="304" height="797"></font></p>
+
+<p><font face="Arial">Jedna poznámka k pouívání nadpisu
+okna. Pøi startu programu se v nadpisu okna objeví jméno
+hlavní funkce programu. Není-li potøeba bìhem chodu programu
+nadpis okna mìnit, staèí patøiènì upravit jméno hlavní
+funkce. U nového programu je jméno hlavní funkce
+pøednastaveno na jméno programu.</font></p>
+
+<p><font face="Arial">Dále se budeme zabıvat hlavní smyèkou
+programu. Na konec hlavní funkce umístìte </font><font
+color="#000080" face="Arial"><strong>podmínìné opakování
+pøíkazù</strong></font><font face="Arial"> <img
+src="img/cyklus2.gif" width="20" height="20">. Do testu podmínky
+dejte prvek </font><font color="#000080" face="Arial"><strong>ano</strong></font><font
+face="Arial"> <img src="img/true.gif" width="20" height="20">,
+èím zmìníte cyklus na nekoneènı cyklus. Ukonèení
+programu bude uskuteènìno uvnitø obsluhy kláves jako reakce
+na klávesu </font><font color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial">. Na zaèátku hlavní smyèky vytvoøíme
+nejdøíve obsluhu kláves, následuje obsluha pohybu hada a na
+závìr obsluha vytváøení novıch vìcí (jídlo a jed).
+Posledním pøíkazem ve smyèce bude obsluha èekání
+zajišující èasování programu. Pøíkaz èekání mùete
+doplnit do smyèky ji teï, ostatní obsluhy budeme doplòovat
+postupnì.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had14.gif"
+width="324" height="250"></font></p>
+
+<p><font face="Arial"><em>.... dokonèení pøíštì</em></font></p>
+
+<p align="center"><a href="download/9_zvuky.zip"><font
+face="Arial">download zvukù k pøíkladu</font></a></p>
+
+<p align="center"><a href="download/9_had.zip"><font face="Arial">download
+pøíkladu</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_08.htm"><font face="Arial">8.
+Samá pøíšera</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_10.htm"><font
+face="Arial">10. Jak nakrmit hada (2. èást)</font></a></p>
+</body>
+</html>

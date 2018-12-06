@@ -1,0 +1,270 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Jak na vlastní sprajty</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<p align="center"><a href="index.htm"><font face="Arial">Obsah</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">Jak na vlastní sprajty</font></h2>
+
+<p><font face="Arial">V Petrovské tutoriálové vsuvce si
+popíšeme tvorbu vlastních sprajtù.</font></p>
+
+<p><font face="Arial">Nebudeme se zabıvat malováním vlastních
+sprajtù, ty jsou zøejmì jasné. Zamìøíme se na pøípad,
+kdy máme nìjaké vlastní 2D sprajty a chceme je importovat do
+Petra. Dejme tomu, e se jedná o sprajtovou klasiku,
+postavièku </font><font color="#000080" face="Arial"><strong>Lemmingse
+- walkera</strong></font><font face="Arial"> (neboli èesky
+Lumík Procházka).</font></p>
+
+<p align="center"><font face="Arial"><img src="img1/lemmings.gif"
+width="512" height="64"></font></p>
+
+<p><font face="Arial">Obrázek, kterı máme k dispozici, má 8
+fází pohybu, kadá s rozmìrem 16 x 16 bodù. Vzhledem k
+souèasnému bìnému rozlišení monitorù naimportujeme
+sprajt do dvojnásobné velikosti, 32 x 32 bodù. Aby byl na
+obrazovce vùbec vidìt. Tìko budeme toti pøedpokládat,
+e pouijeme originální videomód 320 x 200 bodù.</font></p>
+
+<p><font face="Arial">V programu v Petrovi si v poli </font><font
+color="#000080" face="Arial"><strong>Spoleèné promìnné a
+funkce</strong></font><font face="Arial"> pøipravte novı sprajt
+(pøetaením prázdného sprajtu z pole </font><font
+color="#000080" face="Arial"><strong>Knihovna promìnnıch a
+funkcí</strong></font><font face="Arial">). Dvojklikem na sprajt
+a volbou </font><font color="#000080" face="Arial"><strong>Vlastnosti</strong></font><font
+face="Arial"> vyvolejte nastavení vlastností sprajtu.
+Vlastnosti nastavte následujícím zpùsobem.</font></p>
+
+<ul>
+    <li><font color="#000080" face="Arial"><strong>Prodleva mezi
+        fázemi: 110</strong></font><font face="Arial"> (urèuje
+        dobu v milisekundách mezi jednotlivımi fázemi animace)</font></li>
+    <li><font color="#000080" face="Arial"><strong>Fází na
+        krok: 8</strong></font><font face="Arial"> (urèuje
+        rychlost pohybu, kolik fází je potøeba na pøekonání
+        vzdálenosti jednoho políèka)</font></li>
+    <li><font color="#000080" face="Arial"><strong>Hladina k
+        zobrazení: 1000</strong></font><font face="Arial"> (je
+        vıšková hladina urèující, jak se budou sprajty
+        pøekreslovat pøes sebe)</font></li>
+    <li><font color="#000080" face="Arial"><strong>Fází pro
+        klid: 1</strong></font><font face="Arial"> (poèet
+        fází, pokud se sprajt nepohybuje)</font></li>
+    <li><font color="#000080" face="Arial"><strong>Fází pro
+        pohyb: 8</strong></font><font face="Arial"> (poèet
+        fází, pokud se sprajt pohybuje)</font></li>
+    <li><font color="#000080" face="Arial"><strong>Smìrù: 2</strong></font><font
+        face="Arial"> (poèet smìrù, kterımi se sprajt bude
+        pohybovat)</font></li>
+    <li><font color="#000080" face="Arial"><strong>Šíøka
+        obrázku: 1</strong></font><font face="Arial"> (šíøka
+        obrázku sprajtu, udává se v políèkách, tj. násobek
+        32 bodù)</font></li>
+    <li><font color="#000080" face="Arial"><strong>Vıška
+        obrázku: 1</strong></font><font face="Arial"> (vıška
+        obrázku sprajtu, udává se v políèkách, tj. násobek
+        32 bodù)</font></li>
+</ul>
+
+<p align="center"><font face="Arial"><img src="img1/sprajty.gif"
+width="435" height="451"></font></p>
+
+<p><font face="Arial">Do programu si naèteme grafiku. Máme k
+dispozici dva zpùsoby. Buï obrázek s grafikou uloíme do
+Petrovské sloky </font><font color="#000080" face="Arial"><strong>Picture</strong></font><font
+face="Arial"> ve formátu </font><font color="#000080"
+face="Arial"><strong>BMP</strong></font><font face="Arial"> nebo </font><font
+color="#000080" face="Arial"><strong>JPG</strong></font><font
+face="Arial"> a obrázek pak pøetáhneme do programu z pole </font><font
+color="#000080" face="Arial"><strong>Knihovna promìnnıch a
+funkcí</strong></font><font face="Arial">, nebo obrázek
+otevøeme v nìjakém editoru, zkopírujeme do schránky (</font><font
+color="#000080" face="Arial"><strong>Ctrl+A</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>Ctrl+C</strong></font><font
+face="Arial">), v Petrovi pøipravíme prázdnı obrázek
+stejnıch rozmìrù a grafiku do nìj vloíme ze schránky </font><font
+color="#000080" face="Arial"><strong>Ctrl+V</strong></font><font
+face="Arial">. Pøi importu barev obrázku se uplatní nastavení
+pøepínaèe </font><font color="#000080" face="Arial"><strong>Úpravy</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>Dithering</strong></font><font
+face="Arial">, kterı urèuje, zda se pouije </font><font
+color="#000080" face="Arial"><strong>dithering</strong></font><font
+face="Arial">. Budete-li pozorovat, e obrázek je nepøirozenì
+teèkovanı, pøepínaè </font><font color="#000080"
+face="Arial"><strong>Dithering</strong></font><font face="Arial">
+vypnìte. Vypnutí pøepínaèe je vhodné u kreslenıch
+obrázkù s málo barvami. Ovšem pozor a ho nezapomenete opìt
+zapnout a budete do programu naèítat napøíklad fotografie
+JPG. V obrázku vyplòte pozadí postavièek prùhlednou barvou a
+obrázek zvìtšete na dvojnásobek, aby mìly fáze animace
+rozmìr 32 x 32 bodù.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img1/lemmings2.gif" width="512" height="64"></font></p>
+
+<p><font face="Arial">Nyní pøeneseme obrázky do sprajtù.
+Oznaète první fázi v obrázku jako blok 1x1 políèko (tj. 32
+x 32 bodù, k orientaci pouijte orientaèní sí editoru). </font><font
+color="#000080" face="Arial"><strong>Ctrl+C</strong></font><font
+face="Arial"> zkopíruje blok do schránky. Dvojklikem na sprajt
+a pak dvojklikem na pøíslušné políèko sprajtu se dostanete
+do editace jedné fáze sprajtu, pomocí </font><font
+color="#000080" face="Arial"><strong>Ctrl+V</strong></font><font
+face="Arial"> obrázek fáze vloíte do sprajtu. Takto
+postupujte pro všech ostatních 8 fází animace. Jednu z fází
+pouijte i pro stav klidu.</font></p>
+
+<p><font face="Arial">Po pøenesení fází pohybu pro jeden
+smìr vyvolejte opìt editaci sprajtu dvojklikem na nìj a
+pravım tlaèítkem zkopírujte fáze i do dalšího smìru.
+Postupnì vyvolávejte editace fází v druhém smìru a obrázky
+horizontálnì pøevracejte.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img1/lemmings3.gif" width="640" height="192"></font></p>
+
+<p><font face="Arial">Na závìr sprajt vyzkoušejte. Stisknìte
+tlaèítko </font><font color="#000080" face="Arial"><strong>Test</strong></font><font
+face="Arial">, objeví se testovací okno. Klikáním do okna
+mùete sprajt rozpohybovat po ploše. Pøekreslením políèka </font><font
+color="#000080" face="Arial"><strong>prázdné políèko</strong></font><font
+face="Arial"> mùete zmìnit pozadí testovacího okna.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img1/lemmings4.gif" width="491" height="422"></font></p>
+
+<p><font face="Arial">Druhı pøípad, kterım se budeme
+zabıvat, je vytvoøení sprajtu importem z grafiky ve vyšším
+rozlišení (napø. fotografie). Dejme tomu, e chceme vytvoøit
+sprajt stíhaèky. Na internetu jsme si našli <em><strong>nìkde</strong></em>
+<em><strong>nìjakou</strong></em> fotografii. U nevíme kde a
+co to je? Hrubá chyba, zdroje je tøeba si vdy znaèit. Tak
+napøíklad </font><a
+href="http://englishrussia.com/index.php/2009/07/09/russian-stealth-jet/"><font
+face="Arial">zde</font></a><font face="Arial"> jsme našli ruskı
+bombardér <em><strong>Sukhoi Pak Fa T-50</strong></em>. Chceme
+ho pouít do støíleèky s horním pohledem, proto nás
+zajímá fotografie shora.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img1/suchoj_pak_fa.jpg" width="700" height="321"></font></p>
+
+<p><font face="Arial">Nejdøíve si pøipravíme holı obrázek
+objektu tím, e odstraníme pozadí z fotografie. V popisu se
+zamìøíme na Photoshop. Je moné pouít i grafickı editor
+Petra, jen to bude pracnìjší. Ve Photoshopu pouijte k
+oznaèení obrysu stíhaèky nástroj </font><font
+color="#000080" face="Arial"><strong>magnetické laso</strong></font><font
+face="Arial">. Podrobnìjší popis postupu naleznete v
+tutoriálu </font><font color="#000080" face="Arial"><strong>Vytváøíme
+textury - 2D objekty</strong></font><font face="Arial">. Po
+vyøíznutí stíhaèky ji zkopírujte do nového obrázku a
+rozšiøte plátno na ètvercovı rozmìr (v našem pøíkladu
+459 x 459 bodù).</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img1/suchoj_pak_fa2.jpg" width="459" height="254"></font></p>
+
+<p><font face="Arial">V Petrovi si pøipravte novı sprajt. V
+jeho nastavení zmìòte </font><font color="#000080"
+face="Arial"><strong>poèet smìrù</strong></font><font
+face="Arial"> napøíklad na </font><font color="#000080"
+face="Arial"><strong>8</strong></font><font face="Arial"> a
+velikost obrázku na </font><font color="#000080" face="Arial"><strong>2
+x 2</strong></font><font face="Arial"> políèka.</font></p>
+
+<p><font face="Arial">Nyní budeme postupnì importovat
+jednotlivé smìry sprajtu. Zmenšete obrázek na rozmìr </font><font
+color="#000080" face="Arial"><strong>64 x 64</strong></font><font
+face="Arial"> bodù. Zkonvertujte obrázek do paletovıch barev
+Petra pomocí funkce </font><font color="#000080" face="Arial"><strong>Obraz</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>Reim</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>Indexovaná
+barva</strong></font><font face="Arial"> s vyuitím
+importovací tabulky palet Petra, kterou si mùete </font><a
+href="download/petr_palety.zip"><font face="Arial">stáhnout zde</font></a><font
+face="Arial">. Obrázek oznaète </font><font color="#000080"
+face="Arial"><strong>Ctrl+A</strong></font><font face="Arial"> a
+vlote do schránky s </font><font color="#000080" face="Arial"><strong>Ctrl+C</strong></font><font
+face="Arial">. Pøepnìte se do programu v Petrovi, dvojkliknìte
+na sprajt a poté na obrázek prvního smìru. Obrázek vlote
+ze schránky s </font><font color="#000080" face="Arial"><strong>Ctrl+V</strong></font><font
+face="Arial">. Pouíváte-li jinı editor, mùete pøenést
+obrázek i ve formátu True Color, jen budete muset odmazávat
+pozadí obrázku. V nejhorším pøípadì mùete pouít
+editor Petra - obrázek naètìte pøes knihovnu do programu,
+pøekreslete pozadí prùhlednou barvou, udìlejte si kopii do
+druhého obrázku, kopii zmenšete na rozmìr 2 x 2 políèka,
+její obsah pøeneste pøes schránku do sprajtu.</font></p>
+
+<p><font face="Arial">V historii Photoshopu se vrate o 3 kroky
+zpìt, do doby, ne jste mìnili velikost sprajtu. Vyvolejte </font><font
+color="#000080" face="Arial"><strong>Úpravy</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>Transformace</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>Otoèit</strong></font><font
+face="Arial"> a zadejte na horní lištì úhel otoèení </font><font
+color="#000080" face="Arial"><strong>-45°</strong></font><font
+face="Arial">, potvrïte 2x Enter. Obrázek pøeneste do Petra
+opìt zmenšením na 64 x 64 bodù, importem do palet Petra a
+pøenesením pøes schránku. V pøípadì, e pouíváte
+jenom editor Petra, otoète obrázek v pùvodní velikosti (ale s
+odmazanım pozadím) o 45° a ten pak pouijte po zmenšení
+jako druhı smìr sprajtu.</font></p>
+
+<p><font face="Arial">Nyní si ji vystaèíme s editorem Petra.
+Rozkopírujte první dvì fáze do ostatních fází tak, abyste
+pak mohli jen operací otoèení o </font><font color="#000080"
+face="Arial"><strong>90°</strong></font><font face="Arial">
+dosáhnout ostatních smìrù otoèení. Druhı smìr </font><font
+color="#000080" face="Arial"><strong>45°</strong></font><font
+face="Arial"> jsme museli dìlat ve Photoshopu z originálního
+obrázku (resp. v Petrovi z pùvodního velkého obrázku),
+protoe otoèením zmenšeného obrázku v editoru Petra by ji
+znaènì poklesla kvalita grafiky. Ostatní otoèení o 90° jsou
+ji bezztrátové operace a proto si vystaèíme s editorem
+Petra.</font></p>
+
+<p align="center"><font face="Arial"><img src="img1/sprajty3.gif"
+width="96" height="544"></font></p>
+
+<p><font face="Arial">Snadno bychom mohli podobnım zpùsobem
+vytvoøit libovolnı poèet smìrù sprajtu. Vdy je však
+potøeba otáèet obrázek ve vyšší kvalitì a teprve potom ho
+zmenšit na koncovou velikost. Zmenšené obrázky otáèet jen
+po 90 stupních.</font></p>
+
+<p><font face="Arial">Nìkdy mùeme chtít pod sprajty mít
+ještì stín. Pøipravíme si ho opìt jako sprajt. Pouijeme
+oøíznutı obrázek stíhaèky. Nástrojem </font><font
+color="#000080" face="Arial"><strong>kouzelná hùlka</strong></font><font
+face="Arial"> oznaète prùhledné okolí stíhaèky, vıbìr
+invertujte a vnitøek stíhaèky vyplòte nìkterou barvou
+(napøíklad èernou). Pøi vıplni pouijte maximální
+toleranci, </font><font color="#000080" face="Arial"><strong>255</strong></font><font
+face="Arial">. Takto pøipravenı obrázek importujte do sprajtu
+Petra podobnì jako obrázek stíhaèky s tím rozdílem, e po
+vloení do Petra èernou barvu stíhaèky vyplòte stínovou
+barvou.</font></p>
+
+<p align="center"><font face="Arial"><img src="img1/sprajty4.gif"
+width="96" height="544"></font></p>
+
+<p align="center"><a href="download/sprajty.zip"><font
+face="Arial">download pøíkladù sprajtù</font></a></p>
+
+<hr>
+
+<p align="center"><a href="index.htm"><font face="Arial">Obsah</font></a></p>
+</body>
+</html>

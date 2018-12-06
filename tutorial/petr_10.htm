@@ -1,0 +1,428 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>10 Jak nakrmit hada (èást 2)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_09.htm"><font face="Arial">9. Jak
+makrmit hada (1. èást)</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_11.htm"><font
+face="Arial">11. Zaèínáme s grafikou</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">10. Jak nakrmit hada (2. èást)</font></h2>
+
+<p><font face="Arial"><em>...dokonèení z minulé lekce</em></font></p>
+
+<p><font face="Arial">Zaèneme obsluhou vytváøení novıch
+vìcí. Pøed obsluhu èekání vlote </font><font
+color="#000080" face="Arial"><strong>podmínìné provedení
+pøíkazù</strong></font><font face="Arial"> <img
+src="img/podminka.gif" width="20" height="20">, nazvìte ho </font><font
+color="#000080" face="Arial"><strong>vytváøení vìcí</strong></font><font
+face="Arial">. Obsah vidíte na dalším obrázku.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had15.gif"
+width="333" height="512"></font></p>
+
+<p><font face="Arial">Novou vìc budeme vytváøet náhodnì s
+urèitou pravdìpodobností, proto do testu podmínky dáme
+porovnání náhodného èísla s konstantou. Nastavením hodnoty
+na </font><font color="#000080" face="Arial"><strong>0.03</strong></font><font
+face="Arial"> zajistíme, e se nová vìc vytvoøí v kadıch
+</font><font color="#000080" face="Arial"><strong>3</strong></font><font
+face="Arial"> ze </font><font color="#000080" face="Arial"><strong>100</strong></font><font
+face="Arial"> prùchodù programu hlavní smyèkou,
+pravdìpodobnost vzniku vìci je tedy </font><font
+color="#000080" face="Arial"><strong>3%</strong></font><font
+face="Arial">. Vzhledem k tomu, e jeden prùchod hlavní
+smyèkou trvá 0.05 sekundy, budou vìci vznikat v prùmìru
+kadıch 1.7 sekundy.</font></p>
+
+<p><font face="Arial">K vytvoøení vìci na ploše pouijeme
+opìt Petøíkovu kamarádku - Lucku. Nejdøíve ji nastavíme na
+náhodné políèko plochy. Pro horizontální pozici Lucky
+pouijeme prvek </font><font color="#000080" face="Arial"><strong>šíøka
+plochy</strong></font><font face="Arial"> <img
+src="img/sirkap.gif" width="20" height="20">, kterı nám pøedá
+èíselnou hodnotu </font><font color="#000080" face="Arial"><strong>20</strong></font><font
+face="Arial">, co je šíøka plochy programu. Je moné
+èíslo zadat pøímo, ale vıhodnìjší je pracovat s obecnımi
+èísly. Ušetøíme si tak problémy, a nìkdy v budoucnu
+budeme nìco v programu mìnit, napø. zmìníme-li rozmìry
+plochy. Šíøku plochy pøedáme funkci </font><font
+color="#000080" face="Arial"><strong>náhodné èíslo</strong></font><font
+face="Arial"> <img src="img/random.gif" width="20" height="20">,
+která vytvoøí náhodné èíslo v rozsahu od 0 do
+19.999999999. Následující funkce </font><font color="#000080"
+face="Arial"><strong>celoèíselná èást</strong></font><font
+face="Arial"> <img src="img/int.gif" width="20" height="20">
+odstraní desetinnou èást èísla. Vznikne tak náhodné celé
+èíslo v rozsahu 0 a 19, co jsou horizontální souøadnice
+prvního a posledního políèka plochy. Pøipomeòme si, e
+se políèka èíslují od nuly z levého dolního rohu smìrem
+doprava a nahoru. Podobnì vytvoøíme i náhodnou pozici ve
+vertikálním smìru.</font></p>
+
+<p><font face="Arial">Za nastavením náhodné pozice následuje
+podmínìnı pøíkaz testující, zda je nastavené políèko
+prázdné. Pokud ano, rozhodne se program dalším podmínìnım
+pøíkazem, jestli vytvoøí jed nebo jídlo. Náhodné èíslo
+porovnáváme s hodnotou </font><font color="#000080"
+face="Arial"><strong>0.1</strong></font><font face="Arial">,
+která zajistí, e se v </font><font color="#000080"
+face="Arial"><strong>1</strong></font><font face="Arial"> z </font><font
+color="#000080" face="Arial"><strong>10</strong></font><font
+face="Arial"> pøípadù vytvoøí jed, v ostatních pøípadech
+jídlo. Vše vidíte na obrázku:</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had16.gif"
+width="377" height="448"></font></p>
+
+<p><font face="Arial">Na dalším obrázku vidíte obsluhu
+vytvoøení nového jedu. Jedy budeme vytváøet s rùznou
+èetností. Nejèastìji chceme vytváøet muchomùrku a
+nejménì èasto krabièku s jedem. Pouijeme k tomu </font><font
+color="#000080" face="Arial"><strong>vícestupòové vìtvení
+pøíkazù</strong></font><font face="Arial"> <img
+src="img/vetveni.gif" width="20" height="20">. Vìtvicím
+vırazem bude náhodné celé èíslo v rozsahu </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>5</strong></font><font
+face="Arial"> vytvoøené pomocí prvkù </font><font
+color="#000080" face="Arial"><strong>celoèíselná èást</strong></font><font
+face="Arial"> <img src="img/int.gif" width="20" height="20">, </font><font
+color="#000080" face="Arial"><strong>náhodné èíslo</strong></font><font
+face="Arial"> <img src="img/random.gif" width="20" height="20"> a
+èíslice </font><font color="#000080" face="Arial"><strong>6</strong></font><font
+face="Arial"> <img src="img/6.gif" width="20" height="20">.</font></p>
+
+<p><font face="Arial">V první vìtvi vytvoøíme lebku pro 2
+pøípady z 6 (hodnoty </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial">), pravdìpodobnost vzniku lebky bude tedy 33%. Ve
+druhé vìtvi vytvoøíme krabièku s jedem s menší
+pravdìpodobností - pro 1 pøípad z 6 (hodnota </font><font
+color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial">), pravdìpodobnost vzniku je 17%. V ostatních
+pøípadech vytvoøíme muchomùrku - pro zbylé 3 pøípady z 6
+(hodnoty </font><font color="#000080" face="Arial"><strong>3</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>4
+</strong></font><font face="Arial">a </font><font color="#000080"
+face="Arial"><strong>5</strong></font><font face="Arial">),
+pravdìpodobnost 50%.</font></p>
+
+<p><font face="Arial">Obsluhu vytvoøení jedu zakonèíme
+pøíkazem pro zapnutí </font><font color="#000080" face="Arial"><strong>pøepínaèe
+2</strong></font><font face="Arial"> <img src="img/prep22.gif"
+width="20" height="20">. Jak si vzpomínáte, </font><font
+color="#000080" face="Arial"><strong>pøepínaè 1</strong></font><font
+face="Arial"> <img src="img/prep12.gif" width="20" height="20">
+jsme pouili k indikaci, e na políèku je zeï. Pøepínaè 2
+budeme pouívat k indikaci jedu na políèku. To nám pozdìji
+usnadní práci, nebudeme muset testovat všechny moné jedy,
+které v programu pouijeme.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had18.gif"
+width="424" height="736"></font></p>
+
+<p><font face="Arial">Obsluhu vytváøení jídla zajistíme
+jinou metodou. Jak vidíte na dalším obrázku, obsluha je díky
+pouití seznamu celkem jednoduchá.</font></p>
+
+<p><font face="Arial">Na zaèátku obsluhy náhodnì vybereme
+stránku seznamu, ze které pøevezmeme pøedmìt jídla. Index
+jídla nastavíme na náhodné celé èíslo v rozsahu </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>4</strong></font><font
+face="Arial">, co jsou indexy první a poslední stránky
+seznamu. Namísto pøímého zadání èísla rozsahu náhodnıch
+hodnot pouijeme prvek udávající poèet stránek v seznamu <img
+src="img/seznamn.gif" width="20" height="20">. Díky tomu
+mùeme v budoucnu pøidávat do seznamu další jídla, ani
+bychom museli mìnit obsluhu jídel v programu. Èíslo jídla si
+pomocí prvku </font><font color="#000080" face="Arial"><strong>èíselná
+hodnota 1 (rozsah 0 a 1023)</strong></font><font face="Arial"> <img
+src="img/cislo12.gif" width="20" height="20"> uchováme v
+políèku pro pøíští pouití. Dalším pøíkazem
+poloíme pøedmìt jídla na pozici Lucky <img
+src="img/predmetna2.gif" width="20" height="20">. Posledním
+pøíkazem bude zapnutí </font><font color="#000080"
+face="Arial"><strong>pøepínaèe 3</strong></font><font
+face="Arial"> <img src="img/prep32.gif" width="20" height="20">.
+Pøepínaè 3 pouijeme k indikaci, e na políèku je jídlo.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had19.gif"
+width="295" height="352"></font></p>
+
+<p><font face="Arial">Tím je obsluha vytváøení novıch vìcí
+hotova a mùete ji vyzkoušet (nezapomeòte na obsluhu
+èekání na konci hlavní smyèky). Uprostøed plochy by se
+mìla objevit hlava hada s otevírající se pusou a kolem
+vznikající nové vìci. Program ukonèíte kliknutím na
+køíek <img src="img/kriz.gif" width="20" height="18"> na
+horní lištì okna vpravo.</font></p>
+
+<p><font face="Arial">Pokraèujeme obsluhou ovládání hada.
+Doplòte na zaèátek hlavní smyèky programu (pøed obsluhu
+vytváøení vìcí) prvek </font><font color="#000080"
+face="Arial"><strong>vícestupòové vìtvení pøíkazù</strong></font><font
+face="Arial"> <img src="img/vetveni.gif" width="20" height="20">
+s názvem </font><font color="#000080" face="Arial"><strong>ovládání
+hada</strong></font><font face="Arial">. Obsluhu vidíte na
+následujícím obrázku.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had20.gif"
+width="296" height="571"></font></p>
+
+<p><font face="Arial">Vìtvicí hodnotou bude funkce </font><font
+color="#000080" face="Arial"><strong>vstup klávesy (neèeká na
+stisk)</strong></font><font face="Arial"> <img
+src="img/vstup2.gif" width="20" height="20">. Klávesou vlevo
+otoèíme Petøíka (tedy hlavu hada) doleva a zapneme pøíznak,
+e had je v pohybu. Podobnì obslouíme i klávesy ostatních
+smìrù. Jako poslední obslouíme klávesu </font><font
+color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial"> a to tak, e pøíkazem </font><font
+color="#000080" face="Arial"><strong>konec funkce</strong></font><font
+face="Arial"> <img src="img/konec.gif" width="20" height="20">
+(ze skupiny </font><font color="#000080" face="Arial"><strong>øízení
+programu</strong></font><font face="Arial"> <img
+src="img/rizeni.gif" width="20" height="20">) ukonèíme funkci.
+Protoe se jedná o hlavní funkci programu, ukonèíme tím i
+celı program.</font></p>
+
+<p><font face="Arial">Program vyzkoušejte. Kurzorovımi
+klávesami (šipkami) mùete otáèet hlavou hada do stran,
+klávesou </font><font color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial"> program ukonèíte.</font></p>
+
+<p><font face="Arial">Naším dalším úkolem bude hada
+rozpohybovat. Rychlost pohybu hada zvolíme asi </font><font
+color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial"> kroky za sekundu. Abychom mohli lépe obsluhovat
+klávesnici a generování vìcí, cykluje hlavní smyèka
+programu rychleji (pøiblinì 18 a 20 prùchodù za sekundu).
+Proto pouijeme èítaè pro další krok, kterı zajistí posun
+hada pøi kadém devátém prùchodu cyklem.</font></p>
+
+<p><font face="Arial">Obsluhu pohybu hada vidíte na dalším
+obrázku. Umístìte ji za obsluhu ovládání hada, ale pøed
+obsluhu generování novıch vìcí. Na zaèátku obsluhy je
+provádìn test, zda je had v pohybu (pøi zahájení hry toti
+stojí na místì a do stisku první klávesy smìru). Je-li
+tomu tak, dekrementuje se (tj. sníí o 1) èítaè pro další
+krok. Dosáhne-li nuly, mùe had popojít o krok vpøed.
+Nejdøíve znovu nastavíme èítaè pro další krok. Zvolili
+jsme èíslo </font><font color="#000080" face="Arial"><strong>9</strong></font><font
+face="Arial">, které pøedstavuje pøiblinì </font><font
+color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial"> kroky za sekundu. Úplnì pøesnì s èasovaèem
+nemùeme poèítat, napø. v systému Windows 98 je nejmenší
+krok èasovaèe pøiblinì 55 ms, zatímco ve Windows XP
+zpravidla nìco pod 50 ms.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had21.gif"
+width="390" height="608"></font></p>
+
+<p><font face="Arial">Pøed obsluhou posunu hada otestujeme, zda
+není pøed hadem neprùchodná pøekáka. Za neprùchodnou
+pøekáku budeme povaovat zeï, ale také samotného hada,
+tedy nìkterı z jeho èlánkù. K provedení testu pouijeme
+Lucku. Nastavíme ji na pozici Petøíka, otoèíme v jeho smìru
+a provedeme krok vpøed.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had23.gif"
+width="247" height="256"></font></p>
+
+<p><font face="Arial">Jak si jistì vzpomínáte, zeï jsme
+oznaèili </font><font color="#000080" face="Arial"><strong>pøepínaèem
+1</strong></font><font face="Arial"> <img src="img/prep12.gif"
+width="20" height="20">. Abychom si to usnadnili, budeme tak
+oznaèovat i políèko s èlánkem hada. Je-li pøepínaè
+zapnut, je pøed hadem zeï nebo èlánek hada a had umírá.
+Pøehrajeme zvuk nárazu (zvuky naleznete ke staení na konci
+lekce) a provedeme animaci smrti hada. Budeme se jí zabıvat a
+pozdìji. Jinak se had mùe posunout vpøed.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had24.gif"
+width="482" height="608"></font></p>
+
+<p><font face="Arial">V pøípadì posunu hada se nejdøíve
+budeme zabıvat Petøíkem - hlavou hada. Zhruba uprostøed
+obsluhy posunu hada vidíte, e Petøík provede krok vpøed.
+Následující vìtvicí konstrukce uschová na novém políèku
+èíslo udávající, kterım smìrem leelo minulé políèko.
+Toto èíslo nám pomùe pozdìji pøi hledání cesty ke konci
+hada.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had25.gif"
+width="415" height="378"></font></p>
+
+<p><font face="Arial">Èíslo pøedstavující smìr na minulé
+políèko uchováme v </font><font color="#000080" face="Arial"><strong>èíselné
+promìnné 2</strong></font><font face="Arial"> <img
+src="img/cislo2.gif" width="20" height="20">. Pro minulé
+políèko smìrem vpravo pouijeme èíslo </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">, pro smìr nahoru </font><font color="#000080"
+face="Arial"><strong>1</strong></font><font face="Arial">, pro
+smìr vlevo </font><font color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial"> a pro smìr dolù </font><font color="#000080"
+face="Arial"><strong>3</strong></font><font face="Arial">.
+Pøípad pro minulı smìr vlevo vidíte na obrázku, ostatní
+smìry jsou obdobné.</font></p>
+
+<p><font face="Arial">Vrame se na zaèátek obsluhy posunu hada
+o krok vpøed. Lucku jsme naposledy zanechali na pøíštím
+políèku, kde testovala stav pøepínaèe 1. Teï ji otoèíme
+zpìt a posuneme o krok vpøed, tím ji navrátíme na stejnou
+pozici jako je hlava hada. Ještì mùeme doplnit pøehrátí
+zvuku kroku hada.</font></p>
+
+<p><font face="Arial">Následuje cyklus zajišující posun
+èlánkù hada, jak vidíte na dalším obrázku. Poèet
+prùchodù cyklu je dán délkou hada. Na zaèátku je Lucka
+nastavena na pozici hlavy hada. Na kadém políèku s èlánkem
+nebo hlavou hada je uchováno èíslo udávající smìr na
+minulé políèko. Èíslo pøedstavuje poèet kvadrantù (tj.
+ètvrtin otáèky), o kolik se musí Lucka otoèit proti smìru
+hodinovıch ruèièek od nulového úhlu (nulovı úhel
+odpovídá smìru doprava).</font></p>
+
+<p><font face="Arial">Nejdøíve se tedy Lucka otoèí na minulé
+políèko. Následujícím pøíkazem pøenese pøedmìt z
+minulého políèka na políèko, na kterém stojí. Tím posune
+èlánek hada o krok vpøed. Dalším pøíkazem zapne </font><font
+color="#000080" face="Arial"><strong>pøepínaè 1</strong></font><font
+face="Arial"> <img src="img/prep12.gif" width="20" height="20">.
+Øekli jsme si, e pøepínaèem 1 budeme indikovat nejen zeï,
+ale i èlánek hada. Posledním pøíkazem popojde Lucka o krok
+vpøed, to znamená na další políèko hada smìrem k jeho
+konci.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had26.gif"
+width="382" height="410"></font></p>
+
+<p><font face="Arial">Po vykonání všech prùchodù cyklem
+zùstane Lucka stát na políèku za novım koncem hada. To
+platí i pro délku </font><font color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">, kdy se neprovede ani jeden prùchod cyklem.
+Následuje posun hlavy hada o krok vpøed a úschova smìru na
+minulé políèko, jak jsme si obsluhu popsali døíve. Vymaeme
+obsah políèka za koncem hada prázdnım políèkem (provede
+Lucka) a vypneme pøíznak, e je na políèku èlánek hada. V
+pøípadì nalezení jídla nebo jedu na políèko pozdìji
+doplníme novı èlánek hada.</font></p>
+
+<p><font face="Arial">Had je posunut. Teï si povšimneme obsahu
+políèka na nové pozici hlavy hada. Nejdøíve vyzkoušíme,
+je-li na políèku jídlo. Jídlo jsme si oznaèili pøepínaèem
+3, budeme tedy testovat </font><font color="#000080" face="Arial"><strong>pøepínaè
+3</strong></font><font face="Arial"> <img src="img/prep3.gif"
+width="20" height="20">. Obsluhu jídla vidíte zde na obrázku:</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had27.gif"
+width="348" height="640"></font></p>
+
+<p><font face="Arial">Je-li na políèku jídlo, vymaeme jídlo
+poloením prázdného políèka a vypneme </font><font
+color="#000080" face="Arial"><strong>pøepínaè 3</strong></font><font
+face="Arial">. V èíselné promìnné políèka 1 máme
+uschováno èíslo jídla ze seznamu jídel. Pøevezmeme tedy </font><font
+color="#000080" face="Arial"><strong>èíselnou hodnotu 1</strong></font><font
+face="Arial"> políèka a pouijeme ji jako index jídla,
+abychom získali èlánek hada, kterı k nalezenému jídlu
+patøí. Vezmeme ze seznamu èlánek hada a poloíme ho na
+pozici s Luckou. Jak víme, Lucka zùstala stát na políèku za
+koncem hada, pøed chvílí jsme tam prozatímnì poloili
+prázdné políèko. Tím jsme vytvoøili novı èlánek hada se
+spolknutım jídlem. Ještì zapneme </font><font color="#000080"
+face="Arial"><strong>pøepínaè 1</strong></font><font
+face="Arial"> <img src="img/prep12.gif" width="20" height="20">
+jako pøíznak èlánku hada a zvıšíme èítaè délky hada.
+Na závìr mùeme pøehrát zvuk polknutí a zobrazit novou
+délku hada.</font></p>
+
+<p><font face="Arial">Obsluha nalezení jedu je podobná. Vidíte
+ji na obrázku níe. Jak víte, jed oznaèujeme </font><font
+color="#000080" face="Arial"><strong>pøepínaèem 2</strong></font><font
+face="Arial">. Zjistíme-li tedy testem pøepínaèe 2 nalezení
+jedu, opìt nejdøíve vymaeme políèko poloením
+prázdného pøedmìtu a vypneme pøepínaè 2. Provedeme obsluhu
+podobnì jako pøi bìném jídle. Novı èlánek hada
+pouijeme vdy stejnı, nezávislı na nalezeném jedu. Opìt
+zapneme na pozici Lucky pøepínaè 1 jako indikátor èlánku
+hada, zvıšíme délku hada, pøehrajeme zvuk polknutí a
+zobrazíme novou délku. Vše zakonèíme smrtí hada.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had28.gif"
+width="281" height="608"></font></p>
+
+<p><font face="Arial">Naším posledním úkolem bude vytvoøení
+funkce pro obsluhu smrti hada. Obsah funkce vidíte na dalším
+obrázku.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had29.gif"
+width="264" height="640"></font></p>
+
+<p><font face="Arial">Nejdøíve je uchována dosaená délka
+hada jako nové maximální skóre. Po kratièké pauze se ozve
+zvuk zasípìní. Smrt budeme indikovat postupnım pøekreslením
+všech èlánkù hada na èlánky s lebkou. Po pøekreslení a
+krátké pauze èlánky hada vymaeme (znázorníme tak
+odumírání hada). Opìt následuje krátká pauza a zahájí se
+nová hra.</font></p>
+
+<p><font face="Arial">Po zahájení hry je dùleité doplnit
+pøíkaz vyprázdnìní zásobníku kláves. Èasto se stává,
+e hráè v zápalu hry maèká klávesy i bìhem ukonèování
+hry. Tak by si mohl nechtìnì odstartovat další hru.</font></p>
+
+<p><font face="Arial">Následující obrázky ukazují obsluhu
+pøekreslení èlánkù hada na smrt a vymazání èlánkù hada.
+Opìt vyuíváme uschované smìry na pøedchozí políèko v
+èíselné hodnotì 2 políèka. Provádíme pøitom animaci
+otáèení hlavy hada (hadovi se motá hlava), v prvním
+pøípadì proti smìru hodinovıch ruèièek, v druhém
+pøípadì obrácenì.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had30.gif"
+width="840" height="768"></font></p>
+
+<p><font face="Arial">Pøece jen zbıvá ještì jedna poslední
+vìc - ikonka programu, tak jak bude vypadat pøi zobrazení v
+seznamu souborù. Vyberte ikonku hlavní funkci (s názvem Had) a
+tlaèítkem </font><font color="#000080" face="Arial"><strong>Ikona</strong></font><font
+face="Arial"> ji upravte - napøíklad do ní zkopírujte hlavu
+hada. Ikona hlavní funkce se v systému zobrazí jako ikona
+programu.</font></p>
+
+<p><font face="Arial">Teï ji mùete program spustit a
+vyzkoušet. Pøeji mnoho zábavy u vaší první opravdové hry.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/had31.gif"
+width="648" height="514"></font></p>
+
+<p align="center"><a href="download/9_zvuky.zip"><font
+face="Arial">download zvukù k pøíkladu</font></a></p>
+
+<p align="center"><a href="download/9_had.zip"><font face="Arial">download
+pøíkladu</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_09.htm"><font face="Arial">9. Jak
+nakrmit hada (1. èást)</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_11.htm"><font
+face="Arial">11. Zaèínáme s grafikou</font></a></p>
+</body>
+</html>

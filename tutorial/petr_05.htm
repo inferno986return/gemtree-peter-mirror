@@ -1,0 +1,288 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>5 Petr chodí po znaèkách</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_04.htm"><font face="Arial">4.
+Zahrádka s podmínkou</font></a><font face="Arial"> &lt;&lt;&lt;
+</font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_06.htm"><font
+face="Arial">6. Petr v bludišti</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">5. Petr chodí po znaèkách</font></h2>
+
+<p><font face="Arial">V dalším programu se nauèíme pouívat
+podmínìné provádìní pøíkazù. Petøíka necháme
+procházet se po ploše okna, na které rozmístíme rùzné
+znaèky. Podle znaèek se bude Petøík rozhodovat, kterım
+smìrem se vydá dále.</font></p>
+
+<p><font face="Arial">Ze všeho nejdøíve zaloíme novı
+program. Jak si jistì vzpomínáte z </font><a
+href="petr_01.htm"><font face="Arial">kapitoly 1</font></a><font
+face="Arial">, novı program vytvoøíte v oknì programù
+pomocí tlaèítka </font><font color="#000080" face="Arial"><strong>Novı</strong></font><font
+face="Arial"> <img src="img/new.gif" width="23" height="20">.
+Pojmenujte ho tøeba </font><font color="#000080" face="Arial"><strong>Znaèky</strong></font><font
+face="Arial">.</font></p>
+
+<p><font face="Arial">V programu budeme potøebovat dva
+pøedmìty, které pouijeme jako znaèky. V poli </font><font
+color="#000080" face="Arial"><strong>Spoleèné promìnné a
+funkce</strong></font><font face="Arial"> zkopírujte pravım
+tlaèítkem myši prvek </font><font color="#000080" face="Arial"><strong>prázdné
+políèko</strong></font><font face="Arial"> <img
+src="img/prazdne.gif" width="20" height="20"> na dva nové
+pøedmìty. Pojmenujte je </font><font color="#000080"
+face="Arial"><strong>Doleva</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>Doprava</strong></font><font
+face="Arial">. Pøejmenování provedete napøíklad tak, e
+kliknutím myší na ikonu prvku prvek vyberete a stiskem kláves
+</font><font color="#000080" face="Arial"><strong>Alt+Enter</strong></font><font
+face="Arial"> zahájíte editaci jména prvku.</font></p>
+
+<p><font face="Arial">Vyvolejte editaci novì vytvoøenıch
+pøedmìtù dvojitım kliknutím levım tlaèítkem myši na
+ikonky pøedmìtù. Do prvku </font><font color="#000080"
+face="Arial"><strong>Doleva</strong></font><font face="Arial">
+nakreslete zatoèenou šipku vlevo, do prvku </font><font
+color="#000080" face="Arial"><strong>Doprava</strong></font><font
+face="Arial"> zatoèenou šipku vpravo, napøíklad takto: <img
+src="img/doleva.gif" width="20" height="20"> a <img
+src="img/doprava.gif" width="20" height="20">. Kreslit mùete
+takto: Zvolte nástroj kreslení krunice s tlouškou èáry 5
+bodù a nakreslete krunici. Pomocí vyplnìného obdélníku
+ètvrt krunice vymate pøekreslením zpìt na zelenou.
+Nakonec tukou domalujte špièku. Druhou šipku mùete
+pøenést kopií z první šipky s vyuitím vıbìru, po kopii
+vıbìr zrcadlovì pøevrate.</font></p>
+
+<p><font face="Arial">Pøipravíme si plochu okna. Dvakrát
+kliknìte na prvek oznaèenı </font><font color="#000080"
+face="Arial"><strong>plocha</strong></font><font face="Arial"> <img
+src="img/plocha.gif" width="20" height="20">. V editaèním poli
+se objeví plocha programu. Vytvoøíme cestu pro Petøíka. Na
+plochu naskládejte pøedmìty </font><font color="#000080"
+face="Arial"><strong>Doleva</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>Doprava</strong></font><font
+face="Arial"> tak, aby Petøík, a se bude podle nich øídit,
+mohl chodit po uzavøené dráze. Nezapomeòte, e Petøík
+vychází z levého dolního rohu smìrem doprava. Pøedmìty na
+ploše mùete rozmisovat tak, e nejdøíve pøetáhnete oba
+prvky z okna </font><font color="#000080" face="Arial"><strong>Spoleèné
+promìnné a funkce</strong></font><font face="Arial"> nìkam na
+plochu, kde je poloíte. Potom levım tlaèítkem myši
+pøedmìty na ploše pøemisujete, pravım tlaèítkem je
+kopírujete. Nepotøebnı pøedmìt zrušíte odhozením mimo
+plochu nebo pøekrytím jinım prvkem. Plocha mùe vypadat
+napøíklad takto (cesta Petøíka je vyznaèena èárkovanou
+èarou se šipkami):</font></p>
+
+<p align="center"><font face="Arial"><img src="img/znacky1.gif"
+width="640" height="480"></font></p>
+
+<p><font face="Arial">Po pøípravì plochy programu se pustíme
+do konstrukce programu. Tentokrát zaèneme z opaèného konce -
+od hlavního cyklu. Petøík má za úkol neustále chodit dokola
+po znaèkách, take je zøejmé, e základem programu bude
+nekoneèná smyèka. Pøipravíme si proto do programu prvek </font><font
+color="#000080" face="Arial"><strong>podmínìné opakování
+pøíkazù</strong></font><font face="Arial"> <img
+src="img/cyklus2.gif" width="20" height="20">.</font></p>
+
+<p><font face="Arial">Ve skuteènosti neudìláme smyèku
+nekoneènou, ale umoníme pøerušit program stiskem klávesy </font><font
+color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial">. Pouijeme funkci vstupu kódu klávesy z
+klávesnice. Víme, e vrací èíselnı kód (poøadové
+èíslo klávesy na klávesnici), proto potøebujeme funkci
+k porovnání èísel. Porovnávací funkce pro èísla
+nalezneme ve skupince </font><font color="#000080" face="Arial"><strong>vıpoèty</strong></font><font
+face="Arial"> <img src="img/vypocty.gif" width="20" height="20">,
+podskupince </font><font color="#000080" face="Arial"><strong>porovnání</strong></font><font
+face="Arial"> <img src="img/porovnani.gif" width="20" height="20">.
+Pouijeme funkci </font><font color="#000080" face="Arial"><strong>není
+rovno</strong></font><font face="Arial"> <img
+src="img/nenirovno.gif" width="20" height="20">. Pøetáhnìte ji
+do podmínky cyklu </font><font color="#000080" face="Arial"><strong>dokud
+platí</strong></font><font face="Arial"> <img
+src="img/dokud.gif" width="20" height="20">.</font></p>
+
+<p><font face="Arial">Prvním prvkem, kterı budeme porovnávat,
+je </font><font color="#000080" face="Arial"><strong>vstup
+klávesy (neèeká na stisk) </strong></font><font face="Arial"><img
+src="img/vstup2.gif" width="20" height="20">. Pøetáhnìte ho do
+porovnávací funkce ze skupiny </font><font color="#000080"
+face="Arial"><strong>ovládání</strong></font><font
+face="Arial"> <img src="img/ovladani.gif" width="20" height="20">,
+podskupiny </font><font color="#000080" face="Arial"><strong>klávesnice</strong></font><font
+face="Arial"> <img src="img/klavesnice.gif" width="20"
+height="20">. S podobnım prvkem, s èekáním na stisk klávesy,
+jsme se ji seznámili v pøedešlıch kapitolách. Rozdíl
+mezi prvky spoèívá v tom, e tento prvek na stisk klávesy
+neèeká. Není-li ádnı kód klávesy pøipraven, vrací kód
+nestisknuté klávesy (je to èíslo </font><font color="#000080"
+face="Arial"><strong>0</strong></font><font face="Arial">, ale my
+se konkrétní hodnotou nemusíme zatìovat, protoe máme
+k dispozici symbolickı kód </font><font color="#000080"
+face="Arial"><strong>ádná klávesa nestisknuta</strong></font><font
+face="Arial"> <img src="img/nokey.gif" width="20" height="20">).</font></p>
+
+<p><font face="Arial">Druhım porovnávanım prvkem je klávesa </font><font
+color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial"> <img src="img/esc.gif" width="20" height="20">.
+Najdeme ji ve stejné skupince jako funkci vstupu klávesy, ale
+ještì se musíme vnoøit trochu hloubìji, a to do podskupinek </font><font
+color="#000080" face="Arial"><strong>klávesy</strong></font><font
+face="Arial"> <img src="img/klavesy.gif" width="20" height="20">
+a </font><font color="#000080" face="Arial"><strong>øídicí
+klávesy</strong></font><font face="Arial"> <img
+src="img/ridici.gif" width="20" height="20">. Je to èíselná
+konstanta s hodnotou èíselného kódu klávesy Esc, abychom
+nemuseli kód klávesy znát. Polote prvek do porovnávací
+funkce pod prvek funkce vstupu klávesy.</font></p>
+
+<p><font face="Arial">Co náš cyklus teï dìlá? Pøeètìte si
+poznámky u prvkù: &quot;<em>Dokud platí, e není roven vstup
+klávesy klávese Esc, opakuj pøíkazy (nìco).</em>&quot;
+Trochu krkolomnì øeèeno, ale snad je vıznam jasnı. Cyklus se
+bude opakovat, dokud nepøijde z klávesnice klávesa Esc.</font></p>
+
+<p><font face="Arial">Nyní naplníme tìlo cyklu </font><font
+color="#000080" face="Arial"><strong>opakuj pøíkazy</strong></font><font
+face="Arial"> <img src="img/opakuj.gif" width="20" height="20">.
+Petøík se bude pøi své pochùzce rozhodovat o dalším kroku
+podle políèka, které leí pøed ním. Pro rozhodování
+pouijeme novı prvek, </font><font color="#000080" face="Arial"><strong>podmínìné
+provedení pøíkazù</strong></font><font face="Arial"> <img
+src="img/podminka.gif" width="20" height="20">. Najdete ho ve
+skupince </font><font color="#000080" face="Arial"><strong>øízení
+programu</strong><em> </em></font><font face="Arial"><img
+src="img/rizeni.gif" width="20" height="20">. Prvek pøetáhnìte
+do tìla cyklu </font><font color="#000080" face="Arial"><strong>opakuj
+pøíkazy</strong></font><font face="Arial"> <img
+src="img/opakuj.gif" width="20" height="20">.</font></p>
+
+<p><font face="Arial">Po poloení prvku podmínìného
+provedení pøíkazù si mùete všimnout, e prvek v sobì
+obsahuje další tøi prvky. Prvním prvkem je </font><font
+color="#000080" face="Arial"><strong>platí-li, e</strong></font><font
+face="Arial"> <img src="img/platili.gif" width="20" height="20">.
+Je to test podmínky. S podobnım prvkem jsme se ji setkali u
+podmínìného cyklu. Prvek provádí test nìjaké podmínky a
+je-li splnìna, vykonají se pøíkazy v prvku </font><font
+color="#000080" face="Arial"><strong>potom proveï</strong></font><font
+face="Arial"><strong> </strong><img src="img/proved.gif"
+width="20" height="20">. Není-li podmínka splnìna, provedou se
+pøíkazy v prvku </font><font color="#000080" face="Arial"><strong>jinak
+proveï</strong></font><font face="Arial"> <img
+src="img/jinak.gif" width="20" height="20">.</font></p>
+
+<p><font face="Arial">V testu podmínky budeme testovat, zda
+pøed Petøíkem leí pøedmìt pro otoèení doleva. Podobnı
+test známe z pøedešlé kapitoly, a tak je vám zøejmì ji
+jasné, e pouijeme prvky </font><font color="#000080"
+face="Arial"><strong>shodnost pøedmìtù</strong></font><font
+face="Arial"> <img src="img/shodnost.gif" width="20" height="20">,
+</font><font color="#000080" face="Arial"><strong>pøedmìt pøed
+Petøíkem</strong></font><font face="Arial"> <img
+src="img/predmpred.gif" width="20" height="20"> a </font><font
+color="#000080" face="Arial"><strong>Doleva</strong></font><font
+face="Arial"> <img src="img/doleva.gif" width="20" height="20">.
+Vlote prvky do testu podmínky.</font></p>
+
+<p><font face="Arial">Do první vìtve (</font><font
+color="#000080" face="Arial"><strong>potom proveï</strong></font><font
+face="Arial"> <img src="img/proved.gif" width="20" height="20">)
+doplòte dva pøíkazy, </font><font color="#000080" face="Arial"><strong>krok</strong></font><font
+face="Arial"> <img src="img/krok.gif" width="20" height="20"> a </font><font
+color="#000080" face="Arial"><strong>vlevo</strong></font><font
+face="Arial"> <img src="img/vlevo.gif" width="20" height="20">.
+Naše konstrukce podmínìného pøíkazu má teï tento vıznam:
+&quot;<em>Leí-li pøed Petøíkem pøedmìt pro otoèení
+doleva, udìlá krok a otoèí se vlevo, jinak bude dìlat nìco
+jiného.</em>&quot;</font></p>
+
+<p><font face="Arial">Nyní vytvoøíme to &quot;<em>nìco
+jiného</em>&quot;. Zkopírujte pravım tlaèítkem myši celou
+konstrukci podmínìného pøíkazu ještì jednou o trochu
+níe. Novì vytvoøenı podmínìnı pøíkaz znovu uchopte,
+tentokrát levım tlaèítkem myši, a pøetáhnìte ho do druhé
+vìtve prvního podmínìného pøíkazu (vìtev </font><font
+color="#000080" face="Arial"><strong>jinak proveï</strong></font><font
+face="Arial"> <img src="img/jinak.gif" width="20" height="20">).
+Tak jsme si zrychlenì &quot;pøedpøipravili&quot; èást
+programu pro druhı pøípad, otoèení doprava.</font></p>
+
+<p><font face="Arial">V novém podmínìném pøíkazu nahraïte
+prvek </font><font color="#000080" face="Arial"><strong>Doleva</strong></font><font
+face="Arial"> <img src="img/doleva.gif" width="20" height="20">
+prvkem </font><font color="#000080" face="Arial"><strong>Doprava</strong></font><font
+face="Arial"> <img src="img/doprava.gif" width="20" height="20">.
+Podobnì nahraïte prvek </font><font color="#000080"
+face="Arial"><strong>vlevo</strong></font><font face="Arial"> <img
+src="img/vlevo.gif" width="20" height="20"> prvkem </font><font
+color="#000080" face="Arial"><strong>vpravo</strong></font><font
+face="Arial"> <img src="img/vpravo.gif" width="20" height="20">.
+Teï u asi tušíte, co bude Petøík dìlat, nebude-li pøed
+ním pøedmìt pro otoèení doleva. Zkusí, zda je pøed ním
+pøedmìt pøikazující otoèení doprava. Pokud ano, udìlá
+krok vpøed a otoèí se vpravo. Jinak... Co má vlastnì dìlat
+jinak? Nic jiného u od nìj nechceme, take staèí, kdy
+udìlá </font><font color="#000080" face="Arial"><strong>krok</strong></font><font
+face="Arial"> <img src="img/krok.gif" width="20" height="20">.
+Prvek kroku zkopírujte pravım tlaèítkem myši z vedlejší
+vìtve podmínky.</font></p>
+
+<p><font face="Arial">Vypadalo to sloitì? Nebojte, u jsme
+hotovi. Vıslednı program vidíte na obrázku zde.</font></p>
+
+<p align="center"><font face="Arial"><img src="img/znacky2.gif"
+width="454" height="801"></font></p>
+
+<p><font face="Arial">Program spuste. Je-li vše v poøádku,
+Petøík pobíhá mezi znaèkami a otáèí se na nich vlevo a
+vpravo. Chcete Petøíka trochu zrychlit? Dvojklikem myší na
+prvku </font><font color="#000080" face="Arial"><strong>Petøík</strong></font><font
+face="Arial"> <img src="img/petrik.gif" width="20" height="20">
+vyvolejte editaci sprajtu Petøíka (sprajt je animovaná
+postavièka Petra). Stisknìte tlaèítko </font><font
+color="#000080" face="Arial"><strong>Vlastnosti</strong></font><font
+face="Arial"> <img src="img/sprset.gif" width="23" height="20">.
+Objeví se okno pro nastavení vlastností sprajtu. Do pole </font><font
+color="#000080" face="Arial"><strong>Fází na krok</strong></font><font
+face="Arial"> napište èíslo </font><font color="#000080"
+face="Arial"><strong>4</strong></font><font face="Arial"> a
+stisknìte klávesu </font><font color="#000080" face="Arial"><strong>Enter</strong></font><font
+face="Arial">. Program opìt spuste. Petøík teï bìhá jako
+blázen, ani se nezadıchá.</font></p>
+
+<p><font face="Arial">Zkuste Petøíkovi pøipravit
+sloitìjší dráhu. Tady je jeden pøíklad:</font></p>
+
+<p align="center"><img src="img/znacky3.gif" width="640"
+height="480"></p>
+
+<p align="center"><img src="img/znacky4.gif" width="648"
+height="514"></p>
+
+<p align="center"><a href="download/5_znacky.zip"><font
+face="Arial">download pøíkladu</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_04.htm"><font face="Arial">4.
+Zahrádka s podmínkou</font></a><font face="Arial"> &lt;&lt;&lt;
+</font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_06.htm"><font
+face="Arial">6. Petr v bludišti</font></a></p>
+</body>
+</html>

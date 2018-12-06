@@ -1,0 +1,266 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>22 Lovíme minotaury (èást 1 bludištì)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_21.htm"><font face="Arial">21.
+Pozor, padá hvìzda!</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_23.htm"><font
+face="Arial">23. Lovíme minotaury (2. èást, ovládání)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">22. Lovíme minotaury (1. èást,
+bludištì)</font></h2>
+
+<p><font face="Arial">Tak trochu se vrátíme k našemu
+oblíbenému bludišti, které jsme vytváøeli v políèkové
+grafice. Tentokrát ale v plnì 3D. A s lepšími pøíšerami.</font></p>
+
+<p><font face="Arial">Založte si nový program, </font><font
+color="#000080" face="Arial"><strong>Bludištì 3D</strong></font><font
+face="Arial">. Ze všeho nejdøíve budeme potøebovat návrh
+bludištì. Využijeme opìt políèkovou grafiku a plochu,
+která je na návrhy scén jako ušitá.</font></p>
+
+<p><font face="Arial">Pøipravte si nìjaké textury, které
+použijete k vytvoøení zdí, podlahy a stropu. Mùžete
+použít ty, co jsou na konci lekce. Každé políèko bude
+tvoøit 1 ètvercovou plochu s rozmìry 1 x 1 a s vlastní
+texturou. Textury použijte o velikosti 256 x 256 bodù (tj. 8 x
+8 políèek). Pro všechny textury budeme používat </font><font
+color="#000080" face="Arial"><strong>vyhlazení textur</strong></font><font
+face="Arial"> stupnì 2. Tím se sice všechny textury zredukují
+na rozmìr 128 x 128 bodù, ale vyhladí se tím artefakty
+vzniklé pøevodem True Color textur do 256 barev, které
+používá Petr. Díky tomu, že pøevody probìhly s
+ditheringem, vzniknou po zmenšení opìt textury v True Color.</font></p>
+
+<p><font face="Arial">Pro každou texturu zdi si pøipravte jeden
+pøedmìt s obrázkem zdi. Pøedmìty použijte k návrhu
+bludištì. Každé políèko pro zeï bude nahrazeno blokem až
+4 stìn se stejnou texturou. Prázdné políèko pøekreslete
+obrázkem podlahy. Návrh by mohl vypadat napøíklad takto:</font></p>
+
+<p align="center"><img src="img4/bludiste1.jpg" width="640"
+height="480"></p>
+
+<p><font face="Arial">Program zahájíme klasicky skupinou </font><font
+color="#000080" face="Arial"><strong>inicializace programu</strong></font><font
+face="Arial"> a pøíkazem pro inicializací 3D grafiky. V
+programu budeme používat </font><font color="#000080"
+face="Arial"><strong>vyhlazení textur 2</strong></font><font
+face="Arial">, proto mùžeme tento pøíkaz uvést už na
+zaèátku programu. Výsledkem bude hra bìžící v
+celoobrazovkovém režimu, proto pøipravíme pøíkaz </font><font
+color="#000080" face="Arial"><strong>celoobrazovkový režim</strong></font><font
+face="Arial">, který zajistí pøepnutí. Zatím ho však
+necháme vypnutý (tlaèítkem </font><font color="#000080"
+face="Arial"><strong>Vypnout</strong></font><font face="Arial">),
+protože pøepínání videomódu chvíli trvá a navíc mùže
+mít za následek rozhození rozmìrù nìkterých oken, proto
+radìji program vyvíjíme v oknovém režimu.</font></p>
+
+<p><font face="Arial">Dále si pøipravíme prázdnou funkci </font><font
+color="#000080" face="Arial"><strong>vytvoøení 3D bludištì</strong></font><font
+face="Arial"> a nakonec hlavní smyèku programu ukonèovanou
+stiskem klávesy </font><font color="#000080" face="Arial"><strong>Esc</strong></font><font
+face="Arial">. Protože se bude jednat o 3D hru v
+celoobrazovkovém režimu, mùžeme si dovolit ji preferovat
+pøed ostatními aplikacemi, zvolíme proto èasovaè s èasem </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">. Tím zajistíme maximální plynulost chodu hry.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste2.gif" width="294" height="576"></font></p>
+
+<p><font face="Arial">Pøejdeme k obsluze vytváøení
+bludištì. Vytvoøíme jenom ty plochy, které bychom mohli
+vidìt z prùchozího políèka. Proto projdeme postupnì
+všechna políèka plochy a pokud narazíme na prázdné
+(prùchozí) políèko, vytvoøíme podlahu a strop. Pak
+testujeme sousední políèka a není-li na nich prázdné
+políèko, vytvoøíme tam pøíslušnou zeï.</font></p>
+
+<p><font face="Arial">K procházení políèek plochy využijeme
+Petra. Vypneme jeho viditelnost (nepotøebujeme aby byl
+animovaný, stejnì ho ve 3D nevidíme) a nastavíme øádek na 0
+a smìr doprava. Pak procházíme postupnì všechny øádky a
+pozice plochy a testujeme, zda jsme narazili na prùchodné
+políèko.</font></p>
+
+<p align="center"><img src="img4/bludiste3.gif" width="327"
+height="736"></p>
+
+<p><font face="Arial">Narazíme-li na prázdné (prùchodné)
+políèko, ze všeho nejdøíve vytvoøíme podlahu. Jenom z toho
+prostého dùvodu, že ji mùžeme snadno vidìt bìhem ladìní.
+Podlaha bude objekt stìny (který je tvoøen dvìma
+pravoúhlými trojúhelníky). Stìna se vytvoøí jako
+stojící, otoèená pøední stranou smìrem k nám (my se
+díváme smìrem kladné osy </font><font color="#000080"
+face="Arial"><strong>Z</strong></font><font face="Arial">). Proto
+ji rotací podle osy </font><font color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial"> o </font><font color="#000080" face="Arial"><strong>90</strong></font><font
+face="Arial"> stupòù položíme na zem. Poté ji nastavíme na
+souøadnice shodné se souøadnicemi Petra. S tím ovšem, že v
+našem 3D svìtì používáme osu Y smìrem vzhùru a osu Z
+smìrem od nás vpøed. Zatímco na plochu se díváme pohledem
+shora. Proto nastavíme souøadnici Z stìny podle souøadnice Y
+Petra. Stìna má rozmìr 1 x 1, proto stìny mùžeme jednoduše
+skládat vedle sebe podle políèkových souøadnic, které se
+také liší o 1. U 3D objektù je nula souøadnic ve støedu
+objektu, proto pøièteme k souøadnicím </font><font
+color="#000080" face="Arial"><strong>0.5</strong></font><font
+face="Arial">, aby podlaha ležela v intervalu souøadnic 0 až
+1. Se stìnami bludištì nebudeme v budoucnu už nijak
+manipulovat, proto si jejich ID nebudeme uchovávat a mùžeme
+tedy použít pro všechny stìny jednu spoleènou promìnnou </font><font
+color="#000080" face="Arial"><strong>pomocné ID</strong></font><font
+face="Arial">, kterou si vytvoøíme jenom doèasnì v
+lokálních promìnných funkce.</font></p>
+
+<p align="center"><img src="img4/bludiste4.gif" width="349"
+height="704"></p>
+
+<p align="left"><font face="Arial">Abychom mohli vyzkoušet, jak
+nám funguje vytváøení podlahy, musíme si nejdøíve posunout
+kameru na pozici, ze které bludištì dobøe uvidíme. Kamera je
+také jeden z objektù, má èíslo </font><font color="#000080"
+face="Arial"><strong>1</strong></font><font face="Arial">.
+Vyberte ji jako aktivní objekt. Nastavením souøadnice </font><font
+color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>10</strong></font><font
+face="Arial"> ji posunume do støedu bludištì. Nastavením
+souøadnice </font><font color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>18</strong></font><font
+face="Arial"> ji posuneme tak nìjak pøimìøenì nahoru
+(hodnotu jsme zjistili zkusmo). Nastavením souøadnice </font><font
+color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>-6</strong></font><font
+face="Arial"> couvneme trochu dozadu, to abychom vidìli celé
+bludištì. No a nakonec nastavením rotace </font><font
+color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial"> na hodnotu </font><font color="#000080"
+face="Arial"><strong>1</strong></font><font face="Arial">
+sklopíme svùj pohled trochu dolù. Hodnota byla stanovena opìt
+zkusmo. Je to v radiánech, takže by to bylo asi tak 52
+stupòù.</font></p>
+
+<p align="center"><img src="img4/bludiste5.gif" width="318"
+height="352"></p>
+
+<p align="left"><font face="Arial">Když teï program spustíte,
+mìli byste vidìt vytvoøená prázdná políèka bludištì
+(podlaha).</font></p>
+
+<p align="center"><img src="img4/bludiste6.jpg" width="648"
+height="514"></p>
+
+<p align="left"><font face="Arial">Strop vytvoøíme podobnì
+jako podlahu. Proto zkopírujeme skupinu pro vytvoøení podlahy
+a jenom ji pozmìníme. Rotaci podle osy </font><font
+color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial"> musíme dìlat obráceným smìrem, proto namísto </font><font
+color="#000080" face="Arial"><strong>90</strong></font><font
+face="Arial"> stupòù použijeme úhel </font><font
+color="#000080" face="Arial"><strong>270</strong></font><font
+face="Arial"> stupòù. Podlaha byla ve výšce </font><font
+color="#000080" face="Arial"><strong>0</strong></font><font
+face="Arial">, zatímco strop bude ve výšce </font><font
+color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial">. Proto nastavíme souøadnici </font><font
+color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial">. Nakonec pøidáme malou </font><font
+color="#000080" face="Arial"><strong>svítivost</strong></font><font
+face="Arial"> povrchu stropu, protože je osvìtlený shora a byl
+by jinak pøíliš tmavý.</font></p>
+
+<p align="center"><img src="img4/bludiste7.gif" width="279"
+height="608"></p>
+
+<p align="left"><font face="Arial">Abychom vytvoøený strop
+vidìli, staèí jen abychom zmìnili znaménko souøadnice </font><font
+color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> kamery na </font><font color="#000080" face="Arial"><strong>-18</strong></font><font
+face="Arial"> a znaménko rotace podle osy </font><font
+color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>-1</strong></font><font
+face="Arial">. Pøi spuštìní bychom mìli vidìt strop, který
+je podobný zrcadlovì otoèené podlaze.</font></p>
+
+<p align="center"><img src="img4/bludiste8.jpg" width="648"
+height="514"></p>
+
+<p align="left"><font face="Arial">Pøi vytváøení stìn budeme
+testovat sousední políèka. Nejedná-li se o prázné
+(prùchozí) políèko, vytvoøíme pøed sebou zeï. Texturu
+nastavíme podle obsahu políèka. Pro </font><font
+color="#000080" face="Arial"><strong>zeï 1</strong></font><font
+face="Arial"> zvolíme vìtev </font><font color="#000080"
+face="Arial"><strong>jinak proveï pøíkazy</strong></font><font
+face="Arial">, která zahrne nejen políèko pro zeï 1, ale
+také okraj plochy. Zeï otoèíme správným smìrem podle
+aktuálního smìru otoèení Petra a posuneme na správnou
+pozici, opìt výpoètem ze souøadnic Petra a smìru otoèení.
+Nastavením souøadnice </font><font color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>0.5</strong></font><font
+face="Arial"> zajistíme správnou výšku zdi nad zemí. U 3D
+objektù se souøadnice nastavují pro støed objektu. Podlaha
+má </font><font color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> souøadnici </font><font color="#000080"
+face="Arial"><strong>0</strong></font><font face="Arial">, strop </font><font
+color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial"> a proto zeï bude mít </font><font color="#000080"
+face="Arial"><strong>0.5</strong></font><font face="Arial">. Na
+závìr nastavíme viditelnost pro obì strany stìny - to je jen
+pro ladicí úèely, až bludištì vyzkoušíme, tak pøíkaz
+opìt zrušíme.</font></p>
+
+<p align="center"><img src="img4/bludiste9.gif" width="745"
+height="900"></p>
+
+<p align="left"><font face="Arial">Po spuštìní by mìly být
+vidìt zdi kolem cest. Nezapomeòte ale ještì nejdøíve
+vrátit kameru na kladnou souøadnici </font><font
+color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> (</font><font color="#000080" face="Arial"><strong>18</strong></font><font
+face="Arial">) a rotaci </font><font color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><img src="img4/bludiste10.jpg" width="648"
+height="514"></p>
+
+<p align="left"><font face="Arial">A po zrušení pøíkazu pro
+viditelnost obou stran vidíme pouze správné strany zdí.</font></p>
+
+<p align="center"><img src="img4/bludiste11.jpg" width="648"
+height="514"></p>
+
+<p align="left"><font face="Arial"><em>.... pokraèování
+pøíštì</em></font></p>
+
+<p align="center"><a href="download/22_textury.zip"><font
+face="Arial">download textur k pøíkladu</font></a></p>
+
+<p align="center"><a href="download/22_bludiste.zip"><font
+face="Arial">download pøíkladu Bludištì 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_21.htm"><font face="Arial">21.
+Pozor, padá hvìzda!</font></a><font face="Arial"> &lt;&lt;&lt; </font><a
+href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_23.htm"><font
+face="Arial">23. Lovíme minotaury (2. èást, ovládání)</font></a></p>
+</body>
+</html>

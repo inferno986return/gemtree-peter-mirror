@@ -1,0 +1,428 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>25 Lovíme minotaury (èást 4 støelba)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_24.htm"><font face="Arial">24.
+Lovíme minotaury (3. èást, minotauøi)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_26.htm"><font face="Arial">26. Lovíme minotaury (5.
+èást, zásah)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">25. Lovíme minotaury (4. èást, støelba)</font></h2>
+
+<p><font face="Arial"><em>... pokraèování z minulé lekce</em></font></p>
+
+<p><font face="Arial">Pøichází akce. Dáme hráèi zbraò.
+Zvolíme fázer, protoe ho mùeme doprovodit zajímavımi
+efekty.</font></p>
+
+<p><font face="Arial">Pøipravíme si funkci </font><font
+color="#000080" face="Arial"><strong>vytvoøení zbranì</strong></font><font
+face="Arial">. Zavolejte ji bìhem inicializace. Hráè nevidí
+zbraò celou, staèí vytvoøit hlaveò. Sloíme ji z jádra
+fázeru, jakéhosi reaktoru, co bude zelenì záøící trubka.
+Kolem jádra bude pláš. Obojí spojené do skupiny, abychom
+mohli se zbraní snadno manipulovat.</font></p>
+
+<p><font face="Arial">Jádro vytvoøíme jako válec bez podstav.
+Sloitost staèí pomìrnì nízká, </font><font
+color="#000080" face="Arial"><strong>3</strong></font><font
+face="Arial">. Vıšku </font><font color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> ponecháme </font><font color="#000080"
+face="Arial"><strong>1</strong></font><font face="Arial">,
+velikost nastavíme a u celé sestavy. Válec sklopíme kolem
+osy </font><font color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial"> dolù a tím ho poloíme ve smìru od sebe.
+Texturu pouijeme podle následujícího obrázku (naleznete ji
+na konci kapitoly). Osvìtlení objektu vypneme, je to záøící
+objekt a nechceme tedy aby byl stínovanı.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste41.gif" width="276" height="608"></font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste42.gif" width="128" height="128"></font></p>
+
+<p><font face="Arial">Pláš fázeru je také otexturovanı
+válec bez podstav. Nastavíme mu kovovı odlesk a obrysy, tím
+zprùhledníme otvory v plášti, aby bylo viditelné jádro.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste43.gif" width="275" height="608"></font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste44.gif" width="128" height="128"></font></p>
+
+<p><font face="Arial">Jádro i pláš fázeru spojíme do
+skupiny a celek pøipojíme ke kameøe, aby hráè zbraò vidìl
+stále pøed sebou. Nastavíme velikost fázeru, nakloníme ho
+trochu nahoru a posuneme mírnì dolù pod oèi hráèe.
+Zobrazení zbranì je ve skuteènosti velmi nereálné. Kdybychom
+se podívali na hráèe ze strany, byla by to malá trubièka
+tìsnì pøed jeho oèima. Ale to je ve 3D grafice èastı
+pøípad, e se vìci šidí aby nìjak vypadaly a èasto
+vypadají líp ne kdyby se zobrazily realisticky. K
+nereálnému mìøítku jsme sáhli proto, e hráèe pouštíme
+blízko zdi a delší zbraò by pronikala zdí.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste45.gif" width="319" height="736"></font></p>
+
+<p><font face="Arial">Program spuse. Mìli byste vidìt hlaveò
+fázeru. Zkuste se otáèet, vidíte jak se mìni její kovovı
+lesk. Zbraò by nikde nemìla vniknout do zdi.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste46.jpg" width="648" height="514"></font></p>
+
+<p><font face="Arial">Pro zvıšení efektu budeme zbraò
+animovat. Zalote funkci </font><font color="#000080"
+face="Arial"><strong>animace zbranì</strong></font><font
+face="Arial"> a volejte ji z hlavní smyèky programu. V obsluhe
+funkce budeme náhodnì rotovat jádro fázeru. Tím docílíme
+efekt blikání povrchu. Fázer budeme posouvat do stran, ve
+smìru </font><font color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial">, a to podle aktuálních souøadnic hráèe.
+Dosáhneme tím efektu jako kdy hráè svou zbraní houpe pøi
+chùzi. A ještì ji budeme lehce naklánìt do stran.</font></p>
+
+<p align="center"><img src="img4/bludiste47.gif" width="348"
+height="640"></p>
+
+<p><font face="Arial">Vyzkoušejte funkènost. Projdìte se a
+sledujte jak se zbraò pohybuje s chùzí. Je to pomìrnì
+zjednodušená metoda, rychlost houpání je závislá na smìru
+chùze a pøi jednom diagonálním smìru se zbraò nehıbe
+vùbec. Ale hráèi to pro dojem staèí, stejnì diagonální
+chodby v naší høe nemáme. Dokonce tato nedokonalost
+pøidává trochu realistické promìnlivosti. (eby byl hráè
+smìrem na severozápad unavenìjší?)</font></p>
+
+<p><font face="Arial">Pøejdeme k obsluze støel. Vytvoøte si </font><font
+color="#000080" face="Arial"><strong>seznam støel</strong></font><font
+face="Arial">. Maximálni poèet støel staèí </font><font
+color="#000080" face="Arial"><strong>10</strong></font><font
+face="Arial">. Seznam bude obsahovat èíselné promìnné </font><font
+color="#000080" face="Arial"><strong>ID støely</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>smìr
+letu støely Y</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>èítaè doletu støely</strong></font><font
+face="Arial">. Pozdìji ještì budeme potøebovat </font><font
+color="#000080" face="Arial"><strong>ID vıbuchu</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>èítaè
+doby vıbuchu</strong></font><font face="Arial">, mùete si je
+tam pøipravit u pøedem.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste48.gif" width="230" height="288"></font></p>
+
+<p><font face="Arial">Støely vytvoøíme pøedem a budeme je
+recyklovat. Vytváøet je budeme ve funkci </font><font
+color="#000080" face="Arial"><strong>vytvoøení støel a
+vıbuchù</strong></font><font face="Arial">, její volání
+pøidejte do inicializace. Ve funkci vytvoøíme všechny støely
+jako 2D objekty s texturou zobrazenou níe. Moná jste
+èekali prùhlednı válec. Je to zas trochu ošizení, abychom
+si práci zjednodušili. Prùhledná textura zajistí rozmazané
+hrany støely. Pøi rychlosti støely hráè nezpozoruje
+nesoulad, støelu nevidí nikdy ze strany. Støele nastavte
+vıšku </font><font color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial"> podle konstanty </font><font color="#000080"
+face="Arial"><strong>vıška støely nad zemí</strong></font><font
+face="Arial">, kterou v inicializaci nastavte na </font><font
+color="#000080" face="Arial"><strong>0.4</strong></font><font
+face="Arial">. Viditelnost vypnìte, støely budou viditelné jen
+kdy poletí.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste49.gif" width="445" height="864"></font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste50.gif" width="64" height="64"></font></p>
+
+<p><font face="Arial">Chcete-li se podívat jak støela vypadá a
+doladit vzhled, pøesuòte na chvíli skupinu pro vytvoøení
+støely mimo cyklus, odstavte tlaèítkem </font><font
+color="#000080" face="Arial"><strong>Vypnout</strong></font><font
+face="Arial"> vypnutí viditelnosti støely a pøidejte
+nastavení souøadnic </font><font color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial"> nìkam blízko hráèe, napø. </font><font
+color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>0.5</strong></font><font
+face="Arial">. Program spuse a podívejte se na støelu vedle
+vás. A ji doladíte, nezapomeòte vše vrátit zpìt.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste51.jpg" width="648" height="514"></font></p>
+
+<p><font face="Arial">Do skupiny </font><font color="#000080"
+face="Arial"><strong>ovládání hráèe</strong></font><font
+face="Arial"> v hlavní smyèce doplníme obsluhu zahájení
+støelby. Potøebujeme k tomu promìnnou </font><font
+color="#000080" face="Arial"><strong>èítaè èasu do dalšího
+vıstøelu</strong></font><font face="Arial"> (pøi startu
+programu musí mít hodnotu </font><font color="#000080"
+face="Arial"><strong>0</strong></font><font face="Arial">, proto
+ji radìji inicializujte), konstantu </font><font color="#000080"
+face="Arial"><strong>doba mezi støelami</strong></font><font
+face="Arial">, kterou inicializujte na hodnotu </font><font
+color="#000080" face="Arial"><strong>0.25</strong></font><font
+face="Arial"> (co znamená </font><font color="#000080"
+face="Arial"><strong>4</strong></font><font face="Arial">
+vıstøely za sekundu) a funkci </font><font color="#000080"
+face="Arial"><strong>vıstøel</strong></font><font face="Arial">.
+Obsluha odeèítá ubìhlı èas od posledního vıstøelu a
+pokud dosáhl nuly a je stisknuta støílecí klávesa (zvolili
+jsme </font><font color="#000080" face="Arial"><strong>mezerník</strong></font><font
+face="Arial"> a obì klávesy </font><font color="#000080"
+face="Arial"><strong>Ctrl</strong></font><font face="Arial">),
+tak odstartuje nové èítání èasu a zavolá funkci
+generující novou støelu.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste52.gif" width="358" height="704"></font></p>
+
+<p><font face="Arial">Do obsluhy funkce </font><font
+color="#000080" face="Arial"><strong>vıstøel</strong></font><font
+face="Arial"> nejdøíve zkusmo pøidejte jen pøíkaz pro
+pøehrátí zvuku vıstøelu a vyzkoušejte, zda program reaguje
+správnì na støílecí klávesy opakovanımi zvuky vıstøelu.</font></p>
+
+<p><font face="Arial">Pøi zahájení vıstøelu budeme
+procházet postupnì všechny støely seznamu a budeme hledat,
+která støela je volná, to znamená která má vypnutou
+viditelnost. Seznam neprohledáváme od zaèátku, ale od
+promìnné </font><font color="#000080" face="Arial"><strong>index
+minulé støely</strong></font><font face="Arial">, ve které
+máme uchovanı index minule vygenerované støely. Je to z toho
+dùvodu, e ke kadé støele patøí i vıbuch. Pøi krátké
+støelbì do blízké zdi by se mohlo stát, e recyklujeme
+støelu její vıbuch ještì probíhá a mohla by ho novım
+vıbuchem pøedèasnì ukonèit. Dalším dùvodem je zvuk
+vıstøelu, mohl by se pøedèasnì ukonèit probíhající zvuk
+pøedešlé støely.</font></p>
+
+<p align="center"><img src="img4/bludiste53.gif" width="356"
+height="448"></p>
+
+<p><font face="Arial">Není-li støela viditelná, je moné ji
+recyklovat. </font><font color="#000080" face="Arial"><strong>ID
+støely</strong></font><font face="Arial"> si uchováme do
+promìnné </font><font color="#000080" face="Arial"><strong>ID
+støely se záøí</strong></font><font face="Arial">, pouijeme
+ji pozdìji pøi obsluze záøe od støely. Pøehrajeme zvuk
+vıstøelu. Aby se pøi opakování vıstøelu nespouštìl a
+nepøerušoval stále stejnı zvuk, pouijeme </font><font
+color="#000080" face="Arial"><strong>rozlišovací kód</strong></font><font
+face="Arial"> zvuku podle indexu støely. Zapneme viditelnost
+støely a nastavíme ji na souøadnici kamery. Z kamery si
+uchováme aktuální smìr otoèení </font><font color="#000080"
+face="Arial"><strong>Y</strong></font><font face="Arial">, to
+bude smìr letu støely. </font><font color="#000080"
+face="Arial"><strong>Èítaè doletu støely</strong></font><font
+face="Arial"> nastavíme na hodnotu podle konstanty </font><font
+color="#000080" face="Arial"><strong>vzdálenost doletu støely</strong></font><font
+face="Arial">, kterou v inicializaci nastavte na hodnotu </font><font
+color="#000080" face="Arial"><strong>5</strong></font><font
+face="Arial"> (tj. dolet støely je 5 políèek).</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste54.gif" width="360" height="768"></font></p>
+
+<p><font face="Arial">Pokud teï program vyzkoušíte, mùete
+vidìt, e pøi couvání a souèasné støelbì trousíte za
+sebou støely, a do poètu 10.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste55.jpg" width="648" height="514"></font></p>
+
+<p><font face="Arial">Dále se budeme zabıvat funkcí </font><font
+color="#000080" face="Arial"><strong>obsluha støel a vıbuchù</strong></font><font
+face="Arial">. Její volání doplòte do hlavní smyèky
+programu.</font></p>
+
+<p><font face="Arial">Pøidejte do programu konstantu </font><font
+color="#000080" face="Arial"><strong>rychlost letu støely</strong></font><font
+face="Arial">, kterou nastavte v inicializaci na hodnotu </font><font
+color="#000080" face="Arial"><strong>5</strong></font><font
+face="Arial"> (tj. 5 políèek za sekundu). Ve funkci si
+pøipravte místní promìnné </font><font color="#000080"
+face="Arial"><strong>stará souøadnice X støely</strong></font><font
+face="Arial">, </font><font color="#000080" face="Arial"><strong>stará
+souøadnice Z støely</strong></font><font face="Arial">, </font><font
+color="#000080" face="Arial"><strong>nová souøadnice X støely</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>nová
+souøadnice Z støely</strong></font><font face="Arial">. Dùvod
+jejich pouití bude zøejmı za chvíli.</font></p>
+
+<p><font face="Arial">Obsluhu støel provádíme postupnì v
+cyklu pro všechny støely. Není tøeba inicializovat ukazatel v
+seznamu, po pøekroèení konce se pøevine automaticky na
+zaèátek.</font></p>
+
+<p align="center"><img src="img4/bludiste56.gif" width="353"
+height="315"></p>
+
+<p><font face="Arial">Narazíme-li na viditelnou (to znamená
+letící) støelu, obslouíme ji. Uchováme si staré
+souøadnice støely na pozdìji a vypoèteme a nastavíme nové
+souøadnice podle smìru letu støely. Odeèteme urazenou
+vzdálenost od </font><font color="#000080" face="Arial"><strong>èítaèe
+doletu støely</strong></font><font face="Arial"> a pokud je
+hodnota èítaè rovna nebo menší </font><font color="#000080"
+face="Arial"><strong>0</strong></font><font face="Arial">,
+vypneme viditelnost støely a tím let støely ukonèíme.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste57.gif" width="372" height="896"></font></p>
+
+<p align="left"><font face="Arial">Program vyzkoušejte. Mìli
+byste bıt schopnni støílet støelami, støely v urèité
+vzdálenosti samy mizí. Vidíme pøi tom, e jsme zvolili
+pøíliš vysokou </font><font color="#000080" face="Arial"><strong>rychlost
+otáèení</strong></font><font face="Arial">, špatnì se s ní
+zamìøuje. Snííme ji proto na </font><font color="#000080"
+face="Arial"><strong>3</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste58.jpg" width="648" height="514"></font></p>
+
+<p align="left"><font face="Arial">Pøidáme ke støele další
+doprovodnı efekt, </font><font color="#000080" face="Arial"><strong>záøi</strong></font><font
+face="Arial">. Záøe støely osvítí okolní prostøedí.
+Pouijeme k tomu objekt </font><font color="#000080"
+face="Arial"><strong>svìtlo</strong></font><font face="Arial">.
+Svìtel máme ve 3D prostøedí jen omezenı poèet. Zpravidla 8,
+v závislosti na grafické kartì. Proto si vystaèíme pouze s
+jednou záøí, kterou pouijeme vdy jen pro nejbliší
+støelu. Omezení není pøíliš nápadné - pøi opakované
+støelbì je nejvıraznìjší osvìtlení místa blízko hráèe
+a pøi ukonèení støelby je patrné plynutí záøe s poslední
+støelou.</font></p>
+
+<p align="left"><font face="Arial">Vytvoøení záøe pøidáme
+na konec funkce </font><font color="#000080" face="Arial"><strong>vytvoøení
+støel a vıbuchù</strong></font><font face="Arial">. Do
+promìnné </font><font color="#000080" face="Arial"><strong>ID
+støely se záøí</strong></font><font face="Arial"> si
+uchováme naposledy pouitou </font><font color="#000080"
+face="Arial"><strong>ID støely</strong></font><font face="Arial">
+(je jedno která støela to je). To proto, e záøi obsluhujeme
+podle støel a tak aby se záøe vypnula hned pøi spuštìní
+programu. Záøi vytvoøíme jako objekt svìtla. Barvu záøe
+jsme zvolili zelenou, aby byla dobøe kontrastní s okolním
+prostøedím. Typ svìtla </font><font color="#000080"
+face="Arial"><strong>bodové</strong></font><font face="Arial"> -
+støela bude osvìtlovat vše kolem sebe. Nastavením </font><font
+color="#000080" face="Arial"><strong>kvadratického zeslabení</strong></font><font
+face="Arial"> na </font><font color="#000080" face="Arial"><strong>0.5</strong></font><font
+face="Arial"> dosáhneme toho, e záøe bude dosahovat jen do
+urèité vzdálenosti, jen aby osvítila blízké stìny.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste59.gif" width="332" height="417"></font></p>
+
+<p align="left"><font face="Arial">Obsluhu záøe pøidáme na
+konec funkce </font><font color="#000080" face="Arial"><strong>obsluha
+støel a vıbuchù</strong></font><font face="Arial">. Do
+místních promìnnıch funkce si pøipravte logickou promìnnou </font><font
+color="#000080" face="Arial"><strong>záøe viditelná</strong></font><font
+face="Arial">. Jak si asi vzpomínáte, pøi aktivaci nové
+støely jsme si uchovali ID nejnovìjší støely do promìnné </font><font
+color="#000080" face="Arial"><strong>ID støely se záøí</strong></font><font
+face="Arial">. V obsluze záøe si uchováme pøíznak
+viditelnosti støely a její souøadnice X a Z, to vše pak
+nastavíme do parametrù záøe. Tím jsme zajistili, e záøe
+bude støelu sledovat a pøípadnì se vypne, nebude-li mít o ni
+ádná støela u zájem.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste60.gif" width="321" height="544"></font></p>
+
+<p align="left"><font face="Arial">Program spuse a záøi
+vyzkoušejte. Mìla by sledovat naposledy vystøelenou støelu.
+Ale - pøiznejme si to - vısledek je dost nevalnı. Záøe
+osvìtluje pouze strop a jednu stranu stìn. Podlaha a stìny na
+opaèné stranì zùstávají beze zmìny. Je to z toho dùvodu,
+e po souètu hlavního osvìtlení a rozptıleného svìtla se
+na tìchto stìnách dosáhlo maximálního osvitu. Proto se na
+nich pøídavné svìtlo u nijak neprojeví.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste61.jpg" width="648" height="514"></font></p>
+
+<p><font face="Arial">Abychom efektu záøe docílili, jsme
+nuceni sníit celkovı jas scény. To je také jeden z
+dùvodù, proè je vìtšina her tmavì ladìná - aby byla
+rezerva pro vytváøení svìtelnıch efektù. Louè hoøící
+poblí jasnì bílé stìny by jistì vypadal nezajímavì.</font></p>
+
+<p><font face="Arial">Ke sníení jasu prostøedí si u
+pøedem pøipravíme novou funkci, </font><font color="#000080"
+face="Arial"><strong>aktualizace osvìtlení</strong></font><font
+face="Arial">, kterou vyuijeme pozdìji. Pomocí osvìtlení
+budeme indikovat zranìní hráèe. Bude-li hráè zranìn,
+zaène vidìt èervenì.</font></p>
+
+<p><font face="Arial">Pøipravte èíselnou promìnnou </font><font
+color="#000080" face="Arial"><strong>ivot hráèe (0 a 1)</strong></font><font
+face="Arial">, kterou v inicializaci nastavte na </font><font
+color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial"> (tedy maximální ivot hráèe). Pøidejte
+volání funkce </font><font color="#000080" face="Arial"><strong>aktualizace
+osvìtlení</strong></font><font face="Arial"> do hlavní
+smyèky. V obsluze funkce vybereme jako aktivní objekt hlavní
+svìtlo scény, které má </font><font color="#000080"
+face="Arial"><strong>ID = 2</strong></font><font face="Arial">.
+Barvu svìtla nastavíme tak, e èervená sloka bude
+neustále na maximální hodnotì </font><font color="#000080"
+face="Arial"><strong>0.5</strong></font><font face="Arial">,
+zatímco zelená a modrá sloka bude klesat spolu s
+klesajícím zdravím hráèe. Podobnì nastavíme i rozptılené
+svìtlo, jen intenzitu nastavíme niší, na </font><font
+color="#000080" face="Arial"><strong>0.3</strong></font><font
+face="Arial">. V inicializaci programu mùete zrušit pøíkaz
+pro nastavení rozptıleného svìtla, kterı jsme tam døíve
+dali.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste62.gif" width="345" height="896"></font></p>
+
+<p align="left"><font face="Arial">Teï ji vypadají svìtelné
+efekty zajímavìji. Tmavší vzhled scény nemusí bıt
+problém. Scéna se zdá bıt tmavá jenom v oknovém reimu,
+kdy je okno obklopeno svìtlou plochou Windows. V
+celoobrazovkovém reimu vypadá hra podstatnì lépe.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste63.jpg" width="648" height="514"></font></p>
+
+<p><font face="Arial"><em>.... pokraèování pøíštì</em></font></p>
+
+<p align="center"><a href="download/25_data.zip"><font
+face="Arial">download dat k pøíkladu</font></a></p>
+
+<p align="center"><a href="download/25_bludiste.zip"><font
+face="Arial">download pøíkladu Bludištì 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_24.htm"><font face="Arial">24.
+Lovíme minotaury (3. èást, minotauøi)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_26.htm"><font face="Arial">26. Lovíme minotaury (5.
+èást, zásah)</font></a></p>
+</body>
+</html>

@@ -1,0 +1,536 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>33 Metody 3D grafiky (èást 2 terén)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_32.htm"><font face="Arial">32.
+Metody 3D grafiky (1. èást, úvod)</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_34.htm"><font
+face="Arial">34. Metody 3D grafiky (3. èást, ovládání)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">33. Metody 3D grafiky (2. èást, terén)</font></h2>
+
+<p><font face="Arial"><em>... pokraèování z minulé lekce</em></font></p>
+
+<p><font face="Arial">V této lekci se budeme zabıvat tvorbou
+venkovních (&quot;<em>outdoor</em>&quot;) terénù. Metody
+tvorby terénu si ukáeme na programu </font><font
+color="#000080" face="Arial"><strong>Metody 3D</strong></font><font
+face="Arial">, kterı si mùete stáhnout na konci lekce.</font></p>
+
+<h3><font face="Arial">1. Ètverec</font></h3>
+
+<p><font face="Arial">Úplnì nejjednodušším typem terénu je
+prostá ètvercová nebo obdélníková plocha zaloená na
+prvku </font><font color="#000080" face="Arial"><strong>stìna</strong></font><font
+face="Arial"> (kterı tvoøí 2 pravoúhlé trojúhelníky).
+Prvek je roztaen na rozmìry terénu a pokryt jednou velkou
+texturou.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody2.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">Ètvercovı terén má vıhodu v
+jednoduchosti, ovšem za cenu mnoha nevıhod. Kromì toho, e
+terén nemùeme vıškovì èlenit, je nejvìtší nevıhodou
+potøeba velké textury. Vzhledem k tomu, e si nemùeme
+dovolit rozmìr textury pøíliš zvyšovat (napø. kvùli
+omezení grafické karty), je textura takového povrchu znaènì
+rozmazaná.</font></p>
+
+<p><font face="Arial">Jistou náplastí je pouití </font><font
+color="#000080" face="Arial"><strong>multitextur</strong></font><font
+face="Arial">. Modulujeme-li povrch, opatøenı rozmìrnou
+texturou, další texturou, ale s vyšší èetností
+opakování, vytvoøíme tím na povrchu jemnì zrnitı povrch.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody3.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">Efekt vytvoøí v pozorovateli dojem, e
+povrch má mnohem jemnìjší èlenitost ne ve skuteènosti
+má. Rozdíl mùeme porovnat na následujících dvou
+snímcích. První snímek je ètvercovı terén bez multitextur,
+druhı s multitexturou. Pøepnutí je moné klávesou </font><font
+color="#000080" face="Arial"><strong>M</strong></font><font
+face="Arial">. </font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody4.jpg"
+width="512" height="384"></font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody5.jpg"
+width="512" height="384"></font></p>
+
+<p><font face="Arial">Mezi další nevıhody ètvercového
+terénu je problematické zobrazení velkıch renderovanıch
+ploch. Problém vznikne napøíklad pøi pokusu osvìtlit
+støední èást ètvercového terénu. Pøi vıpoètu
+osvìtlení renderovací jednotka nejdøíve vypoèítá
+osvìtlení ve vrcholech objektu. Poté vykresluje vnitøní
+èásti ploch, jejich osvìtlení poèítá interpolací z
+vrcholù. Proto zùstane støední èást plochy tmavá,
+pøestoe do ní umístíme lokální zdroj svìtla. Naopak,
+budeme-li tímto zdrojem pohybovat po okruhu kolem terénu,
+budeme pozorovat, e jednu chvíli je terén tmavı a vzápìtí
+svìtlı, v závislosti na tom, jak je zdroj svìtla blízko k
+nìkterému z vrcholù terénu.</font></p>
+
+<p><font face="Arial">Problém s renderováním velké plochy se
+mùe projevit také pøi renderování mlhy, zapneme-li mód
+vrcholové mlhy. V tom pøípadì se mlha poèítá ve vrcholech
+plochy a poté se interpoluje, podobnì jako pøi vıpoètu
+osvìtlení. Tím vznikne efekt &quot;<em>podivného</em>&quot;
+chování mlhy, kdy je mlha jednu chvíli naprosto neprùhledná
+(i v nejbliších místech terénu) a jindy se zas vùbec
+neprojeví. Naštìstí tento problém není èastım pøípadem,
+protoe je bìnì podporovaná tabulková mlha, která
+poèítá mlhu pro kadı vykreslovanı bod samostatnì.</font></p>
+
+<p><font face="Arial">Jen pro zajímavost si uveïme ještì
+jeden monı typ problému vykreslování velké plochy. Pøi
+renderování jednotlivıch trojúhelníkù objektù postupuje
+renderovací jednotka tak, e nejdøíve vypoèítá mapování
+textury ve vrcholech plošek a poté vykresluje vnitøní èásti
+plošek tak, e souøadnici v textuøe interpoluje z
+vrcholovıch souøadnic. Pokud bychom pouili jednoduše
+interpolovanou texturu pøi perspektivním zobrazení, vykreslil
+by se napøíklad støed plošky logicky uprostøed
+trojúhelníku, co ale neodpovídá perspektivní projekci, kde
+souøadnicovì støední èást má bıt opticky mnohem dál od
+nás, tedy blíe ke vzdálenìjšímu konci plošky ne k
+blišímu. Pøi pohybu v takovém terénu by povrch terénu
+pøed námi neustále jakoby plaval a pøeléval se. Naštìstí
+se tento problém dnes ji prakticky nevyskytuje, protoe
+všechny nové grafické karty ji podporují perspektivní
+korekci zobrazení textur, závislou na zvoleném typu projekce.</font></p>
+
+<p><font face="Arial">Jak je z uvedenıch vıhod a nevıhod
+zøejmé, bude ètvercovı terén vhodnı spíše jen pro malé
+plochy, napøíklad pro podlahu v místnosti èi terén malého
+prostranství.</font></p>
+
+<h3><font face="Arial">2. Ètverec s opakováním</font></h3>
+
+<p><font face="Arial">Jistého zlepšení ètvercového terénu
+dosáhneme, pokud na nìj namísto jedné velké textury
+namapujeme malou texturu, ale s opakováním. Mùe to bıt
+napøíklad textura trávy nebo textura dladice. V ukázkovém
+programu se obì textury støídavì pøepínají pøi vıbìru
+tohoto typu terénu.</font></p>
+
+<p align="center"><img src="img6/metody6.gif" width="256"
+height="256">   <img src="img6/metody7.gif" width="256"
+height="256"></p>
+
+<p><font face="Arial">Opakováním textury dosáhneme toho, e
+textura má mnohem vyšší jemnost a vypadá ji pøirozenìji.
+Samozøejmì za cenu toho, e textura na celém terénu musí
+bıt stejná. Ale vısledek je ji docela pouitelnı pro mnoho
+jednodušších aplikací.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody8.jpg"
+width="512" height="384"></font></p>
+
+<p align="center"><img src="img6/metody9.jpg" width="512"
+height="384"></p>
+
+<h3><font face="Arial">3. Plocha</font></h3>
+
+<p><font face="Arial">V systému Petr máme pro tvorbu terénu k
+dispozici prvek </font><font color="#000080" face="Arial"><strong>terén
+z plochy</strong></font><font face="Arial">. Prvku pøedáme jako
+parametr plochu, na které pomocí </font><font color="#000080"
+face="Arial"><strong>pøedmìtù</strong></font><font
+face="Arial"> vykreslíme vzhled jednotlivıch èástí terénu a
+pomocí </font><font color="#000080" face="Arial"><strong>èíselné
+hodnoty 1</strong></font><font face="Arial"> nadefinujeme vıšku
+v kadé èásti terénu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody10.gif"
+width="512" height="400"></font></p>
+
+<p><font face="Arial">Prvek vytvoøí objekt terénu jako
+ètvercovou sí plošek, její vrcholy odpovídají zadanım
+vıškám. Obrazy pouitıch políèek sestaví do jedné
+textury tak, aby sousední políèka na sebe navazovala.
+Vıslednou texturu namapuje na terén.</font></p>
+
+<p><font face="Arial">Tato metoda umoòuje snadno vytváøet
+terén s pøesnì specifikovanım vzhledem povrchu. Další
+velkou pøedností je monost pouívat vestavìnou funkci pro </font><font
+color="#000080" face="Arial"><strong>zjištìní vıšky v
+terénu</strong></font><font face="Arial">, která pro
+vygenerovanı terén dokáe zjistit vıšku terénu v
+jakémkoliv místì terénu. Tak lze snadno implementovat pohyb
+hráèe po terénu nebo rozmístìní objektù po povrchu
+terénu.</font></p>
+
+<p><font face="Arial">Nejvìtší nevıhodou terénu
+generovaného z plochy je pouití políèek jako textury, tedy
+obrázky s rozmìry 32 x 32 bodù. Textura takového povrchu je
+neostrá a to obzvláštì pouijeme-li velkı poèet typù
+políèek vyadující velkou vıslednou texturu. Upozoròuji,
+e není rozhodující poèet políèek na ploše ale poèet
+typù políèek, textury stejnıch políèek se sdílí.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody11.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">4. Vıšková mapa</font></h3>
+
+<p><font face="Arial">Dalším prvkem Petra, slouícím ke
+generování terénù, je prvek </font><font color="#000080"
+face="Arial"><strong>terén z obrázku</strong></font><font
+face="Arial">. Vstupem prvku je tentokrát obrázek, pouitı
+jako vıšková mapa.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody12.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">Prvek opìt vygeneruje terén jako
+ètvercovou sí plošek, ale vıšky jednotlivıch vrcholù
+zjistí z vıškové mapy. Èím je pøíslušnı grafickı bod
+obrázku svìtlejší, tím bude vıslednı vrchol terénu
+vıše. Pøi generování terénu se uplatní prvek pro </font><font
+color="#000080" face="Arial"><strong>vyhlazení textur</strong></font><font
+face="Arial">, kterı zajistí, e povrch terénu bude vyhlazen.
+Na celém povrchu terénu bude namapována jedna textura
+opakovanì - pouili jsme opìt texturu trávy jako u terénu
+ètverce s opakováním. Podobnì jako u pøedešlého typu
+terénu, i u terénu generovaného z vıškové mapy mùeme
+vyuít funkci pro </font><font color="#000080" face="Arial"><strong>zjištìní
+vıšky v terénu</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody13.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">5. Projekce textury</font></h3>
+
+<p><font face="Arial">Kombinujeme-li u objektu více textur jako
+multitextury, jsme omezeni schopnostmi grafické karty. Mnoho
+dnešních grafickı karet ji umoòuje pouívat
+mnohastupòové multitextury, ale v mnoha pøípadech jsme
+omezeni pouze na 2 textury nebo nìkteré slabší karty
+nepodporují multitextury vùbec.</font></p>
+
+<p><font face="Arial">Proto máme v Petrovi k dispozici funkci
+pro </font><font color="#000080" face="Arial"><strong>mapování
+textury</strong></font><font face="Arial">, která umoòuje pro
+nìkteré úèely multitexturu simulovat tím, e provede
+projekci textury do barev vrcholù objektu. Tak mùeme jednou
+texturou zbarvit vrcholy objektu a druhou texturou pokrıt povrch
+objektu. To lze s vıhodou vyuít napøíklad u terénu. </font></p>
+
+<p><font face="Arial">Pouijeme opìt pøedešlı terén,
+generovanı z vıškové mapy. Na celı terén provedeme projekci
+s nastavenou obarvenou texturou podle následujícícho obrázku,
+èím dojde k obarvení vrcholù terénu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody14.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">Pùvodní texturu trávy nahradíme jinou
+texturou, bude to opìt stejná textura trávy, ale odbarvená na
+èernobílou barvu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody15.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">Textura trávy se obarví barvou vrcholù
+terénu a jak vidíte na následujícím obrázku, vısledek je
+skuteènì pùsobivı. Mùeme tak snadno vytváøet terény,
+které vypadají pomìrnì realisticky. Navíc stále ještì u
+tohoto terénu mùeme pouívat funkci pro zjištìní vıšky
+terénu.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody16.jpg"
+width="512" height="384"></font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody25.jpg"
+width="512" height="384"></font></p>
+
+<p><font face="Arial">Kromì obarvení terénu mùeme projekci
+textury pouít ještì pro stínovou mapu, co je definice
+osvìtlení terénu. Takto mùeme vytvoøit osvìtlení terénu
+nezávisle na hlavním osvìtlení (ve skuteènosti mùeme
+osvìtlení dokonce vypnout) a také mùeme nasimulovat stíny
+od velkıch statickıch objektù, jako napø. stíny od budov.
+Stínovou mapu mùeme pøipravit buï ruèním kreslením nebo
+vyrenderováním v 3D editoru.</font></p>
+
+<h3><font face="Arial">6. Dladice</font></h3>
+
+<p><font face="Arial">Pøedešlé metody mají nevıhodu v tom,
+e buï se na povrchu opakuje jedna textura nebo má textura
+nízké rozlišení. Chceme-li dosáhnout kvalitního vzhledu
+textur, musíme terén sestavit z více èástí a kadé
+èásti pøiøadit samostatnou texturu.</font></p>
+
+<p><font face="Arial">Nejjednodušším pøípadem jsou
+dladice. Pouijeme opìt plochu s definicí terénu. Budeme
+programovì procházet jednotlivá políèka plochy a na kadé
+pozici vytvoøíme jednu dladici jako ètvercovou stìnu
+(poloenou vodorovnì). Dladici pøiøadíme texturu s
+vyšším rozlišením podle políèka na pozici.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody17.gif"
+width="256" height="256">   <img src="img6/metody18.gif"
+width="256" height="256"></font></p>
+
+<p><font face="Arial">U textur bychom mìli øešit jejich
+vzájemné navazování. To zajistíme pøedevším tím, e je
+budeme pøipravovat z bezešvıch textur, jejich zaèátky a
+konce na sebe navazují. Dále musíme u kadé textury zajistit
+správné adresování. Pokud na sebe navazuje okraj s
+protìjším okrajem, zapneme adresování s opakováním. Pøi
+odlišnıch okrajích musíme pouít adresování s oøezáním
+textury. Chceme-li se zbavit ostrého pøechodu mezi texturami v
+módu opakování, mùeme to zajistit tím, e spojovací
+øada texelù bude pro obì navazující textury pøesnì
+stejná.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody19.jpg"
+width="512" height="384"></font></p>
+
+<h3><font face="Arial">7. Segmenty</font></h3>
+
+<p><font face="Arial">Dladicovı terén umoòuje ji
+dosáhnout kvalitních textur, je to však stále ještì jedna
+rovina. Chceme-li zajistit i rùznou vıšku èástí terénu,
+musíme namísto jednoduchıch dladic pouít generované 3D
+objekty, </font><font color="#000080" face="Arial"><strong>segmenty</strong></font><font
+face="Arial">. K programovému generování 3D objektù mùeme
+pouít prvek </font><font color="#000080" face="Arial"><strong>objekt
+z textu</strong></font><font face="Arial"> (nebo té prvek </font><font
+color="#000080" face="Arial"><strong>vytvoøení 3D objektu z
+pamìovıch blokù</strong></font><font face="Arial">).</font></p>
+
+<p><font face="Arial">Pøi generování modelu jednoho segmentu
+musíme vyjít z defince formátu DirectX souboru </font><font
+color="#000080" face="Arial"><strong>x</strong></font><font
+face="Arial"> v textorém tvaru. Generujeme souøadnice vrcholù
+(relativnì ke støedu segmentu), normály ve vrcholech, indexy
+plošek a mapování souøadnic textur. Zde je pøíklad jednoho
+vygenerovaného segmentu:</font></p>
+<div align="center"><center>
+
+<table border="0" cellpadding="7">
+    <tr>
+        <td bgcolor="#C0C0C0"><pre>xof 0303txt 0032
+
+Mesh {
+  4;
+  -10;16.40225;-10;,
+  -10;2.60224999999998;10;,
+  10;-15.50675;10;,
+  10;-3.49774999999998;-10;;
+
+  2;
+  3;0,1,2;,
+  3;0,2,3;;
+
+  MeshNormals {
+    4;
+    0.338181010771736;0.939391696588159;0.0563635017952893;,
+    0.175885430692562;0.836653255761983;0.518725018572429;,
+    0.368685553271484;0.814369768118581;0.448188401884061;,
+    0.370316746357589;0.744355269060483;0.555698426117102;;
+
+    2;
+    3;0,1,2;,
+    3;0,2,3;;
+  }
+
+  MeshTextureCoords {
+    4;
+    0;1;,
+    0;0;,
+    1;0;,
+    1;1;;
+  }
+}</pre>
+        </td>
+    </tr>
+</table>
+</center></div>
+
+<p><font face="Arial">Souøadnice vrcholù X a Z jsou konstanty,
+stejnì jako indexy vrcholù trojúhelníkù a souøadnice
+mapování textur. Souøadnice Y vrcholù zjistíme snadno z
+definièní plochy, od které terén odvozujeme. Nejtìším
+úkolem je vıpoèet </font><font color="#000080" face="Arial"><strong>normál</strong></font><font
+face="Arial">. Nemùeme pouít funkci pro automatickı
+vıpoèet normál, protoe segmenty nejsou spolu spojeny do
+jednoho objektu. Musíme proto normály poèítat.</font></p>
+
+<p><font face="Arial">Odvodíme si vztahy pro vıpoèet normály
+v jednom vrcholu terénu. Uvaujme, e šíøka jednoho
+segmentu terénu je </font><font color="#000080" face="Arial"><em><strong>w</strong></em></font><font
+face="Arial"> a vıška (resp. hloubka) je </font><font
+color="#000080" face="Arial"><em><strong>h</strong></em></font><font
+face="Arial">. Z plochy si naèteme vıšky vrcholù </font><font
+color="#000080" face="Arial"><strong>Y0</strong></font><font
+face="Arial"> (støed), </font><font color="#000080" face="Arial"><strong>Y1</strong></font><font
+face="Arial"> (vlevo), </font><font color="#000080" face="Arial"><strong>Y2</strong></font><font
+face="Arial"> (vpravo), </font><font color="#000080" face="Arial"><strong>Y3</strong></font><font
+face="Arial"> (nahoøe) a </font><font color="#000080"
+face="Arial"><strong>Y4</strong></font><font face="Arial">
+(dole). Vrcholy tedy budou mít souøadnice:</font></p>
+
+<ul>
+    <li><font color="#000080" face="Arial"><strong>V0 =</strong> <strong>[0,
+        Y0, 0]</strong></font></li>
+    <li><font color="#000080" face="Arial"><strong>V1 = [-w, Y1,
+        0]</strong></font></li>
+    <li><font color="#000080" face="Arial"><strong>V2 = [w, Y2,
+        0]</strong></font></li>
+    <li><font color="#000080" face="Arial"><strong>V3 = [0, Y3,
+        h]</strong></font></li>
+    <li><font color="#000080" face="Arial"><strong>V4 = [0, Y4,
+        -h]</strong></font></li>
+</ul>
+
+<p align="center"><font face="Arial"><img src="img6/metody20.gif"
+width="781" height="590"></font></p>
+
+<p><font face="Arial">Z rozdílù souøadnic vrcholù vypoèteme
+smìrové vektory hran segmenù vycházejících ze støedového
+vrcholu:</font></p>
+
+<ul>
+    <li><font color="#000080" face="Arial"><em><strong>v1</strong></em><strong>
+        = V1 - V0 = [</strong><em><strong>-w</strong></em><strong>,
+        Y1 - Y0, 0]</strong></font></li>
+    <li><font color="#000080" face="Arial"><em><strong>v2</strong></em><strong>
+        = V2 - V0 = [</strong><em><strong>w</strong></em><strong>,
+        Y2 - Y0, 0]</strong></font></li>
+    <li><font color="#000080" face="Arial"><em><strong>v3</strong></em><strong>
+        = V3 - V0 = [0, Y3 - Y0, </strong><em><strong>h</strong></em><strong>]</strong></font></li>
+    <li><font color="#000080" face="Arial"><em><strong>v4</strong></em><strong>
+        = V4 - V0 = [0, Y4 - Y0, </strong><em><strong>-h</strong></em><strong>]</strong></font></li>
+</ul>
+
+<p><font face="Arial">Vynásobíme-li smìrové vektory hran
+segmentù pomocí vektorového souèinu, obdríme vektory
+normál sousedních segmentù. Vektorovı souèin </font><font
+color="#000080" face="Arial"><strong>c = a </strong>x<strong> b</strong></font><font
+face="Arial"> poèítáme jako: </font><font color="#000080"
+face="Arial"><strong>cx = ay*bz - az*by</strong></font><font
+face="Arial">; </font><font color="#000080" face="Arial"><strong>cy
+= az*bx - ax*bz</strong></font><font face="Arial">; </font><font
+color="#000080" face="Arial"><strong>cz = ax*by - ay*bx</strong></font><font
+face="Arial"> (slovnì: násobek zbylıch sloek v pøímém
+smìru mínus násobek v opaèném smìru). Jeden z vektorù
+pøitom otáèíme, take:</font></p>
+
+<ul>
+    <li><font color="#000080" face="Arial"><em><strong>n14</strong></em><strong>
+        = - </strong><em><strong>v1</strong></em><strong> </strong>x<strong>
+        </strong><em><strong>v4</strong></em><strong> = [</strong><em><strong>h</strong></em><strong>*(Y1
+        - Y0), </strong><em><strong>w</strong></em><strong>*</strong><em><strong>h</strong></em><strong>,
+        </strong><em><strong>w</strong></em><strong>*(Y4 - Y0)]</strong></font></li>
+    <li><font color="#000080" face="Arial"><em><strong>n42</strong></em><strong>
+        = - </strong><em><strong>v4</strong></em><strong> </strong>x<strong>
+        </strong><em><strong>v2</strong></em><strong> = [-</strong><em><strong>h</strong></em><strong>*(Y2
+        - Y0), </strong><em><strong>w</strong></em><strong>*</strong><em><strong>h</strong></em><strong>,
+        </strong><em><strong>w</strong></em><strong>*(Y4 - Y0)]</strong></font></li>
+    <li><font color="#000080" face="Arial"><em><strong>n23</strong></em><strong>
+        = - </strong><em><strong>v2</strong></em><strong> </strong>x<strong>
+        </strong><em><strong>v3</strong></em><strong> = [-</strong><em><strong>h</strong></em><strong>*(Y2
+        - Y0), </strong><em><strong>w</strong></em><strong>*</strong><em><strong>h</strong></em><strong>,
+        -</strong><em><strong>w</strong></em><strong>*(Y3 - Y0)]</strong></font></li>
+    <li><font color="#000080" face="Arial"><em><strong>n31</strong></em><strong>
+        = - </strong><em><strong>v3</strong></em><strong> </strong>x<strong>
+        </strong><em><strong>v1</strong></em><strong> = [</strong><em><strong>h</strong></em><strong>*(Y1
+        - Y0), </strong><em><strong>w</strong></em><strong>*h, -</strong><em><strong>w</strong></em><strong>*(Y3
+        - Y0)]</strong></font></li>
+</ul>
+
+<p><font face="Arial">Vıslednı normálovı vektor </font><font
+color="#000080" face="Arial"><em><strong>n </strong></em></font><font
+face="Arial">získáme jako souèet normál sousedních segmentù
+(nebo se jedná o zprùmìrovanou normálu).</font></p>
+
+<ul>
+    <li><font color="#000080" face="Arial"><em><strong>n</strong></em><strong>
+        = </strong><em><strong>n14</strong></em><strong> + </strong><em><strong>n42</strong></em><strong>
+        + </strong><em><strong>n23</strong></em><strong> + </strong><em><strong>n31</strong></em><strong>
+        = [2*</strong><em><strong>h</strong></em><strong>*(Y1 -
+        Y2), 4*</strong><em><strong>w</strong></em><strong>*</strong><em><strong>h</strong></em><strong>,
+        2*</strong><em><strong>w</strong></em><strong>*(Y4 - Y3)]</strong></font></li>
+</ul>
+
+<p><font face="Arial">Pro zjednodušení mùeme vektor
+skalárnì zkrátit, získáme tak vıslednı vztah pro vıpoèet
+normály:</font></p>
+
+<ul>
+    <li><font color="#000080" face="Arial"><em><strong>n</strong></em><strong>
+        = [</strong><em><strong>h</strong></em><strong>*(Y1 -
+        Y2), 2*</strong><em><strong>w</strong></em><strong>*</strong><em><strong>h</strong></em><strong>,
+        </strong><em><strong>w</strong></em><strong>*(Y4 - Y3)]</strong></font></li>
+</ul>
+
+<p><font face="Arial">Po vıpoètu normálového vektoru musíme
+vektor </font><font color="#000080" face="Arial"><strong>normalizovat</strong></font><font
+face="Arial"> - co znamená, e jednotlivé sloky vydìlíme
+délkou vektoru. Délku vektoru vypoèteme jako odmocninu ze
+souètu druhıch mocnin jednotlivıch sloek vektoru.</font></p>
+
+<p><font face="Arial">Dalším dùleitou operací je </font><font
+color="#000080" face="Arial"><strong>vıpoèet vıšky v terénu</strong></font><font
+face="Arial">. U programovì generovaného terénu nám ji
+nepomùe systém Petr a musíme vıšku poèítat sami. Ve
+skuteènosti jsme tento vıpoèet potøebovali ji døíve, k
+vıpoètu normál terénu.</font></p>
+
+<p><font face="Arial">Pøí vıpoètu vıšky si nejdøíve
+pøipravíme vıšky vrcholù segmentu, do kterého daná
+souøadnice patøí. Vzhledem k tomu, e vıška udávaná v
+prvku plochy se vztahuje k levému hornímu rohu segmentu (pøi
+pohledu shora), potøebujeme ke zjištìní vıšek aktuální
+políèko, políèko vpravo a obdobná políèka o øádek
+níe.</font></p>
+
+<p><font face="Arial">Vıšku v terénu nemùeme jen jednoduše
+interpolovat mezi vrcholy segmentu. Musíme poèítat s tím, e
+segment se skládá ze dvou trojúhelníkù, jejich zlom
+prochází støedem segmentu a to konkrétnì z pravého horního
+rohu do levého dolního rohu. Proto musíme vıpoèet rozdìlit
+na dva pøípady podle toho, na kterém z trojúhelníkù se
+testovanı bod nachází. Rozlišení provedeme jednoduše
+porovnáním souøadnice X se souøadnicí Z (pracujeme v této
+chvíli ji se zlomkovou èástí souøadnic, která je
+relativní v aktuálním segmentu). Je-li souøadnice X vìtší
+ne souøadnice Z, pohybujeme se na pravém dolním
+trojúhelníku, v opaèném pøípadì to bude levı horní
+trojúhelník. Po rozlišení trojúhelníku ji mùeme
+provést jednoduchou interpolaci vıšky podle aktuální
+souøadnice.</font></p>
+
+<p align="center"><font face="Arial"><img src="img6/metody21.jpg"
+width="512" height="384"></font></p>
+
+<p><font face="Arial"><em>.... pokraèování pøíštì</em></font></p>
+
+<p align="center"><a href="download/metody_3d.zip"><font
+face="Arial">download demonstraèního programu Metody 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_32.htm"><font face="Arial">32.
+Metody 3D grafiky (1. èást, úvod)</font></a><font face="Arial">
+&lt;&lt;&lt; </font><a href="index.htm"><font face="Arial">Obsah</font></a><font
+face="Arial"> &gt;&gt;&gt; </font><a href="petr_34.htm"><font
+face="Arial">34. Metody 3D grafiky (3. èást, ovládání)</font></a></p>
+</body>
+</html>

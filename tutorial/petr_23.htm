@@ -1,0 +1,325 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>23 Lovíme minotaury (èást 2 ovládání)</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a href="petr_22.htm"><font face="Arial">22.
+Lovíme minotaury (1. èást, bludištì)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_24.htm"><font face="Arial">24. Lovíme minotaury (3.
+èást, minotauøi)</font></a></p>
+
+<hr>
+
+<h2><font face="Arial">23. Lovíme minotaury (2. èást,
+ovládání)</font></h2>
+
+<p><font face="Arial"><em>... pokraèování z minulé lekce</em></font></p>
+
+<p><font face="Arial">Ponoøme se do svìta našeho 3D
+bludištì. Vše, co je k tomu potøeba udìlat, je upravit
+nastavení kamery. Vyberte si nìkteré volné políèko a
+nastavte souøadnice kamery X a Z podle jeho souøadnic.
+Souøadnici Y nastavte na hodnotu </font><font color="#000080"
+face="Arial"><strong>0.5</strong></font><font face="Arial"> a
+pøípadnì ještì otoète kameru podle osy Y. Souøadnice
+kamery budeme èasto potøebovat a proto si je uchovejte do
+promìnnıch </font><font color="#000080" face="Arial"><strong>souøadnice
+X kamery</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>souøadnice Y kamery</strong></font><font
+face="Arial"> ve skupinì </font><font color="#000080"
+face="Arial"><strong>ovládání</strong></font><font
+face="Arial">, kterou si pøipravte v poli </font><font
+color="#000080" face="Arial"><strong>spoleènıch promìnnıch</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><img src="img4/bludiste12.gif" width="319"
+height="480"></p>
+
+<p align="left"><font face="Arial">Program spuse. Myslím, e
+budete dojmem pøíjemnì pøekvapeni.</font></p>
+
+<p align="center"><img src="img4/bludiste13.jpg" width="648"
+height="514"></p>
+
+<p><font face="Arial">Zkuste si trochu pohrát se souøadnicí </font><font
+color="#000080" face="Arial"><strong>Y</strong></font><font
+face="Arial">. Všimnìte si, jak vıška nad zemí mìní dojem
+rozmìrù prostøedí. Zmìníte-li vıšku nad terénem na </font><font
+color="#000080" face="Arial"><strong>0.1</strong></font><font
+face="Arial">, získáte dojem, e jste malá myška v obrovské
+hale. Naopak vıška </font><font color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial"> vytvoøí dojem, e bludištì je domeèkem pro
+Barbínky. Èlovìk si pøináší sebou zkušenosti z reálného
+svìta. Proto i mìøítka objektù ve scénì musí pøiblinì
+odpovídat bìné vıšce èlovìka.</font></p>
+
+<p><font face="Arial">Od dojmu velikosti prostøedí se odvíjí
+i rychlost pohybu. Máte-li dojem, e se ve 3D pohybujete
+pøíliš pomalu, zmìníte dojem sníením vıšky nad
+terénem. Pak vypadá prostøedí vìtší a i rychlost pohybu
+vypadá vìtší.</font></p>
+
+<p><font face="Arial">Pøidáme ovládání pohybu hráèe.
+Nejdøíve otáèení, to je nejjednodušší. Vytvoøte si ve
+skupinì </font><font color="#000080" face="Arial"><strong>ovládání</strong></font><font
+face="Arial"> podskupinu </font><font color="#000080"
+face="Arial"><strong>konstanty</strong></font><font face="Arial">
+a pøipravte si tam èíselnou promìnnou </font><font
+color="#000080" face="Arial"><strong>rychlost otáèení</strong></font><font
+face="Arial">. V inicializaci programu ji nastavte na hodnotu </font><font
+color="#000080" face="Arial"><strong>5</strong></font><font
+face="Arial">. Obsahy promìnnıch je moné nastavovat té
+pøímo úpravou promìnné, ale pro vìtší názornost
+tutoriálù to budeme dìlat radìji pøíkazy bìhem
+inicializace.</font></p>
+
+<p><font face="Arial">Do hlavní smyèky programu doplòte
+skupinu </font><font color="#000080" face="Arial"><strong>ovládání
+hráèe</strong></font><font face="Arial">. Nejdøíve vyberte
+kameru (</font><font color="#000080" face="Arial"><strong>ID=1</strong></font><font
+face="Arial">) jako </font><font color="#000080" face="Arial"><strong>aktivní
+objekt</strong></font><font face="Arial">. Kamera je toti
+oèima hráèe, proto ji budeme ovládat. Pøi stisku klávesy </font><font
+color="#000080" face="Arial"><strong>vlevo</strong></font><font
+face="Arial"> zmìníme </font><font color="#000080" face="Arial"><strong>rotaci
+podle osy Y</strong></font><font face="Arial"> o pøipravenou
+konstantu rychlosti otáèení. Mohli bychom to udìlat pøímo
+pøiètením/odeètením konstanty, stejnì jako u tutoriálu se
+Zemìkoulí. Ale to má jednu nevıhodu - takové animace jsou
+silnì závislé na rychlosti poèítaèe. Proto máme k
+dispozici jeden prvek, </font><font color="#000080" face="Arial"><strong>uplynulı
+èas</strong></font><font face="Arial">. Prvek navrací èas (v
+sekundách), kterı ubìhl od doby posledního vykreslení
+snímku 3D grafiky. Pøesnìji, navrací èas, kterı ubìhl mezi
+posledními dvìmi obsluhami èekání. Pøidáme-li jako
+parametr prvku poadovanou rychlost, navrátí se ubìhlı èas
+vynásobenı touto rychlostí. Nezapomeòte, e poèítáme s
+desetinnımi èísly. Uplynulı èas se mìøí s pøesností
+mikrosekund.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste14.gif" width="361" height="480"></font></p>
+
+<p><font face="Arial">Obsluha otáèení vpravo je obdobná,
+pouze má opaèné znaménko. Program spuse a vyzkoušejte
+otáèení doleva a doprava.</font></p>
+
+<p><font face="Arial">Pohyb vpøed a vzad bude trochu
+sloitìjší, vyaduje ji trochu matematiky. A také detekci
+kolizí. Nejdøíve si pøipravte konstantu </font><font
+color="#000080" face="Arial"><strong>rychlost vpøed</strong></font><font
+face="Arial">, kterou nastavíte v inicializaci na hodnotu </font><font
+color="#000080" face="Arial"><strong>2</strong></font><font
+face="Arial">. Podobnì konstanta </font><font color="#000080"
+face="Arial"><strong>rychlost vzad</strong></font><font
+face="Arial">, nastavte ji na hodnotu -</font><font
+color="#000080" face="Arial"><strong>1</strong></font><font
+face="Arial"> (záporná hodnota, abychom hodnotu pøi pohybu
+nemuseli negovat). Zpravidla pohyb vzad bıvá pomalejší ne
+pohyb vpøed.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste15.gif" width="280" height="320"></font></p>
+
+<p><font face="Arial">Pro pohyb vpøed a vzad pouijeme
+spoleènou funkci, nazveme ji </font><font color="#000080"
+face="Arial"><strong>pohyb vpøed a vzad</strong></font><font
+face="Arial">. Funkce bude pozdìji detekovat i kolizi se
+stìnami bludištì a s ostatními aktery hry. Bude mít jeden
+vstupní parametr, </font><font color="#000080" face="Arial"><strong>rychlost
+pohybu</strong></font><font face="Arial">. Pøipravíme si v ní
+dvì místní promìnné, </font><font color="#000080"
+face="Arial"><strong>nová souøadnice X</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>nová
+souøadnice Z</strong></font><font face="Arial">. Novou
+souøadnici X vypoèteme jako násobek </font><font
+color="#000080" face="Arial"><strong>sinu</strong></font><font
+face="Arial"> aktuálního smìru otoèení Y s ubìhlım èasem
+a rychlostí pohybu, vısledek pøièteme k souøadnici X.
+Obdobnì vypoèteme novou souøadnici Z, jen pouijeme </font><font
+color="#000080" face="Arial"><strong>cosinus</strong></font><font
+face="Arial"> a souøadnici Z. Vypoètené nové souøadnice
+nejdøíve jen jednoduše ulote do promìnnıch </font><font
+color="#000080" face="Arial"><strong>souøadnice X a Z kamery</strong></font><font
+face="Arial">, pozdìji doplníme detekci kolizí. Na závìr
+aktualizujte pozici kamery nastavením prvkù </font><font
+color="#000080" face="Arial"><strong>posun ve smìru X</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>posun
+ve smìru Z</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><img src="img4/bludiste17.gif" width="513"
+height="608"></p>
+
+<p><font face="Arial">Program spuste a vyzkoušejte pohyb
+vpøed i vzad pøi rùznıch smìrech natoèení. Pøi špatném
+vıpoètu by se vám mohlo stát, e se jedním smìrem
+pohybujete správnì, ale v jiném smìru je pohyb opaènı.</font></p>
+
+<p><font face="Arial">Teï u si mùeme naše 3D prostøedí
+prohlédnout trochu dùkladnìji zevnitø. A jak vidíme,
+nezvolili jsme správné osvìtlení. Strop je pøíliš
+pøesvìtlenı a tmavé zdi pøíliš tmavé. Napravíme to
+pøidáním prvku </font><font color="#000080" face="Arial"><strong>rozptılené
+svìtlo</strong></font><font face="Arial"> ze skupiny </font><font
+color="#000080" face="Arial"><strong>grafika</strong></font><font
+face="Arial"> / </font><font color="#000080" face="Arial"><strong>3D
+grafika</strong></font><font face="Arial"> / </font><font
+color="#000080" face="Arial"><strong>osvìtlení</strong></font><font
+face="Arial"> a nastavením svìtle šedé barvy. Rozptılené
+svìtlo je všudypøítomné osvìtlení, nezávislé na zdroji
+svìtla. Implicitnì je to šedá barva s jasem </font><font
+color="#000080" face="Arial"><strong>0.25</strong></font><font
+face="Arial">. Zvıšením jasu pøisvìtlíme tmavé zdi. Strop
+by byl i pøi tomto rozptıleném svìtle ještì tmavı, proto u
+nìj ponecháme prvek svítivosti, ale snííme trochu
+vyzaøovanı jas. Vısledek vypadá u trochu líp.</font></p>
+
+<p align="center"><img src="img4/bludiste16.jpg" width="648"
+height="514"></p>
+
+<p align="left"><font face="Arial">Teï nás èeká detekce
+kolizí. Hráè samozøejmì nemùe procházet skrze zdi.
+Detekce kolizí bıvá èasto slabım místem u mnoha her. Jednou
+z chyb bıvá nedostateèná detekce, kdy hra testuje pøíští
+pozici pohybu pouze v pøímém smìru a tak neodhalí pøípad,
+kdy hráè prochází kolem rohu budovy a vidí dírou ve zdi
+dovnitø. Nebo se dokonce o roh zdi zasekne. Další hrubou
+chybou je pøípad nesouladu detekcí, kdy hra nechá hráèe
+dostat se do místa, ze kterého se nemùe pohnout pryè. A
+posledním pøípadem, kterı sice není pøímo chybou, ale je
+pro hráèe nepøíjemnı, je pøípad, kdy hráè prochází
+kolem zdi a o zeï se zarazí, musí couvnout a dret se od zdi
+dál. Správné chování je, aby hráè po pøekákách
+sklouzával.</font></p>
+
+<p align="left"><font face="Arial">První funkcí, kterou budeme
+k detekci kolizí potøebovat, je </font><font color="#000080"
+face="Arial"><strong>test políèka na jedné souøadnici</strong></font><font
+face="Arial">. Funkce dostane na vstupu souøadnice </font><font
+color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial"> a jejím úkolem je zjistit, jestli pøíslušné
+políèko na této pozici je prùchozí. Pøíznak prùchodnosti
+je navrácen na vıstupu funkce. Kvùli správnému pøevodu na
+celá èísla i pro souøadnice menší ne 0 je pøiètena
+ještì korekce </font><font color="#000080" face="Arial"><strong>+1</strong></font><font
+face="Arial">, která je po oøíznutí desetinné èásti opìt
+odeètena.</font></p>
+
+<p align="center"><img src="img4/bludiste18.gif" width="600"
+height="512"></p>
+
+<p align="left"><font face="Arial">Z dùvodu principu 3D grafiky
+se objekty vykreslují a od urèité minimální vzdálenosti.
+Proto nemùeme hráèi povolit pøiblíit se a tesnì ke
+stìnì, jinak by se ve stìnì objevila díra a hráè by vidìl
+srkze ni. Pro tento úèel si pøipravíme další konstantu, </font><font
+color="#000080" face="Arial"><strong>odstup od zdi hráèe</strong></font><font
+face="Arial">. Její hodnotu nastavte v inicializaci na </font><font
+color="#000080" face="Arial"><strong>0.3</strong></font><font
+face="Arial">. Testy prùchodnosti proto musíme dìlat ne
+pøímo testováním urèité souøadnice, ale testováním
+souøadnic v urèitém rozsahu.</font></p>
+
+<p align="left"><font face="Arial">Pozdìji budeme testovat i
+kolizi s ostatními aktery hry, proto si pøipravíme prázdnou
+funkci </font><font color="#000080" face="Arial"><strong>test
+kolize s aktery</strong></font><font face="Arial">. Bude mít
+vstupní promìnné </font><font color="#000080" face="Arial"><strong>ID
+aktera dotazu</strong></font><font face="Arial">, </font><font
+color="#000080" face="Arial"><strong>testovaná souøadnice X</strong></font><font
+face="Arial"> a </font><font color="#000080" face="Arial"><strong>testovaná
+souøadnice Z</strong></font><font face="Arial">. Na vıstupu
+bude navracet logickı pøíznak </font><font color="#000080"
+face="Arial"><strong>souøadnice je prùchodná</strong></font><font
+face="Arial">. Zatím v obsahu funkce jen nastavíme návratovou
+hodnotu na </font><font color="#000080" face="Arial"><strong>ano</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste21.gif" width="500" height="192"></font></p>
+
+<p align="left"><font face="Arial">Další funkcí bude </font><font
+color="#000080" face="Arial"><strong>test prùchodnosti na jedné
+souøadnici</strong></font><font face="Arial">. Funkce má
+podobnı vstup a vıstup jako pøedešlá funkce, opìt
+souøadnice X a Z a pøíznak prùchodnosti dané souøadnice.
+Funkci pouijeme k testu prùchodnosti i pro ostatní aktery hry
+(tj. i pro nepøátele) a proto pøidáme další 2 vstupní
+promìnné, </font><font color="#000080" face="Arial"><strong>ID
+aktera</strong></font><font face="Arial"> a </font><font
+color="#000080" face="Arial"><strong>odstup od zdi</strong></font><font
+face="Arial">. Pomocí pøedchozí funkce </font><font
+color="#000080" face="Arial"><strong>test políèka na jedné
+souøadnici</strong></font><font face="Arial"> budeme testovat
+prùchodnost pozice ve 4 bodech, vzdálenıch od testované
+pozice o </font><font color="#000080" face="Arial"><strong>odstup
+od zdi</strong></font><font face="Arial">.</font></p>
+
+<p align="center"><font face="Arial"><img
+src="img4/bludiste64.gif" width="275" height="168"></font></p>
+
+<p align="left"><font face="Arial">Body jsou posunuty od
+testované pozice v diagonálních smìrech. Vzhledem k tomu, e
+stìny jsou vdy vìtší ne šíøka testované oblasti a
+jsou orientovány pravoúhle, jsou tímto testem zajištìny
+všechny pøípady pøiblíení se ke zdi, vèetnì rohù.
+Kromì testù políèek doplníme ještì test kolize s
+ostatními aktery hry.</font></p>
+
+<p align="center"><img src="img4/bludiste19.gif" width="508"
+height="672"></p>
+
+<p align="left"><font face="Arial">Vrátíme se opìt k funkci </font><font
+color="#000080" face="Arial"><strong>pohyb vpøed a vzad</strong></font><font
+face="Arial">. Novì vypoètené souøadnice jsme zatím jen
+uloili do aktuálních souøadnic. Oba pøíkazy nyní vezmeme
+a vloíme je do podmínky testující, zda je novì vypoètená
+souøadnice prùchozí. Jako aktera pøitom zvolíme kameru, tedy</font><font
+color="#000080" face="Arial"><strong> ID=1</strong></font><font
+face="Arial">. Pokud není prùchozí, otestujeme pozici s novou
+souøadnicí </font><font color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial"> a starou souøadnicí </font><font color="#000080"
+face="Arial"><strong>X</strong></font><font face="Arial">. V
+pøípadì prùchodnosti nastavíme novou souøadnici </font><font
+color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial">, souøadnici </font><font color="#000080"
+face="Arial"><strong>X</strong></font><font face="Arial">
+necháme pùvodní. Tím zajistíme sklouzávání po objektu ve
+smìru </font><font color="#000080" face="Arial"><strong>Z</strong></font><font
+face="Arial">. Obdobnì zajistíme sklouzávání ve smìru </font><font
+color="#000080" face="Arial"><strong>X</strong></font><font
+face="Arial">.</font></p>
+
+<p align="center"><img src="img4/bludiste20.gif" width="321"
+height="576"></p>
+
+<p align="left"><font face="Arial">Program opìt vyzkoušejte.
+Zkuste si procházení bludištìm. Tentokrát byste se ji
+nemìli ádnım zpùsobem dostat za stìny èi do dìr ve
+stìnách a po stìnách byste mìli plynule klouzat.</font></p>
+
+<p align="left"><font face="Arial"><em>.... pokraèování
+pøíštì</em></font></p>
+
+<p align="center"><a href="download/23_bludiste.zip"><font
+face="Arial">download pøíkladu Bludištì 3D</font></a></p>
+
+<hr>
+
+<p align="center"><a href="petr_22.htm"><font face="Arial">22.
+Lovíme minotaury (1. èást, bludištì)</font></a><font
+face="Arial"> &lt;&lt;&lt; </font><a href="index.htm"><font
+face="Arial">Obsah</font></a><font face="Arial"> &gt;&gt;&gt; </font><a
+href="petr_24.htm"><font face="Arial">24. Lovíme minotaury (3.
+èást, minotauøi)</font></a></p>
+</body>
+</html>
