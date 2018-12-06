@@ -1,5 +1,5 @@
 # gemtree-peter-mirror
-<img src="https://github.com/inferno986return/gemtree-peter-mirror/blob/master/tutorial/petr.gif" width="180" height="180" alt=""/>
+<img src="https://github.com/inferno986return/gemtree-peter-mirror/blob/master/tutorial/petr.gif" width="100" height="100" alt=""/>
 
 A mirror of the Peter programming tool by [Gemtree Software](http://www.breatharian.eu/Petr/en/). To my understanding Peter is similar to [Scratch](https://scratch.mit.edu/) and works by allowing users of different programming skillsets to assemble the program 'like a jigsaw'. Judging by the numerous examples provided, it's safe to say that the program is effectively a 2D and 3D game engine.
 
